@@ -1,6 +1,6 @@
 {
   "name": "rua-js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Elegant front-end applications delivered at warp speed.",
   "main": "lib/index.js",
   "scripts": {
@@ -21,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/rua-js/rua/issues"
   },
-  "homepage": "https://github.com/rua-js/rua#readme"
+  "homepage": "https://github.com/rua-js/rua#readme",
+  "dependencies": {
+    "rua-dva": "^0.4.2",
+    "rua-event": "^1.1.1",
+    "rua-storage": "^0.3.0"
+  }
 }
