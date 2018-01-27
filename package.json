@@ -1,0 +1,25 @@
+{
+  "name": "rua-js",
+  "version": "0.0.0",
+  "description": "Elegant front-end applications delivered at warp speed.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rua-js/rua.git"
+  },
+  "keywords": [
+    "rua",
+    "rua.js",
+    "elegant",
+    "rapid"
+  ],
+  "author": "copydog",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rua-js/rua/issues"
+  },
+  "homepage": "https://github.com/rua-js/rua#readme"
+}
