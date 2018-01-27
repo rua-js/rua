@@ -17,5 +17,6 @@ export {
   event,
   // rua-dva
   dvaLite,
-  actions
+  ruaDva,
+  actions,
 }
