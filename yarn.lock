@@ -141,6 +141,10 @@ rua-event@^1.1.1:
     rua-core "^0.2.0"
     wolfy87-eventemitter "^5.2.4"
 
+rua-exception@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/rua-exception/-/rua-exception-0.1.1.tgz#bd750ff3e64d75dbe31ed5c20e319259de0fd4d5"
+
 rua-storage@^0.3.0:
   version "0.3.0"
   resolved "https://registry.npmjs.org/rua-storage/-/rua-storage-0.3.0.tgz#57444562707ed6826895bb40da3d2f925a65e226"

@@ -25,6 +25,7 @@
   "dependencies": {
     "rua-dva": "^0.4.2",
     "rua-event": "^1.1.1",
+    "rua-exception": "^0.1.1",
     "rua-storage": "^0.3.0"
   }
 }
