@@ -19,7 +19,7 @@ Npm Package Name Donator: [Vilic (Gihub)](https://github.com/vilic)
 
 Expecting adding extra packages to the RoadMap
 
-## Finished List
+## Finished/Finishing List
 - RuaDva
 - RuaEvent
 - RuaException
