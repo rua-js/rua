@@ -17,7 +17,7 @@ Npm Package Name Donator: [Vilic (Gihub)](https://github.com/vilic)
 - [ ] RuaUI (Drafting)
 - [ ] RuaSocket (Drafting)
 
-Expecting adding more packages to the RoadMap
+Expecting adding extra packages to the RoadMap
 
 ## Finished List
 - RuaDva
