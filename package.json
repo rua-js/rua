@@ -4,7 +4,7 @@
   "description": "Elegant front-end applications delivered at warp speed.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest test.ts"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,30 @@
     "rua-dva": "^0.4.2",
     "rua-event": "^1.1.1",
     "rua-exception": "^0.1.2",
-    "rua-storage": "^0.3.0"
+    "rua-storage": "^0.3.0",
+    "wolfy87-eventemitter": "^5.2.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.1.1",
+    "jest": "^22.1.4",
+    "ts-jest": "^22.0.3",
+    "typescript": "^2.7.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "globals": {
+      "ts-jest": {
+        "skipBabel": true
+      }
+    }
   }
 }
