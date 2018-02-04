@@ -1,6 +1,6 @@
 // Foundation
 import { storage } from 'rua-storage/lib'
-import { event } from 'rua-event/lib'
+import { event } from './Packages/RuaEvent'
 import { Exception } from 'rua-exception/lib'
 
 // Basic
