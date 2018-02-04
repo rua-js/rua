@@ -5,8 +5,7 @@ Elegant front-end applications delivered at warp speed.
 Npm Package Name Donator: [Vilic (Gihub)](https://github.com/vilic)
 
 ## RoadMap to 1.0.0
-- [ ] RuaFetch (Finishing)
-- [ ] RuaException (Finishing)
+- [ ] RuaFetch (Restructuring)
 - [ ] RuaDva (Finishing)
 - [ ] RuaCache (Prototyping)
 - [ ] RuaApi (Prototyping)
