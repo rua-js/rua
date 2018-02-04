@@ -38,9 +38,7 @@ class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
       return defaultValue
     }
     // retrieve data from cache with deserialization
-    return JSON.parse(
-      this.store[realKeyName]
-    )
+    return this.store[realKeyName]
   }
 
   public set(key: string, value: string, time?: number): AnyData {
@@ -50,7 +48,7 @@ class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
       this.list.push(realKeyName)
     }
     // save to cache
-    this.store[realKeyName] = JSON.stringify(value)
+    this.store[realKeyName] = value
     // todo: save to storage
 
     return value
@@ -58,9 +56,10 @@ class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
 
   public remove(key: string): AnyData {
     const realKeyName = this.getItemKeyName(key)
+    const removedData = this.store[realKeyName]
     // Cache removal
     _.unset(this.store, realKeyName)
-    const removedData = _.pull(this.list, realKeyName)
+    _.pull(this.list, realKeyName)
 
     // Sync list
     this.storage.set(
