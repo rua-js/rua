@@ -22,5 +22,8 @@ describe('Rua Index Test', () => {
     expect(
       new Exception() instanceof Error
     ).toBeTruthy()
+    // case: fetch, rawFetch, cachedFetch
+    // Untestable
+
   })
 })
