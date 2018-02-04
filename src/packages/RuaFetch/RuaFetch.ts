@@ -1,4 +1,5 @@
 import { AnyObject } from 'rua-core/lib/Types'
+import fetch from './ThirdParty/fetch'
 
 class RuaFetch {
 
@@ -45,11 +46,11 @@ class RuaFetch {
       .then(RuaFetch.parseJSON)
   }
 
-  public static parseJSON(response): Promise<AnyObject> {
+  public static parseJSON(response: Response): Promise<AnyObject> {
     return response.json()
   }
 
-  public static checkStatus(response): AnyObject | void {
+  public static checkStatus(response: Response): Response {
     if (response.status >= 200 && response.status < 300) {
       return response
     }
