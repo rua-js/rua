@@ -34,3 +34,19 @@ Expecting adding extra packages to the RoadMap
 - RuaException
 - RuaStorage
 - RuaFetch
+
+## Short Commit Name
+0: init
+
+1: chore
+
+op: optimize
+
++: add
+
+-: remove
+
+~: modify
+
+x: change
+
