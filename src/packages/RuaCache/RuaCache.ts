@@ -1,5 +1,5 @@
-import { storage } from 'rua-storage/lib'
-import RuaStorage from 'rua-storage/lib/RuaStorage'
+import { storage } from '../RuaStorage/'
+import RuaStorage from '../RuaStorage/RuaStorage'
 
 import { RuaCacheInterface } from './Interface'
 import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
