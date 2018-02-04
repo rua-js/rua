@@ -1,15 +1,15 @@
 import RuaCache from '../RuaCache'
 
-// import { Any } from 'rua-core/lib/Types'
+import { AnyData, AnyObject } from 'rua-core/lib/Types'
 
 interface RuaCacheInterface {
-  get(key: string, defaultValue: any): any
-  set(key: string, value: string, time: number): void
-  remove(key: string): void
-  clear(): void
+  get(key: string, defaultValue?: any): AnyData
+  set(key: string, value: string, time?: number): AnyData
+  remove(key: string): AnyData
+  clear(): AnyObject
   length(): number
   keys(): string[]
-  all(): any
+  all(): AnyData
   restore(): Promise<void>
 }
 
