@@ -15,16 +15,16 @@ Major release **will** have breaking change
 Minor release **may** have breaking change
 
 ## RoadMap to 1.0.0
+- [ ] Optimize RuaDva
 - [ ] RuaCache (Prototyping)
 - [ ] RuaApi (Prototyping)
+- [ ] Restructure of RuaFetch
 - [ ] RuaCollection (Prototyping)
 - [ ] RuaClock (Prototyping)
+- [ ] RuaUI (Drafting)
 - [ ] RuaSDK (Drafting)
 - [ ] RuaPayment (Drafting)
-- [ ] RuaUI (Drafting)
 - [ ] RuaSocket (Drafting)
-- [ ] Optimize RuaDva
-- [ ] Restructure of RuaFetch
 
 Expecting adding extra packages to the RoadMap
 
