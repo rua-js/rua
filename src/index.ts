@@ -2,6 +2,7 @@
 import { storage } from './packages/RuaStorage'
 import { event } from './packages/RuaEvent'
 import { Exception } from './packages/RuaException'
+import { fetch, catchedFetch } from './packages/RuaFetch'
 
 // Essential library
 
@@ -24,4 +25,7 @@ export {
   Exception,
   // rua-storage
   storage,
+  // rua-fetch
+  fetch,
+  catchedFetch,
 }
