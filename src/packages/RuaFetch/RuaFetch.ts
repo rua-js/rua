@@ -46,6 +46,8 @@ class RuaFetch {
       .then(RuaFetch.parseJSON)
   }
 
+  public static rawFetch = fetch
+
   public static parseJSON(response: Response): Promise<AnyObject> {
     return response.json()
   }
