@@ -23,10 +23,9 @@
   },
   "homepage": "https://github.com/rua-js/rua#readme",
   "dependencies": {
+    "localforage": "^1.5.6",
+    "lodash": "^4.17.5",
     "rua-dva": "^0.4.2",
-    "rua-event": "^1.1.1",
-    "rua-exception": "^0.1.2",
-    "rua-storage": "^0.3.0",
     "wolfy87-eventemitter": "^5.2.4"
   },
   "devDependencies": {
@@ -36,6 +35,9 @@
     "typescript": "^2.7.1"
   },
   "jest": {
+    "setupFiles": [
+      "./src/mocks/browserMocks.js"
+    ],
     "transform": {
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },

@@ -1814,7 +1814,7 @@ lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.npmjs.org/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
 
-lodash@^4.13.1, lodash@^4.14.0, lodash@^4.17.4:
+lodash@^4.13.1, lodash@^4.14.0, lodash@^4.17.4, lodash@^4.17.5:
   version "4.17.5"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
 
@@ -2451,24 +2451,6 @@ rua-dva@^0.4.2:
     dva-core "*"
     global "^4.3.2"
     invariant "^2.2.2"
-    rua-core "^0.2.0"
-
-rua-event@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/rua-event/-/rua-event-1.1.1.tgz#15b72f353ce39f473216d8a1c493acb26538ccc1"
-  dependencies:
-    rua-core "^0.2.0"
-    wolfy87-eventemitter "^5.2.4"
-
-rua-exception@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.npmjs.org/rua-exception/-/rua-exception-0.1.2.tgz#4cf21cc5097d17c485aa37af6d76dbe06db9f40f"
-
-rua-storage@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.npmjs.org/rua-storage/-/rua-storage-0.3.0.tgz#57444562707ed6826895bb40da3d2f925a65e226"
-  dependencies:
-    localforage "^1.5.6"
     rua-core "^0.2.0"
 
 safe-buffer@^5.0.1, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
