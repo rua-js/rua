@@ -1,5 +1,5 @@
-// Foundation
-import { storage } from 'rua-storage/lib'
+// Primitives
+import { storage } from './packages/RuaStorage'
 import { event } from './packages/RuaEvent'
 import { Exception } from './packages/RuaException'
 
