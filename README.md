@@ -6,18 +6,13 @@ Npm Package Name Donator: [Vilic (Gihub)](https://github.com/vilic)
 
 ## Release Schedule
 Weekly release (Edition): patch version at the end of every week for routine bugfix (anytime for urgent bugfix).
-Monthly release: minor version at the end of every month for new features.
+Monthly release (Minor): minor version at the end of every month for breaking change and new features.
+Major release is not included in this schedule for breaking change and new features.
 
-```
-Major.Minor.Edition
-let's say we have a version: v1.3.5
-1 is the Major Version: always has breaking change.
-3 is the Minor Version:  has breaking change.
-5 is the Edition Version: 
-```
+## Version Note
+Major and Minor release will have breaking change!
 
 ## RoadMap to 1.0.0
-- [ ] RuaDva (Finishing)
 - [ ] RuaCache (Prototyping)
 - [ ] RuaApi (Prototyping)
 - [ ] RuaCollection (Prototyping)
@@ -26,12 +21,14 @@ let's say we have a version: v1.3.5
 - [ ] RuaPayment (Drafting)
 - [ ] RuaUI (Drafting)
 - [ ] RuaSocket (Drafting)
+- [ ] Optimize RuaDva
+- [ ] Restructure of RuaFetch
 
 Expecting adding extra packages to the RoadMap
 
-## List
+## Check List
 - RuaDva
 - RuaEvent
 - RuaException
 - RuaStorage
-- RuaFetch (Restructure required)
+- RuaFetch
