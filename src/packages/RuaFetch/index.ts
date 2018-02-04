@@ -4,6 +4,6 @@ import { RuaFetchStatic } from './Interface'
 
 export const RuaFetch: RuaFetchStatic = RuaFetchClass
 
-export const fetch = RuaFetch.fetch
+export const fetch = RuaFetchClass.fetch
 
-export const catchedFetch = RuaFetch.catchedFetch
+export const catchedFetch = RuaFetchClass.catchedFetch

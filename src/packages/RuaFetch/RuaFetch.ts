@@ -21,7 +21,7 @@ class RuaFetch {
     let {
       headers = defaultHeaders,
       body,
-      ...rest,
+      ...rest
     } = options
 
     // Set multi-part header if body is FormData
