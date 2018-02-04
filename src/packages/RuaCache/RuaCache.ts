@@ -31,24 +31,36 @@ class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
    */
   protected list: string[] = []
 
-  public get(key: string, defaultValue: any): AnyData {
+  public get(key: string, defaultValue?: any): AnyData {
     const realKeyName = this.getItemKeyName(key)
     // defaultValue will be returned if no data with the specific key
     if (!this.list.includes(realKeyName)) {
       return defaultValue
     }
-    // retrieve data from cache
-    return this.store[realKeyName]
+    // retrieve data from cache with deserialization
+    return JSON.parse(
+      this.store[realKeyName]
+    )
   }
 
-  public set(key: string, value: string, time: number): void {
+  public set(key: string, value: string, time?: number): AnyData {
+    const realKeyName: string = this.getItemKeyName(key)
+    // add to list if it is NOT in the list
+    if (!this.list.includes(realKeyName)) {
+      this.list.push(realKeyName)
+    }
+    // save to cache
+    this.store[realKeyName] = JSON.stringify(value)
+    // todo: save to storage
+
+    return value
   }
 
-  public remove(key: string): void {
+  public remove(key: string): AnyData {
     const realKeyName = this.getItemKeyName(key)
     // Cache removal
     _.unset(this.store, realKeyName)
-    _.pull(this.list, realKeyName)
+    const removedData = _.pull(this.list, realKeyName)
 
     // Sync list
     this.storage.set(
@@ -57,15 +69,22 @@ class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
     )
     // Sync item
     this.storage.remove(realKeyName)
+
+    return removedData
   }
 
-  public clear(): void {
+  public clear(): AnyObject {
+    const removedData = this.store
+    // reset data in memory
     this.count = 0
     this.list = []
+    this.store = {}
     // remove all data from storage
     this.storage.remove(this.list)
     // remove list from storage
     this.storage.remove(this.getListKeyName())
+
+    return removedData
   }
 
   public length(): number {
