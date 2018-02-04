@@ -2,14 +2,14 @@ import { AnyObject } from 'rua-core/lib/Types'
 
 class RuaFetch {
 
-  public static catchedFetch(url: string, options): Promise<any> {
+  public static catchedFetch(url: string, options: AnyObject = {}): Promise<any> {
 
     return RuaFetch.fetch(url, options)
       .then(data => ({ data }))
       .catch(err => ({ err }))
   }
 
-  public static fetch(url: string, options): Promise<any> {
+  public static fetch(url: string, options: AnyObject = {}): Promise<any> {
     // Define defaults
     const defaultHeaders: AnyObject = {
       Accept: 'application/json, text/plain, */*',
