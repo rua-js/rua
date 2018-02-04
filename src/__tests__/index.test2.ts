@@ -2,6 +2,8 @@ import {
   storage,
   event,
   Exception,
+  // fetch,
+  // catchedFetch,
 } from '../index'
 
 import RuaStorage from '../packages/RuaStorage/RuaStorage'
@@ -23,7 +25,11 @@ describe('Rua Index Test', () => {
       new Exception() instanceof Error
     ).toBeTruthy()
     // case: fetch, rawFetch, cachedFetch
-    // Untestable
-
+    // expect(
+    //   fetch instanceof Function
+    // ).toBeTruthy()
+    // expect(
+    //   catchedFetch instanceof Function
+    // ).toBeTruthy()
   })
 })
