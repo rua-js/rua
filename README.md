@@ -10,7 +10,9 @@ Monthly release (Minor): minor version at the end of every month for breaking ch
 Major release is not included in this schedule for breaking change and new features.
 
 ## Version Note
-Major and Minor release will have breaking change!
+Major release **will** have breaking change
+
+Minor release **may** have breaking change
 
 ## RoadMap to 1.0.0
 - [ ] RuaCache (Prototyping)
