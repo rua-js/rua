@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/rua-js/rua#readme",
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "localforage": "^1.5.6",
     "lodash": "^4.17.5",
     "rua-core": "^0.2.1",
@@ -30,6 +31,7 @@
     "wolfy87-eventemitter": "^5.2.4"
   },
   "devDependencies": {
+    "@types/isomorphic-fetch": "^0.0.34",
     "@types/jest": "^22.1.1",
     "@types/lodash": "^4.14.100",
     "@types/react-native": "^0.52.8",
