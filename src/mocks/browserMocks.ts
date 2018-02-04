@@ -1,32 +1,32 @@
 //browserMocks.js
-var localStorageMock = (function () {
-  var store = {};
+const localStorageMock = (function () {
+  let store: any = {};
 
   return {
-    getItem: function (key) {
+    getItem: function (key: string) {
       return store[key] || null;
     },
-    setItem: function (key, value) {
+    setItem: function (key: string, value: any) {
       store[key] = value.toString();
     },
-    removeItem: function (key) {
+    removeItem: function (key: string) {
       delete store[key]
     },
     clear: function () {
       store = {};
     },
     get length() {
-      var i = 0
-      for (var item in store) {
+      let i = 0
+      for (const item in store) {
         if (Object.prototype.hasOwnProperty.call(store, item)) {
-          i++
+          i+=1
         }
       }
       return i
     },
-    key: function (index) {
-      var i = 0
-      for (var item in store) {
+    key: function (index: number) {
+      let i = 0
+      for (const item in store) {
         if (Object.prototype.hasOwnProperty.call(store, item)) {
           if (index === i) {
             return item
