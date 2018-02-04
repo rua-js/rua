@@ -32,7 +32,7 @@ class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
   protected list: string[] = []
 
   public get(key: string, defaultValue: any): AnyData {
-    const realKeyName = this.getItemKey(key)
+    const realKeyName = this.getItemKeyName(key)
     // defaultValue will be returned if no data with the specific key
     if (!this.list.includes(realKeyName)) {
       return defaultValue
@@ -45,14 +45,14 @@ class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
   }
 
   public remove(key: string): void {
-    const realKeyName = this.getItemKey(key)
+    const realKeyName = this.getItemKeyName(key)
     // Cache removal
     _.unset(this.store, realKeyName)
     _.pull(this.list, realKeyName)
 
     // Sync list
     this.storage.set(
-      this.getListKey(),
+      this.getListKeyName(),
       this.list,
     )
     // Sync item
@@ -65,7 +65,7 @@ class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
     // remove all data from storage
     this.storage.remove(this.list)
     // remove list from storage
-    this.storage.remove(this.getListKey())
+    this.storage.remove(this.getListKeyName())
   }
 
   public length(): number {
@@ -82,7 +82,7 @@ class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
 
   public async restore(): Promise<void> {
     // Get list key
-    const listKey: string = <string>this.getListKey()
+    const listKey: string = <string>this.getListKeyName()
     // Get list data
     const list: string = <string>await storage.get(listKey, [])
     // Parse list data
@@ -93,11 +93,15 @@ class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
     this.count = this.list.length
   }
 
-  protected getListKey(): string {
+  /**
+   *
+   * @returns {string}
+   */
+  protected getListKeyName(): string {
     return `${this.prefix}list`
   }
 
-  protected getItemKey(key: string): string {
+  protected getItemKeyName(key: string): string {
     return `${this.prefix}${key}`
   }
 }
