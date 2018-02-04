@@ -1,12 +1,14 @@
-// Primitives
+// Primitive library
 import { storage } from './packages/RuaStorage'
 import { event } from './packages/RuaEvent'
 import { Exception } from './packages/RuaException'
 
-// Basic
-import { dvaLite, ruaDva, actions } from 'rua-dva'
+// Essential library
 
-// Advanced
+// Deep-integrated library
+
+// Non-essential library
+import { dvaLite, ruaDva, actions } from 'rua-dva'
 
 // React / React Native Only
 
