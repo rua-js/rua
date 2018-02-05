@@ -5,6 +5,7 @@ import { Exception } from './packages/RuaException'
 import { fetch, catchedFetch, rawFetch } from './packages/RuaFetch'
 
 // Essential library
+import { cache } from './packages/RuaCache'
 
 // Deep-integrated library
 
@@ -29,4 +30,6 @@ export {
   fetch,
   catchedFetch,
   rawFetch,
+  // rua-cache
+  cache,
 }
