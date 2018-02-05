@@ -1,3 +1,4 @@
+import * as invariant from 'invariant'
 
 class RuaUtil {
   public static delay(time: number): Promise<void> {
@@ -7,6 +8,8 @@ class RuaUtil {
       }, time)
     })
   }
+
+  public static invariant = invariant
 }
 
 export default RuaUtil
