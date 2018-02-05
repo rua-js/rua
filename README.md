@@ -21,7 +21,7 @@ Major release **will** have breaking change
 Minor release **may** have breaking change
 
 ## Current Developing
-RuaCollection
+RuaCollection (Proposal)
 
 ## RoadMap to 1.0.0
 - [ ] Merge all packages into this repo
