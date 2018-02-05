@@ -23,7 +23,7 @@ Minor release **may** have breaking change
 ## Current Developing
 RuaCollection (Proposal)
 
-## RoadMap to 1.0.0
+## RoadMap to 0.1.0
 - [ ] Merge all packages into this repo
 - [ ] Optimize RuaDva
 - [ ] RuaApi (Prototyping)
@@ -62,3 +62,4 @@ up: update
 
 x: change
 
+md: update readme
