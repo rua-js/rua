@@ -26,9 +26,8 @@ RuaCollection (Proposal)
 ## RoadMap to 1.0.0
 - [ ] Merge all packages into this repo
 - [ ] Optimize RuaDva
-- [ ] RuaCache (Prototyping)
 - [ ] RuaApi (Prototyping)
-- [ ] Restructure of RuaFetch
+- [ ] Redesign RuaFetch
 - [ ] RuaCollection (Prototyping)
 - [ ] RuaClock (Prototyping)
 - [ ] RuaUI (Drafting)
@@ -44,6 +43,7 @@ Expecting adding extra packages to the RoadMap
 - RuaException
 - RuaStorage
 - RuaFetch
+- RuaCache
 
 ## Short Commit Name
 0: init
