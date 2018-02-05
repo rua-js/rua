@@ -21,13 +21,17 @@ Major release **will** have breaking change
 Minor release **may** have breaking change
 
 ## Current Developing
+Redesign RuaFetch
+
 RuaCollection (Proposal)
+
+RuaApi (Proposal)
 
 ## RoadMap to 0.1.0
 - [ ] Merge all packages into this repo
 - [ ] Optimize RuaDva
-- [ ] RuaApi (Prototyping)
 - [ ] Redesign RuaFetch
+- [ ] RuaApi (Prototyping)
 - [ ] RuaCollection (Prototyping)
 - [ ] RuaClock (Prototyping)
 - [ ] RuaUI (Drafting)
