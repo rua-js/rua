@@ -19,6 +19,7 @@ Major release **will** have breaking change
 Minor release **may** have breaking change
 
 ## RoadMap to 1.0.0
+- [ ] Merge all packages into this repo
 - [ ] Optimize RuaDva
 - [ ] RuaCache (Prototyping)
 - [ ] RuaApi (Prototyping)
