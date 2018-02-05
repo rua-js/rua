@@ -10,7 +10,9 @@ Npm Package Name Donator: [Vilic (Gihub)](https://github.com/vilic)
 
 ## Release Schedule
 Weekly release (Edition): patch version at the end of every week for routine bugfix (anytime for urgent bugfix).
+
 Monthly release (Minor): minor version at the end of every month for breaking change and new features.
+
 Major release is not included in this schedule for breaking change and new features.
 
 ## Version Note
