@@ -4,7 +4,8 @@
   "description": "Elegant front-end applications delivered at warp speed.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest test.ts"
+    "test": "jest test.ts",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
