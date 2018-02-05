@@ -50,6 +50,7 @@ class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
     // save to cache
     this.store[storageKeyName] = value
     // save to storage
+    this.storage.set(this.getListKeyName(), this.list)
     this.storage.set(storageKeyName, value)
 
     return value
@@ -75,14 +76,14 @@ class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
 
   public clear(): AnyObject {
     const removedData = this.all()
-    // reset data in memory
-    this.count = 0
-    this.list = []
-    this.store = {}
     // remove all data from storage
     this.storage.remove(this.list)
     // remove list from storage
     this.storage.remove(this.getListKeyName())
+    // reset data in memory
+    this.count = 0
+    this.list = []
+    this.store = {}
 
     return removedData
   }
