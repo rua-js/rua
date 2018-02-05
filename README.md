@@ -5,7 +5,7 @@
 
 Elegant front-end applications delivered at warp speed.
 
-## Special Thanks to
+## Special Thanks To
 Npm Package Name Donator: [Vilic (Gihub)](https://github.com/vilic)
 
 ## Release Schedule
@@ -19,6 +19,9 @@ Major release is not included in this schedule for breaking change and new featu
 Major release **will** have breaking change
 
 Minor release **may** have breaking change
+
+## Current Developing
+RuaCollection
 
 ## RoadMap to 1.0.0
 - [ ] Merge all packages into this repo
