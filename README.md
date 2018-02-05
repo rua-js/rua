@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/rua.svg)](https://badge.fury.io/js/rua)
 ![production ready](https://img.shields.io/badge/production--ready-YES-brightgreen.svg)
+
 Elegant front-end applications delivered at warp speed.
 
 ## Special Thanks to
