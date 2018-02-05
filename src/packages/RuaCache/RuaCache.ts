@@ -73,7 +73,7 @@ class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
   }
 
   public clear(): AnyObject {
-    const removedData = this.store
+    const removedData = this.all()
     // reset data in memory
     this.count = 0
     this.list = []
@@ -87,15 +87,19 @@ class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
   }
 
   public length(): number {
-    return this.count
+    return this.list.length
   }
 
   public keys(): string[] {
-    return this.list
+    return this.list.map(key => key.replace(this.prefix, ''))
   }
 
   public all(): any {
-    return this.store
+    const output: any = {}
+    for (const name in this.store) {
+      output[name.replace(this.prefix, '')] = this.store[name]
+    }
+    return output
   }
 
   public async restore(): Promise<void> {
@@ -122,6 +126,7 @@ class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
   protected getItemKeyName(key: string): string {
     return `${this.prefix}${key}`
   }
+
 }
 
 export default RuaCache
