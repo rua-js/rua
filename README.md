@@ -47,6 +47,8 @@ Expecting adding extra packages to the RoadMap
 
 op: optimize
 
+up: update
+
 +: add
 
 -: remove
