@@ -15,6 +15,13 @@ interface RuaApiInterface {
    * @returns {AnyObject}
    */
   all(): AnyObject
+
+  /**
+   * Calls an api
+   *
+   * @returns {any}
+   */
+  dispatch(name: string): any
 }
 
 export default RuaApiInterface
