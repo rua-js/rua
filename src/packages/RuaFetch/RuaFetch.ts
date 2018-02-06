@@ -49,10 +49,15 @@ class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface{
   public start(): Promise<Response> {
     const {
       before,
+      timeout,
       ...rest
     } = this.options
-
+    // apply before
+    if (_.isFunction(before)) {
+      before(this)
+    }
     // apply request interceptor
+
 
     return fetch(this.url, this.options)
       .then(RuaFetch.checkStatus)
