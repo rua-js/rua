@@ -18,7 +18,7 @@ class RuaApi extends AbstractRuaPackage implements CanConfig{
    * @constructor
    * @param {AnyObject} config
    */
-  constructor(config: AnyObject) {
+  constructor(config?: AnyObject) {
     super()
     this.config(config)
     this.booted = true
@@ -29,7 +29,7 @@ class RuaApi extends AbstractRuaPackage implements CanConfig{
    *
    * @param {AnyObject} config
    */
-  public config(config: AnyObject): void {
+  public config(config?: AnyObject): void {
     if (!config) {
       return
     }
