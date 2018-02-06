@@ -6,13 +6,15 @@ class Interceptor implements InterceptorInterface {
 
   /**
    * Keeps all interceptors
+   *
+   * @type {Object}
    */
   public interceptor: AnyObject = {}
 
   /**
    * Adds one interceptor with name
    *
-   * @param {string} name
+   * @param {String} name
    * @param {Function} interceptor
    */
   public add(name: string, interceptor: Function): void {
@@ -22,7 +24,7 @@ class Interceptor implements InterceptorInterface {
   /**
    * Removes one interceptor with name
    *
-   * @param {string} name
+   * @param {String} name
    */
   public remove(name: string): void {
     _.unset(this.interceptor, name)
@@ -30,7 +32,7 @@ class Interceptor implements InterceptorInterface {
 
   /**
    * Loads interceptors
-   * @param {AnyObject} interceptors
+   * @param {Object} interceptors
    */
   public load(interceptors: AnyObject): void {
     this.interceptor = {...this.interceptor, ...interceptors}
