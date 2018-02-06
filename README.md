@@ -27,7 +27,7 @@ RuaCollection (Proposal)
 
 RuaApi (Proposal)
 
-## RoadMap to 0.1.0
+## RoadMap to 0.2.0
 - [ ] Merge all packages into this repo
 - [ ] Optimize RuaDva
 - [ ] Redesign RuaFetch
