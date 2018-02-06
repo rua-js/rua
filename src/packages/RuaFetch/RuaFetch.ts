@@ -5,7 +5,9 @@ import CanConfig from "rua-core/lib/Contracts/CanConfig";
 import * as _ from 'lodash'
 
 class RuaFetch extends AbstractRuaPackage implements CanConfig {
-  public interceptors = []
+  public interceptors: Function[] = []
+
+  public headers: AnyObject = {}
 
   public config(config?: AnyObject): void {
     const {
@@ -13,13 +15,25 @@ class RuaFetch extends AbstractRuaPackage implements CanConfig {
       headers,
     } = config
 
-    this.setInterceptors(interceptors)
+    this.mergeInterceptors(interceptors)
   }
 
-  protected setInterceptors(interceptors: Function | Function[]): void {
-
+  protected mergeInterceptors(interceptor: Function | Function[]): void {
+    if (_.isArray(interceptor)) {
+      const interceptors: Function[] = <Function[]>interceptor
+      interceptors.every(item => {
+        this.interceptors.push(item)
+        return true
+      })
+      return
+    }
+    this.interceptors.push(interceptor)
+    return
   }
 
+  protected mergeHeaders(headers: AnyObject): void {
+    this.headers = {...this.headers, headers}
+  }
 }
 
 class RuaFetch2 {
