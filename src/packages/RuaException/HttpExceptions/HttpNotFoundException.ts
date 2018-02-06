@@ -10,3 +10,5 @@ class HttpNotFoundException extends HttpException {
     super(404, 'Not Found')
   }
 }
+
+export default HttpNotFoundException
