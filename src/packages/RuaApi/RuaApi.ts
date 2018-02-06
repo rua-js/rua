@@ -1,12 +1,40 @@
 import AbstractRuaPackage from 'rua-core/lib/Abstractions/AbstractRuaPackage'
-import { RuaApiInterface } from './Interface'
 import AnyObject from 'rua-core/lib/Types/AnyObject'
+import CanConfig from 'rua-core/lib/Contracts/CanConfig'
+import * as _ from 'lodash'
 
-class RuaApi extends AbstractRuaPackage implements RuaApiInterface{
+import { util } from '../RuaUtil'
+import { fetch as _fetch } from '../RuaFetch'
 
-  constructor() {
+class RuaApi extends AbstractRuaPackage implements CanConfig{
+
+  /**
+   * Fetch instance
+   * @type {Function}
+   */
+  protected fetch = _fetch
+
+  constructor(config: AnyObject) {
     super()
+    this.config(config)
     this.booted = true
+  }
+
+  /**
+   * Configures
+   *
+   * @param {AnyObject} config
+   */
+  public config(config: AnyObject): void {
+    if (!config) {
+      return
+    }
+
+    const {
+      fetch = _fetch,
+    } = config
+
+    this.fetch = fetch
   }
 
   /**
@@ -27,6 +55,28 @@ class RuaApi extends AbstractRuaPackage implements RuaApiInterface{
    */
   public all(): AnyObject {
     return this.store
+  }
+
+  /**
+   * Calls an api
+   *
+   * @returns {any}
+   */
+  public dispatch(name: string): Promise<Response> {
+    const config = _.get(this.store, name)
+    // make sure has the api
+    util.invariant(
+      config,
+      '[Rua][API]The api that you are trying to access is NOT exists'
+    )
+    const {
+      url,
+      body,
+      form,
+    } = config
+    return this.fetch(config.url, {
+      body
+    })
   }
 }
 
