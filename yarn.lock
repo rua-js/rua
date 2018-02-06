@@ -2486,9 +2486,9 @@ rua-core@^0.2.0:
     global "^4.3.2"
     invariant "^2.2.2"
 
-rua-core@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.npmjs.org/rua-core/-/rua-core-0.2.1.tgz#320846218f31f18867f8ee1f4c43691e273644cc"
+rua-core@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.npmjs.org/rua-core/-/rua-core-0.2.2.tgz#95f3f9bb16752d959748543c1c34596dcdd57bad"
   dependencies:
     global "^4.3.2"
     invariant "^2.2.2"
