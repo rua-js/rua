@@ -1,6 +1,5 @@
 import {
   fetch,
-  catchedFetch,
 } from '../index'
 
 describe('RuaFetch Index Tests', () => {
@@ -8,10 +7,6 @@ describe('RuaFetch Index Tests', () => {
     // case: fetch
     expect(
       fetch instanceof Function
-    ).toBeTruthy()
-    // case: catchedFetch
-    expect(
-      catchedFetch instanceof Function
     ).toBeTruthy()
   })
 })

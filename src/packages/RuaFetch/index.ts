@@ -1,11 +1,7 @@
-import RuaFetchClass from './RuaFetch'
+import RuaFetch from './RuaFetch'
 
-import { RuaFetchStatic } from './Interface'
+import AnyObject from 'rua-core/lib/Types/AnyObject'
 
-export const RuaFetch: RuaFetchStatic = RuaFetchClass
-
-export const fetch = RuaFetchClass.fetch
-
-export const catchedFetch = RuaFetchClass.catchedFetch
-
-export const rawFetch = RuaFetchClass.rawFetch
+export const fetch = (url: string, options: AnyObject = {}) => {
+  return new RuaFetch(url, options).start()
+}
