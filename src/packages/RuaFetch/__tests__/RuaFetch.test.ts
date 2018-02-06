@@ -1,7 +1,5 @@
 import {
   fetch,
-  catchedFetch,
-  rawFetch,
 } from '../index'
 
 describe('RuaFetch', () => {
@@ -14,5 +12,9 @@ describe('RuaFetch', () => {
     await expect(
       fetch('https://reqres.in/api/users')
     ).resolves.toHaveProperty('page')
+  })
+
+  test('.abort', async () => {
+
   })
 })
