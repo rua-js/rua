@@ -4,6 +4,14 @@
 import Exception from './Exception'
 
 /**
+ * Exceptions
+ */
+import {
+  HttpException,
+  RuntimeException,
+} from './Exceptions'
+
+/**
  * Http Exceptions
  */
 import {
@@ -14,6 +22,8 @@ import {
 
 export {
   Exception,
+  HttpException,
+  RuntimeException,
   HttpTimeoutException,
   HttpNotFoundException,
   HttpAbortException,
