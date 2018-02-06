@@ -22,6 +22,12 @@ interface InterceptorInterface {
   remove(name: string): void
 
   /**
+   * Loads interceptors
+   * @param {AnyObject} interceptors
+   */
+  load(interceptors: AnyObject): void
+
+  /**
    * Gets all interceptors
    *
    * @returns {Function[]}
