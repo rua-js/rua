@@ -2,7 +2,10 @@ import {
   fetch,
 } from '../index'
 import * as _ from 'lodash'
-import { Exception } from '../../RuaException'
+import {
+  HttpAbortException,
+  HttpTimeoutException,
+} from '../../RuaException'
 
 describe('RuaFetch', () => {
   test('fetch', async () => {
@@ -17,6 +20,7 @@ describe('RuaFetch', () => {
   })
 
   test('.abort', async () => {
+    // case: abort
     await expect(
       (() => {
         let abortFn: any
@@ -28,6 +32,15 @@ describe('RuaFetch', () => {
         abortFn.abort()
         return req
       })()
-    ).rejects.toBeInstanceOf(Exception)
+    ).rejects.toBeInstanceOf(HttpAbortException)
+  })
+
+  test('timeout', async () => {
+    // case: timeout
+    await expect(
+      fetch('https://reqres.in/api/users', {
+        timeout: 10,
+      })
+    ).rejects.toBeInstanceOf(HttpTimeoutException)
   })
 })

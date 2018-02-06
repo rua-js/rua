@@ -5,7 +5,10 @@ import * as _ from 'lodash'
 import fetch from './ThirdParty/fetch'
 import Interceptor from './Interceptor'
 import { InterceptorInterface, RuaFetchInterface } from './Interface'
-import { Exception } from '../RuaException'
+import {
+  HttpAbortException,
+  HttpTimeoutException,
+} from '../RuaException'
 
 class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface {
   /**
@@ -83,20 +86,32 @@ class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface {
     }
     // apply request interceptor
 
-
-    return Promise.race([
+    // setup abort situations
+    const promises = [
       fetch(this.url, this.options)
         .then(RuaFetch.checkStatus)
         .then(res => res.json())
         .then((data) => {
           return data
         }),
+      // abort
       new Promise((resolve, reject) => {
         this.abort = () => {
-          reject(new Exception())
+          reject(new HttpAbortException())
         }
-      })
-    ])
+      }),
+      // timeout
+    ]
+
+    if (timeout > 0) {
+      promises.push(new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject(new HttpTimeoutException())
+        }, timeout)
+      }))
+    }
+
+    return Promise.race(promises)
   }
 }
 
