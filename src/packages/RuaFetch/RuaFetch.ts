@@ -32,12 +32,25 @@ class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface{
   public options: AnyObject = {}
 
   /**
+   * Abort function
+   *
+   * @type {Function}
+   */
+  public abort: Function = _.noop
+
+  /**
    * @constructor
    */
   constructor(url: string, options: AnyObject = {}) {
     super()
     this.url = url
     this.options = options
+    // setup abortFn
+    new Promise((resolve, reject) => {
+      this.abort = () => {
+        reject()
+      }
+    })
     this.booted = true
   }
 
