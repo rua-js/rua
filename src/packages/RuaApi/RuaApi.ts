@@ -14,6 +14,10 @@ class RuaApi extends AbstractRuaPackage implements CanConfig{
    */
   protected fetch = _fetch
 
+  /**
+   * @constructor
+   * @param {AnyObject} config
+   */
   constructor(config: AnyObject) {
     super()
     this.config(config)
@@ -69,11 +73,13 @@ class RuaApi extends AbstractRuaPackage implements CanConfig{
       config,
       '[Rua][API]The api that you are trying to access is NOT exists'
     )
+
     const {
       url,
       body,
       form,
     } = config
+
     return this.fetch(config.url, {
       body
     })
