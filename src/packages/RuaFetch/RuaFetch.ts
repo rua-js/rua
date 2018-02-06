@@ -1,7 +1,28 @@
 import { AnyObject } from 'rua-core/lib/Types'
 import fetch from './ThirdParty/fetch'
+import AbstractRuaPackage from "rua-core/lib/Abstractions/AbstractRuaPackage";
+import CanConfig from "rua-core/lib/Contracts/CanConfig";
+import * as _ from 'lodash'
 
-class RuaFetch {
+class RuaFetch extends AbstractRuaPackage implements CanConfig {
+  public interceptors = []
+
+  public config(config?: AnyObject): void {
+    const {
+      interceptors,
+      headers,
+    } = config
+
+    this.setInterceptors(interceptors)
+  }
+
+  protected setInterceptors(interceptors: Function | Function[]): void {
+
+  }
+
+}
+
+class RuaFetch2 {
 
   public static catchedFetch(url: string, options: AnyObject = {}): Promise<any> {
 
