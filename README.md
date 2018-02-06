@@ -25,16 +25,25 @@ Redesign RuaFetch
 
 RuaCollection (Proposal)
 
-## RoadMap to 0.2.0
-- [ ] Merge all packages into this repo
+## RoadMap
+
+### 0.2.0
+- [x] Merge all essential packages into this repo
 - [ ] Optimize RuaDva
-- [ ] Redesign RuaFetch
 - [ ] RuaCollection (Prototyping)
+
+### 0.3.0
+- [ ] Upgrade RuaFetch
 - [ ] RuaClock (Prototyping)
-- [ ] RuaUI (Drafting)
-- [ ] RuaSDK (Drafting)
+- [ ] Upgrade HttpExceptions
+
+### 0.4.0
 - [ ] RuaPayment (Drafting)
 - [ ] RuaSocket (Drafting)
+- [ ] RuaSDK (Drafting)
+
+### 1.0.0
+- [ ] RuaUI (Drafting)
 
 Expecting adding extra packages to the RoadMap
 
