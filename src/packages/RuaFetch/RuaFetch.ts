@@ -100,9 +100,9 @@ class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface {
           reject(new HttpAbortException())
         }
       }),
-      // timeout
     ]
 
+    // if timeout is set, add timeout Promise
     if (timeout > 0) {
       promises.push(new Promise((resolve, reject) => {
         setTimeout(() => {
