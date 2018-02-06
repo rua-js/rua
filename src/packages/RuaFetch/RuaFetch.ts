@@ -7,7 +7,11 @@ import Interceptor from './Interceptor'
 import { InterceptorInterface, RuaFetchInterface } from './Interface'
 
 class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface{
-
+  /**
+   * Interceptors
+   *
+   * @type {Object}
+   */
   public interceptor: AnyObject = {
     request: new Interceptor,
     response: new Interceptor,
@@ -37,6 +41,11 @@ class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface{
     this.booted = true
   }
 
+  /**
+   * Starts the request
+   *
+   * @returns {Promise<Response>}
+   */
   public start(): Promise<Response> {
     const {
       before,
@@ -46,11 +55,28 @@ class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface{
     // apply request interceptor
 
     return fetch(this.url, this.options)
+      .then(RuaFetch.checkStatus)
       .then(res => res.json())
       .then((data) => {
-        const result = ''
         return data
       })
+  }
+
+  /**
+   * Parses response
+   *
+   * @param {Response} response
+   * @returns {Response}
+   * @throws {Error}
+   */
+  public static checkStatus(response: Response): Response {
+    if (response.status >= 200 && response.status < 300) {
+      return response
+    }
+
+    const error: any = new Error(response.statusText)
+    error.response = response
+    throw error
   }
 }
 
