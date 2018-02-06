@@ -32,7 +32,7 @@ class Interceptor implements InterceptorInterface {
    * Loads interceptors
    * @param {AnyObject} interceptors
    */
-  load(interceptors: AnyObject): void {
+  public load(interceptors: AnyObject): void {
     this.interceptor = {...this.interceptor, ...interceptors}
   }
 
