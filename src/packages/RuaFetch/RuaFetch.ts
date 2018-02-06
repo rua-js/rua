@@ -6,7 +6,7 @@ import fetch from './ThirdParty/fetch'
 import Interceptor from './Interceptor'
 import { InterceptorInterface, RuaFetchInterface } from './Interface'
 
-class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface{
+class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface {
   /**
    * Interceptors
    *
@@ -45,13 +45,24 @@ class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface{
     super()
     this.url = url
     this.options = options
-    // setup abortFn
-    new Promise((resolve, reject) => {
-      this.abort = () => {
-        reject()
-      }
-    })
     this.booted = true
+  }
+
+  /**
+   * Parses response
+   *
+   * @param {Response} response
+   * @returns {Response}
+   * @throws {Error}
+   */
+  public static checkStatus(response: Response): Response {
+    if (response.status >= 200 && response.status < 300) {
+      return response
+    }
+
+    const error: any = new Error(response.statusText)
+    error.response = response
+    throw error
   }
 
   /**
@@ -72,29 +83,19 @@ class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface{
     // apply request interceptor
 
 
-    return fetch(this.url, this.options)
-      .then(RuaFetch.checkStatus)
-      .then(res => res.json())
-      .then((data) => {
-        return data
+    return Promise.race([
+      fetch(this.url, this.options)
+        .then(RuaFetch.checkStatus)
+        .then(res => res.json())
+        .then((data) => {
+          return data
+        }),
+      new Promise((resolve, reject) => {
+        this.abort = () => {
+          reject()
+        }
       })
-  }
-
-  /**
-   * Parses response
-   *
-   * @param {Response} response
-   * @returns {Response}
-   * @throws {Error}
-   */
-  public static checkStatus(response: Response): Response {
-    if (response.status >= 200 && response.status < 300) {
-      return response
-    }
-
-    const error: any = new Error(response.statusText)
-    error.response = response
-    throw error
+    ])
   }
 }
 
