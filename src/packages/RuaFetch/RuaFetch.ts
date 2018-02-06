@@ -5,6 +5,7 @@ import * as _ from 'lodash'
 import fetch from './ThirdParty/fetch'
 import Interceptor from './Interceptor'
 import { InterceptorInterface, RuaFetchInterface } from './Interface'
+import { Exception } from '../RuaException'
 
 class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface {
   /**
@@ -92,7 +93,7 @@ class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface {
         }),
       new Promise((resolve, reject) => {
         this.abort = () => {
-          reject()
+          reject(new Exception())
         }
       })
     ])
