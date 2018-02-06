@@ -1,38 +1,27 @@
 import { AnyObject } from 'rua-core/lib/Types'
 import fetch from './ThirdParty/fetch'
 import AbstractRuaPackage from "rua-core/lib/Abstractions/AbstractRuaPackage";
-import CanConfig from "rua-core/lib/Contracts/CanConfig";
 import * as _ from 'lodash'
 
-class RuaFetch extends AbstractRuaPackage implements CanConfig {
-  public interceptors: Function[] = []
+class RuaFetch extends AbstractRuaPackage {
+
+  public interceptor: AnyObject = {}
+
+  public interceptors =
 
   public headers: AnyObject = {}
 
-  public config(config?: AnyObject): void {
-    const {
-      interceptors,
-      headers,
-    } = config
-
-    this.mergeInterceptors(interceptors)
-  }
-
-  protected mergeInterceptors(interceptor: Function | Function[]): void {
-    if (_.isArray(interceptor)) {
-      const interceptors: Function[] = <Function[]>interceptor
-      interceptors.every(item => {
-        this.interceptors.push(item)
-        return true
-      })
+  public call(url: string, options: AnyObject = {}) {
+    let opt = options
+    _.each(this.interceptors, (value) => {
+      if (_.isString(value)) {
+        opt = this.interceptor[value]({
+          url,
+          ...options
+        })
+      }
       return
-    }
-    this.interceptors.push(interceptor)
-    return
-  }
-
-  protected mergeHeaders(headers: AnyObject): void {
-    this.headers = {...this.headers, headers}
+    })
   }
 }
 
