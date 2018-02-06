@@ -23,6 +23,13 @@ interface RuaFetchInterface {
   options: AnyObject
 
   /**
+   * Abort function
+   *
+   * @type {Function}
+   */
+  abort: Function
+
+  /**
    * Starts the request
    *
    * @returns {Promise<Response>}
