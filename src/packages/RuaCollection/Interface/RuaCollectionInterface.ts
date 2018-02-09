@@ -1,5 +1,6 @@
 import { AnyData } from 'rua-core/lib/Types'
 import AnyObject from 'rua-core/lib/Types/AnyObject'
+import AnyArray from 'rua-core/lib/Types/AnyArray'
 
 interface RuaCollectionInterface {
   /**
@@ -244,7 +245,43 @@ interface RuaCollectionInterface {
    */
   implode(glueOrKey: string | number, glue?: string | number): RuaCollectionInterface
 
-  intersect(comparison: AnyObject): RuaCollectionInterface
+  /**
+   * Removes any values from the original collection that are not present in the given array/object or collection
+   *
+   * @param {AnyObject} comparison
+   * @returns {RuaCollectionInterface}
+   */
+  intersect(comparison: AnyObject | AnyArray | RuaCollectionInterface): RuaCollectionInterface
+
+  /**
+   * Removes any keys from the original collection that are not present in the given array/object or collection
+   *
+   * @param {AnyObject | AnyArray | RuaCollectionInterface} comparison
+   * @returns {RuaCollectionInterface}
+   */
+  intersectByKeys(comparison: AnyObject | AnyArray | RuaCollectionInterface): RuaCollectionInterface
+
+  /**
+   * Returns true if the collection is empty; otherwise, false is returned
+   *
+   * @returns {boolean}
+   */
+  isEmpty(): boolean
+
+  /**
+   * Returns true if the collection is not empty; otherwise, false is returned
+   *
+   * @returns {boolean}
+   */
+  isNotEmpty(): boolean
+
+  /**
+   * Keys the collection by the given key. If multiple items have the same key, only the last one will appear in the new collection
+   *
+   * @param {number | string} key
+   * @returns {RuaCollectionInterface}
+   */
+  keyBy(key: number | string): RuaCollectionInterface
 }
 
 export default RuaCollectionInterface
