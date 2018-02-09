@@ -29,8 +29,6 @@ export {
   storage,
   // rua-fetch
   fetch,
-  catchedFetch,
-  rawFetch,
   // rua-cache
   cache,
   // rua-api
