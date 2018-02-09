@@ -1,4 +1,5 @@
 import { AnyData } from 'rua-core/lib/Types'
+import AnyObject from 'rua-core/lib/Types/AnyObject'
 
 interface RuaCollectionInterface {
   /**
@@ -225,9 +226,25 @@ interface RuaCollectionInterface {
    */
   groupBy(key: string | number | Function): RuaCollectionInterface
 
+  /**
+   * Determines if a given key exists in the collection
+   *
+   * @param {string | number} key
+   * @returns {RuaCollectionInterface}
+   */
   has(key: string | number): RuaCollectionInterface
 
+  /**
+   * Joins the items in a collection. Its arguments depend on the type of items in the collection
+   * If the collection contains arrays or objects, you should pass the key of the attributes you wish to join, and the "glue" string you wish to place between the values
+   *
+   * @param {string | number} glueOrKey
+   * @param {string | number} glue
+   * @returns {RuaCollectionInterface}
+   */
   implode(glueOrKey: string | number, glue?: string | number): RuaCollectionInterface
+
+  intersect(comparison: AnyObject): RuaCollectionInterface
 }
 
 export default RuaCollectionInterface
