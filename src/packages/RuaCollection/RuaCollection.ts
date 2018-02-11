@@ -17,12 +17,22 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
   }
 
   /**
+   * Creates a new instance of current class, and it's extendable
+   *
+   * @protected
+   * @param {AnyObject | AnyArray | RuaCollection} data
+   */
+  protected create(data: AnyObject | AnyArray | RuaCollection) {
+    return new (<any>this.constructor(data))
+  }
+
+  /**
    * Returns the underlying array/object represented by the collection
    *
    * @returns {AnyObject | AnyArray}
    */
   public all(): AnyObject | AnyArray {
-    return this.store
+    return _.cloneDeep(this.store)
   }
 
   /**
@@ -62,9 +72,13 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
    */
   public chunk(size: number): RuaCollection {
     let counter = 0
+    // if array is given
     if (_.isArray(this.store)) {
-      return new RuaCollection(_.chunk(this.store, size))
+      return this.create(_.chunk(this.store, size))
     }
+
+    // if object is given
+
 
     return this
   }
