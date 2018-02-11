@@ -1,25 +1,26 @@
-import { AnyData } from 'rua-core/lib/Types'
-import AnyObject from 'rua-core/lib/Types/AnyObject'
-import AnyArray from 'rua-core/lib/Types/AnyArray'
+import { AnyData, AnyObject, AnyArray } from 'rua-core/lib/Types'
 
 interface RuaCollectionInterface {
   /**
-   * Returns the underlying array represented by the collection
+   * Returns the underlying array/object represented by the collection
    *
    * @returns {Object | Array}
    */
-  all(): object | any[]
+  all(): AnyObject | AnyArray
 
   /**
    * Return the average value of a given key
+   * If no key is given, it returns average of values
    *
-   * @returns {Number}
+   * @param {string | number} key
+   * @returns {number}
    */
-  avg(): number
+  avg(key?: string | number): number
 
   /**
    * Breaks the collection into multiple, smaller collections of a given size
    *
+   * @forceCast Array
    * @returns {RuaCollectionInterface}
    */
   chunk(): RuaCollectionInterface
@@ -48,14 +49,14 @@ interface RuaCollectionInterface {
   /**
    * Determines whether the collection contains a given item
    *
-   * @param {String} key
+   * @param {string} key
    */
   contains(key: string): RuaCollectionInterface
 
   /**
    *
    *
-   * @param {String} key
+   * @param {string} key
    * @returns {RuaCollectionInterface}
    */
   containsStrict(key: string): RuaCollectionInterface
@@ -63,7 +64,7 @@ interface RuaCollectionInterface {
   /**
    * Returns the total number of items in the collection
    *
-   * @returns {Number}
+   * @returns {number}
    */
   count(): number
 
