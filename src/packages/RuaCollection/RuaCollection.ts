@@ -4,7 +4,7 @@ import * as _ from 'lodash'
 
 import { RuaCollectionInterface } from './Interface'
 
-class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface {
+class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface<RuaCollection> {
 
   /**
    * @constructor
@@ -52,6 +52,21 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
     }, 0)
 
     return total / count
+  }
+
+  /**
+   * Breaks the collection into multiple, smaller collections of a given size
+   *
+   * @param {number} size
+   * @returns {RuaCollection}
+   */
+  public chunk(size: number): RuaCollection {
+    let counter = 0
+    if (_.isArray(this.store)) {
+      return new RuaCollection(_.chunk(this.store, size))
+    }
+
+    return this
   }
 }
 

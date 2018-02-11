@@ -1,6 +1,6 @@
 import { AnyData, AnyObject, AnyArray } from 'rua-core/lib/Types'
 
-interface RuaCollectionInterface {
+interface RuaCollectionInterface<T> {
   /**
    * Returns the underlying array/object represented by the collection
    *
@@ -20,46 +20,46 @@ interface RuaCollectionInterface {
   /**
    * Breaks the collection into multiple, smaller collections of a given size
    *
-   * @forceCast Array
-   * @returns {RuaCollectionInterface}
+   * @param {number} size
+   * @returns {T}
    */
-  chunk(): RuaCollectionInterface
+  chunk(size: number): T
 
   /**
    * Collapses a collection of arrays into a single, flat collection
    *
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  collapse(): RuaCollectionInterface
+  collapse(): T
 
   /**
    * Combines the keys of the collection with the values of another array or collection
    *
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  combine(): RuaCollectionInterface
+  combine(): T
 
   /**
    * Appends the given array or collection values onto the end of the collection
    *
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  concat(): RuaCollectionInterface
+  concat(): T
 
   /**
    * Determines whether the collection contains a given item
    *
    * @param {string} key
    */
-  contains(key: string): RuaCollectionInterface
+  contains(key: string): T
 
   /**
    *
    *
    * @param {string} key
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  containsStrict(key: string): RuaCollectionInterface
+  containsStrict(key: string): T
 
   /**
    * Returns the total number of items in the collection
@@ -70,9 +70,9 @@ interface RuaCollectionInterface {
 
   /**
    *
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  crossJoin(): RuaCollectionInterface
+  crossJoin(): T
 
   /**
    * Dumps the collection's items and ends execution of the script
@@ -83,31 +83,31 @@ interface RuaCollectionInterface {
    * Compares the collection against another collection or a array based on its values
    * This method will return the values in the original collection that are not present in the given collection
    *
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  diff(): RuaCollectionInterface
+  diff(): T
 
   /**
    * Compares the collection against another collection or a plain PHP  array based on its keys and values
    *
    * @alias diffObject
    * @deprecated
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  diffAssoc(): RuaCollectionInterface
+  diffAssoc(): T
 
   /**
    * Compares the collection against another collection or a plain PHP  array based on its keys and values
    *
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  diffObject(): RuaCollectionInterface
+  diffObject(): T
 
   /**
    *  compares the collection against another collection or a plain PHP  array based on its keys
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  diffKeys(): RuaCollectionInterface
+  diffKeys(): T
 
   /**
    * Dumps the collection's items
@@ -140,17 +140,17 @@ interface RuaCollectionInterface {
    * Returns all items in the collection except for those with the specified keys
    *
    * @param {Function} callback
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  except(callback: Function): RuaCollectionInterface
+  except(callback: Function): T
 
   /**
    * Filters the collection using the given callback, keeping only those items that pass a given truth test
    *
    * @param {Function} callback
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  filter(callback: Function): RuaCollectionInterface
+  filter(callback: Function): T
 
   /**
    * Filters the collection using the given callback, keeping only those items that pass a given truth test
@@ -174,41 +174,41 @@ interface RuaCollectionInterface {
    * Iterates through the collection and passes each value to the given callback. The callback is free to modify the item and return it, thus forming a new collection of modified items. Then, the array is flattened by a level
    *
    * @param {Function} callback
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  flatMap(callback: Function): RuaCollectionInterface
+  flatMap(callback: Function): T
 
   /**
    * Flattens a multi-dimensional collection into a single dimension
    *
    * @param {number} depth
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  flatten(depth?: number): RuaCollectionInterface
+  flatten(depth?: number): T
 
   /**
    * Swaps the collection's keys with their corresponding values
    *
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  flip(): RuaCollectionInterface
+  flip(): T
 
   /**
    * Removes an item from the collection by its key
    * NOTE: this api mutates the original collection
    *
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  forget(): RuaCollectionInterface
+  forget(): T
 
   /**
    * Returns a new collection containing the items that would be present on a given page number
    *
    * @param {number} page
    * @param {number} itemPerPage
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  forPage(page: number, itemPerPage: number): RuaCollectionInterface
+  forPage(page: number, itemPerPage: number): T
 
   /**
    * Returns the item at a given key. If the key does not exist, null is returned
@@ -224,17 +224,17 @@ interface RuaCollectionInterface {
    * todo: read laravel documentation to get correct function
    *
    * @param {string | number | Function} key
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  groupBy(key: string | number | Function): RuaCollectionInterface
+  groupBy(key: string | number | Function): T
 
   /**
    * Determines if a given key exists in the collection
    *
    * @param {string | number} key
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  has(key: string | number): RuaCollectionInterface
+  has(key: string | number): T
 
   /**
    * Joins the items in a collection. Its arguments depend on the type of items in the collection
@@ -242,25 +242,25 @@ interface RuaCollectionInterface {
    *
    * @param {string | number} glueOrKey
    * @param {string | number} glue
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  implode(glueOrKey: string | number, glue?: string | number): RuaCollectionInterface
+  implode(glueOrKey: string | number, glue?: string | number): T
 
   /**
    * Removes any values from the original collection that are not present in the given array/object or collection
    *
    * @param {AnyObject} comparison
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  intersect(comparison: AnyObject | AnyArray | RuaCollectionInterface): RuaCollectionInterface
+  intersect(comparison: AnyObject | AnyArray | T): T
 
   /**
    * Removes any keys from the original collection that are not present in the given array/object or collection
    *
-   * @param {AnyObject | AnyArray | RuaCollectionInterface} comparison
-   * @returns {RuaCollectionInterface}
+   * @param {AnyObject | AnyArray | T} comparison
+   * @returns {T}
    */
-  intersectByKeys(comparison: AnyObject | AnyArray | RuaCollectionInterface): RuaCollectionInterface
+  intersectByKeys(comparison: AnyObject | AnyArray | T): T
 
   /**
    * Returns true if the collection is empty; otherwise, false is returned
@@ -280,9 +280,9 @@ interface RuaCollectionInterface {
    * Keys the collection by the given key. If multiple items have the same key, only the last one will appear in the new collection
    *
    * @param {number | string} key
-   * @returns {RuaCollectionInterface}
+   * @returns {T}
    */
-  keyBy(key: number | string): RuaCollectionInterface
+  keyBy(key: number | string): T
 }
 
 export default RuaCollectionInterface

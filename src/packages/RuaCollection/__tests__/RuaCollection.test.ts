@@ -85,4 +85,26 @@ describe('RuaCollection Tests [until .isEmpty()]', () => {
       collection.avg('a')
     ).toBe(5)
   })
+
+  test('.chunk', () => {
+    // prep
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    const obj = { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6, g: 7, h: 8, i: 9, j: 10 }
+
+    // case: array
+    let collection = new RuaCollection(arr)
+    expect(
+      collection.chunk(4).all()
+    ).toEqual([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10]])
+
+    // case: object
+    collection = new RuaCollection(obj)
+    expect(
+      collection.chunk(4).all()
+    ).toEqual({
+      0: { a: 1, b: 2, c: 3, d: 4 },
+      1: { e: 5, f: 6, g: 7, h: 8 },
+      2: { i: 9, j: 10 },
+    })
+  })
 })
