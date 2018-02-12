@@ -113,5 +113,33 @@ describe('RuaCollection Tests [until .isEmpty()]', () => {
   test('.collapse', () => {
     const arrArr = [[1, 2, 3], [4, 5, 6]]
     const arrArrResult = [1, 2, 3, 4, 5, 6]
+    const arrObj = [{ a: 1, b: 2, c: 3 }, { c: 4, d: 5, e: 6 }]
+    // index c is override from 3 to 4 (override only happens on object result)
+    const arrObjResult = { a: 1, b: 2, c: 4, d: 5, e: 6 }
+    const objObj = { a: { a: 1, b: 2, c: 3 }, b: { c: 4, d: 5, e: 6 } }
+    const objObjResult = { a: 1, b: 2, c: 4, d: 5, e: 6 }
+    const objArr = { a: [1, 2, 3], b: [3, 4, 5, 6] }
+    // no override on array result
+    const objArrResult = [1, 2, 3, 3, 4, 5, 6]
+
+    // case: array-array
+    expect(
+      new RuaCollection(arrArr).collapse().all()
+    ).toEqual(arrArrResult)
+
+    // case array-object
+    expect(
+      new RuaCollection(arrObj).collapse().all()
+    ).toEqual(arrObjResult)
+
+    // case object-object
+    expect(
+      new RuaCollection(objObj).collapse().all()
+    ).toEqual(objObjResult)
+
+    // case object-array
+    expect(
+      new RuaCollection(objArr).collapse().all()
+    ).toEqual(objArrResult)
   })
 })
