@@ -72,10 +72,11 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
       return this.create(_.chunk(<AnyArray>data, size))
     }
 
-    // if data is object, todo: optimization
+    // if data is object
     const output: AnyArray[] = []
     let counter: number = 0
     let chunkData: any = {}
+
     for (const key in data) {
       if (counter < size) {
         chunkData[key] = data[key]
@@ -89,7 +90,8 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
       }
       counter = 1
     }
-    if (_.size(chunkData)) {
+
+    if (_.isEmpty(chunkData)) {
       output.push(chunkData)
     }
 
@@ -102,7 +104,9 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
    * @returns {T}
    */
   public collapse(): RuaCollection {
-
+    // assign
+    const data = this.store
+    const type = _.isArray(data[_.keys(data)[0]]) ? 'array' : 'object'
     return this.create({})
   }
 
