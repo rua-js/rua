@@ -89,26 +89,29 @@ describe('RuaCollection Tests [until .isEmpty()]', () => {
   test('.chunk', () => {
     // prep
     const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    const arrResult = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10]]
     const obj = { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6, g: 7, h: 8, i: 9, j: 10 }
+    const objResult = [
+      { a: 1, b: 2, c: 3, d: 4 },
+      { e: 5, f: 6, g: 7, h: 8 },
+      { i: 9, j: 10 },
+    ]
 
     // case: array
     let collection = new RuaCollection(arr)
     expect(
       collection.chunk(4).all()
-    ).toEqual([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10]])
+    ).toEqual(arrResult)
 
     // case: object
     collection = new RuaCollection(obj)
     expect(
       collection.chunk(4).all()
-    ).toEqual([
-      { a: 1, b: 2, c: 3, d: 4 },
-      { e: 5, f: 6, g: 7, h: 8 },
-      { i: 9, j: 10 },
-    ])
+    ).toEqual(objResult)
   })
 
   test('.collapse', () => {
-
+    const arrArr = [[1, 2, 3], [4, 5, 6]]
+    const arrArrResult = [1, 2, 3, 4, 5, 6]
   })
 })
