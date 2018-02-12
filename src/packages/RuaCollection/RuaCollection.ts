@@ -125,6 +125,30 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
   }
 
   /**
+   * Combines the keys of the collection with the values of another array or collection
+   *
+   * @param {RuaCollection | AnyArray | AnyObject} values
+   * @returns {RuaCollection}
+   */
+  combine(values: RuaCollection | AnyArray | AnyObject): RuaCollection {
+    const data = this.store
+    const keys: AnyArray = _.values(data)
+    const _values: AnyArray = _.values(values)
+    const out: AnyObject = _.zipObject(keys, _values)
+    return this.create(out)
+  }
+
+  /**
+   * Appends the given array or collection values onto the end of the collection
+   *
+   * @param {RuaCollection | AnyArray | AnyObject} concat
+   * @returns {RuaCollection}
+   */
+  concat(concat: RuaCollection | AnyArray | AnyObject): RuaCollection {
+
+  }
+
+  /**
    * Creates a new instance of current class, and it's extendable
    *
    * @protected

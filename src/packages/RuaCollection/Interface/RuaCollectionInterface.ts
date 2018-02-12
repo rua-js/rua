@@ -35,16 +35,18 @@ interface RuaCollectionInterface<T> {
   /**
    * Combines the keys of the collection with the values of another array or collection
    *
+   * @param {T | AnyArray | AnyObject} values
    * @returns {T}
    */
-  combine(): T
+  combine(values: T | AnyArray | AnyObject): T
 
   /**
    * Appends the given array or collection values onto the end of the collection
    *
+   * @param {T | AnyArray | AnyObject} concat
    * @returns {T}
    */
-  concat(): T
+  concat(concat: T | AnyArray | AnyObject): T
 
   /**
    * Determines whether the collection contains a given item
