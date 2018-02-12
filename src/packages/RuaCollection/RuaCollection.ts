@@ -73,7 +73,7 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
     }
 
     // if data is object
-    const output: AnyArray[] = []
+    const out: AnyArray[] = []
     let counter: number = 0
     let chunkData: any = {}
 
@@ -84,30 +84,44 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
         continue
       }
       // prepare next chunk
-      output.push(chunkData)
+      out.push(chunkData)
       chunkData = {
         [key]: data[key]
       }
       counter = 1
     }
 
-    if (_.isEmpty(chunkData)) {
-      output.push(chunkData)
+    if (!_.isEmpty(chunkData)) {
+      out.push(chunkData)
     }
 
-    return this.create(output)
+    return this.create(out)
   }
 
   /**
    * Collapses a collection of arrays into a single, flat collection
    *
-   * @returns {T}
+   * @returns {RuaCollection}
    */
   public collapse(): RuaCollection {
     // assign
     const data = this.store
-    const type = _.isArray(data[_.keys(data)[0]]) ? 'array' : 'object'
-    return this.create({})
+    const isArray = _.isArray(data[_.keys(data)[0]])
+    let out: AnyArray | AnyObject = isArray ? [] : {}
+    // if result should be array
+    if (isArray) {
+      _.each(data, (item) => {
+        _.each(item, (value) => {
+          (out as AnyArray).push(value)
+        })
+      })
+      return this.create(out)
+    }
+    // if result should be object
+    _.each(data, (item) => {
+      out = {...out, ...item}
+    })
+    return this.create(out)
   }
 
   /**
