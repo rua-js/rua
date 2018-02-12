@@ -4,6 +4,9 @@ import * as _ from 'lodash'
 
 import { RuaCollectionInterface } from './Interface'
 
+/**
+ * @class provides a fluent, convenient wrapper for working with arrays of data
+ */
 class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface<RuaCollection> {
 
   /**
@@ -61,23 +64,46 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
    * @returns {RuaCollection}
    */
   public chunk(size: number): RuaCollection {
-    // if array is given
-    if (_.isArray(this.store)) {
-      return this.create(_.chunk(this.store, size))
+    // assign
+    const data: AnyArray | AnyObject = this.store
+
+    // if data is array
+    if (_.isArray(data)) {
+      return this.create(_.chunk(<AnyArray>data, size))
     }
 
-    // if object is given
-    const chunkData = []
-    let counter = 0
-    for (const key in this.store) {
+    // if data is object, todo: optimization
+    const output: AnyArray[] = []
+    let counter: number = 0
+    let chunkData: any = {}
+    for (const key in data) {
       if (counter < size) {
+        chunkData[key] = data[key]
         counter += 1
-
         continue
       }
+      // prepare next chunk
+      output.push(chunkData)
+      chunkData = {
+        [key]: data[key]
+      }
+      counter = 1
+    }
+    if (_.size(chunkData)) {
+      output.push(chunkData)
     }
 
-    return this
+    return this.create(output)
+  }
+
+  /**
+   * Collapses a collection of arrays into a single, flat collection
+   *
+   * @returns {T}
+   */
+  public collapse(): RuaCollection {
+
+    return this.create({})
   }
 
   /**
@@ -87,7 +113,7 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
    * @param {AnyObject | AnyArray | RuaCollection} data
    */
   protected create(data: AnyObject | AnyArray | RuaCollection) {
-    return new (<any>this.constructor(data))
+    return new (<any>this.constructor)(data)
   }
 }
 

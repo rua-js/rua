@@ -107,4 +107,8 @@ describe('RuaCollection Tests [until .isEmpty()]', () => {
       { i: 9, j: 10 },
     ])
   })
+
+  test('.collapse', () => {
+
+  })
 })
