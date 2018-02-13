@@ -30,7 +30,7 @@ RuaCollection (Proposal)
 ### 0.2.0
 - [x] Merge all essential packages into this repo
 - [ ] I18n
-- [ ] Restructure RuaApi
+- [x] Restructure Api
 
 ### 0.3.0
 - [ ] Optimize RuaDva
@@ -51,7 +51,7 @@ RuaCollection (Proposal)
 - RuaStorage
 - RuaFetch
 - RuaCache
-- RuaApi
+- Api
 
 ## Short Commit Name
 0: init
