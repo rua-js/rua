@@ -6,7 +6,7 @@ import * as _ from 'lodash'
 import { util } from '../RuaUtil'
 import { fetch as _fetch } from '../RuaFetch'
 
-class RuaApi extends AbstractRuaPackage implements CanConfig{
+class Api extends AbstractRuaPackage implements CanConfig{
 
   /**
    * Fetch instance
@@ -68,6 +68,7 @@ class RuaApi extends AbstractRuaPackage implements CanConfig{
    */
   public call(name: string, data?: AnyObject): Promise<Response> {
     const config = _.get(this.store, name)
+    console.log(this.store, name)
     // make sure has the api
     util.invariant(
       config,
@@ -78,9 +79,9 @@ class RuaApi extends AbstractRuaPackage implements CanConfig{
       url,
       ...rest
     } = config
-
+    console.log(this.fetch)
     return this.fetch(url, rest)
   }
 }
 
-export default RuaApi
+export default Api
