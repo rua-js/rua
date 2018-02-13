@@ -2,7 +2,7 @@ import {
   fetch,
 } from '../index'
 
-describe('RuaFetch Index Tests', () => {
+describe('Fetch Index Tests', () => {
   test('export correctly', () => {
     // case: fetch
     expect(

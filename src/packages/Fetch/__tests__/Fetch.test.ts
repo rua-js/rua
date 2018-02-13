@@ -5,9 +5,9 @@ import * as _ from 'lodash'
 import {
   HttpAbortException,
   HttpTimeoutException,
-} from '../../RuaException'
+} from '../../Exception'
 
-describe('RuaFetch', () => {
+describe('Fetch', () => {
   test('fetch', async () => {
     // case: success
     await expect(

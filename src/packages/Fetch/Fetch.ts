@@ -4,13 +4,13 @@ import * as _ from 'lodash'
 
 import fetch from './ThirdParty/fetch'
 import Interceptor from './Interceptor'
-import { InterceptorInterface, RuaFetchInterface } from './Interface'
+import { InterceptorInterface, FetchInterface } from './Interface'
 import {
   HttpAbortException,
   HttpTimeoutException,
-} from '../RuaException'
+} from '../Exception'
 
-class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface {
+class Fetch extends AbstractRuaPackage implements FetchInterface {
   /**
    * Interceptors
    *
@@ -89,7 +89,7 @@ class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface {
     // setup abort situations
     const promises = [
       fetch(this.url, this.options)
-        .then(RuaFetch.checkStatus)
+        .then(Fetch.checkStatus)
         .then(res => res.json())
         .then((data) => {
           return data
@@ -115,4 +115,4 @@ class RuaFetch extends AbstractRuaPackage implements RuaFetchInterface {
   }
 }
 
-export default RuaFetch
+export default Fetch

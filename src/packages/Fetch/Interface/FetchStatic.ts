@@ -1,7 +1,7 @@
 import { AnyObject } from 'rua-core/lib/Types'
 import { CatchedFetchResult, FetchResult } from '../Type'
 
-interface RuaFetchStatic {
+interface FetchStatic {
   fetch(url: string, options: AnyObject): Promise<FetchResult>
 
   catchedFetch(url: string, options: AnyObject): Promise<CatchedFetchResult>
@@ -11,4 +11,4 @@ interface RuaFetchStatic {
   checkStatus(response): AnyObject | void
 }
 
-export default RuaFetchStatic
+export default FetchStatic
