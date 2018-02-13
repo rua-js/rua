@@ -1,7 +1,7 @@
 import * as invariant from 'invariant'
 import * as _ from 'lodash'
 
-class RuaUtil {
+class Util {
   public static delay(time: number): Promise<void> {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -13,4 +13,4 @@ class RuaUtil {
   public static invariant = invariant
 }
 
-export default RuaUtil
+export default Util

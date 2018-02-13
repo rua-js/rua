@@ -1,6 +1,6 @@
 import { storage } from '../../Storage'
 import { cache } from '../index'
-import { util } from '../../RuaUtil'
+import { util } from '../../Util'
 
 describe('Cache Tests(storage part)', () => {
   test('.set, .get', async () => {

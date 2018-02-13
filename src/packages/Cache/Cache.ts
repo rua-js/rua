@@ -1,5 +1,5 @@
 import { storage } from '../Storage/'
-import RuaStorage from '../Storage/Storage'
+import Storage from '../Storage/Storage'
 
 import { CacheInterface } from './Interface'
 import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
@@ -13,9 +13,9 @@ class Cache extends AbstractRuaPackage implements CacheInterface {
   /**
    * Storage instance
    *
-   * @type {RuaStorage}
+   * @type {Storage}
    */
-  protected storage: RuaStorage = storage
+  protected storage: Storage = storage
 
   /**
    * Cached data count

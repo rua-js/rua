@@ -3,7 +3,7 @@ import AnyObject from 'rua-core/lib/Types/AnyObject'
 import CanConfig from 'rua-core/lib/Contracts/CanConfig'
 import * as _ from 'lodash'
 
-import { util } from '../RuaUtil'
+import { util } from '../Util'
 import { fetch as _fetch } from '../Fetch'
 
 class Api extends AbstractRuaPackage implements CanConfig{
