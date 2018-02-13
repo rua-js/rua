@@ -68,7 +68,7 @@ class Api extends AbstractRuaPackage implements CanConfig{
    */
   public call(name: string, data?: AnyObject): Promise<Response> {
     const config = _.get(this.store, name)
-    console.log(this.store, name)
+
     // make sure has the api
     util.invariant(
       config,
@@ -79,7 +79,7 @@ class Api extends AbstractRuaPackage implements CanConfig{
       url,
       ...rest
     } = config
-    console.log(this.fetch)
+
     return this.fetch(url, rest)
   }
 }
