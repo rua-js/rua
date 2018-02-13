@@ -1,13 +1,13 @@
 import {
-  RuaApi,
+  Api,
   api,
 } from '../index'
 
-describe('RuaApi Index Tests', () => {
+describe('Api Index Tests', () => {
   test('export correctly', () => {
     // case: instance
     expect(
-      api instanceof RuaApi
+      api instanceof Function
     ).toBeTruthy()
   })
 })

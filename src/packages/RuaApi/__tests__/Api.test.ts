@@ -1,11 +1,11 @@
-import RuaApi from '../RuaApi'
+import Api from '../Api'
 import { api } from '../index'
 
-describe('RuaApi Tests', () => {
+describe('Api Tests', () => {
   test('init', () => {
     // case: new
     expect(
-      new RuaApi() instanceof RuaApi
+      new Api() instanceof Api
     ).toBeTruthy()
   })
   test('usage', async () => {
@@ -20,11 +20,11 @@ describe('RuaApi Tests', () => {
     })
     // case: success
     await expect(
-      api.call('test.go')
+      api('test.go')
     ).resolves.toBeInstanceOf(Object)
     // case: correct data
     await expect(
-      api.call('test.go')
+      api('test.go')
     ).resolves.toHaveProperty('page')
   })
 })
