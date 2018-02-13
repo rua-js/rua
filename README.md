@@ -29,28 +29,29 @@ RuaCollection (Proposal)
 
 ### 0.2.0
 - [x] Merge all essential packages into this repo
-- [ ] I18n
+- [ ] Localization(I18n)
 - [x] Restructure Api
+- [ ] Rename all packages
 
 ### 0.3.0
 - [ ] Optimize RuaDva
-- [ ] Upgrade RuaFetch
+- [ ] Upgrade Fetch
 - [ ] Upgrade HttpExceptions
-- [ ] RuaCollection (Prototyping)
+- [ ] Collection (Prototyping)
 
 ### 0.4.0 & later
-- [ ] RuaClock (Prototyping)
-- [ ] RuaPayment (Drafting)
-- [ ] RuaSocket (Drafting)
-- [ ] RuaSDK (Drafting)
+- [ ] Clock (Prototyping)
+- [ ] Payment (Drafting)
+- [ ] Socket (Drafting)
+- [ ] SDK (Drafting)
 
 ## Check List
-- RuaDva
-- RuaEvent
-- RuaException
-- RuaStorage
-- RuaFetch
-- RuaCache
+- Dva
+- Event
+- Exception
+- Storage
+- Fetch
+- Cache
 - Api
 
 ## Short Commit Name
