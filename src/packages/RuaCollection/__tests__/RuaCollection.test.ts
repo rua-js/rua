@@ -142,4 +142,9 @@ describe('RuaCollection Tests [until .isEmpty()]', () => {
       new RuaCollection(objArr).collapse().all()
     ).toEqual(objArrResult)
   })
+
+  test('.combine', () => {
+    const arrBase = []
+    const object
+  })
 })

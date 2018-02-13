@@ -119,7 +119,7 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
     }
     // if result should be object
     _.each(data, (item) => {
-      out = {...out, ...item}
+      out = { ...out, ...item }
     })
     return this.create(out)
   }
@@ -127,13 +127,23 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
   /**
    * Combines the keys of the collection with the values of another array or collection
    *
-   * @param {RuaCollection | AnyArray | AnyObject} values
+   * @param {RuaCollection | AnyArray | AnyObject} collection
    * @returns {RuaCollection}
    */
-  combine(values: RuaCollection | AnyArray | AnyObject): RuaCollection {
+  combine(collection: RuaCollection | AnyArray | AnyObject): RuaCollection {
     const data = this.store
+
+    const _collection: AnyArray | AnyObject = this.parseCollection(collection)
+
+    // if base data or given data is
+    if (_.isArray(data) || _.isArray(_collection)) {
+      return this.create((data as AnyArray).concat(_collection))
+    }
+
     const keys: AnyArray = _.values(data)
-    const _values: AnyArray = _.values(values)
+    let _values: AnyArray
+      _values = _.values((values as RuaCollection).all())
+      _values = _.values(values)
     const out: AnyObject = _.zipObject(keys, _values)
     return this.create(out)
   }
@@ -156,6 +166,19 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
    */
   protected create(data: AnyObject | AnyArray | RuaCollection) {
     return new (<any>this.constructor)(data)
+  }
+
+  /**
+   * parse data
+   *
+   * @param {RuaCollection | AnyArray | AnyObject} collection
+   * @returns {AnyArray | AnyObject}
+   */
+  protected parseCollection(collection: RuaCollection | AnyArray | AnyObject): AnyObject | AnyArray {
+    if (collection instanceof RuaCollection) {
+      return (collection as RuaCollection).all()
+    }
+    return collection
   }
 }
 
