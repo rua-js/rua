@@ -29,26 +29,20 @@ RuaCollection (Proposal)
 
 ### 0.2.0
 - [x] Merge all essential packages into this repo
-- [ ] Optimize RuaDva
-- [ ] i18n
-- [ ] Rename all packages (Drafting)
+- [ ] I18n
 - [ ] Restructure RuaApi
 
 ### 0.3.0
+- [ ] Optimize RuaDva
 - [ ] Upgrade RuaFetch
-- [ ] RuaClock (Prototyping)
 - [ ] Upgrade HttpExceptions
 - [ ] RuaCollection (Prototyping)
 
-### 0.4.0
+### 0.4.0 & later
+- [ ] RuaClock (Prototyping)
 - [ ] RuaPayment (Drafting)
 - [ ] RuaSocket (Drafting)
 - [ ] RuaSDK (Drafting)
-
-### 1.0.0
-- [ ] RuaUI (Drafting)
-
-Expecting adding extra packages to the RoadMap
 
 ## Check List
 - RuaDva
