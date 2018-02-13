@@ -27,11 +27,6 @@ RuaCollection (Proposal)
 
 ## RoadMap
 
-### 0.2.0
-- [x] Merge all essential packages into this repo
-- [x] Restructure Api
-- [ ] Rename all packages
-
 ### 0.3.0
 - [ ] Localization(I18n)
 

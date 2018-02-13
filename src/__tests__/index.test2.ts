@@ -6,7 +6,7 @@ import {
   // catchedFetch,
 } from '../index'
 
-import RuaStorage from '../packages/Storage/Storage'
+import Storage from '../packages/Storage/Storage'
 import RuaEvent from '../packages/Event/Event'
 
 describe('Rua Index Test', () => {
@@ -14,7 +14,7 @@ describe('Rua Index Test', () => {
     // *** Primitives ***
     // case: storage
     expect(
-      storage instanceof RuaStorage
+      storage instanceof Storage
     ).toBeTruthy()
     // case: event
     expect(
