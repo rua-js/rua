@@ -1,11 +1,11 @@
 // Third-party Dependency
 
 // Self Dependency
-import RuaEvent from './RuaEvent'
+import Event from './Event'
 
 // Rua Core Dependency
 import { packager } from 'rua-core/lib'
 
 // @ts-ignore: subclass
-export const event: RuaEvent = packager.registerIfNotRegistered('rua-event', new RuaEvent())
+export const event: Event = packager.registerIfNotRegistered('rua-event', new Event())
 

@@ -1,29 +1,29 @@
 // @ts-ignore: wrong error
-import RuaEvent from '../RuaEvent'
+import Event from '../Event'
 // @ts-ignore: wrong error
 import * as EventEmitter from 'wolfy87-eventemitter'
 // import jest from 'jest'
 
-describe('RuaEvent Tests', () => {
+describe('Event Tests', () => {
   test('initialize correctly', () => {
     // case: can initialize
     expect(
-      (new RuaEvent()) instanceof RuaEvent
+      (new Event()) instanceof Event
     ).toBeTruthy()
     // case: store is correct
     expect(
-      (new RuaEvent()).store instanceof EventEmitter
+      (new Event()).store instanceof EventEmitter
     ).toBeTruthy()
     // case: booted
     expect(
-      (new RuaEvent()).booted
+      (new Event()).booted
     ).toBeTruthy()
   })
   test('basic usage (.on, .once, .emit)', () => {
     // preparation
     const onceCallback = jest.fn()
     const onCallback = jest.fn()
-    const evt = new RuaEvent()
+    const evt = new Event()
     evt.on('test-on', onCallback)
     evt.once('test-once', onceCallback)
     Array(10).fill(1).forEach(() => {
@@ -41,7 +41,7 @@ describe('RuaEvent Tests', () => {
   })
   test('set and get (.get, .all, .load)', () => {
     // preparation
-    const evt = new RuaEvent()
+    const evt = new Event()
     const fakeFn = jest.fn()
     const fakeFn2 = jest.fn()
     const fakeFn3 = jest.fn()
@@ -98,7 +98,7 @@ describe('RuaEvent Tests', () => {
   })
   test('removal (.remove, .clear)', () => {
     // preparation
-    const evt = new RuaEvent()
+    const evt = new Event()
     const fakeFn = jest.fn()
     evt.load({
       test1: fakeFn,

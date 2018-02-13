@@ -3,9 +3,9 @@ import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 import * as EventEmitter from 'wolfy87-eventemitter'
 import { MultiEvents } from './Types'
 import { AnyObject } from 'rua-core/lib/Types'
-import { RuaEventInterface } from './Interface'
+import { EventInterface } from './Interface'
 
-class RuaEvent extends AbstractRuaPackage implements RuaEventInterface{
+class Event extends AbstractRuaPackage implements EventInterface{
 
   public store: EventEmitter
 
@@ -20,9 +20,9 @@ class RuaEvent extends AbstractRuaPackage implements RuaEventInterface{
    *
    * @param {string | RegExp} event
    * @param {Function} callback
-   * @returns {RuaEvent}
+   * @returns {Event}
    */
-  public on(event: string | RegExp, callback: Function): RuaEvent {
+  public on(event: string | RegExp, callback: Function): Event {
     // @ts-ignore: no error here
     this.store.on(event, callback)
     return this
@@ -34,9 +34,9 @@ class RuaEvent extends AbstractRuaPackage implements RuaEventInterface{
    *
    * @param {string | RegExp} event
    * @param {Function} callback
-   * @returns {RuaEvent}
+   * @returns {Event}
    */
-  public once(event: string | RegExp, callback: Function): RuaEvent {
+  public once(event: string | RegExp, callback: Function): Event {
     // @ts-ignore: no error here
     this.store.once(event, callback)
     return this
@@ -47,9 +47,9 @@ class RuaEvent extends AbstractRuaPackage implements RuaEventInterface{
    *
    * @param {string | RegExp} event
    * @param args
-   * @returns {RuaEvent}
+   * @returns {Event}
    */
-  public emit(event: string | RegExp, ...args: any[]): RuaEvent {
+  public emit(event: string | RegExp, ...args: any[]): Event {
     // @ts-ignore: no error here
     this.store.emit(event, args)
     return this
@@ -60,9 +60,9 @@ class RuaEvent extends AbstractRuaPackage implements RuaEventInterface{
    *
    * @param {string | RegExp} event
    * @param {Function} callback
-   * @returns {RuaEvent}
+   * @returns {Event}
    */
-  public remove(event: string | RegExp, callback: Function): RuaEvent {
+  public remove(event: string | RegExp, callback: Function): Event {
     // @ts-ignore: no error here
     this.store.removeListener(event, callback)
     return this
@@ -71,9 +71,9 @@ class RuaEvent extends AbstractRuaPackage implements RuaEventInterface{
   /**
    * Removes all listeners.
    *
-   * @returns {RuaEvent}
+   * @returns {Event}
    */
-  public clear(): RuaEvent {
+  public clear(): Event {
     this.store.removeAllListeners()
     return this
   }
@@ -103,12 +103,12 @@ class RuaEvent extends AbstractRuaPackage implements RuaEventInterface{
    * Load event listener from a event object
    *
    * @param {MultipleEvents} events
-   * @returns {RuaEvent}
+   * @returns {Event}
    */
-  public load(events: MultiEvents): RuaEvent {
+  public load(events: MultiEvents): Event {
     this.store.addListeners(events)
     return this
   }
 }
 
-export default RuaEvent
+export default Event
