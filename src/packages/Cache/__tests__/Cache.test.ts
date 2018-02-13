@@ -2,7 +2,7 @@ import {
   cache,
 } from '../index'
 
-describe('RuaCache Tests(cache part)', () => {
+describe('Cache Tests(cache part)', () => {
   test('.set, .get', () => {
     // prep: .set
     cache.set('test1', 'test-here1')

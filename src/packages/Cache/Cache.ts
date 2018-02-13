@@ -1,14 +1,14 @@
 import { storage } from '../RuaStorage/'
 import RuaStorage from '../RuaStorage/RuaStorage'
 
-import { RuaCacheInterface } from './Interface'
+import { CacheInterface } from './Interface'
 import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 import { AnyData, AnyObject } from 'rua-core/lib/Types'
 import * as _ from 'lodash'
 
-class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
+class Cache extends AbstractRuaPackage implements CacheInterface {
 
-  protected prefix: string = 'RuaCache-'
+  protected prefix: string = 'Cache-'
 
   /**
    * RuaStorage instance
@@ -131,4 +131,4 @@ class RuaCache extends AbstractRuaPackage implements RuaCacheInterface {
 
 }
 
-export default RuaCache
+export default Cache

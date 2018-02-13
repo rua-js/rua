@@ -1,13 +1,13 @@
 import {
   cache,
-  RuaCache,
+  Cache,
 } from '../index'
 
-describe('RuaCache Index Tests', () => {
+describe('Cache Index Tests', () => {
   test('export correctly', () => {
     // case: cache
     expect(
-      cache instanceof RuaCache
+      cache instanceof Cache
     ).toBeTruthy()
   })
 })

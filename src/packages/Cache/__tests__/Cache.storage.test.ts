@@ -2,7 +2,7 @@ import { storage } from '../../RuaStorage'
 import { cache } from '../index'
 import { util } from '../../RuaUtil'
 
-describe('RuaCache Tests(storage part)', () => {
+describe('Cache Tests(storage part)', () => {
   test('.set, .get', async () => {
     // prep: .set
     await cache.set('test1', 'test-here1')
