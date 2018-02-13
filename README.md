@@ -29,17 +29,21 @@ RuaCollection (Proposal)
 
 ### 0.2.0
 - [x] Merge all essential packages into this repo
-- [ ] Localization(I18n)
 - [x] Restructure Api
 - [ ] Rename all packages
 
 ### 0.3.0
+- [ ] Localization(I18n)
+
+### 0.4.0
 - [ ] Optimize RuaDva
 - [ ] Upgrade Fetch
 - [ ] Upgrade HttpExceptions
+
+### 0.5.0
 - [ ] Collection (Prototyping)
 
-### 0.4.0 & later
+### later
 - [ ] Clock (Prototyping)
 - [ ] Payment (Drafting)
 - [ ] Socket (Drafting)
