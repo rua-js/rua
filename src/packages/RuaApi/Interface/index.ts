@@ -1,5 +1,5 @@
-import RuaApiInterface from './RuaApiInterface'
+import ApiInterface from './ApiInterface'
 
 export {
-  RuaApiInterface,
+  ApiInterface,
 }
