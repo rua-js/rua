@@ -6,7 +6,7 @@ import {
   // catchedFetch,
 } from '../index'
 
-import RuaStorage from '../packages/RuaStorage/RuaStorage'
+import RuaStorage from '../packages/Storage/Storage'
 import RuaEvent from '../packages/Event/Event'
 
 describe('Rua Index Test', () => {

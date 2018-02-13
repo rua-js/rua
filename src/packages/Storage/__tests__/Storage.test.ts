@@ -1,8 +1,8 @@
-import RuaStorage from '../RuaStorage'
+import Storage from '../Storage'
 
-describe('RuaStorage', () => {
+describe('Storage', () => {
   test('can initialize', () => {
-    const storage = new RuaStorage()
+    const storage = new Storage()
     // case: booted
     expect(
       storage.booted
@@ -13,7 +13,7 @@ describe('RuaStorage', () => {
     ).toBeTruthy()
   })
   test('.set & .get', async () => {
-    const storage = new RuaStorage()
+    const storage = new Storage()
     // .set
     await storage.set('test1', 'test-here')
     // .get
@@ -22,7 +22,7 @@ describe('RuaStorage', () => {
     ).resolves.toBe('test-here')
   })
   test('.remove', async () => {
-    const storage = new RuaStorage()
+    const storage = new Storage()
     // .set
     await storage.set('test1', 'test-here')
     // .remove
@@ -33,7 +33,7 @@ describe('RuaStorage', () => {
     ).resolves.toBe(undefined)
   })
   test('.length', async () => {
-    const storage = new RuaStorage()
+    const storage = new Storage()
     // .set
     await storage.set('test1', 'test-here')
     await storage.set('test2', 'test-here')
@@ -44,7 +44,7 @@ describe('RuaStorage', () => {
     ).resolves.toBe(3)
   })
   test('.clear', async () => {
-    const storage = new RuaStorage()
+    const storage = new Storage()
     // .set
     await storage.set('test1', 'test-here')
     await storage.set('test2', 'test-here')
@@ -57,7 +57,7 @@ describe('RuaStorage', () => {
     ).resolves.toBe(undefined)
   })
   test('.keys', async () => {
-    const storage = new RuaStorage()
+    const storage = new Storage()
     // .set
     await storage.set('test1', 'test-here')
     await storage.set('test2', 'test-here')
@@ -68,7 +68,7 @@ describe('RuaStorage', () => {
     ).resolves.toEqual(['test1', 'test2', 'test3'])
   })
   test('.all', async () => {
-    const storage = new RuaStorage()
+    const storage = new Storage()
     // .set
     await storage.set('test1', 'test-here')
     await storage.set('test2', 'test-here')
@@ -83,7 +83,7 @@ describe('RuaStorage', () => {
     })
   })
   test('multi .set', async () => {
-    const storage = new RuaStorage()
+    const storage = new Storage()
     // multi .set
     await storage.set(['test1', 'test2', 'test3'], ['test-here1', 'test-here2', 'test-here3'])
     // check
@@ -96,7 +96,7 @@ describe('RuaStorage', () => {
     })
   })
   test('multi .get', async () => {
-    const storage = new RuaStorage()
+    const storage = new Storage()
     // .set
     await storage.set('test1', 'test-here1')
     await storage.set('test2', 'test-here2')
@@ -111,7 +111,7 @@ describe('RuaStorage', () => {
     })
   })
   test('multi .remove', async () => {
-    const storage = new RuaStorage()
+    const storage = new Storage()
     await storage.set('test1', 'test-here1')
     await storage.set('test2', 'test-here2')
     await storage.set('test3', 'test-here3')

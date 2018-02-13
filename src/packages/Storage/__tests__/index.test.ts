@@ -1,12 +1,12 @@
 import { storage } from '../index'
-import RuaStorage from '../RuaStorage'
+import Storage from '../Storage'
 import { packager } from 'rua-core/lib'
 
 describe('Index', () => {
   test('export correctly', () => {
     // case: instance
     expect(
-      storage instanceof RuaStorage
+      storage instanceof Storage
     ).toBeTruthy()
   })
   test('registered correctly', () => {
@@ -16,7 +16,7 @@ describe('Index', () => {
     ).toBeTruthy()
     // case: get
     expect(
-      packager.getPackage('rua-storage') instanceof RuaStorage
+      packager.getPackage('rua-storage') instanceof Storage
     ).toBeTruthy()
   })
 })

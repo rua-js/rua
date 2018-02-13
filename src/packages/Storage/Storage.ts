@@ -3,13 +3,13 @@ import * as localForage from 'localforage'
 import * as _ from 'lodash'
 
 // Self Dependency
-import { RuaStorageInterface } from './Interface'
+import { StorageInterface } from './Interface'
 
 // Rua Core Dependency
 import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 import { AnyObject, AnyData } from 'rua-core/lib/Types'
 
-class RuaStorage extends AbstractRuaPackage implements RuaStorageInterface {
+class Storage extends AbstractRuaPackage implements StorageInterface {
 
   constructor() {
     super()
@@ -123,4 +123,4 @@ class RuaStorage extends AbstractRuaPackage implements RuaStorageInterface {
   }
 }
 
-export default RuaStorage
+export default Storage

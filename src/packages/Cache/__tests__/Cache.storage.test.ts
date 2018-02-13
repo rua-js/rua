@@ -1,4 +1,4 @@
-import { storage } from '../../RuaStorage'
+import { storage } from '../../Storage'
 import { cache } from '../index'
 import { util } from '../../RuaUtil'
 

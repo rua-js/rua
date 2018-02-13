@@ -1,8 +1,8 @@
 // Primitive library
-import { storage } from './packages/RuaStorage'
+import { storage } from './packages/Storage'
 import { event } from './packages/Event'
-import { Exception } from './packages/RuaException'
-import { fetch } from './packages/RuaFetch'
+import { Exception } from './packages/Exception'
+import { fetch } from './packages/Fetch'
 
 // Essential library
 import { cache } from './packages/Cache'
