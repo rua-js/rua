@@ -1,6 +1,6 @@
 // Primitive library
 import { storage } from './packages/RuaStorage'
-import { event } from './packages/RuaEvent'
+import { event } from './packages/Event'
 import { Exception } from './packages/RuaException'
 import { fetch } from './packages/RuaFetch'
 

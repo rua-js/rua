@@ -7,7 +7,7 @@ import {
 } from '../index'
 
 import RuaStorage from '../packages/RuaStorage/RuaStorage'
-import RuaEvent from '../packages/RuaEvent/RuaEvent'
+import RuaEvent from '../packages/Event/Event'
 
 describe('Rua Index Test', () => {
   test('exportation', () => {
