@@ -1,6 +1,6 @@
 import { AnyData, AnyObject, AnyArray } from 'rua-core/lib/Types'
 
-interface RuaCollectionInterface<T> {
+interface CollectionInterface<T> {
   /**
    * Returns the underlying array/object represented by the collection
    *
@@ -287,4 +287,4 @@ interface RuaCollectionInterface<T> {
   keyBy(key: number | string): T
 }
 
-export default RuaCollectionInterface
+export default CollectionInterface

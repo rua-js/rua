@@ -2,18 +2,18 @@ import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 import { AnyObject, AnyArray } from 'rua-core/lib/Types'
 import * as _ from 'lodash'
 
-import { RuaCollectionInterface } from './Interface'
+import { CollectionInterface } from './Interface'
 
 /**
  * @class provides a fluent, convenient wrapper for working with arrays of data
  */
-class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface<RuaCollection> {
+class Collection extends AbstractRuaPackage implements CollectionInterface<Collection> {
 
   /**
    * @constructor
-   * @param {AnyObject | AnyArray | RuaCollection} data
+   * @param {AnyObject | AnyArray | Collection} data
    */
-  public constructor(data: AnyObject | AnyArray | RuaCollection) {
+  public constructor(data: AnyObject | AnyArray | Collection) {
     super()
     // deep clone
     this.store = _.cloneDeep(data)
@@ -61,9 +61,9 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
    * Breaks the collection into multiple, smaller collections of a given size
    *
    * @param {number} size
-   * @returns {RuaCollection}
+   * @returns {Collection}
    */
-  public chunk(size: number): RuaCollection {
+  public chunk(size: number): Collection {
     // assign
     const data: AnyArray | AnyObject = this.store
 
@@ -101,9 +101,9 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
   /**
    * Collapses a collection of arrays into a single, flat collection
    *
-   * @returns {RuaCollection}
+   * @returns {Collection}
    */
-  public collapse(): RuaCollection {
+  public collapse(): Collection {
     // assign
     const data = this.store
     const isArray = _.isArray(data[_.keys(data)[0]])
@@ -127,10 +127,10 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
   /**
    * Combines the keys of the collection with the values of another array or collection
    *
-   * @param {RuaCollection | AnyArray | AnyObject} collection
-   * @returns {RuaCollection}
+   * @param {Collection | AnyArray | AnyObject} collection
+   * @returns {Collection}
    */
-  combine(collection: RuaCollection | AnyArray | AnyObject): RuaCollection {
+  combine(collection: Collection | AnyArray | AnyObject): Collection {
     const data = this.store
 
     const _collection: AnyArray | AnyObject = this.parseCollection(collection)
@@ -142,7 +142,7 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
 
     const keys: AnyArray = _.values(data)
     let _values: AnyArray
-      _values = _.values((values as RuaCollection).all())
+      _values = _.values((values as Collection).all())
       _values = _.values(values)
     const out: AnyObject = _.zipObject(keys, _values)
     return this.create(out)
@@ -151,10 +151,10 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
   /**
    * Appends the given array or collection values onto the end of the collection
    *
-   * @param {RuaCollection | AnyArray | AnyObject} concat
-   * @returns {RuaCollection}
+   * @param {Collection | AnyArray | AnyObject} concat
+   * @returns {Collection}
    */
-  concat(concat: RuaCollection | AnyArray | AnyObject): RuaCollection {
+  concat(concat: Collection | AnyArray | AnyObject): Collection {
 
   }
 
@@ -162,24 +162,24 @@ class RuaCollection extends AbstractRuaPackage implements RuaCollectionInterface
    * Creates a new instance of current class, and it's extendable
    *
    * @protected
-   * @param {AnyObject | AnyArray | RuaCollection} data
+   * @param {AnyObject | AnyArray | Collection} data
    */
-  protected create(data: AnyObject | AnyArray | RuaCollection) {
+  protected create(data: AnyObject | AnyArray | Collection) {
     return new (<any>this.constructor)(data)
   }
 
   /**
    * parse data
    *
-   * @param {RuaCollection | AnyArray | AnyObject} collection
+   * @param {Collection | AnyArray | AnyObject} collection
    * @returns {AnyArray | AnyObject}
    */
-  protected parseCollection(collection: RuaCollection | AnyArray | AnyObject): AnyObject | AnyArray {
-    if (collection instanceof RuaCollection) {
-      return (collection as RuaCollection).all()
+  protected parseCollection(collection: Collection | AnyArray | AnyObject): AnyObject | AnyArray {
+    if (collection instanceof Collection) {
+      return (collection as Collection).all()
     }
     return collection
   }
 }
 
-export default RuaCollection
+export default Collection

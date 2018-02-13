@@ -1,10 +1,10 @@
-import RuaCollection from '../RuaCollection'
+import Collection from '../Collection'
 
-describe('RuaCollection Tests [until .isEmpty()]', () => {
+describe('Collection Tests [until .isEmpty()]', () => {
   test('.all', () => {
     // prep
     const data = { test: 'all' }
-    const collection = new RuaCollection(data)
+    const collection = new Collection(data)
 
     // case: NO reference
     expect(
@@ -38,49 +38,49 @@ describe('RuaCollection Tests [until .isEmpty()]', () => {
     }
 
     // case: integer array
-    let collection = new RuaCollection(intArr)
+    let collection = new Collection(intArr)
     expect(
       collection.avg()
     ).toBe(5)
 
     // case: string array
-    collection = new RuaCollection(strArr)
+    collection = new Collection(strArr)
     expect(
       collection.avg()
     ).toBe(5)
 
     // case: integer-value object
-    collection = new RuaCollection(intObj)
+    collection = new Collection(intObj)
     expect(
       collection.avg()
     ).toBe(5)
 
     // case: string-value object
-    collection = new RuaCollection(strObj)
+    collection = new Collection(strObj)
     expect(
       collection.avg()
     ).toBe(5)
 
     // case: keyed, array-array
-    collection = new RuaCollection(keyedArrArr)
+    collection = new Collection(keyedArrArr)
     expect(
       collection.avg(0)
     ).toBe(5)
 
     // case: keyed, array-object
-    collection = new RuaCollection(keyedArrObj)
+    collection = new Collection(keyedArrObj)
     expect(
       collection.avg('a')
     ).toBe(5)
 
     // case: keyed, object-array
-    collection = new RuaCollection(keyedObjArr)
+    collection = new Collection(keyedObjArr)
     expect(
       collection.avg(0)
     ).toBe(5)
 
     // case: keyed, object-object
-    collection = new RuaCollection(keyedObjObj)
+    collection = new Collection(keyedObjObj)
     expect(
       collection.avg('a')
     ).toBe(5)
@@ -98,13 +98,13 @@ describe('RuaCollection Tests [until .isEmpty()]', () => {
     ]
 
     // case: array
-    let collection = new RuaCollection(arr)
+    let collection = new Collection(arr)
     expect(
       collection.chunk(4).all()
     ).toEqual(arrResult)
 
     // case: object
-    collection = new RuaCollection(obj)
+    collection = new Collection(obj)
     expect(
       collection.chunk(4).all()
     ).toEqual(objResult)
@@ -124,22 +124,22 @@ describe('RuaCollection Tests [until .isEmpty()]', () => {
 
     // case: array-array
     expect(
-      new RuaCollection(arrArr).collapse().all()
+      new Collection(arrArr).collapse().all()
     ).toEqual(arrArrResult)
 
     // case array-object
     expect(
-      new RuaCollection(arrObj).collapse().all()
+      new Collection(arrObj).collapse().all()
     ).toEqual(arrObjResult)
 
     // case object-object
     expect(
-      new RuaCollection(objObj).collapse().all()
+      new Collection(objObj).collapse().all()
     ).toEqual(objObjResult)
 
     // case object-array
     expect(
-      new RuaCollection(objArr).collapse().all()
+      new Collection(objArr).collapse().all()
     ).toEqual(objArrResult)
   })
 
