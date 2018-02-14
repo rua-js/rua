@@ -20,15 +20,18 @@ class Rua implements CanConfig
    *
    * @param {AnyObject} config
    */
-  public config(config: AnyObject): void
+  public config(config?: AnyObject): AnyObject
   {
+    // no configuration merge
     if (!config) {
-      return
+      return this.configuration
     }
-    this.configuration = {...this.configuration, ...config}
+
+    // merge and return configuration
+    return this.configuration = {...this.configuration, ...config}
   }
 
-  public start(config: AnyObject): void {
-
+  public start(config?: AnyObject): void {
+    this.config(config)
   }
 }
