@@ -9,11 +9,19 @@ import { AnyObject } from 'rua-core/lib/Types'
 class Rua implements CanConfig
 {
   /**
-   * Default configuration
+   * Default configurations
    *
    * @type {AnyObject}
    */
-  protected configuration: AnyObject = {}
+  protected configuration: AnyObject = {
+    modules: ['*']
+  }
+
+  /**
+   * All available modules
+   * @type {any[]}
+   */
+  protected availableModules: Array<string> = []
 
   /**
    * Configs rua
@@ -28,10 +36,27 @@ class Rua implements CanConfig
     }
 
     // merge and return configuration
-    return this.configuration = {...this.configuration, ...config}
+    return this.configuration = { ...this.configuration, ...config }
   }
 
-  public start(config?: AnyObject): void {
+  /**
+   * Starts rua.js with configurations
+   *
+   * @param {AnyObject} config
+   */
+  public start(config?: AnyObject): void
+  {
     this.config(config)
+
+  }
+
+  protected loadModules(): void
+  {
+    const modules = this.configuration.modules
+    // load all modules if first modules is '*'
+    if (modules[0] === '*')
+    {
+
+    }
   }
 }
