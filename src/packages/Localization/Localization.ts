@@ -12,7 +12,7 @@ class Localization extends AbstractRuaPackage implements LocalizationInterface
   public constructor()
   {
     super()
-    this.store = {}
+    this.store = I18n
     this.booted = true
   }
 
