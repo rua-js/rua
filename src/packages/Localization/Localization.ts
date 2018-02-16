@@ -1,7 +1,7 @@
 import AbstractRuaPackage from 'rua-core/lib/Abstractions/AbstractRuaPackage'
 import { LocalizationInterface } from './Interface'
 import { AnyObject } from 'rua-core/lib/Types'
-import * as I18n from 'i18n-js'
+import I18n from './ThirdParty/i18n'
 
 class Localization extends AbstractRuaPackage implements LocalizationInterface
 {
