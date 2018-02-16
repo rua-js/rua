@@ -18,8 +18,7 @@ class Storage extends AbstractRuaPackage implements StorageInterface {
 
   public async set(key: string | string[], value: AnyData | AnyData[]): Promise<void> {
     if (_.isArray(key)) {
-      // @ts-ignore
-      const values: string[] = value.map(item => JSON.stringify(item))
+      const values: string[] = <string[]>(<AnyObject[]>value).map((item: AnyData) => JSON.stringify(item))
       // @ts-ignore
       const pair: [string, string][] = _.zip(
         <string[]>key,
