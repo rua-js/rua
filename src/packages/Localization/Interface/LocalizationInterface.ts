@@ -7,7 +7,7 @@ interface LocalizationInterface
    *
    * @param {string} locale
    */
-  set(locale: string): void
+  setLocale(locale: string): void
 
   /**
    * Loads translations

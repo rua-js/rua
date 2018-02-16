@@ -21,7 +21,7 @@ class Localization extends AbstractRuaPackage implements LocalizationInterface
    *
    * @param {string} locale
    */
-  public set(locale: string): void
+  public setLocale(locale: string): void
   {
 
   }
