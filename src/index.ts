@@ -6,7 +6,7 @@ import { fetch } from './packages/Fetch'
 
 // Essential library
 import { cache } from './packages/Cache'
-import { api, Api } from './packages/Api'
+import { api } from './packages/Api'
 
 // Deep-integrated library
 
@@ -32,6 +32,5 @@ export {
   // rua-cache
   cache,
   // rua-api
-  Api,
   api,
 }
