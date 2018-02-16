@@ -2296,6 +2296,12 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-native-i18n@^2.0.12:
+  version "2.0.12"
+  resolved "https://registry.npmjs.org/react-native-i18n/-/react-native-i18n-2.0.12.tgz#4a503cc73b2fe55e8518f6d4a1340d3b449d8d1a"
+  dependencies:
+    i18n-js "^3.0.3"
+
 read-pkg-up@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/read-pkg-up/-/read-pkg-up-1.0.1.tgz#9d63c13276c065918d57f002a57f40a1b643fb02"
