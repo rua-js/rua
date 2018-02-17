@@ -7,11 +7,9 @@ import { EventInterface } from './Interface'
 
 class Event extends AbstractRuaPackage implements EventInterface{
 
-  public store: EventEmitter
-
   constructor() {
     super()
-    this.saveStore(new EventEmitter())
+    this.store = new EventEmitter()
     this.booted = true
   }
 
