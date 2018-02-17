@@ -7,6 +7,7 @@ import { fetch } from './packages/Fetch'
 // Essential library
 import { cache } from './packages/Cache'
 import { api } from './packages/Api'
+import { locale, t, __ } from './packages/Localization'
 
 // Deep-integrated library
 
@@ -33,4 +34,8 @@ export {
   cache,
   // rua-api
   api,
+  // rua-localization
+  locale,
+  t,
+  __,
 }
