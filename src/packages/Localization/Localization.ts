@@ -12,7 +12,8 @@ class Localization extends AbstractRuaPackage implements LocalizationInterface
   public constructor()
   {
     super()
-    this.store = I18n
+    this.driver = I18n
+    this.driver.fallbacks = true
     this.booted = true
   }
 
@@ -23,7 +24,17 @@ class Localization extends AbstractRuaPackage implements LocalizationInterface
    */
   public setLocale(locale: string): void
   {
+    this.driver.locale = locale
+  }
 
+  /**
+   * Sets default locale
+   *
+   * @param {string} locale
+   */
+  setDefaultLocale(locale: string): void
+  {
+    this.driver.defaultLocale = locale
   }
 
   /**
@@ -33,7 +44,7 @@ class Localization extends AbstractRuaPackage implements LocalizationInterface
    */
   public load(translations: AnyObject): void
   {
-
+    this.driver.translations = translations
   }
 
   /**
@@ -44,6 +55,6 @@ class Localization extends AbstractRuaPackage implements LocalizationInterface
    */
   public translate(translation: string): string
   {
-    return ''
+    return this.driver.t(translation)
   }
 }

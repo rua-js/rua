@@ -10,6 +10,13 @@ interface LocalizationInterface
   setLocale(locale: string): void
 
   /**
+   * Sets default locale
+   *
+   * @param {string} locale
+   */
+  setDefaultLocale(locale: string): void
+
+  /**
    * Loads translations
    *
    * @param {AnyObject} translations
