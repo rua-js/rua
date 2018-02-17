@@ -22,9 +22,6 @@ Minor release **may** have breaking change
 
 ## RoadMap
 
-### 0.3.0
-- [ ] Localization(I18n)
-
 ### 0.4.0
 - [ ] Optimize RuaDva
 - [ ] Upgrade Fetch
@@ -34,6 +31,7 @@ Minor release **may** have breaking change
 - [ ] Collection (Prototyping)
 
 ### later
+- [ ] Add variable and choice to Localization
 - [ ] Clock (Prototyping)
 - [ ] Payment (Drafting)
 - [ ] Socket (Drafting)
