@@ -45,6 +45,7 @@ Minor release **may** have breaking change
 - Fetch
 - Cache
 - Api
+- Localization
 
 ## Short Commit Name
 0: init
