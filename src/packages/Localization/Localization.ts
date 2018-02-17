@@ -58,3 +58,5 @@ class Localization extends AbstractRuaPackage implements LocalizationInterface
     return this.driver.t(translation)
   }
 }
+
+export default Localization
