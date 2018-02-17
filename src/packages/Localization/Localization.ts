@@ -32,7 +32,7 @@ class Localization extends AbstractRuaPackage implements LocalizationInterface
    *
    * @param {string} locale
    */
-  setDefaultLocale(locale: string): void
+  public setDefaultLocale(locale: string): void
   {
     this.driver.defaultLocale = locale
   }
