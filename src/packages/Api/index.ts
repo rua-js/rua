@@ -9,8 +9,6 @@ const api: any = apiInstance.call.bind(apiInstance)
 api.load = apiInstance.load.bind(apiInstance)
 api.all = apiInstance.all.bind(apiInstance)
 
-console.error('test')
-
 export {
   Api,
   api,
