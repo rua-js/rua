@@ -35,7 +35,7 @@ class Interceptor implements InterceptorInterface {
    * @param {Object} interceptors
    */
   public load(interceptors: AnyObject): void {
-    this.interceptor = {...this.interceptor, ...interceptors}
+    this.interceptor = interceptors
   }
 
   /**
