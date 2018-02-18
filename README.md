@@ -28,11 +28,15 @@ Minor release **may** have breaking change
 - [ ] Upgrade HttpExceptions
 
 ### 0.5.0
+- [ ] Global configuration
+
+### 0.6.0
 - [ ] Collection (Prototyping)
 
 ### later
 - [ ] Add variable and choice to Localization
-- [ ] Clock (Prototyping)
+- [ ] Clock (Drafting)
+- [ ] Schema (Drafting)
 - [ ] Payment (Drafting)
 - [ ] Socket (Drafting)
 - [ ] SDK (Drafting)
