@@ -25,7 +25,7 @@ Minor release **may** have breaking change
 
 ## Package Check List
 - [x] Dva
-- [x] Event
+- [x] Event 
 - [x] Exception
 - [x] Storage
 - [x] Fetch
@@ -45,7 +45,7 @@ Minor release **may** have breaking change
 - [ ] File
 - [ ] Image
 
-## Short Commit Name
+## Short Commit Action
 0: init
 
 1: chore
