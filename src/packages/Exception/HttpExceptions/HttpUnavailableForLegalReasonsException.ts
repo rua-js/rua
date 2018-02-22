@@ -7,7 +7,7 @@ import { HttpException } from '../Exceptions'
  */
 class HttpUnavailableForLegalReasonsException extends HttpException {
   constructor() {
-    super(451, 'UnavailableForLegalReasons')
+    super(451, 'Unavailable For Legal Reasons')
   }
 }
 
