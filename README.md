@@ -21,25 +21,7 @@ Major release **will** have breaking change
 Minor release **may** have breaking change
 
 ## RoadMap
-
-### 0.4.0
-- [ ] Optimize RuaDva
-- [ ] Upgrade Fetch
-- [ ] Upgrade HttpExceptions
-
-### 0.5.0
-- [ ] Global configuration
-
-### 0.6.0
-- [ ] Collection (Prototyping)
-
-### later
-- [ ] Add variable and choice to Localization
-- [ ] Clock (Drafting)
-- [ ] Schema (Drafting)
-- [ ] Payment (Drafting)
-- [ ] Socket (Drafting)
-- [ ] SDK (Drafting)
+[Click Here](./roadmap/v0.md)
 
 ## Check List
 - Dva
