@@ -7,7 +7,7 @@ import Interceptor from './Interceptor'
 import { InterceptorInterface, FetchInterface } from './Interface'
 import {
   HttpAbortException,
-  HttpTimeoutException,
+  HttpRequestTimeoutException,
 } from '../Exception'
 
 class Fetch extends AbstractRuaPackage implements FetchInterface {
@@ -106,7 +106,7 @@ class Fetch extends AbstractRuaPackage implements FetchInterface {
     if (timeout > 0) {
       promises.push(new Promise((resolve, reject) => {
         setTimeout(() => {
-          reject(new HttpTimeoutException())
+          reject(new HttpRequestTimeoutException())
         }, timeout)
       }))
     }

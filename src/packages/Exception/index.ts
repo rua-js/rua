@@ -15,16 +15,19 @@ import {
  * Http Exceptions
  */
 import {
-  HttpTimeoutException,
-  HttpNotFoundException,
   HttpAbortException,
+  // 4xx
+  HttpNotFoundException,
+  HttpRequestTimeoutException,
 } from './HttpExceptions'
 
 export {
   Exception,
   HttpException,
   RuntimeException,
-  HttpTimeoutException,
-  HttpNotFoundException,
+  // Http exceptions
   HttpAbortException,
+  // 4xx
+  HttpNotFoundException,
+  HttpRequestTimeoutException,
 }

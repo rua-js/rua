@@ -4,7 +4,7 @@ import {
 import * as _ from 'lodash'
 import {
   HttpAbortException,
-  HttpTimeoutException,
+  HttpRequestTimeoutException,
 } from '../../Exception'
 
 describe('Fetch', () => {
@@ -41,6 +41,6 @@ describe('Fetch', () => {
       fetch('https://reqres.in/api/users', {
         timeout: 10,
       })
-    ).rejects.toBeInstanceOf(HttpTimeoutException)
+    ).rejects.toBeInstanceOf(HttpRequestTimeoutException)
   })
 })

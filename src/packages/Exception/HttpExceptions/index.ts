@@ -1,9 +1,11 @@
-import HttpNotFoundException from './HttpNotFoundException'
-import HttpTimeoutException from './HttpTimeoutException'
 import HttpAbortException from './HttpAbortException'
 
+import HttpNotFoundException from './HttpNotFoundException'
+import HttpRequestTimeoutException from './HttpRequestTimeoutException'
+
 export {
-  HttpTimeoutException,
-  HttpNotFoundException,
   HttpAbortException,
+  // 4xx
+  HttpNotFoundException,
+  HttpRequestTimeoutException,
 }
