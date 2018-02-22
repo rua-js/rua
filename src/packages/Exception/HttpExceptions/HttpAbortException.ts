@@ -7,7 +7,7 @@ import { HttpException } from '../Exceptions'
  */
 class HttpAbortException extends HttpException {
   constructor() {
-    super(404, 'Not Found')
+    super(0, 'Not Found')
   }
 }
 
