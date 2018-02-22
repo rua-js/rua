@@ -7,7 +7,7 @@ import { HttpException } from '../Exceptions'
  */
 class HttpPreconditionFailedException extends HttpException {
   constructor() {
-    super(409, 'Precondition Failed')
+    super(412, 'Precondition Failed')
   }
 }
 
