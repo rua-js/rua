@@ -7,7 +7,7 @@ import { HttpException } from '../Exceptions'
  */
 class HttpForbiddenException extends HttpException {
   constructor() {
-    super(403, 'Bad Request')
+    super(403, 'Forbidden')
   }
 }
 
