@@ -1,6 +1,8 @@
 # Status code 
 Only 3XX and 4XX status code will has Exceptions
 
+Tips: code 418 is NOT an actual exception
+
 ### Full List
 
 100 Continue
