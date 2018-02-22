@@ -23,15 +23,22 @@ Minor release **may** have breaking change
 ## RoadMap
 [Click Here](./roadmap/v0.md)
 
-## Check List
-- Dva
-- Event
-- Exception
-- Storage
-- Fetch
-- Cache
-- Api
-- Localization
+## Package Check List
+- [x] Dva
+- [x] Event
+- [x] Exception
+- [x] Storage
+- [x] Fetch
+- [x] Cache
+- [x] Api
+- [x] Localization
+- [ ] Collection
+- [ ] Clock
+- [ ] Payment
+- [ ] Share
+- [ ] Converter
+- [ ] Transformer
+- [ ] Schema
 
 ## Short Commit Name
 0: init
