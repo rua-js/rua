@@ -7,7 +7,7 @@ import { HttpException } from '../Exceptions'
  */
 class HttpMethodNotAllowedException extends HttpException {
   constructor() {
-    super(409, 'Method Not Allowed')
+    super(405, 'Method Not Allowed')
   }
 }
 

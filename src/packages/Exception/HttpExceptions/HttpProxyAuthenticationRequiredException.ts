@@ -7,7 +7,7 @@ import { HttpException } from '../Exceptions'
  */
 class HttpProxyAuthenticationException extends HttpException {
   constructor() {
-    super(409, 'Proxy Authentication')
+    super(407, 'Proxy Authentication')
   }
 }
 

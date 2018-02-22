@@ -7,7 +7,7 @@ import { HttpException } from '../Exceptions'
  */
 class HttpNotAcceptableException extends HttpException {
   constructor() {
-    super(409, 'Not Acceptable')
+    super(406, 'Not Acceptable')
   }
 }
 

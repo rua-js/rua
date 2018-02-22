@@ -7,7 +7,7 @@ import { HttpException } from '../Exceptions'
  */
 class HttpGoneException extends HttpException {
   constructor() {
-    super(409, 'Gone')
+    super(410, 'Gone')
   }
 }
 
