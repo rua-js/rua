@@ -39,6 +39,11 @@ Minor release **may** have breaking change
 - [ ] Converter
 - [ ] Transformer
 - [ ] Schema
+- [ ] Socket
+- [ ] Is
+- [ ] Str
+- [ ] File
+- [ ] Image
 
 ## Short Commit Name
 0: init
