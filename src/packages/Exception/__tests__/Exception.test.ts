@@ -30,12 +30,12 @@ describe('Exception', () => {
   })
 
   test('inherit', () => {
-    class InheritorException extends Exception {}
-    const e = new InheritorException('property')
+    class InheritException extends Exception {}
+    const e = new InheritException('property')
     // case: name
     expect(
       e.name
-    ).toBe('InheritorException')
+    ).toBe('InheritException')
     // case: message
     expect(
       e.message
