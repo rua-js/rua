@@ -7,7 +7,7 @@ import { HttpException } from '../Exceptions'
  */
 class HttpMisdirectedRequestException extends HttpException {
   constructor() {
-    super(409, 'Misdirected Request')
+    super(421, 'Misdirected Request')
   }
 }
 
