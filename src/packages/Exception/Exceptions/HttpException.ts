@@ -7,8 +7,22 @@ import { HttpExceptionInterface } from '../Interface'
  * @class HttpException
  */
 class HttpException extends Exception implements HttpExceptionInterface {
-  constructor(status: number = -1, message?: string) {
+
+  /**
+   * Status code
+   *
+   * @type {number}
+   */
+  public code: number
+
+  /**
+   * @constructor
+   * @param {number} code
+   * @param {string} message
+   */
+  public constructor(code: number = -1, message?: string) {
     super(message)
+    this.code = code
   }
 }
 
