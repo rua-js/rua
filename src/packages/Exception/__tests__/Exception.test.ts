@@ -1,7 +1,7 @@
 import Exception from '../Exception'
 
 describe('Exception', () => {
-  test('can initialize correctly', () => {
+  test('initialization', () => {
     const e = new Exception('init')
     // case: Exception
     expect(
@@ -12,7 +12,7 @@ describe('Exception', () => {
       e instanceof Error
     ).toBeTruthy()
   })
-  test('has correct property', () => {
+  test('property', () => {
     const e = new Exception('property')
     // case: name
     expect(
