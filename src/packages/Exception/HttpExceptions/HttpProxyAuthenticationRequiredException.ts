@@ -5,10 +5,10 @@ import { HttpException } from '../Exceptions'
  *
  * @class HttpProxyAuthenticationException
  */
-class HttpProxyAuthenticationException extends HttpException {
+class HttpProxyAuthenticationRequiredException extends HttpException {
   constructor() {
-    super(407, 'Proxy Authentication')
+    super(407, 'Proxy Authentication Required')
   }
 }
 
-export default HttpProxyAuthenticationException
+export default HttpProxyAuthenticationRequiredException
