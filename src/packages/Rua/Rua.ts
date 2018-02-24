@@ -5,7 +5,7 @@ import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 // Self Dependency
 import { fetch } from '../Fetch'
 
-import { RuaConfiguration } from './Contract'
+import { RuaConfiguration } from './Type'
 
 /**
  * Rua Class manages/configs all packages
