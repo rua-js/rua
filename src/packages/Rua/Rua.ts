@@ -46,8 +46,10 @@ class Rua extends AbstractRuaPackage implements CanConfig
         return
       }
 
+      // configuration for this module
       const config = configs[name]
 
+      // config the module
       module.config(config)
     }
   }
