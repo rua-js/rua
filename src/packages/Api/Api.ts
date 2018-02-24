@@ -5,8 +5,10 @@ import * as _ from 'lodash'
 
 import { util } from '../Util'
 import { fetch as _fetch } from '../Fetch'
+import { ApiConfiguration } from './Type'
 
-class Api extends AbstractRuaPackage implements CanConfig{
+class Api extends AbstractRuaPackage implements CanConfig
+{
 
   /**
    * Fetch instance
@@ -18,7 +20,8 @@ class Api extends AbstractRuaPackage implements CanConfig{
    * @constructor
    * @param {AnyObject} config
    */
-  constructor(config?: AnyObject) {
+  constructor(config?: AnyObject)
+  {
     super()
     this.config(config)
     this.booted = true
@@ -29,16 +32,18 @@ class Api extends AbstractRuaPackage implements CanConfig{
    *
    * @param {AnyObject} config
    */
-  public config(config?: AnyObject): void {
-    if (!config) {
+  public config(config?: ApiConfiguration): void
+  {
+    if (!config)
+    {
       return
     }
 
     const {
-      fetch = _fetch,
+      data,
     } = config
 
-    this.fetch = fetch
+    this.load(data)
   }
 
   /**
@@ -47,9 +52,14 @@ class Api extends AbstractRuaPackage implements CanConfig{
    * @param {AnyObject} api
    * @returns {boolean}
    */
-  public load(api: AnyObject): boolean {
+  public load(api: AnyObject): void
+  {
+    if (!api)
+    {
+      return
+    }
+
     this.store = api
-    return true
   }
 
   /**
@@ -57,7 +67,8 @@ class Api extends AbstractRuaPackage implements CanConfig{
    *
    * @returns {AnyObject}
    */
-  public all(): AnyObject {
+  public all(): AnyObject
+  {
     return this.store
   }
 
@@ -66,7 +77,8 @@ class Api extends AbstractRuaPackage implements CanConfig{
    *
    * @returns {any}
    */
-  public call(name: string, data?: AnyObject): Promise<Response> {
+  public call(name: string, data?: AnyObject): Promise<Response>
+  {
     const config = _.get(this.store, name)
 
     // make sure has the api

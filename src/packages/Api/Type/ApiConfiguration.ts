@@ -1,6 +1,6 @@
 
 interface ApiConfiguration {
-  data: any
+  data?: any
 }
 
 export default ApiConfiguration
