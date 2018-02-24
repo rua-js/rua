@@ -7,5 +7,9 @@ import Event from './Event'
 import { packager } from 'rua-core/lib'
 
 // @ts-ignore: subclass
-export const event: Event = packager.registerIfNotRegistered('rua-event', new Event())
+const event: Event = packager.registerIfNotRegistered('rua-event', new Event())
+
+export {
+  event,
+}
 
