@@ -10,6 +10,5 @@ api.load = apiInstance.load.bind(apiInstance)
 api.all = apiInstance.all.bind(apiInstance)
 
 export {
-  Api,
   api,
 }
