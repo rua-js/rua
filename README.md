@@ -13,7 +13,7 @@ Npm Package Name Donator: [Vilic (Gihub)](https://github.com/vilic)
 
 `Minor Version` changes when having partial breaking change or new feature(s)
 
-`Major release` changes when serious breaking change or redesign of Rua.js
+`Major Version` changes when serious breaking change or redesign of Rua.js
 
 ## Version Note
 Major release **will** have breaking change
