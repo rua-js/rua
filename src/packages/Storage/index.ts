@@ -5,4 +5,8 @@ import Storage from './Storage'
 import { packager } from 'rua-core/lib'
 
 // @ts-ignore
-export const storage: Storage = packager.registerIfNotRegistered('rua-storage', new Storage())
+const storage: Storage = packager.registerIfNotRegistered('rua-storage', new Storage())
+
+export {
+  storage,
+}
