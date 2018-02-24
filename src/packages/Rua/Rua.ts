@@ -2,8 +2,10 @@
 import { CanConfig } from 'rua-core/lib/Contracts'
 import { AnyObject } from 'rua-core/lib/Types'
 import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
+
 // Self Dependency
 import { fetch } from '../Fetch'
+import { api } from '../Api'
 
 import { RuaConfiguration } from './Type'
 
@@ -28,6 +30,7 @@ class Rua extends AbstractRuaPackage implements CanConfig
    * @type {string[]}
    */
   public configurableModules: AnyObject = {
+    api,
     fetch,
   }
 

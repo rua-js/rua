@@ -1,3 +1,4 @@
+import { ApiConfiguration } from '../../Api/Type'
 
 interface RuaConfiguration {
   fetch?: {
@@ -8,7 +9,7 @@ interface RuaConfiguration {
     driver?: Function
   }
 
-  [key: string]: any
+  api?: ApiConfiguration
 }
 
 export default RuaConfiguration
