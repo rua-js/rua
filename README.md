@@ -8,12 +8,12 @@ Elegant front-end applications delivered at warp speed.
 ## Special Thanks To
 Npm Package Name Donator: [Vilic (Gihub)](https://github.com/vilic)
 
-## Release Schedule
-Weekly release (Edition): patch version at the end of every week for routine bugfix (anytime for urgent bugfix).
+## Release Explanation
+`Edition Version` changes when having urgent bug-fix or code optimization
 
-Monthly release (Minor): minor version at the end of every month for breaking change and new features.
+`Minor Version` changes when having partial breaking change or new feature(s)
 
-Major release: not included in this schedule for breaking change and new features.
+`Major release` changes when serious breaking change or redesign of Rua.js
 
 ## Version Note
 Major release **will** have breaking change
