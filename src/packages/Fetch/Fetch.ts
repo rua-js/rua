@@ -11,6 +11,7 @@ import {
   CodedHttpExceptions,
   HttpException,
 } from '../Exception'
+import Any = jasmine.Any
 
 class Fetch extends AbstractRuaPackage implements FetchInterface {
   /**
@@ -66,8 +67,7 @@ class Fetch extends AbstractRuaPackage implements FetchInterface {
       return response
     }
 
-    // @ts-ignore: index
-    const Exception = CodedHttpExceptions[response.status] || HttpException
+    const Exception = (<AnyObject>CodedHttpExceptions)[response.status] || HttpException
 
     const error: any = new Exception(response.status, response.statusText)
     error.response = response
