@@ -1,10 +1,11 @@
 import {
   fetch,
 } from '../index'
-import * as _ from 'lodash'
+
 import {
   HttpAbortException,
   HttpRequestTimeoutException,
+  HttpNotFoundException,
 } from '../../Exception'
 
 describe('Fetch', () => {
@@ -42,5 +43,11 @@ describe('Fetch', () => {
         timeout: 10,
       })
     ).rejects.toBeInstanceOf(HttpRequestTimeoutException)
+  })
+
+  test('404', async () => {
+    await expect(
+      fetch('https://reqres.in/404')
+    ).rejects.toBeInstanceOf(HttpNotFoundException)
   })
 })

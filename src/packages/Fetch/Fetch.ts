@@ -4,10 +4,12 @@ import * as _ from 'lodash'
 
 import fetch from './ThirdParty/fetch'
 import Interceptor from './Interceptor'
-import { InterceptorInterface, FetchInterface } from './Interface'
+import { FetchInterface } from './Interface'
 import {
   HttpAbortException,
   HttpRequestTimeoutException,
+  CodedHttpExceptions,
+  HttpException,
 } from '../Exception'
 
 class Fetch extends AbstractRuaPackage implements FetchInterface {
@@ -64,7 +66,10 @@ class Fetch extends AbstractRuaPackage implements FetchInterface {
       return response
     }
 
-    const error: any = new Error(response.statusText)
+    // @ts-ignore: index
+    const Exception = CodedHttpExceptions[response.status] || HttpException
+
+    const error: any = new Exception(response.status, response.statusText)
     error.response = response
     throw error
   }
