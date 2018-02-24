@@ -48,7 +48,7 @@ class Api extends AbstractRuaPackage implements CanConfig{
    * @returns {boolean}
    */
   public load(api: AnyObject): boolean {
-    this.store = {...this.store, ...api}
+    this.store = api
     return true
   }
 
