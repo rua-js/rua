@@ -6,10 +6,10 @@ const locale: Localization = <Localization>packager.registerIfNotRegistered('rua
 
 const __: Function = locale.translate
 
-const t: Function = locale.translate
+const translate: Function = locale.translate
 
 export {
   locale,
   __,
-  t,
+  translate,
 }
