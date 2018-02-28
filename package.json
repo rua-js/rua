@@ -35,12 +35,15 @@
     "wolfy87-eventemitter": "^5.2.4"
   },
   "devDependencies": {
+    "@types/fs-extra": "^5.0.1",
     "@types/i18n-js": "^3.0.0",
     "@types/invariant": "^2.2.29",
     "@types/isomorphic-fetch": "^0.0.34",
     "@types/jest": "^22.1.1",
     "@types/lodash": "^4.14.100",
+    "@types/node": "^9.4.6",
     "@types/react-native": "^0.52.8",
+    "fs-extra": "^5.0.0",
     "jest": "^22.1.4",
     "ts-jest": "^22.0.3",
     "typescript": "^2.7.1"
