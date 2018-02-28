@@ -1,5 +1,6 @@
 import * as invariant from 'invariant'
-import * as _ from 'lodash'
+// @ts-ignore
+import * as global from 'global'
 
 class Util {
   public static delay(time: number): Promise<void> {
@@ -14,7 +15,7 @@ class Util {
 
   public static get language() {
     // @ts-ignore: fix IE language
-    return window && window.navigator && (window.navigator.language || window.navigator.browserLanguage)
+    return global && global.navigator && (global.navigator.language || global.navigator.browserLanguage)
   }
 }
 
