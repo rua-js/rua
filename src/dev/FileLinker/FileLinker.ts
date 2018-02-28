@@ -44,17 +44,17 @@ class FileLinker
     this.indexExtension = indexExtension
   }
 
-  static get importTemplate(): string
+  protected static get importTemplate(): string
   {
     return 'import ${NAME} from \'./${NAME}\'\n'
   }
 
-  static get exportTemplate(): string
+  protected static get exportTemplate(): string
   {
     return 'export {\n${EXPORTS}}\n'
   }
 
-  static renderImportPart(files: string[] = []): string
+  protected static renderImportPart(files: string[] = []): string
   {
     let str = ''
     for (const file of files)
@@ -64,7 +64,7 @@ class FileLinker
     return str
   }
 
-  static renderExportPart(files: string[] = []): string
+  protected static renderExportPart(files: string[] = []): string
   {
     let str = ''
     for (const file of files)
@@ -74,7 +74,7 @@ class FileLinker
     return FileLinker.exportTemplate.replace(/\${EXPORTS}/g, str)
   }
 
-  link(): void
+  public link(): void
   {
     const links = this.links
     for (const file in links)
@@ -123,7 +123,7 @@ class FileLinker
     }
   }
 
-  linkIndex(): void
+  protected linkIndex(): void
   {
     const importContent = FileLinker.renderImportPart(this.files)
     const exportContent = FileLinker.renderExportPart(this.files)
@@ -143,7 +143,7 @@ class FileLinker
     )
   }
 
-  linkFiles(): void
+  protected linkFiles(): void
   {
     // generate full path for all files
     for (const file of this.files)
@@ -166,7 +166,7 @@ class FileLinker
     }
   }
 
-  renderTemplate(templateName: string, name: string): string
+  protected renderTemplate(templateName: string, name: string): string
   {
     return this.templates[templateName].replace(/\${NAME}/g, name) || ''
   }
