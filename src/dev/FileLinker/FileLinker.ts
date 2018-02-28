@@ -14,7 +14,9 @@ class FileLinker implements FileLinkerInterface
 
   public links: any
 
-  public templates: AnyObject
+  public templates: AnyObject = {
+    empty: '',
+  }
 
   public paths: string[]
 
@@ -29,16 +31,16 @@ class FileLinker implements FileLinkerInterface
   constructor(config: FileLinkerConfiguration)
   {
     const {
-      path,
-      links,
-      templates,
-      extension,
-      indexExtension,
+      path = '.',
+      links = {},
+      templates = {},
+      extension = 'tsx',
+      indexExtension = 'ts',
     } = config
     this.config = _.cloneDeep(config)
     this.path = path
     this.links = links
-    this.templates = templates
+    this.templates = {...this.templates, ...templates}
     this.paths = []
     this.files = []
     this.extension = extension
