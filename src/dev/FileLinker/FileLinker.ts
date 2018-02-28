@@ -3,7 +3,7 @@ import * as _ from 'lodash'
 import fs from 'fs'
 import path from 'path'
 import * as fse from 'fs-extra'
-import { FileLinkerConfiguration } from '../Type'
+import { FileLinkerConfiguration } from './Type'
 
 class FileLinker
 {
