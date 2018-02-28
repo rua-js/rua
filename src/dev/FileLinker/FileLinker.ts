@@ -4,8 +4,9 @@ import fs from 'fs'
 import path from 'path'
 import * as fse from 'fs-extra'
 import { FileLinkerConfiguration } from './Type'
+import { FileLinkerInterface } from './Interface'
 
-class FileLinker
+class FileLinker implements FileLinkerInterface
 {
   public config: any
 
