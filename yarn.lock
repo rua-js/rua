@@ -2390,6 +2390,10 @@ react-native-i18n@^2.0.12:
   dependencies:
     i18n-js "^3.0.3"
 
+react-native-platform-touchable@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/react-native-platform-touchable/-/react-native-platform-touchable-1.1.1.tgz#fde4acc65eea585d28b164d0c3716a42129a68e4"
+
 react-redux@^5.0.5:
   version "5.0.7"
   resolved "https://registry.npmjs.org/react-redux/-/react-redux-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"
@@ -2650,6 +2654,14 @@ rua-dva@^0.6.0:
     global "^4.3.2"
     invariant "^2.2.2"
     rua-core "^0.2.0"
+
+rua-ui@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/rua-ui/-/rua-ui-0.0.4.tgz#d4b2650e630ada4ba23abaee74293ebd52394fee"
+  dependencies:
+    react-native-platform-touchable "^1.1.1"
+    rua-core "^0.2.0"
+    wolfy87-eventemitter "^5.2.4"
 
 safe-buffer@^5.0.1, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.1"
