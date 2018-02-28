@@ -1,7 +1,8 @@
 import {
   cache,
-  Cache,
 } from '../index'
+
+import Cache from '../Cache'
 
 describe('Cache Index Tests', () => {
   test('export correctly', () => {
