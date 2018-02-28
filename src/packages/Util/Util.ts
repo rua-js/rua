@@ -13,7 +13,7 @@ class Util {
   public static invariant = invariant
 
   // @ts-ignore: fix IE language
-  public static language = navigator.language || navigator.browserLanguage
+  public static language = navigator && (navigator.language || navigator.browserLanguage)
 }
 
 export default Util
