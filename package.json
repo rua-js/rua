@@ -1,6 +1,6 @@
 {
   "name": "rua",
-  "version": "0.3.7",
+  "version": "0.3.7-fix",
   "description": "Elegant front-end applications delivered at warp speed.",
   "main": "lib/index.js",
   "scripts": {
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/rua-js/rua#readme",
   "dependencies": {
+    "global": "^4.3.2",
     "i18n-js": "^3.0.3",
     "invariant": "^2.2.2",
     "isomorphic-fetch": "^2.2.1",
