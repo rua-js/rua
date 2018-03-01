@@ -20,6 +20,14 @@ Major release **will** have breaking change
 
 Minor release **may** have breaking change
 
+## Version Suffix
+`-alpha`: partial implementation
+
+`-beta`:  full implementation but expecting few bug
+
+`-release` or `no suffix`: stable version
+
+
 ## RoadMap
 [v0 Roadmap](./roadmap/v0.md)
 
