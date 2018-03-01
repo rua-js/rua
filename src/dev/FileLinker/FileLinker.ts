@@ -148,21 +148,31 @@ class FileLinker implements FileLinkerInterface
   protected linkFiles(): void
   {
     // generate full path for all files
-    for (const file of this.files)
+    for (const fileName of this.files)
     {
-      const fullFilePath = (path.resolve(this.path, `${file}.${this.extension}`))
+      // parse extension
+      const extension = this.links[fileName].split('.')[1] || this.extension
+
+      // parse template name
+      const templateName = this.links[fileName].split('.')[0]
+
+      // compute template name
+      const fullFilePath = (path.resolve(this.path, `${fileName}.${extension}`))
+
       // create folder if folder is NOT exist
       if (!fs.existsSync(this.path))
       {
         fse.mkdirsSync(this.path)
       }
+
+
       // create file if file is NOT exist
       if (!fs.existsSync(fullFilePath))
       {
         fs.writeFileSync(
           fullFilePath,
           // render template
-          this.renderTemplate(this.links[file], file)
+          this.renderTemplate(templateName, fileName)
         )
       }
     }
