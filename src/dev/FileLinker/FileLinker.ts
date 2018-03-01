@@ -5,6 +5,7 @@ import * as path from 'path'
 import * as fse from 'fs-extra'
 import { FileLinkerConfiguration } from './Type'
 import { FileLinkerInterface } from './Interface'
+import Templates from './Templates'
 
 class FileLinker implements FileLinkerInterface
 {
@@ -14,9 +15,7 @@ class FileLinker implements FileLinkerInterface
 
   public links: any
 
-  public templates: AnyObject = {
-    empty: '',
-  }
+  public templates: AnyObject = Templates
 
   public paths: string[]
 

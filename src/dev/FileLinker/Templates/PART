@@ -1,0 +1,26 @@
+import * as React from 'react'
+import { StyleSheet, View, Image, Button, Text } from 'react-native'
+import { actions } from 'rua-dva'
+import { default as R } from '../../rua'
+
+class ${NAME} extends React.Component<Props, never> {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>${NAME}</Text>
+      </View>
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+})
+
+interface Props {
+
+}
+
+export default ${NAME}
