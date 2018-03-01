@@ -4,7 +4,7 @@ import * as global from 'global'
 
 class Util {
   public static delay(time: number): Promise<void> {
-    return new Promise((resolve) => setTimeout(resolve, time))
+    return new Promise(resolve => setTimeout(resolve, time))
   }
 
   public static invariant = invariant
