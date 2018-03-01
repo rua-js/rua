@@ -1,5 +1,0 @@
-// request tool
-import request from '../utils/request'
-// api
-import ruaApi from '../rua/ruaApi'
-

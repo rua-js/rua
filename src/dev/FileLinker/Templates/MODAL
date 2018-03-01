@@ -2,7 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { WhiteSpace, WingBlank } from 'antd-mobile'
 import { StyleSheet, View, Image, Button, Text } from 'react-native'
-import { actions } from 'rua-dva'
+import { actions, R } from 'rua'
 import { default as Modal } from 'react-native-modal'
 
 import {

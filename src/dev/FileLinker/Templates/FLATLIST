@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { StyleSheet, View, Image, Button, Text, FlatList } from 'react-native'
-import { actions } from 'rua-dva'
-import { default as R } from '../../rua'
+import { actions, R } from 'rua'
 
 class ${NAME} extends React.Component<Props, never> {
 
