@@ -127,11 +127,14 @@ class FileLinker implements FileLinkerInterface
 
   protected linkIndex(): void
   {
+    // prep templates
     const importContent = FileLinker.renderImportPart(this.files)
     const exportContent = FileLinker.renderExportPart(this.files)
     const indexContent = `${importContent}\n${exportContent}`
 
+    // index file full path
     const fullFilePath = (path.resolve(this.path, `index.${this.indexExtension}`))
+
     // create folder if folder is NOT exist
     if (!fs.existsSync(this.path))
     {
