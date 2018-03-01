@@ -1,8 +1,8 @@
 {
   "name": "rua",
-  "version": "0.4.0-alpha.4",
+  "version": "0.4.0-alpha.5",
   "description": "Elegant front-end applications delivered at warp speed.",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest test.ts",
     "build": "tsc"
