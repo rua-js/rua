@@ -1,9 +1,9 @@
-import { storage } from './lib/packages/Storage';
-import { event } from './lib/packages/Event';
-import { Exception } from './lib/packages/Exception';
-import { fetch } from './lib/packages/Fetch';
-import { cache } from './lib/packages/Cache';
-import { api } from './lib/packages/Api';
-import { locale, t, __ } from './lib/packages/Localization';
+import { storage } from './src/packages/Storage';
+import { event } from './src/packages/Event';
+import { Exception } from './src/packages/Exception';
+import { fetch } from './src/packages/Fetch';
+import { cache } from './src/packages/Cache';
+import { api } from './src/packages/Api';
+import { locale, translate, __ } from './src/packages/Localization';
 import { dvaLite, ruaDva, actions } from 'rua-dva';
-export { dvaLite, ruaDva, actions, event, Exception, storage, fetch, cache, api, locale, t, __ };
+export { dvaLite, ruaDva, actions, event, Exception, storage, fetch, cache, api, locale, translate, __ };
