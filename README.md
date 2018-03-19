@@ -55,22 +55,3 @@ Minor release **may** have breaking change
 
 ## Dev Package Check List
 - [ ] FileLinker
-
-## Short Commit Action
-0: init
-
-1: chore
-
-op: optimize
-
-up: update
-
-+: add
-
--: remove
-
-~: modify
-
-x: change
-
-md: update readme
