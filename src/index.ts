@@ -16,6 +16,8 @@ import { dvaLite, ruaDva, actions } from 'rua-dva'
 
 // React / React Native Only
 
+// Third-party library
+import { connect } from 'react-redux'
 
 export {
   // rua-dva
@@ -38,4 +40,6 @@ export {
   locale,
   translate,
   __,
+  // third-party
+  connect,
 }
