@@ -9,7 +9,13 @@ interface RuaConfiguration {
     driver?: Function
   }
 
-  api?: ApiConfiguration
+  api?: {
+    [key: string]: ApiConfiguration
+  }
+
+  models?: {
+    [key: string]: any
+  }
 }
 
 export default RuaConfiguration

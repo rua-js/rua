@@ -31,6 +31,7 @@
     "isomorphic-fetch": "^2.2.1",
     "localforage": "^1.5.6",
     "lodash": "^4.17.5",
+    "npm": "^6.0.0",
     "react-native-i18n": "^2.0.12",
     "rua-core": "^0.2.4",
     "rua-dva": "^0.6.0",
