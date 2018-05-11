@@ -89,10 +89,10 @@ class Api extends AbstractRuaPackage implements CanConfig
 
     const {
       url,
-      ...rest
+      ...restConfig
     } = config
 
-    return this.fetch(url, rest)
+    return this.fetch(url, restConfig)
   }
 }
 

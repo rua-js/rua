@@ -1,6 +1,6 @@
 {
   "name": "rua",
-  "version": "0.4.1",
+  "version": "0.4.1-fix2",
   "description": "Elegant front-end applications delivered at warp speed.",
   "main": "lib/index.js",
   "scripts": {
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/rua-js/rua#readme",
   "dependencies": {
+    "@types/react-native-i18n": "^2.0.0",
     "@types/react-redux": "^5.0.19",
     "global": "^4.3.2",
     "i18n-js": "^3.0.3",
