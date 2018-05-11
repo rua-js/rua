@@ -1,5 +1,4 @@
 import {
-  Api,
   api,
 } from '../index'
 

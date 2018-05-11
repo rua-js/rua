@@ -1,5 +1,5 @@
-import UtilClass from './Util'
+import util from './Util'
 
-export const util = UtilClass
-
-export const Util = UtilClass
+export {
+  util,
+}

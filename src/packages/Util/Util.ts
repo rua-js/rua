@@ -1,6 +1,6 @@
 import * as invariant from 'invariant'
 // @ts-ignore
-import * as global from 'global'
+// import * as global from 'global'
 
 class Util {
   public static delay(time: number): Promise<void> {
