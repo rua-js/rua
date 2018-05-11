@@ -79,6 +79,7 @@ class Api extends AbstractRuaPackage implements CanConfig
    */
   public call(name: string, data?: AnyObject): Promise<Response>
   {
+    // get configuration of one api (setting)
     const config = _.get(this.store, name)
 
     // make sure has the api
@@ -92,7 +93,7 @@ class Api extends AbstractRuaPackage implements CanConfig
       ...restConfig
     } = config
 
-    return this.fetch(url, restConfig)
+    return this.fetch(url, {...restConfig, body: data})
   }
 }
 

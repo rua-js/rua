@@ -87,6 +87,7 @@ class Fetch extends AbstractRuaPackage implements FetchInterface
       ...restOptions
     } = this.options
 
+
     // init headers
     if (!restOptions.headers)
     {
@@ -100,21 +101,23 @@ class Fetch extends AbstractRuaPackage implements FetchInterface
     }
     // apply request interceptor
 
-    // auto form convention
+    // auto form convention or auto stringify
     if (form)
     {
       restOptions.body = convertor.Json2FormData(restOptions.body)
+    } else
+    {
+      restOptions.body = JSON.stringify(restOptions.body)
     }
 
     // auto content-type
-    let ContentType = 'application/json'
-
-    if (form || restOptions.body instanceof FormData)
+    if (form || restOptions.body instanceof FormData) // if form
     {
-      ContentType = 'application/x-www-form-urlencoded'
+      restOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+    } else // if json
+    {
+      restOptions.headers['Content-Type'] = 'application/json'
     }
-
-    restOptions.headers['Content-Type'] = ContentType
 
     // setup abort situations
     const promises = [
