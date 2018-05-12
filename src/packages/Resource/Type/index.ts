@@ -8,6 +8,7 @@ import Animation from './Animation'
 import Dimension from './Dimension'
 import Style from './Style'
 import Font from './Font'
+import Constant from './Constant'
 
 export {
   Resources,
@@ -20,4 +21,5 @@ export {
   Dimension,
   Style,
   Font,
+  Constant,
 }
