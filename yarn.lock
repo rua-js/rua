@@ -46,9 +46,9 @@
   dependencies:
     "@types/i18n-js" "*"
 
-"@types/react-native@^0.52.8":
-  version "0.52.8"
-  resolved "https://registry.npmjs.org/@types/react-native/-/react-native-0.52.8.tgz#dd5aa7c4eb944d7c0b2b249a2bb811aa119f49c6"
+"@types/react-native@^0.55.12":
+  version "0.55.12"
+  resolved "https://registry.npmjs.org/@types/react-native/-/react-native-0.55.12.tgz#35778c709db57ff3092573d7a53f15ca380601ab"
   dependencies:
     "@types/react" "*"
 

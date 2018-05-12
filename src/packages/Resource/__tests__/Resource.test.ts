@@ -23,15 +23,4 @@ describe('Resource Tests',() => {
     ).toBe('1314')
   })
 
-  test('added image', () => {
-    resource.config({
-      drawable: {
-        test: '12345'
-      },
-    })
-
-    expect(
-      resource.drawable.test
-    ).toBe('12345')
-  })
 })
