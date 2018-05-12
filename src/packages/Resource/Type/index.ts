@@ -1,5 +1,5 @@
 import Resources from './Resources'
-import Colors from './Colors'
+import Colors from './Color'
 
 export {
   Resources,
