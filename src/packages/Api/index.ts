@@ -8,6 +8,7 @@ const api: any = apiInstance.call.bind(apiInstance)
 // api.config = apiInstance.config
 api.load = apiInstance.load.bind(apiInstance)
 api.all = apiInstance.all.bind(apiInstance)
+api.config = apiInstance.config.bind(apiInstance)
 
 export {
   api,
