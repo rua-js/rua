@@ -1,4 +1,5 @@
-interface Color {
+interface Color
+{
   [color: string]: string
 }
 

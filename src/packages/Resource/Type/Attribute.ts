@@ -1,4 +1,5 @@
-interface Attribute {
+interface Attribute
+{
   [key: string]: any
 }
 

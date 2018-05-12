@@ -1,4 +1,5 @@
-interface Identity {
+interface Identity
+{
   [alias: string]: string | number
 }
 

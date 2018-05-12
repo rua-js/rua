@@ -1,4 +1,5 @@
-interface String {
+interface String
+{
   [name: string]: string
 }
 

@@ -1,6 +1,7 @@
-import { ImageURISource, ImageRequireSource } from 'react-native'
+import { ImageRequireSource, ImageURISource } from 'react-native'
 
-interface Drawable {
+interface Drawable
+{
   [name: string]: ImageURISource | ImageURISource[] | ImageRequireSource
 }
 
