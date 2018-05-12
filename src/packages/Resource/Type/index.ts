@@ -1,7 +1,19 @@
 import Resources from './Resources'
-import Colors from './Color'
+import Color from './Color'
+import Drawable from './Drawable'
+import String from './String'
+import Identity from './Identity'
+import Attribute from './Attribute'
+import Animation from './Animation'
+import Dimension from './Dimension'
 
 export {
   Resources,
-  Colors,
+  Color,
+  Drawable,
+  String,
+  Identity,
+  Attribute,
+  Animation,
+  Dimension,
 }

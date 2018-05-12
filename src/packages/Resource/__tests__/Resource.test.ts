@@ -13,7 +13,7 @@ describe('Resource Tests',() => {
 
   test('added colors', () => {
     resource.config({
-      colors: {
+      color: {
         red: '1314'
       }
     })
@@ -21,5 +21,17 @@ describe('Resource Tests',() => {
     expect(
       resource.color.red
     ).toBe('1314')
+  })
+
+  test('added image', () => {
+    resource.config({
+      drawable: {
+        test: '12345'
+      },
+    })
+
+    expect(
+      resource.drawable.test
+    ).toBe('12345')
   })
 })

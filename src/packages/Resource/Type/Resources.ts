@@ -2,6 +2,9 @@ import Color from './Color'
 import Drawable from './Drawable'
 import String from './String'
 import Identity from './Identity'
+import Attribute from './Attribute'
+import Animation from './Animation'
+import Dimension from './Dimension'
 
 interface Resources
 {
@@ -9,9 +12,9 @@ interface Resources
   drawable?: Drawable
   string?: String
   id?: Identity
-  attr?: any
-  animation?: any
-  dimension?: any
+  attr?: Attribute
+  animation?: Animation
+  dimension?: Dimension
 }
 
 export default Resources

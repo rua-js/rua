@@ -2,13 +2,15 @@ import { CanConfig } from 'rua-core/lib/Contracts'
 
 import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 import { ResourceInterface } from './Interface'
-import { Colors, Resources } from './Type'
+import { Resources, Color, } from './Type'
 import { colors as defaultColors } from './Defaults'
 
 class Resource extends AbstractRuaPackage implements ResourceInterface, CanConfig
 {
 
-  public color: Colors = defaultColors
+  public color: Color = defaultColors
+
+  public drawable: Color = {}
 
   constructor()
   {
@@ -16,18 +18,25 @@ class Resource extends AbstractRuaPackage implements ResourceInterface, CanConfi
     this.booted = true
   }
 
-  public config(resource: Resources): boolean
-  {
-    const {
-      colors,
-    } = resource
-
-    Object.defineProperty(this, 'color', {
-      value: { ...defaultColors, ...colors },
+  protected defineProperty(propertyName: string, propertyValue: any): any {
+    return Object.defineProperty(this, propertyName, {
+      value: propertyValue,
       writable: false,
       enumerable: true,
       configurable: false,
     })
+  }
+
+  public config(resource: Resources): boolean
+  {
+    const {
+      color,
+      drawable,
+    } = resource
+
+    // define properties
+    this.defineProperty('color', { ...defaultColors, ...color })
+    this.defineProperty('drawable', drawable)
 
     return true
   }
