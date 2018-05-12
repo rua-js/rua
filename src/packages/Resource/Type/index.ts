@@ -6,6 +6,8 @@ import Identity from './Identity'
 import Attribute from './Attribute'
 import Animation from './Animation'
 import Dimension from './Dimension'
+import Style from './Style'
+import Font from './Font'
 
 export {
   Resources,
@@ -16,4 +18,6 @@ export {
   Attribute,
   Animation,
   Dimension,
+  Style,
+  Font,
 }
