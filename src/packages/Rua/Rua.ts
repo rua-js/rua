@@ -59,3 +59,5 @@ class Rua extends AbstractRuaPackage implements CanConfig
     }
   }
 }
+
+export default Rua
