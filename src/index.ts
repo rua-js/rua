@@ -9,6 +9,7 @@ import { util } from './packages/Util'
 import { cache } from './packages/Cache'
 import { api } from './packages/Api'
 import { __, locale, translate } from './packages/Localization'
+import { resource as R } from './packages/Resource'
 // Non-essential library
 import { actions, dvaLite, ruaDva } from 'rua-dva'
 // Third-party library
@@ -22,6 +23,8 @@ export {
   // primitive
   util,
   convertor,
+  // resource
+  R,
   // rua-dva
   dvaLite,
   ruaDva,

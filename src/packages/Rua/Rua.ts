@@ -6,6 +6,7 @@ import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 // Self Dependency
 import { fetch } from '../Fetch'
 import { api } from '../Api'
+import { resource } from '../Resource'
 
 import { RuaConfiguration } from './Type'
 
@@ -32,6 +33,7 @@ class Rua extends AbstractRuaPackage implements CanConfig
   public configurableModules: AnyObject = {
     api,
     fetch,
+    resource,
   }
 
   public config(configuration?: RuaConfiguration): void
@@ -39,12 +41,12 @@ class Rua extends AbstractRuaPackage implements CanConfig
     // merge configuration
     const configs: AnyObject = { ...this.defaultConfiguration, ...configuration }
 
+    // iterate configuration and find its module
     for (const name in configs)
     {
-      const module = this.configurableModules[name]
+      const module = this.configurableModules[name] // find corresponding module
 
-      // abort if it is NOT a configurable module
-      if (!module)
+      if (!module) // abort if it is NOT a configurable module
       {
         return
       }
