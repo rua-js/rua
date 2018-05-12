@@ -5,7 +5,6 @@ import { RuaDva } from './Bridge'
 import { CanConfig } from 'rua-core/lib/Contracts'
 import { AnyObject } from 'rua-core/lib/Types'
 import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
-
 // Self dependency
 import { fetch } from '../Fetch'
 import { api } from '../Api'
@@ -39,7 +38,9 @@ class Rua extends AbstractRuaPackage implements CanConfig
     dva: RuaDva
   }
 
-  public config(configuration?: RuaConfiguration): void
+  public app: any
+
+  public config(configuration?: RuaConfiguration): any
   {
     // merge configuration
     const configs: AnyObject = { ...this.defaultConfiguration, ...configuration }
@@ -58,8 +59,16 @@ class Rua extends AbstractRuaPackage implements CanConfig
       const config = configs[name]
 
       // config the module
-      module.config(config)
+      const result = module.config(config)
+
+      if (name === 'dva')
+      {
+        this.app = result
+      }
     }
+
+    // return app
+    return this.app
   }
 }
 

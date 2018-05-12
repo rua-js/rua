@@ -1,6 +1,5 @@
 // Self Dependency
 import Rua from './Rua'
-
 // Rua Core Dependency
 import { packager } from 'rua-core/lib'
 

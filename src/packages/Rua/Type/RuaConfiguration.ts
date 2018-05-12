@@ -1,7 +1,8 @@
 import { ApiConfiguration } from '../../Api/Type'
 import { Resources } from '../../Resource/Type'
 
-interface RuaConfiguration {
+interface RuaConfiguration
+{
   fetch?: {
     headers?: object
     extraHeaders?: object
