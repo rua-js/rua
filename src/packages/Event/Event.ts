@@ -1,7 +1,7 @@
 import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 // @ts-ignore: import problem
 import * as EventEmitter from 'wolfy87-eventemitter'
-import { MultiEvents } from './Types'
+import { MultiEvents } from './Type'
 import { AnyObject } from 'rua-core/lib/Types'
 import { EventInterface } from './Interface'
 
