@@ -3996,9 +3996,9 @@ rua-core@^0.2.4:
     global "^4.3.2"
     invariant "^2.2.2"
 
-rua-dva@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.npmjs.org/rua-dva/-/rua-dva-0.6.1.tgz#f78c88536cf3c192ef66ee28378aedff0298ca1c"
+rua-dva@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.npmjs.org/rua-dva/-/rua-dva-0.6.2.tgz#510ce0572884fa0a7d2ca044b1fbc1007156b5ee"
   dependencies:
     dva "^2.1.0"
     dva-core "*"

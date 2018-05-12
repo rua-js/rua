@@ -50,9 +50,9 @@ class Rua extends AbstractRuaPackage implements CanConfig
     {
       const module = this.configurableModules[name] // find corresponding module
 
-      if (!module) // abort if it is NOT a configurable module
+      if (!module) // continue to next configuration if it is NOT a configurable module
       {
-        return
+        continue
       }
 
       // configuration for this module
