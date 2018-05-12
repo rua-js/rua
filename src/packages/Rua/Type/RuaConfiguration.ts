@@ -1,4 +1,5 @@
 import { ApiConfiguration } from '../../Api/Type'
+import { Resources } from '../../Resource/Type'
 
 interface RuaConfiguration {
   fetch?: {
@@ -16,6 +17,8 @@ interface RuaConfiguration {
   models?: {
     [key: string]: any
   }
+
+  resource?: Resources
 }
 
 export default RuaConfiguration
