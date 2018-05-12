@@ -1,6 +1,6 @@
 {
   "name": "rua",
-  "version": "0.4.1-fix6",
+  "version": "0.4.1-fix7",
   "description": "Elegant front-end applications delivered at warp speed.",
   "main": "lib/index.js",
   "scripts": {

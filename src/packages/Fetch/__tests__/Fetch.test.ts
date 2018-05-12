@@ -50,4 +50,5 @@ describe('Fetch', () => {
       fetch('https://reqres.in/404')
     ).rejects.toBeInstanceOf(HttpNotFoundException)
   })
+
 })

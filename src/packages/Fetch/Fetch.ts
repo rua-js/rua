@@ -87,7 +87,6 @@ class Fetch extends AbstractRuaPackage implements FetchInterface
       ...restOptions
     } = this.options
 
-
     // init headers
     if (!restOptions.headers)
     {
@@ -105,7 +104,7 @@ class Fetch extends AbstractRuaPackage implements FetchInterface
     if (form)
     {
       restOptions.body = convertor.Json2FormData(restOptions.body)
-    } else
+    } else if (restOptions.body)
     {
       restOptions.body = JSON.stringify(restOptions.body)
     }

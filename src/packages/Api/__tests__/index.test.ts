@@ -1,6 +1,6 @@
 import {
   api,
-} from '../index'
+} from '../'
 
 describe('Api Index Tests', () => {
   test('export correctly', () => {
