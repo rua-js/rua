@@ -1,4 +1,5 @@
 const colors = {
+  // basic color
   background: '#f2f2f2',
   primary: '#ed393a',
   secondary: '#fd7722',
@@ -18,6 +19,7 @@ const colors = {
   grey: '#767676',
   borderLight: '#f0f0f0',
   border: '#ddd',
+
   // social media
   wechat: '#62b900',
   eleme: '#1e89e0',
