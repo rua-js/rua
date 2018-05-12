@@ -35,7 +35,7 @@
     "npm": "^6.0.0",
     "react-native-i18n": "^2.0.12",
     "rua-core": "^0.2.4",
-    "rua-dva": "^0.6.0",
+    "rua-dva": "^0.6.1",
     "wolfy87-eventemitter": "^5.2.4"
   },
   "devDependencies": {

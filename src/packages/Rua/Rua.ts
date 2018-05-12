@@ -1,13 +1,15 @@
-// RuaCore Dependency
+// Third-party dependency
+// Bridged dependency
+import { RuaDva } from './Bridge'
+// RuaCore dependency
 import { CanConfig } from 'rua-core/lib/Contracts'
 import { AnyObject } from 'rua-core/lib/Types'
 import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 
-// Self Dependency
+// Self dependency
 import { fetch } from '../Fetch'
 import { api } from '../Api'
 import { resource } from '../Resource'
-
 import { RuaConfiguration } from './Type'
 
 /**
@@ -34,6 +36,7 @@ class Rua extends AbstractRuaPackage implements CanConfig
     api,
     fetch,
     resource,
+    dva: RuaDva
   }
 
   public config(configuration?: RuaConfiguration): void
