@@ -2,7 +2,7 @@ import { CanConfig } from 'rua-core/lib/Contracts'
 
 import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 import { ResourceInterface } from './Interface'
-import { Resources, Color, Drawable } from './Type'
+import { Resources, Color, Drawable, Font } from './Type'
 import { colors as defaultColors } from './Defaults'
 
 /**
@@ -21,6 +21,8 @@ class Resource extends AbstractRuaPackage implements ResourceInterface, CanConfi
   public color: Color = defaultColors
 
   public drawable: Drawable = {}
+
+  public font: Font = {}
 
   /**
    * Set the booted status to true
@@ -47,12 +49,7 @@ class Resource extends AbstractRuaPackage implements ResourceInterface, CanConfi
     }
 
     // define a read-only property
-    return Object.defineProperty(this, propertyName, {
-      value: propertyValue,
-      writable: false,
-      enumerable: true,
-      configurable: false,
-    })
+    return (this as any)[propertyName] = {...(this as any)[propertyName], ...propertyValue}
   }
 
   /**
