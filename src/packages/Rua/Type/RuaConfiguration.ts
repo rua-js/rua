@@ -20,6 +20,8 @@ interface RuaConfiguration
   }
 
   resource?: Resources
+
+  dva?: any
 }
 
 export default RuaConfiguration

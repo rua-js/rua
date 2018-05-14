@@ -15,6 +15,8 @@ import { resource as R } from './packages/Resource'
 // Non-essential library
 import { actions, dvaLite, ruaDva } from 'rua-dva'
 // Third-party library
+// @ts-ignore
+// @ts-ignore
 import { connect } from 'react-redux'
 
 // Deep-integrated library
