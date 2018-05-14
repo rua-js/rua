@@ -1,12 +1,6 @@
 import AnyObject from 'rua-core/lib/Types/AnyObject'
 
 interface RequestInterface {
-  /**
-   * Interceptors
-   *
-   * @type {Object}
-   */
-  interceptor: AnyObject
 
   /**
    * Url
@@ -34,7 +28,7 @@ interface RequestInterface {
    *
    * @returns {Promise<Response>}
    */
-  start(): Promise<Response>
+  start(url: string, options: AnyObject): Promise<Response>
 }
 
 export default RequestInterface

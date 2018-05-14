@@ -51,6 +51,27 @@ describe('Request', () => {
     ).rejects.toBeInstanceOf(HttpNotFoundException)
   })
 
+  test('interceptors', async () => {
+    const url = 'https://reqres.in/api/users'
+    const requestInterceptors = {
+      wtf: (req: any) => {
+        req.url = url
+      }
+    }
+
+    request.config({
+      requestInterceptors,
+    })
+
+    await expect(
+      request('https://www.qq.com')
+    ).resolves.toBeInstanceOf(Object)
+    // case: correct data
+    await expect(
+      request('https://www.qq.com')
+    ).resolves.toHaveProperty('page')
+  })
+
   test('before', async () => {
     const url = 'https://reqres.in/api/users'
     const before = (req: any) => {

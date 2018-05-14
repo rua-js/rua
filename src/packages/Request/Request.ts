@@ -7,6 +7,8 @@ import Interceptor from './Interceptor'
 import { RequestInterface } from './Interface'
 import { CodedHttpExceptions, HttpAbortException, HttpException, HttpRequestTimeoutException, } from '../Exception'
 import { convertor, } from '../Convertor'
+import { CanConfig } from 'rua-core/lib/Contracts'
+import RequestConfiguration from './Type/RequestConfiguration'
 
 class Request extends AbstractRuaPackage implements RequestInterface
 {
@@ -15,7 +17,7 @@ class Request extends AbstractRuaPackage implements RequestInterface
    *
    * @type {Object}
    */
-  public interceptor: AnyObject = {
+  public static interceptor: AnyObject = {
     request: new Interceptor,
     response: new Interceptor,
   }
@@ -44,12 +46,28 @@ class Request extends AbstractRuaPackage implements RequestInterface
   /**
    * @constructor
    */
-  constructor(url: string, options: AnyObject = {})
+  constructor(url: string, options: AnyObject)
   {
     super()
     this.url = url
     this.options = options
     this.booted = true
+  }
+
+  /**
+   * Rua configuration interface
+   *
+   * @param {RequestConfiguration} configuration
+   */
+  public static config(configuration: RequestConfiguration)
+  {
+    const {
+      requestInterceptors,
+      responseInterceptors,
+    } = configuration
+
+    Request.interceptor.request.add(requestInterceptors)
+    Request.interceptor.response.add(responseInterceptors)
   }
 
   /**
@@ -104,7 +122,8 @@ class Request extends AbstractRuaPackage implements RequestInterface
     const isRequireForm = form
     const isFormData = restOptions.body instanceof FormData
 
-    if (isRequireForm && !isFormData) {
+    if (isRequireForm && !isFormData)
+    {
       restOptions.body = convertor.Json2FormData(restOptions.body)
     }
 
@@ -115,13 +134,11 @@ class Request extends AbstractRuaPackage implements RequestInterface
     }
 
     // request interceptors
-    const requestInterceptors = this.interceptor.request.all()
+    const requestInterceptorInstance = Request.interceptor.request
 
-    // console.error(requestInterceptors)
-
-    // for(const interceptor of requestInterceptors) {
-    //   interceptor(this)
-    // }
+    requestInterceptorInstance.interceptorOrder.forEach((interceptorName: string) => {
+      requestInterceptorInstance.get(interceptorName)(this)
+    })
 
     // setup abort situations
     const promises = [

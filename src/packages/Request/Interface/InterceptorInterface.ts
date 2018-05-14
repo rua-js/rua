@@ -7,12 +7,25 @@ interface InterceptorInterface {
   interceptor: AnyObject
 
   /**
+   * The order of all the interceptors
+   */
+  interceptorOrder: string[]
+
+  /**
    * Adds one interceptor with name
    *
    * @param {string} name
    * @param {Function} interceptor
    */
   add(name: string, interceptor: Function): void
+
+  /**
+   * Get one interceptor with the specific name
+   *
+   * @param {string} name
+   * @returns {Function}
+   */
+  get(name: string): Function
 
   /**
    * Removes one interceptor with name
@@ -23,6 +36,7 @@ interface InterceptorInterface {
 
   /**
    * Loads interceptors
+   *
    * @param {AnyObject} interceptors
    */
   load(interceptors: AnyObject): void
