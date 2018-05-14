@@ -1,15 +1,9 @@
 import { ApiConfiguration } from '../../Api/Type'
-import { Resources } from '../../Resource/Type'
+import { RequestConfiguration } from '../../Request/Type'
 
 interface RuaConfiguration
 {
-  fetch?: {
-    headers?: object
-    extraHeaders?: object
-    requestInterceptors?: Function[]
-    responseInterceptors?: Function[]
-    driver?: Function
-  }
+  request: RequestConfiguration
 
   api?: {
     [key: string]: ApiConfiguration
@@ -19,7 +13,6 @@ interface RuaConfiguration
     [key: string]: any
   }
 
-  resource?: Resources
 
   dva?: any
 }

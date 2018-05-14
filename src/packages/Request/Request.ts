@@ -133,6 +133,8 @@ class Request extends AbstractRuaPackage implements RequestInterface
       restOptions.body = JSON.stringify(restOptions.body)
     }
 
+    this.options = restOptions
+
     // request interceptors
     const requestInterceptorInstance = Request.interceptor.request
 
@@ -142,7 +144,7 @@ class Request extends AbstractRuaPackage implements RequestInterface
 
     // setup abort situations
     const promises = [
-      fetch(this.url, restOptions)
+      fetch(this.url, this.options)
         .then(Request.checkStatus)
         .then(res => res.json())
         .then((data) =>
