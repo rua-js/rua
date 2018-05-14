@@ -1,5 +1,5 @@
 import {
-  fetch,
+  request,
 } from '../index'
 
 import {
@@ -8,15 +8,15 @@ import {
   HttpNotFoundException,
 } from '../../Exception'
 
-describe('Fetch', () => {
-  test('fetch', async () => {
+describe('Request', () => {
+  test('request', async () => {
     // case: success
     await expect(
-      fetch('https://reqres.in/api/users')
+      request('https://reqres.in/api/users')
     ).resolves.toBeInstanceOf(Object)
     // case: correct data
     await expect(
-      fetch('https://reqres.in/api/users')
+      request('https://reqres.in/api/users')
     ).resolves.toHaveProperty('page')
   })
 
@@ -25,7 +25,7 @@ describe('Fetch', () => {
     await expect(
       (() => {
         let abortFn: any
-        const req = fetch('https://reqres.in/api/users', {
+        const req = request('https://reqres.in/api/users', {
           before(req: any) {
             abortFn = req
           },
@@ -39,7 +39,7 @@ describe('Fetch', () => {
   test('timeout', async () => {
     // case: timeout
     await expect(
-      fetch('https://reqres.in/api/users', {
+      request('https://reqres.in/api/users', {
         timeout: 10,
       })
     ).rejects.toBeInstanceOf(HttpRequestTimeoutException)
@@ -47,8 +47,22 @@ describe('Fetch', () => {
 
   test('404', async () => {
     await expect(
-      fetch('https://reqres.in/404')
+      request('https://reqres.in/404')
     ).rejects.toBeInstanceOf(HttpNotFoundException)
   })
 
+  test('before', async () => {
+    const url = 'https://reqres.in/api/users'
+    const before = (req: any) => {
+      req.url = url
+    }
+
+    await expect(
+      request('https://www.qq.com', { before })
+    ).resolves.toBeInstanceOf(Object)
+    // case: correct data
+    await expect(
+      request('https://www.qq.com', { before })
+    ).resolves.toHaveProperty('page')
+  })
 })

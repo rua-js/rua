@@ -4,7 +4,7 @@ import CanConfig from 'rua-core/lib/Contracts/CanConfig'
 import * as _ from 'lodash'
 
 import { util } from '../Util'
-import { fetch as _fetch } from '../Fetch'
+import { request } from '../Request'
 import { ApiConfiguration } from './Type'
 
 class Api extends AbstractRuaPackage implements CanConfig
@@ -14,7 +14,7 @@ class Api extends AbstractRuaPackage implements CanConfig
    * Fetch instance
    * @type {Function}
    */
-  protected fetch = _fetch
+  protected request = request
 
   /**
    * @constructor
@@ -92,8 +92,8 @@ class Api extends AbstractRuaPackage implements CanConfig
       url,
       ...restConfig
     } = config
-
-    return this.fetch(url, {...restConfig, body: data})
+    
+    return this.request(url, {...restConfig, body: data})
   }
 }
 

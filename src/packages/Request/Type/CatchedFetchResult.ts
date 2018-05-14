@@ -1,8 +1,8 @@
 import { AnyObject } from 'rua-core/lib/Types'
 
-interface CactchedFetchResult {
+interface CactchedRequestResult {
   err: Error
   data: AnyObject
 }
 
-export default CactchedFetchResult
+export default CactchedRequestResult

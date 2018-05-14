@@ -1,6 +1,6 @@
 import AnyObject from 'rua-core/lib/Types/AnyObject'
 
-interface FetchInterface {
+interface RequestInterface {
   /**
    * Interceptors
    *
@@ -37,4 +37,4 @@ interface FetchInterface {
   start(): Promise<Response>
 }
 
-export default FetchInterface
+export default RequestInterface

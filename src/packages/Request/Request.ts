@@ -4,11 +4,11 @@ import * as _ from 'lodash'
 
 import fetch from './ThirdParty/fetch'
 import Interceptor from './Interceptor'
-import { FetchInterface } from './Interface'
+import { RequestInterface } from './Interface'
 import { CodedHttpExceptions, HttpAbortException, HttpException, HttpRequestTimeoutException, } from '../Exception'
 import { convertor, } from '../Convertor'
 
-class Fetch extends AbstractRuaPackage implements FetchInterface
+class Request extends AbstractRuaPackage implements RequestInterface
 {
   /**
    * Interceptors
@@ -100,28 +100,33 @@ class Fetch extends AbstractRuaPackage implements FetchInterface
     }
     // apply request interceptor
 
-    // auto form convention or auto stringify
-    if (form)
-    {
+    // auto stringify
+    const isRequireForm = form
+    const isFormData = restOptions.body instanceof FormData
+
+    if (isRequireForm && !isFormData) {
       restOptions.body = convertor.Json2FormData(restOptions.body)
-    } else if (restOptions.body)
+    }
+
+    if (!isRequireForm && !isFormData)
     {
+      restOptions.headers['Content-Type'] = 'application/json'
       restOptions.body = JSON.stringify(restOptions.body)
     }
 
-    // auto content-type
-    if (form || restOptions.body instanceof FormData) // if form
-    {
-      restOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded'
-    } else // if json
-    {
-      restOptions.headers['Content-Type'] = 'application/json'
-    }
+    // request interceptors
+    const requestInterceptors = this.interceptor.request.all()
+
+    // console.error(requestInterceptors)
+
+    // for(const interceptor of requestInterceptors) {
+    //   interceptor(this)
+    // }
 
     // setup abort situations
     const promises = [
       fetch(this.url, restOptions)
-        .then(Fetch.checkStatus)
+        .then(Request.checkStatus)
         .then(res => res.json())
         .then((data) =>
         {
@@ -153,4 +158,4 @@ class Fetch extends AbstractRuaPackage implements FetchInterface
   }
 }
 
-export default Fetch
+export default Request

@@ -1,7 +1,7 @@
 import { AnyObject } from 'rua-core/lib/Types'
 
-interface FetchResult {
+interface RequestResult {
   data: AnyObject
 }
 
-export default FetchResult
+export default RequestResult
