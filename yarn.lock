@@ -32,9 +32,9 @@
   version "22.1.1"
   resolved "https://registry.npmjs.org/@types/jest/-/jest-22.1.1.tgz#231d7c60ed130200af9e96c82469ed25b59a7ea2"
 
-"@types/lodash@^4.14.100":
-  version "4.14.100"
-  resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.100.tgz#f353dd9d3a9785638b6cb8023e6639097bd31969"
+"@types/lodash@^4.14.108":
+  version "4.14.108"
+  resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.108.tgz#02656af3add2e5b3174f830862c47421c00ef817"
 
 "@types/node@*", "@types/node@^9.4.6":
   version "9.4.6"
@@ -2555,6 +2555,10 @@ lodash@^3.10.1:
 lodash@^4.13.1, lodash@^4.14.0, lodash@^4.17.4, lodash@^4.17.5:
   version "4.17.5"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
+
+lodash@^4.17.10:
+  version "4.17.10"
+  resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
 lodash@^4.2.1:
   version "4.17.4"

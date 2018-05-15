@@ -5,14 +5,11 @@ interface RuaConfiguration
 {
   request: RequestConfiguration
 
-  api?: {
-    [key: string]: ApiConfiguration
-  }
+  api?: ApiConfiguration
 
   models?: {
     [key: string]: any
   }
-
 
   dva?: any
 }

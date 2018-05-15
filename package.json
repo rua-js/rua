@@ -1,6 +1,6 @@
 {
   "name": "rua",
-  "version": "0.5.5-fix.1",
+  "version": "0.5.6",
   "description": "Elegant front-end applications delivered at warp speed.",
   "main": "lib/index.js",
   "scripts": {
@@ -24,13 +24,12 @@
   },
   "homepage": "https://github.com/rua-js/rua#readme",
   "dependencies": {
-    "@types/react-native-i18n": "^2.0.0",
     "global": "^4.3.2",
     "i18n-js": "^3.0.3",
     "invariant": "^2.2.2",
     "isomorphic-fetch": "^2.2.1",
     "localforage": "^1.5.6",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.10",
     "npm": "^6.0.0",
     "react-native-i18n": "^2.0.12",
     "rua-core": "^0.2.4",
@@ -38,12 +37,13 @@
     "wolfy87-eventemitter": "^5.2.4"
   },
   "devDependencies": {
+    "@types/react-native-i18n": "^2.0.0",
     "@types/fs-extra": "^5.0.1",
     "@types/i18n-js": "^3.0.0",
     "@types/invariant": "^2.2.29",
     "@types/isomorphic-fetch": "^0.0.34",
     "@types/jest": "^22.1.1",
-    "@types/lodash": "^4.14.100",
+    "@types/lodash": "^4.14.108",
     "@types/node": "^9.4.6",
     "@types/react-native": "^0.55.12",
     "fs-extra": "^5.0.0",
