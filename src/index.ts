@@ -1,17 +1,17 @@
 // Master
-import { rua } from './packages/Rua'
+import { Rua } from './packages/Rua'
 // Primitive library
 import { storage } from './packages/Storage'
 import { event } from './packages/Event'
 import { Exception } from './packages/Exception'
-import { fetch } from './packages/Fetch'
+import { request } from './packages/Request'
 import { convertor } from './packages/Convertor'
 import { util } from './packages/Util'
 // Essential library
 import { cache } from './packages/Cache'
 import { api } from './packages/Api'
 import { __, locale, translate } from './packages/Localization'
-import { resource as R } from './packages/Resource'
+import { Decorator, Decorator as D } from './packages/Decorator'
 // Non-essential library
 import { actions, dvaLite, ruaDva } from 'rua-dva'
 // Third-party library
@@ -23,12 +23,10 @@ import { connect, _ } from './packages/ThirdParty'
 
 export {
   // master
-  rua,
+  Rua,
   // primitive
   util,
   convertor,
-  // resource
-  R,
   // rua-dva
   dvaLite,
   ruaDva,
@@ -39,8 +37,8 @@ export {
   Exception,
   // rua-storage
   storage,
-  // rua-fetch
-  fetch,
+  // rua-request
+  request,
   // rua-cache
   cache,
   // rua-api
@@ -49,6 +47,9 @@ export {
   locale,
   translate,
   __,
+  // rua-decorator
+  Decorator,
+  D,
   // third-party
   connect,
   _,

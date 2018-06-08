@@ -38,6 +38,12 @@ class Rua extends AbstractRuaPackage implements CanConfig
 
   public app: any
 
+  constructor(configuration?: RuaConfiguration)
+  {
+    super()
+    this.config(configuration)
+  }
+
   public config(configuration?: RuaConfiguration): any
   {
     // merge configuration

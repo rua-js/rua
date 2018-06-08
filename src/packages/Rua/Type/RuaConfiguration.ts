@@ -3,7 +3,8 @@ import { RequestConfiguration } from '../../Request/Type'
 
 interface RuaConfiguration
 {
-  request: RequestConfiguration
+  request?
+    : RequestConfiguration
 
   api?: ApiConfiguration
 
