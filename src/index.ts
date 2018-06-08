@@ -9,7 +9,7 @@ import { convertor } from './packages/Convertor'
 import { util } from './packages/Util'
 // Essential library
 import { cache } from './packages/Cache'
-import { api } from './packages/Api'
+import { api } from './packages/API'
 import { __, locale, translate } from './packages/Localization'
 import { Decorator, Decorator as D } from './packages/Decorator'
 // Non-essential library

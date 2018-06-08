@@ -2,7 +2,7 @@ import Api from '../Api'
 import { api } from '../index'
 // import { fetch } from '../../Fetch'
 
-describe('Api Tests', () =>
+describe('API Tests', () =>
 {
   test('can create instance', () =>
   {

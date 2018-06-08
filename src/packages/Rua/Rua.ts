@@ -7,7 +7,7 @@ import { AnyObject } from 'rua-core/lib/Types'
 import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 // Self dependency
 import { request } from '../Request'
-import { api } from '../Api'
+import { api } from '../API'
 import { RuaConfiguration } from './Type'
 
 /**

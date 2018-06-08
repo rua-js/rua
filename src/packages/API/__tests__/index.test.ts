@@ -2,7 +2,7 @@ import {
   api,
 } from '../'
 
-describe('Api Index Tests', () => {
+describe('API Index Tests', () => {
   test('export correctly', () => {
     // case: instance
     expect(

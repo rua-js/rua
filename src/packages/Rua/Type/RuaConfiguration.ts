@@ -1,4 +1,4 @@
-import { ApiConfiguration } from '../../Api/Type'
+import { ApiConfiguration } from '../../API/Type'
 import { RequestConfiguration } from '../../Request/Type'
 
 interface RuaConfiguration
