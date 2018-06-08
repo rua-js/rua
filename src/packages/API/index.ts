@@ -1,7 +1,7 @@
 import APIClass from './API'
 import { packager } from 'rua-core/lib'
 
-const apiInstance = <APIClass>packager.registerIfNotRegistered('rua-API', new API())
+const apiInstance = <APIClass>packager.registerIfNotRegistered('rua-API', new APIClass())
 
 const API: any = apiInstance.call.bind(apiInstance)
 
