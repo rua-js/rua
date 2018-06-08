@@ -7,7 +7,7 @@ import { AnyObject } from 'rua-core/lib/Types'
 import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 // Self dependency
 import { request } from '../Request'
-import { api } from '../API'
+import { API } from '../API'
 import { RuaConfiguration } from './Type'
 
 /**
@@ -31,7 +31,7 @@ class Rua extends AbstractRuaPackage implements CanConfig
    * @type {string[]}
    */
   public configurableModules: AnyObject = {
-    api,
+    api: API,
     request,
     dva: RuaDva
   }

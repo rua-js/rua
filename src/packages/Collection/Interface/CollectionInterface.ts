@@ -197,7 +197,7 @@ interface CollectionInterface<T> {
 
   /**
    * Removes an item from the collection by its key
-   * NOTE: this api mutates the original collection
+   * NOTE: this API mutates the original collection
    *
    * @returns {T}
    */

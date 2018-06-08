@@ -38,7 +38,7 @@ Minor release **may** have breaking change
 - [x] Storage
 - [x] Fetch
 - [x] Cache
-- [x] Api
+- [x] API
 - [x] Localization
 - [ ] Collection
 - [ ] Clock

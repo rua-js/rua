@@ -1,5 +1,5 @@
-import ApiConfiguration from './ApiConfiguration'
+import APIConfiguration from './APIConfiguration'
 
 export {
-  ApiConfiguration,
+  APIConfiguration,
 }

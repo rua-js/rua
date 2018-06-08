@@ -1,8 +1,8 @@
 import AnyObject from 'rua-core/lib/Types/AnyObject'
 
-interface ApiInterface {
+interface APIInterface {
   /**
-   * Loads multiple api
+   * Loads multiple API
    *
    * @param {AnyObject} api
    * @returns {boolean}
@@ -10,18 +10,18 @@ interface ApiInterface {
   load(api: AnyObject): boolean
 
   /**
-   * Gets all api
+   * Gets all API
    *
    * @returns {AnyObject}
    */
   all(): AnyObject
 
   /**
-   * Calls an api
+   * Calls an API
    *
    * @returns {any}
    */
   dispatch(name: string): any
 }
 
-export default ApiInterface
+export default APIInterface

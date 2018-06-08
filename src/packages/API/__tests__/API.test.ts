@@ -1,5 +1,5 @@
-import Api from '../Api'
-import { api } from '../index'
+import API from '../API'
+import { API } from '../index'
 // import { fetch } from '../../Fetch'
 
 describe('API Tests', () =>
@@ -8,17 +8,17 @@ describe('API Tests', () =>
   {
     // case: new
     expect(
-      new Api() instanceof Api
+      new API() instanceof API
     ).toBeTruthy()
   })
 
   test('usage', async () =>
   {
-    // prep: load api
-    api.load({
+    // prep: load API
+    API.load({
       test: {
         go: {
-          url: 'https://reqres.in/api/users',
+          url: 'https://reqres.in/API/users',
           method: 'GET',
         },
       }
@@ -26,12 +26,12 @@ describe('API Tests', () =>
 
     // case: success
     await expect(
-      api('test.go')
+      API('test.go')
     ).resolves.toBeInstanceOf(Object)
 
     // case: correct data
     await expect(
-      api('test.go')
+      API('test.go')
     ).resolves.toHaveProperty('page')
   })
 

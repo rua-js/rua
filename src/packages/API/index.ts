@@ -1,15 +1,15 @@
-import Api from './Api'
+import APIClass from './API'
 import { packager } from 'rua-core/lib'
 
-const apiInstance = <Api>packager.registerIfNotRegistered('rua-api', new Api())
+const apiInstance = <APIClass>packager.registerIfNotRegistered('rua-API', new API())
 
-const api: any = apiInstance.call.bind(apiInstance)
+const API: any = apiInstance.call.bind(apiInstance)
 
 // api.config = apiInstance.config
-api.load = apiInstance.load.bind(apiInstance)
-api.all = apiInstance.all.bind(apiInstance)
-api.config = apiInstance.config.bind(apiInstance)
+API.load = apiInstance.load.bind(apiInstance)
+API.all = apiInstance.all.bind(apiInstance)
+API.config = apiInstance.config.bind(apiInstance)
 
 export {
-  api,
+  API,
 }

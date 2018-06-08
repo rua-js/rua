@@ -12,11 +12,11 @@ describe('Request', () => {
   test('request', async () => {
     // case: success
     await expect(
-      request('https://reqres.in/api/users')
+      request('https://reqres.in/API/users')
     ).resolves.toBeInstanceOf(Object)
     // case: correct data
     await expect(
-      request('https://reqres.in/api/users')
+      request('https://reqres.in/API/users')
     ).resolves.toHaveProperty('page')
   })
 
@@ -25,7 +25,7 @@ describe('Request', () => {
     await expect(
       (() => {
         let abortFn: any
-        const req = request('https://reqres.in/api/users', {
+        const req = request('https://reqres.in/API/users', {
           before(req: any) {
             abortFn = req
           },
@@ -39,7 +39,7 @@ describe('Request', () => {
   test('timeout', async () => {
     // case: timeout
     await expect(
-      request('https://reqres.in/api/users', {
+      request('https://reqres.in/API/users', {
         timeout: 10,
       })
     ).rejects.toBeInstanceOf(HttpRequestTimeoutException)
@@ -52,7 +52,7 @@ describe('Request', () => {
   })
 
   test('interceptors', async () => {
-    const url = 'https://reqres.in/api/users'
+    const url = 'https://reqres.in/API/users'
     const requestInterceptors = {
       wtf: (req: any) => {
         req.url = url
@@ -73,7 +73,7 @@ describe('Request', () => {
   })
 
   test('before', async () => {
-    const url = 'https://reqres.in/api/users'
+    const url = 'https://reqres.in/API/users'
     const before = (req: any) => {
       req.url = url
     }

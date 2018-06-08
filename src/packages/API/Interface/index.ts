@@ -1,5 +1,5 @@
-import ApiInterface from './ApiInterface'
+import APIInterface from './APIInterface'
 
 export {
-  ApiInterface,
+  APIInterface,
 }

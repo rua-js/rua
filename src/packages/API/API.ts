@@ -5,9 +5,9 @@ import * as _ from 'lodash'
 
 import { util } from '../Util'
 import { request } from '../Request'
-import { ApiConfiguration } from './Type'
+import { APIConfiguration } from './Type'
 
-class Api extends AbstractRuaPackage implements CanConfig
+class API extends AbstractRuaPackage implements CanConfig
 {
 
   /**
@@ -32,7 +32,7 @@ class Api extends AbstractRuaPackage implements CanConfig
    *
    * @param {AnyObject} config
    */
-  public config(config?: ApiConfiguration): void
+  public config(config?: APIConfiguration): void
   {
     if (!config)
     {
@@ -47,7 +47,7 @@ class Api extends AbstractRuaPackage implements CanConfig
   }
 
   /**
-   * Loads multiple api
+   * Loads multiple API
    *
    * @param {AnyObject} api
    * @returns {boolean}
@@ -63,7 +63,7 @@ class Api extends AbstractRuaPackage implements CanConfig
   }
 
   /**
-   * Gets all api
+   * Gets all API
    *
    * @returns {AnyObject}
    */
@@ -73,19 +73,19 @@ class Api extends AbstractRuaPackage implements CanConfig
   }
 
   /**
-   * Calls an api
+   * Calls an API
    *
    * @returns {any}
    */
   public call(name: string, data?: AnyObject): Promise<Response>
   {
-    // get configuration of one api (setting)
+    // get configuration of one API (setting)
     const config = _.get(this.store, name)
 
-    // make sure has the api
+    // make sure has the API
     util.invariant(
       config,
-      '[Rua][API]The api that you are trying to access is NOT exists'
+      '[Rua][API]The API that you are trying to access is NOT exists'
     )
 
     const {
@@ -97,4 +97,4 @@ class Api extends AbstractRuaPackage implements CanConfig
   }
 }
 
-export default Api
+export default API

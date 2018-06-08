@@ -1,4 +1,4 @@
-import { ApiConfiguration } from '../../API/Type'
+import { APIConfiguration } from '../../API/Type'
 import { RequestConfiguration } from '../../Request/Type'
 
 interface RuaConfiguration
@@ -6,7 +6,7 @@ interface RuaConfiguration
   request?
     : RequestConfiguration
 
-  api?: ApiConfiguration
+  api?: APIConfiguration
 
   models?: {
     [key: string]: any
