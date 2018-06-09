@@ -1,17 +1,8 @@
-import API from '../API'
 import { API } from '../index'
 // import { fetch } from '../../Fetch'
 
 describe('API Tests', () =>
 {
-  test('can create instance', () =>
-  {
-    // case: new
-    expect(
-      new API() instanceof API
-    ).toBeTruthy()
-  })
-
   test('usage', async () =>
   {
     // prep: load API
@@ -34,5 +25,4 @@ describe('API Tests', () =>
       API('test.go')
     ).resolves.toHaveProperty('page')
   })
-
 })
