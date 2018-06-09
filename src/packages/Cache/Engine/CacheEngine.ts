@@ -2,19 +2,25 @@ import { AnyData, AnyObject } from 'rua-core/lib/Types'
 import * as _ from 'lodash'
 
 import { Storage, StorageEngine } from '../../Storage'
+import { CacheEngineConfiguration } from '../Type'
 import { CacheEngineInterface } from '../Interface/index'
 
 class CacheEngine implements CacheEngineInterface
 {
 
   /**
-   * Cache prefix
+   * Cache store name
    *
    * @type {string}
    */
-  protected prefix: string
+  protected storeName: string
 
-  protected configs: any
+  /**
+   * Saved configuration
+   *
+   * @type {CacheEngineConfiguration}
+   */
+  protected configs: CacheEngineConfiguration
 
   /**
    * Storage instance
@@ -23,6 +29,11 @@ class CacheEngine implements CacheEngineInterface
    */
   protected storage: StorageEngine = Storage
 
+  /**
+   * Store that saves all other CacheEngine instances
+   *
+   * @type {{}}
+   */
   protected store: any = {}
 
   /**
@@ -47,18 +58,17 @@ class CacheEngine implements CacheEngineInterface
   protected list: string[] = []
 
   /**
-   * Constructor
-   * Initialize instance with prefix
+   * Constructor that initialize instance with configuration
    *
    * @param {object} configs
    */
-  constructor(configs = {})
+  constructor(configs: CacheEngineConfiguration = {})
   {
     const {
-      prefix = 'cache-'
+      storeName = 'cache-'
     } = configs
 
-    this.prefix = prefix
+    this.storeName = storeName
     this.configs = configs
   }
 
@@ -153,7 +163,7 @@ class CacheEngine implements CacheEngineInterface
 
   public keys(): string[]
   {
-    return this.list.map(key => key.replace(this.prefix, ''))
+    return this.list.map(key => key.replace(this.storeName, ''))
   }
 
   public all(): any
@@ -161,7 +171,7 @@ class CacheEngine implements CacheEngineInterface
     const output: any = {}
     for (const name in this.store)
     {
-      output[name.replace(this.prefix, '')] = this.store[name]
+      output[name.replace(this.storeName, '')] = this.store[name]
     }
     return output
   }
@@ -171,11 +181,11 @@ class CacheEngine implements CacheEngineInterface
     // Get list key
     const listKey: string = <string>this.getListKeyName()
     // Get list data
-    const list: string = <string>await storage.get(listKey, [])
+    const list: string = <string>await this.storage.get(listKey, [])
     // Parse list data
     this.list = <string[]>JSON.parse(list)
     // Load all saved cache data to store
-    this.store = <AnyObject>await storage.get(this.list)
+    this.store = <AnyObject>await this.storage.get(this.list)
     // Calculate count
     this.count = this.list.length
   }
@@ -186,12 +196,12 @@ class CacheEngine implements CacheEngineInterface
    */
   protected getListKeyName(): string
   {
-    return `${this.prefix}list`
+    return `${this.storeName}list`
   }
 
   protected getItemKeyName(key: string): string
   {
-    return `${this.prefix}${key}`
+    return `${this.storeName}${key}`
   }
 
 }
