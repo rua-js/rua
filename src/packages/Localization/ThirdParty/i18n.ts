@@ -1,5 +1,5 @@
 import * as i18n from 'i18n-js'
-import { util } from '../../Util'
+import { util } from '../../Utility'
 
 // @ts-ignore: fix
 i18n.locale = util.language

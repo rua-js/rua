@@ -1,12 +1,17 @@
 import { AnyData, AnyObject } from 'rua-core/lib/Types'
 import * as _ from 'lodash'
 
-import { Storage } from '../../Storage'
+import { Storage, StorageEngine } from '../../Storage'
 import { CacheEngineInterface } from '../Interface/index'
 
 class CacheEngine implements CacheEngineInterface
 {
 
+  /**
+   * Cache prefix
+   *
+   * @type {string}
+   */
   protected prefix: string
 
   protected configs: any
@@ -16,7 +21,7 @@ class CacheEngine implements CacheEngineInterface
    *
    * @type {Storage}
    */
-  protected storage: Storage = Storage
+  protected storage: StorageEngine = Storage
 
   protected store: any = {}
 
@@ -57,15 +62,23 @@ class CacheEngine implements CacheEngineInterface
     this.configs = configs
   }
 
-  public pref(storeName: string): CacheEngine
+
+  /**
+   * Use a different storage which will be create if NOT exists
+   *
+   * @param {string} storeName
+   * @returns {CacheEngine}
+   */
+  public useStore(storeName: string): CacheEngine
   {
     const store = this.stores[storeName]
 
-    if (store) {
+    if (store)
+    {
       return store
     }
 
-    this.stores[storeName] = new CacheEngine({...this.configs, storeName})
+    this.stores[storeName] = new CacheEngine({ ...this.configs, storeName })
 
     return this.stores[storeName]
   }

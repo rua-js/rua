@@ -97,13 +97,6 @@ class Request extends AbstractRuaPackage implements RequestInterface
    */
   public start(): Promise<Response>
   {
-    let {
-      before,
-      timeout,
-      form,
-      ...restOptions
-    } = this.options
-
     // request interceptors
     const requestInterceptorInstance = Request.interceptor.request
 
@@ -113,6 +106,14 @@ class Request extends AbstractRuaPackage implements RequestInterface
       {
         requestInterceptorInstance.get(interceptorName)(this)
       })
+
+    // destruct
+    let {
+      before,
+      timeout,
+      form,
+      ...restOptions
+    } = this.options
 
     // init headers
     if (!restOptions.headers)

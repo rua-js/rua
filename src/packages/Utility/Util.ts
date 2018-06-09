@@ -3,6 +3,10 @@ import * as invariant from 'invariant'
 // import * as global from 'global'
 
 class Util {
+  constructor() {
+    return '133'
+  }
+
   public static delay(time: number): Promise<void> {
     return new Promise(resolve => setTimeout(resolve, time))
   }

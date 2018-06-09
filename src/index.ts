@@ -6,7 +6,7 @@ import { event } from './packages/Event'
 import { Exception } from './packages/Exception'
 import { request } from './packages/Request'
 import { convertor } from './packages/Convertor'
-import { util } from './packages/Util'
+import { util } from './packages/Utility'
 // Essential library
 import { Cache } from './packages/Cache'
 import { API } from './packages/API'
