@@ -1,5 +1,5 @@
-import CacheInterface from './CacheInterface'
+import CacheEngineInterface from './CacheEngineInterface'
 
 export {
-  CacheInterface,
+  CacheEngineInterface,
 }

@@ -1,14 +1,14 @@
 import {
-  cache,
+  Cache,
 } from '../index'
 
-import Cache from '../Cache'
+import CacheEngine from '../Engine/CacheEngine'
 
-describe('Cache Index Tests', () => {
+describe('CacheEngine Index Tests', () => {
   test('export correctly', () => {
     // case: cache
     expect(
-      cache instanceof Cache
-    ).toBeTruthy()
+      Cache
+    ).toBeInstanceOf(CacheEngine)
   })
 })
