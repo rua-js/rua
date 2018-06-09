@@ -1,14 +1,14 @@
 // Master
 import { Rua } from './packages/Rua'
 // Primitive library
-import { storage } from './packages/Storage'
+import { Storage } from './packages/Storage'
 import { event } from './packages/Event'
 import { Exception } from './packages/Exception'
 import { request } from './packages/Request'
 import { convertor } from './packages/Convertor'
 import { util } from './packages/Util'
 // Essential library
-import { cache } from './packages/Cache'
+import { Cache } from './packages/Cache'
 import { API } from './packages/API'
 import { __, locale, translate } from './packages/Localization'
 import { Decorator, Decorator as D } from './packages/Decorator'
@@ -36,11 +36,11 @@ export {
   // rua-exception
   Exception,
   // rua-storage
-  storage,
+  Storage,
   // rua-request
   request,
   // rua-cache
-  cache,
+  Cache,
   // rua-API
   API,
   // rua-localization
