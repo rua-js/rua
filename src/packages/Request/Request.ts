@@ -7,7 +7,6 @@ import Interceptor from './Interceptor'
 import { RequestInterface } from './Interface'
 import { CodedHttpExceptions, HttpAbortException, HttpException, HttpRequestTimeoutException, } from '../Exception'
 import { convertor, } from '../Convertor'
-import { CanConfig } from 'rua-core/lib/Contracts'
 import RequestConfiguration from './Type/RequestConfiguration'
 
 class Request extends AbstractRuaPackage implements RequestInterface
@@ -105,6 +104,16 @@ class Request extends AbstractRuaPackage implements RequestInterface
       ...restOptions
     } = this.options
 
+    // request interceptors
+    const requestInterceptorInstance = Request.interceptor.request
+
+    requestInterceptorInstance
+      .interceptorOrder
+      .forEach((interceptorName: string) =>
+      {
+        requestInterceptorInstance.get(interceptorName)(this)
+      })
+
     // init headers
     if (!restOptions.headers)
     {
@@ -134,13 +143,6 @@ class Request extends AbstractRuaPackage implements RequestInterface
     }
 
     this.options = restOptions
-
-    // request interceptors
-    const requestInterceptorInstance = Request.interceptor.request
-
-    requestInterceptorInstance.interceptorOrder.forEach((interceptorName: string) => {
-      requestInterceptorInstance.get(interceptorName)(this)
-    })
 
     // setup abort situations
     const promises = [
