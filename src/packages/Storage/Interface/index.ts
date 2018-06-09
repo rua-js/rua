@@ -1,5 +1,5 @@
-import StorageInterface from './StorageInterface'
+import StorageEngineInterface from './StorageEngineInterface'
 
 export {
-  StorageInterface,
+  StorageEngineInterface,
 }

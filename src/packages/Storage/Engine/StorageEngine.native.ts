@@ -3,18 +3,12 @@ import { AsyncStorage } from 'react-native'
 import * as _ from 'lodash'
 
 // Self Dependency
-import { StorageInterface } from './Interface'
+import { StorageEngineInterface } from '../Interface'
 
 // Rua Core Dependency
-import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 import { AnyData, AnyObject } from 'rua-core/lib/Types'
 
-class Storage extends AbstractRuaPackage implements StorageInterface {
-
-  constructor() {
-    super()
-    this.booted = true
-  }
+class StorageEngine implements StorageEngineInterface {
 
   public async set(key: string | string[], value: AnyData | AnyData[]): Promise<void> {
     if (_.isArray(key)) {
@@ -80,4 +74,4 @@ class Storage extends AbstractRuaPackage implements StorageInterface {
   }
 }
 
-export default Storage
+export default StorageEngine

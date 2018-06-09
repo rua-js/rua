@@ -1,7 +1,7 @@
 // Rua Core Dependency
 import { AnyObject, AnyData } from 'rua-core/lib/Types'
 
-interface StorageInterface {
+interface StorageEngineInterface {
 
   /**
    * Set or Replace a item with new data.
@@ -58,4 +58,4 @@ interface StorageInterface {
   all(): Promise<AnyObject>
 }
 
-export default StorageInterface
+export default StorageEngineInterface
