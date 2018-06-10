@@ -1,12 +1,10 @@
-import { event } from '../index'
-import Event from '../Event'
-import { packager } from 'rua-core/lib'
+import { Event } from '../index'
 
 describe('Event Index Tests', () => {
   test('export Event correctly', () => {
     // case: export correct Event
     expect(
-      event instanceof Event
+      Event
     ).toBeTruthy()
   })
 })

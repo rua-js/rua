@@ -1,30 +1,31 @@
 // @ts-ignore: wrong error
-import Event from '../Event'
+import { Event } from '../index'
 // @ts-ignore: wrong error
 import * as EventEmitter from 'wolfy87-eventemitter'
 // import jest from 'jest'
 
-describe('Event Tests', () => {
-  test('initialize correctly', () => {
+describe('Event Tests', () =>
+{
+  test('initialize correctly', () =>
+  {
     // case: can initialize
-    expect(
-      (new Event()) instanceof Event
-    ).toBeTruthy()
     // case: store is correct
     expect(
-      (new Event()).store
+      Event.store
     ).toBeInstanceOf(EventEmitter)
   })
-  test('basic usage (.on, .once, .emit)', () => {
+  test('basic usage (.on, .once, .emit)', () =>
+  {
+    Event.clear()
     // preparation
     const onceCallback = jest.fn()
     const onCallback = jest.fn()
-    const evt = new Event()
-    evt.on('test-on', onCallback)
-    evt.once('test-once', onceCallback)
-    Array(10).fill(1).forEach(() => {
-      evt.emit('test-on')
-      evt.emit('test-once')
+    Event.on('test-on', onCallback)
+    Event.once('test-once', onceCallback)
+    Array(10).fill(1).forEach(() =>
+    {
+      Event.emit('test-on')
+      Event.emit('test-once')
     })
     // case: on
     expect(
@@ -35,14 +36,15 @@ describe('Event Tests', () => {
       onceCallback.mock.calls.length
     ).toBe(1)
   })
-  test('set and get (.get, .all, .load)', () => {
+  test('set and get (.get, .all, .load)', () =>
+  {
+    Event.clear()
     // preparation
-    const evt = new Event()
     const fakeFn = jest.fn()
     const fakeFn2 = jest.fn()
     const fakeFn3 = jest.fn()
     const fakeFn4 = jest.fn()
-    evt.load({
+    Event.load({
       test1: [fakeFn2, fakeFn],
       test2: fakeFn3,
       test3: fakeFn4,
@@ -50,53 +52,54 @@ describe('Event Tests', () => {
     // case: .get(string) with one callback
     expect(
       // @ts-ignore
-      evt.get('test2').length
+      Event.get('test2').length
     ).toBe(1)
     expect(
       // @ts-ignore
-      evt.get('test2')[0].listener
+      Event.get('test2')[0].listener
     ).toBe(fakeFn3)
     // case: .get(string) with two callbacks
     expect(
       expect(
         // @ts-ignore
-        evt.get('test1').length
+        Event.get('test1').length
       ).toBe(2)
     )
     expect(
       // @ts-ignore
-      evt.get('test1')[0].listener
+      Event.get('test1')[0].listener
     ).toBe(fakeFn)
     expect(
       // @ts-ignore
-      evt.get('test1')[1].listener
+      Event.get('test1')[1].listener
     ).toBe(fakeFn2)
     // case: .get(RegExp)
     expect(
       // @ts-ignore
-      typeof evt.get(/test[12]/)
+      typeof Event.get(/test[12]/)
     ).toBe('object')
     expect(
       // @ts-ignore
-      typeof evt.get(/test[12]/).test1
+      typeof Event.get(/test[12]/).test1
     ).toBeTruthy()
     expect(
       // @ts-ignore
-      typeof evt.get(/test[12]/).test2
+      typeof Event.get(/test[12]/).test2
     ).toBeTruthy()
     // case: .all
     expect(
       // @ts-ignore
-      evt.all().test1 &&
-      evt.all().test2 &&
-      evt.all().test3
+      Event.all().test1 &&
+      Event.all().test2 &&
+      Event.all().test3
     ).toBeTruthy()
   })
-  test('removal (.remove, .clear)', () => {
+  test('removal (.remove, .clear)', () =>
+  {
+    Event.clear()
     // preparation
-    const evt = new Event()
     const fakeFn = jest.fn()
-    evt.load({
+    Event.load({
       test1: fakeFn,
       test2: fakeFn,
       test3: fakeFn,
@@ -104,22 +107,22 @@ describe('Event Tests', () => {
       test5: fakeFn,
     })
     // case: remove(string)
-    evt.remove('test1', fakeFn)
+    Event.remove('test1', fakeFn)
     expect(
-      evt.get('test1')
+      Event.get('test1')
     ).toEqual([])
     // case: remove(RegExp)
-    evt.remove(/.+[23]/, fakeFn)
+    Event.remove(/.+[23]/, fakeFn)
     expect(
-      evt.get('test2')
+      Event.get('test2')
     ).toEqual([])
     expect(
-      evt.get('test3')
+      Event.get('test3')
     ).toEqual([])
     // case: removeAll
-    evt.clear()
+    Event.clear()
     expect(
-      evt.all()
+      Event.all()
     ).toEqual({})
   })
 })
