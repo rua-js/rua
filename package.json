@@ -1,6 +1,6 @@
 {
   "name": "rua",
-  "version": "0.6.2",
+  "version": "0.6.4",
   "description": "Elegant front-end applications delivered at warp speed.",
   "main": "lib/index.js",
   "scripts": {
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/rua-js/rua#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "global": "^4.3.2",
     "i18n-js": "^3.0.3",
     "invariant": "^2.2.2",
@@ -37,7 +38,7 @@
     "wolfy87-eventemitter": "^5.2.4"
   },
   "devDependencies": {
-    "@types/react-native-i18n": "^2.0.0",
+    "@types/bluebird": "^3.5.20",
     "@types/fs-extra": "^5.0.1",
     "@types/i18n-js": "^3.0.0",
     "@types/invariant": "^2.2.29",
@@ -46,6 +47,7 @@
     "@types/lodash": "^4.14.108",
     "@types/node": "^9.4.6",
     "@types/react-native": "^0.55.12",
+    "@types/react-native-i18n": "^2.0.0",
     "fs-extra": "^5.0.0",
     "jest": "^22.1.4",
     "ts-jest": "^22.0.3",
