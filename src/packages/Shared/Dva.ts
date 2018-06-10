@@ -17,6 +17,7 @@ const deepMergeState = function (state: AnyObject, action?: any)
 {
   return _.merge(state, action)
 }
+
 const backupState = function (state: AnyObject, action?: any)
 {
   // todo: fix keyName
