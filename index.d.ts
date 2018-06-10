@@ -1,6 +1,6 @@
 import { Rua } from './lib/packages/Rua';
 import { Storage } from './lib/packages/Storage';
-import { event } from './lib/packages/Event';
+import { Event } from './lib/packages/Event';
 import { Exception } from './lib/packages/Exception';
 import { request } from './lib/packages/Request';
 import { convertor } from './lib/packages/Convertor';
@@ -9,6 +9,6 @@ import { Cache } from './lib/packages/Cache';
 import { API } from './lib/packages/API';
 import { __, locale, translate } from './lib/packages/Localization';
 import { Decorator, Decorator as D } from './lib/packages/Decorator';
-import { actions, dvaLite, ruaDva } from 'rua-dva';
+import { actions, dvaLite } from 'rua-dva';
 import { connect, _ } from './lib/packages/ThirdParty';
-export { Rua, util, convertor, dvaLite, ruaDva, actions, event, Exception, Storage, request, Cache, API, locale, translate, __, Decorator, D, connect, _ };
+export { Rua, util, convertor, dvaLite, actions, Event, Exception, Storage, request, Cache, API, locale, translate, __, Decorator, D, connect, _ };

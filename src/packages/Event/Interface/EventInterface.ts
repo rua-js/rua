@@ -1,4 +1,3 @@
-import Event from '../Event'
 import { AnyObject } from 'rua-core/lib/Types'
 import { MultiEvents } from '../Type'
 

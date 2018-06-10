@@ -2,7 +2,7 @@
 import { Rua } from './packages/Rua'
 // Primitive library
 import { Storage } from './packages/Storage'
-import { event } from './packages/Event'
+import { Event } from './packages/Event'
 import { Exception } from './packages/Exception'
 import { request } from './packages/Request'
 import { convertor } from './packages/Convertor'
@@ -31,7 +31,7 @@ export {
   dvaLite,
   actions,
   // rua-event
-  event,
+  Event,
   // rua-exception
   Exception,
   // rua-storage
