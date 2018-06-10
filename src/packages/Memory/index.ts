@@ -1,5 +1,5 @@
-import Engine from './Engine'
+import Memory from './Memory'
 
 export {
-  Engine,
+  Memory,
 }
