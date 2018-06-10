@@ -5,23 +5,45 @@ import { ExceptionInterface } from './Interface'
  *
  * @class Exception
  */
-class Exception extends Error implements ExceptionInterface {
+class Exception implements ExceptionInterface {
 
+  /**
+   * Exception name
+   *
+   * @type {string}
+   */
+  public name: string
+
+  /**
+   * Exception message
+   *
+   * @type {string}
+   */
+  public message: string
+
+  /**
+   * Exception stack
+   *
+   * @type {string}
+   */
+  public stack: string
   /**
    * Constructor
    *
    * @param {string} message
    */
-  constructor(message?: string) {
-    super(message)
+  constructor(message: string = '') {
 
-    // dynamic name
-    Object.defineProperty(this, 'name', {
-      configurable: true,
-      enumerable: false,
-      value: this.constructor.name,
-      writable: true,
-    })
+    this.name = this.constructor.name
+    this.message = message
+    this.stack = new Error().stack || ''
+    // // dynamic name
+    // Object.defineProperty(this, 'name', {
+    //   configurable: true,
+    //   enumerable: false,
+    //   value: name,
+    //   writable: true,
+    // })
   }
 }
 

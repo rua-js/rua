@@ -1,4 +1,5 @@
 import { AnyObject } from 'rua-core/lib/Types'
+import *  as Promise from 'bluebird'
 import AbstractRuaPackage from 'rua-core/lib/Abstractions/AbstractRuaPackage'
 import * as _ from 'lodash'
 
@@ -9,7 +10,7 @@ import { CodedHttpExceptions, HttpAbortException, HttpException, HttpRequestTime
 import { convertor, } from '../Convertor'
 import RequestConfiguration from './Type/RequestConfiguration'
 
-class Request extends AbstractRuaPackage implements RequestInterface
+class Request implements RequestInterface
 {
   /**
    * Interceptors
@@ -47,10 +48,8 @@ class Request extends AbstractRuaPackage implements RequestInterface
    */
   constructor(url: string, options: AnyObject)
   {
-    super()
     this.url = url
     this.options = options
-    this.booted = true
   }
 
   /**

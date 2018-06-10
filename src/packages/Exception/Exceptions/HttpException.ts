@@ -13,7 +13,7 @@ class HttpException extends Exception implements HttpExceptionInterface {
    *
    * @type {number}
    */
-  public code: number
+  public statusCode: number
 
   /**
    * @constructor
@@ -22,7 +22,7 @@ class HttpException extends Exception implements HttpExceptionInterface {
    */
   public constructor(code: number = -1, message?: string) {
     super(message)
-    this.code = code
+    this.statusCode = code
   }
 }
 

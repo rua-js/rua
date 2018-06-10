@@ -351,5 +351,3 @@ class ChainingIsEngine
 }
 
 export default ChainingIsEngine
-
-// ChainingIsEngine('string').string.and.boolean.or.lessThan

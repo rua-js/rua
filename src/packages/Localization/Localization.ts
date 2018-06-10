@@ -1,9 +1,8 @@
-import AbstractRuaPackage from 'rua-core/lib/Abstractions/AbstractRuaPackage'
 import { LocalizationInterface } from './Interface'
 import { AnyObject } from 'rua-core/lib/Types'
 import I18n from './ThirdParty/i18n'
 
-class Localization extends AbstractRuaPackage implements LocalizationInterface
+class Localization implements LocalizationInterface
 {
 
   /**
@@ -11,9 +10,7 @@ class Localization extends AbstractRuaPackage implements LocalizationInterface
    */
   public constructor()
   {
-    super()
     I18n.fallbacks = true
-    this.booted = true
   }
 
   /**

@@ -1,17 +1,17 @@
-import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 // @ts-ignore: import problem
 import * as EventEmitter from 'wolfy87-eventemitter'
 import { MultiEvents } from './Type'
 import { AnyObject } from 'rua-core/lib/Types'
 import { EventInterface } from './Interface'
 
-class Event extends AbstractRuaPackage implements EventInterface{
+class Event implements EventInterface{
 
-  constructor() {
-    super()
-    this.store = new EventEmitter()
-    this.booted = true
-  }
+  /**
+   * Event instance
+   *
+   * @type {EventEmitter}
+   */
+  store = new EventEmitter()
 
   /**
    * Adds a listener function to the specified event.

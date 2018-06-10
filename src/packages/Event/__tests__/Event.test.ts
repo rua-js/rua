@@ -12,12 +12,8 @@ describe('Event Tests', () => {
     ).toBeTruthy()
     // case: store is correct
     expect(
-      (new Event()).store instanceof EventEmitter
-    ).toBeTruthy()
-    // case: booted
-    expect(
-      (new Event()).booted
-    ).toBeTruthy()
+      (new Event()).store
+    ).toBeInstanceOf(EventEmitter)
   })
   test('basic usage (.on, .once, .emit)', () => {
     // preparation

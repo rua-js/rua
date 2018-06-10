@@ -13,7 +13,7 @@ import { API } from './packages/API'
 import { __, locale, translate } from './packages/Localization'
 import { Decorator, Decorator as D } from './packages/Decorator'
 // Non-essential library
-import { actions, dvaLite, ruaDva } from 'rua-dva'
+import { actions, dvaLite } from 'rua-dva'
 // Third-party library
 import { connect, _ } from './packages/ThirdParty'
 
@@ -29,7 +29,6 @@ export {
   convertor,
   // rua-dva
   dvaLite,
-  ruaDva,
   actions,
   // rua-event
   event,

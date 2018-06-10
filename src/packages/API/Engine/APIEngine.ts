@@ -1,4 +1,3 @@
-import AbstractRuaPackage from 'rua-core/lib/Abstractions/AbstractRuaPackage'
 import AnyObject from 'rua-core/lib/Types/AnyObject'
 import CanConfig from 'rua-core/lib/Contracts/CanConfig'
 import * as _ from 'lodash'
@@ -7,8 +6,14 @@ import { util } from '../../Utility'
 import { request } from '../../Request'
 import { APIConfiguration } from '../Type'
 
-class APIEngine extends AbstractRuaPackage implements CanConfig
+class APIEngine implements CanConfig
 {
+  /**
+   * Store user defined API
+   *
+   * @type {{}}
+   */
+  protected store: any = {}
 
   /**
    * Fetch instance
@@ -22,17 +27,8 @@ class APIEngine extends AbstractRuaPackage implements CanConfig
    */
   constructor(config?: AnyObject)
   {
-    super()
-
-    // binding
-    this.config = this.config.bind(this)
-    this.load = this.load.bind(this)
-    this.all = this.all.bind(this)
-    this.call = this.call.bind(this)
-
     // config
     this.config(config)
-    this.booted = true
   }
 
   /**
@@ -40,7 +36,7 @@ class APIEngine extends AbstractRuaPackage implements CanConfig
    *
    * @param {AnyObject} config
    */
-  public config(config?: APIConfiguration): void
+  public config = (config?: APIConfiguration): void =>
   {
     if (!config)
     {
@@ -60,7 +56,7 @@ class APIEngine extends AbstractRuaPackage implements CanConfig
    * @param {AnyObject} api
    * @returns {boolean}
    */
-  public load(api: AnyObject): void
+  public load = (api: AnyObject): void =>
   {
     if (!api)
     {
@@ -75,7 +71,7 @@ class APIEngine extends AbstractRuaPackage implements CanConfig
    *
    * @returns {AnyObject}
    */
-  public all(): AnyObject
+  public all = (): AnyObject =>
   {
     return this.store
   }
@@ -85,7 +81,7 @@ class APIEngine extends AbstractRuaPackage implements CanConfig
    *
    * @returns {any}
    */
-  public call(name: string, data?: AnyObject): Promise<Response>
+  public call = (name: string, data?: AnyObject): Promise<Response> =>
   {
     // get configuration of one API (setting)
     const config = _.get(this.store, name)

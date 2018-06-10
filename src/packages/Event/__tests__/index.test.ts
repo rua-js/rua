@@ -9,14 +9,4 @@ describe('Event Index Tests', () => {
       event instanceof Event
     ).toBeTruthy()
   })
-  test('register Event correctly', () => {
-    // case: has Event
-    expect(
-      packager.hasPackage('rua-event')
-    ).toBeTruthy()
-    // case: has correct Event
-    expect(
-      packager.getPackage('rua-event') instanceof Event
-    ).toBeTruthy()
-  })
 })

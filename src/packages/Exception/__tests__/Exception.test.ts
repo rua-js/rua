@@ -5,12 +5,12 @@ describe('Exception', () => {
     const e = new Exception('init')
     // case: Exception
     expect(
-      e instanceof Exception
-    ).toBeTruthy()
+      e
+    ).toBeInstanceOf(Exception)
     // case: Error
-    expect(
-      e instanceof Error
-    ).toBeTruthy()
+    // expect(
+    //   e
+    // ).toBeInstanceOf(Error)
   })
 
   test('property', () => {
