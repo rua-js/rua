@@ -10,7 +10,7 @@ class MemoryEngine implements MemoryEngineInterface
     return this.memory[key] = data
   }
 
-  public get(key: string, defaultValue: AnyData): AnyData
+  public get(key: string, defaultValue?: AnyData): AnyData
   {
     return this.memory[key] || defaultValue
   }
