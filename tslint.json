@@ -7,7 +7,8 @@
         "semicolon": false,
         "newline-before-return": true,
         "brace-style": ["error", "allman"],
-        "member-access": true
+        "member-access": true,
+        "variable-name": false
     },
     "rulesDirectory": []
 }
