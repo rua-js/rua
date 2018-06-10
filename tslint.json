@@ -6,7 +6,8 @@
         "eofline": true,
         "semicolon": false,
         "newline-before-return": true,
-        "brace-style": ["error", "allman"]
+        "brace-style": ["error", "allman"],
+        "member-access": true
     },
     "rulesDirectory": []
 }
