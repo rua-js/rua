@@ -1,10 +1,14 @@
-export const emptyArray = Object.freeze([])
+const emptyArray = Object.freeze([])
 
-export const emptyObject = Object.freeze({})
+const emptyObject = Object.freeze({})
 
-export const noop = () => {}
+const noop = () => {}
 
-export const core = 'hsy'
+const core = 'hsy'
 
-
-
+export {
+  emptyArray,
+  emptyObject,
+  noop,
+  core,
+}
