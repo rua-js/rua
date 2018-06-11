@@ -1,5 +1,5 @@
 import ValidationRule from './ValidationRule'
-import ValiationRules from './ValiationRules'
+import ValidationRules from './ValidationRules'
 import StringRule from './StringRule'
 import StringRules from './StringRules'
 import ValidatorConfiguration from './ValidatorConfiguration'
@@ -8,7 +8,7 @@ import ValidationFunctionContainer from './ValidationFunctionContainer'
 
 export {
   ValidationRule,
-  ValiationRules,
+  ValidationRules,
   StringRule,
   StringRules,
   ValidatorConfiguration,
