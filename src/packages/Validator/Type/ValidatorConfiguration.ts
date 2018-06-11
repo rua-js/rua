@@ -1,6 +1,6 @@
 import StringRules from './StringRules'
-import { DataConvertorEngine, RuleValidationEngine } from '../Engine'
 import { AnyObject } from '../../Type/Data'
+import ValidationFunctionContainer from './ValidationFunctionContainer'
 
 interface ValidatorConfiguration
 {
@@ -8,9 +8,9 @@ interface ValidatorConfiguration
 
   rules: StringRules
 
-  dataTranslator: DataConvertorEngine
+  validators?: ValidationFunctionContainer
 
-  ruleValidator: RuleValidationEngine
+  extraValidators?: ValidationFunctionContainer
 }
 
 export default ValidatorConfiguration

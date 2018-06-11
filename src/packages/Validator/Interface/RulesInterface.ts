@@ -1,8 +1,8 @@
-import Rules from '../Type/Rules'
+import ValidationRules from '../Type/ValidationRules'
 
 interface RulesInterface
 {
-  readonly all: Rules
+  all(): ValidationRules
 
   parseFromString(validationString: string): void
 }

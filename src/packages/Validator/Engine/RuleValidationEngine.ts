@@ -25,6 +25,24 @@ class RuleValidationEngine implements RuleValidatorEngineInterface
     )
   }
 
+  public getUnregisteredValidatorName(rules: Rules): string[]
+  {
+    return rules.all().reduce(
+      (result: string[], rule) =>
+      {
+        const validatorName = rule.name
+
+        if (!!this.validators[validatorName])
+        {
+          result.push(validatorName)
+        }
+
+        return result
+      },
+      [],
+    )
+  }
+
   public validate(data: AnyData, rules: Rules): boolean
   {
     return rules.all().reduce(
