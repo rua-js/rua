@@ -2,21 +2,22 @@ import { AnyArray, AnyData, AnyObject } from '../../Type/Data'
 
 interface MemoryEngineInterface
 {
-  set(key: string, data: AnyData): AnyData
+  length: number
 
-  get(key: string, defaultValue?: AnyData): AnyData
+  set(key: string | string[], data: AnyData | AnyData[]): AnyData | AnyData[]
 
-  remove(key: string): AnyData
+  get(key: string | string[], defaultValue?: AnyData | AnyData[]): AnyData | AnyData[]
+
+  remove(key: string | string[]): AnyData | AnyData[]
+
+  all(): AnyObject
 
   clear(): AnyObject
-
-  length(): number
 
   keys(): string[]
 
   values(): AnyArray
 
-  all(): AnyObject
 }
 
 export default MemoryEngineInterface
