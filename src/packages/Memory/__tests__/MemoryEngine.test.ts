@@ -25,6 +25,17 @@ describe('MemoryEngine', () =>
     const e3: string = 'default'
     me.set('t3', t3)
     expect(me.get('t3', e3)).toBe(e3)
+
+    // Multi Return Value Case
+    const t4: number = 444
+    const t5: number = 555
+    const e45: number[] = [t4, t5]
+    expect(me.set(['t4', 't5'], [t4, t5])).toEqual(e45)
+
+    // Multi Regular Case
+    const e5: number = t5
+    expect(me.get('t5')).toBe(e5)
+    expect(me.get(['t4', 't5'])).toEqual([t4, t5])
   })
 
   test('.remove', () =>
@@ -47,7 +58,18 @@ describe('MemoryEngine', () =>
     const t3: Date = new Date()
     const e3: Date = t3
     me.set('t3', t3)
-    expect(me.remove('t3')).toBe(t3)
+    expect(me.remove('t3')).toBe(e3)
+
+    // Multi Return Value Case
+    const t4: number = 444
+    const t5: number = 555
+    const e45: number[] = [t4, t5]
+    me.set(['t4', 't5'], [t4, t5])
+    expect(me.remove(['t4', 't5'])).toEqual(e45)
+
+    // Multi Regular Case
+    const e6: undefined[] = [undefined, undefined]
+    expect(me.get(['t4', 't5'])).toEqual(e6)
   })
 
   test('.all', () =>
