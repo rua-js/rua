@@ -1,9 +1,9 @@
 import ValidatorEngineInterface from './ValidatorEngineInterface'
 import DataConvertorEngineInterface from './DataConvertorEngineInterface'
-import RuleEngineInterface from './RuleEngineInterface'
+import RulesInterface from './RulesInterface'
 
 export {
   ValidatorEngineInterface,
   DataConvertorEngineInterface,
-  RuleEngineInterface,
+  RulesInterface,
 }
