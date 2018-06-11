@@ -27,8 +27,8 @@ class ValidatorEngine implements ValidatorEngineInterface, CanConfig
   public config(config: ValidatorConfiguration): void
   {
     const {
-      data = {},
-      rules = {},
+      data,
+      rules,
       validators,
       extraValidators,
     } = config
