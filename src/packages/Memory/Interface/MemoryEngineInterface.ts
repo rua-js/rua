@@ -2,7 +2,7 @@ import { AnyArray, AnyData, AnyObject } from '../../Type/Data'
 
 interface MemoryEngineInterface
 {
-  length: number
+  readonly length: number
 
   set(key: string | string[], data: AnyData | AnyData[]): AnyData | AnyData[]
 

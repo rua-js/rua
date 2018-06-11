@@ -34,8 +34,9 @@ describe('MemoryEngine', () =>
 
     // Multi Regular Case
     const e5: number = t5
+    const e6: number[] = [t4, t5]
     expect(me.get('t5')).toBe(e5)
-    expect(me.get(['t4', 't5'])).toEqual([t4, t5])
+    expect(me.get(['t4', 't5'])).toEqual(e6)
   })
 
   test('.remove', () =>

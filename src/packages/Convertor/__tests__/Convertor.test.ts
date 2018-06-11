@@ -1,7 +1,9 @@
 import Convertor from '../Convertor'
 
-describe('Convertor Tests', () => {
-  test('Json2FormData', () => {
+describe('Convertor Tests', () =>
+{
+  test('Json2FormData', () =>
+  {
     // prep
     const json = { a: 1, b: 2, }
     const form = Convertor.Json2FormData(json)

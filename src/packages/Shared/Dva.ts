@@ -2,33 +2,33 @@ import { AnyObject } from '../Type'
 import * as _ from 'lodash'
 import { Memory } from '../Memory'
 
-const setState = function (state: AnyObject, action?: any)
+const setState = function (state: AnyObject, action?: any): AnyObject
 {
   return action.payload
 }
 
-const mergeState = function (state: AnyObject, action?: any)
+const mergeState = function (state: AnyObject, action?: any): AnyObject
 {
   /** _.merge will cost more resource */
   return Object.assign(state, action.payload)
 }
 
-const deepMergeState = function (state: AnyObject, action?: any)
+const deepMergeState = function (state: AnyObject, action?: any): AnyObject
 {
   return _.merge(state, action)
 }
 
-const backupState = function (state: AnyObject, action?: any)
+const backupState = function (state: AnyObject, action?: any): AnyObject
 {
   // todo: fix keyName
-  Memory.set('some', state)
+  Memory.set('backup', state)
 
   return state
 }
-const rollbackState = function (state: AnyObject, action?: any)
+const rollbackState = function (state: AnyObject, action?: any): AnyObject
 {
   // todo: fix keyName
-  return Memory.get('some')
+  return <AnyObject>Memory.get('backup')
 }
 // const deepBackupState
 // const deepRollbackState

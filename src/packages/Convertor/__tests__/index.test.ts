@@ -1,8 +1,10 @@
-import {convertor} from '../'
+import { convertor } from '../'
 import Convertor from '../Convertor'
 
-describe('Convertor Index Tests', () => {
-  test('export correctly', () => {
+describe('Convertor Index Tests', () =>
+{
+  test('export correctly', () =>
+  {
     // case: equal
     expect(
       convertor === Convertor

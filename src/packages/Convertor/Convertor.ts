@@ -6,7 +6,8 @@ class Convertor
   {
     const form = new FormData()
 
-    for(const key in json) {
+    for (const key in json)
+    {
       form.append(key, json[key])
     }
 

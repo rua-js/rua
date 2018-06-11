@@ -11,7 +11,7 @@ class MemoryEngine implements MemoryEngineInterface
     return Object.keys(this.memory).length
   }
 
-  public set(key: string | string[], data: AnyData | AnyData[]): AnyData | AnyData[]
+  public set(key: string | string[], data: AnyData): AnyData
   {
     if (Array.isArray(key))
     {
@@ -21,7 +21,7 @@ class MemoryEngine implements MemoryEngineInterface
     return this.memory[key] = data
   }
 
-  public get(key: string | string[], defaultValue?: AnyData | AnyData[]): AnyData
+  public get(key: string | string[], defaultValue?: AnyData): AnyData
   {
     if (Array.isArray(key))
     {
@@ -31,7 +31,7 @@ class MemoryEngine implements MemoryEngineInterface
     return this.memory[key] || defaultValue
   }
 
-  public remove(key: string | string[]): AnyData | AnyData[]
+  public remove(key: string | string[]): AnyData
   {
     if (Array.isArray(key))
     {

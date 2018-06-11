@@ -1,16 +1,16 @@
 // Third-party Dependency
 import * as localForage from 'localforage'
 import * as _ from 'lodash'
-
 // Self Dependency
 import { StorageEngineInterface } from '../Interface'
-
 // Rua Core Dependency
-import { AnyObject, AnyData } from 'rua-core/lib/Types'
+import { AnyData, AnyObject } from 'rua-core/lib/Types'
 
-class StorageEngine implements StorageEngineInterface {
+class StorageEngine implements StorageEngineInterface
+{
 
-  constructor() {
+  constructor()
+  {
     localForage.config()
   }
 
@@ -22,17 +22,22 @@ class StorageEngine implements StorageEngineInterface {
    * @param {number} time
    * @returns {Promise<void>}
    */
-  public async set<T>(key: string | string[], value: AnyData | AnyData[]): Promise<void> {
-    if (_.isArray(key)) {
+  public async set<T>(key: string | string[], value: AnyData | AnyData[]): Promise<void>
+  {
+    if (_.isArray(key))
+    {
       const keys: string[] = key
-      for (const index in keys) {
+      for (const index in keys)
+      {
         // @ts-ignore
         await localForage.setItem(keys[index], value[index])
       }
+
       return
     }
     // @ts-ignore: string
     await localForage.setItem(key, value)
+
     return
   }
 
@@ -43,11 +48,14 @@ class StorageEngine implements StorageEngineInterface {
    * @param {AnyData | AnyData[]} defaultValue
    * @returns {Promise<void>}
    */
-  public async get<T>(key: string | string[], defaultValue?: any): Promise<AnyData> {
-    if (_.isArray(key)) {
+  public async get<T>(key: string | string[], defaultValue?: any): Promise<AnyData>
+  {
+    if (_.isArray(key))
+    {
       const keys: string[] = <string[]>key
       const output: any = {}
-      for (const index in keys) {
+      for (const index in keys)
+      {
         output[keys[index]] = await localForage.getItem(keys[index])
       }
       return output
@@ -64,10 +72,13 @@ class StorageEngine implements StorageEngineInterface {
    * @param {string | string[]} key
    * @returns {Promise<void>}
    */
-  public async remove(key: string | string[]): Promise<void> {
-    if (_.isArray(key)) {
+  public async remove(key: string | string[]): Promise<void>
+  {
+    if (_.isArray(key))
+    {
       const keys: string[] = <string[]>key
-      for (const index in keys) {
+      for (const index in keys)
+      {
         await localForage.removeItem(keys[index])
       }
       return
@@ -82,7 +93,8 @@ class StorageEngine implements StorageEngineInterface {
    *
    * @returns {Promise<void>}
    */
-  public async clear(): Promise<void> {
+  public async clear(): Promise<void>
+  {
     return localForage.clear()
   }
 
@@ -91,7 +103,8 @@ class StorageEngine implements StorageEngineInterface {
    *
    * @returns {Promise<number>}
    */
-  public async length(): Promise<number> {
+  public async length(): Promise<number>
+  {
     return localForage.length()
   }
 
@@ -100,7 +113,8 @@ class StorageEngine implements StorageEngineInterface {
    *
    * @returns {Promise<string[]>}
    */
-  public async keys(): Promise<string[]> {
+  public async keys(): Promise<string[]>
+  {
     return localForage.keys()
   }
 
@@ -109,10 +123,12 @@ class StorageEngine implements StorageEngineInterface {
    *
    * @returns {Promise<AnyObject>}
    */
-  public async all(): Promise<AnyObject> {
+  public async all(): Promise<AnyObject>
+  {
     let data = {}
     const keys = await this.keys()
-    for (const key of keys) {
+    for (const key of keys)
+    {
       // @ts-ignore: index on object
       data[key] = await this.get(key)
     }
