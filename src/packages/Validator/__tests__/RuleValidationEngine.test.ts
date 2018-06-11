@@ -46,6 +46,11 @@ describe('RuleValidationEngine', () =>
     const t5 = false
     const rule5 = new Rules('required:true')
     expect(rve.validate(t5, rule5)).toBeTruthy()
+  })
 
+  test('.getUnregisteredValidatorName', () => {
+    const rule1 = new Rules('string|hehe|da')
+    const e1 = ['hehe', 'da']
+    expect(rve.getUnregisteredValidatorName(rule1)).toEqual(e1)
   })
 })

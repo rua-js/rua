@@ -17,9 +17,9 @@ class ValidatorEngine implements ValidatorEngineInterface, CanConfig
   protected rules: StringRules = {}
   protected data: AnyObject = {}
   protected isValid: boolean = true
-  protected isFixed: boolean = true
+  protected isFixed: boolean = false
 
-  constructor(config: ValidatorConfiguration)
+  public constructor(config: ValidatorConfiguration)
   {
     this.config(config)
   }
@@ -30,7 +30,7 @@ class ValidatorEngine implements ValidatorEngineInterface, CanConfig
       data = {},
       rules = {},
       validators,
-      extraValidators = {},
+      extraValidators,
     } = config
 
     this.data = data
@@ -41,16 +41,16 @@ class ValidatorEngine implements ValidatorEngineInterface, CanConfig
   public validate(): void
   {
     // data loop
-    for (const dataKey in this.data)
+    for (const ruleKey in this.rules)
     {
-      const ruleString = this.rules[dataKey]
+      const ruleString = this.rules[ruleKey]
 
       if (!ruleString)
       {
         continue
       }
 
-      const data = this.data[dataKey]
+      const data = this.data[ruleKey]
       const rule = new Rules(ruleString)
 
       if (!this.ruleValidator.hasValidator(rule))
