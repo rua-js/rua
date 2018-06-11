@@ -32,7 +32,7 @@ class RuleValidationEngine implements RuleValidatorEngineInterface
       {
         const validatorName = rule.name
 
-        if (!!this.validators[validatorName])
+        if (!this.validators[validatorName])
         {
           result.push(validatorName)
         }
