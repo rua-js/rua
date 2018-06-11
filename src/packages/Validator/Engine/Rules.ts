@@ -1,16 +1,16 @@
 import { RulesInterface } from '../Interface'
-import { ValiationRules } from '../Type'
+import { ValidationRules } from '../Type'
 
 class Rules implements RulesInterface
 {
-  protected rules: ValiationRules = []
+  protected rules: ValidationRules = []
 
   constructor(validationString: string)
   {
     this.parseFromString(validationString)
   }
 
-  public all(): ValiationRules
+  public all(): ValidationRules
   {
     return this.rules
   }

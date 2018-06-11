@@ -1,9 +1,11 @@
 import DataConvertorEngine from './DataConvertorEngine'
-import RuleEngine from './RuleEngine'
+import Rules from './Rules'
 import ValidatorEngine from './ValidatorEngine'
+import RuleValidationEngine from './RuleValidationEngine'
 
 export {
   DataConvertorEngine,
-  RuleEngine,
+  Rules,
   ValidatorEngine,
+  RuleValidationEngine,
 }
