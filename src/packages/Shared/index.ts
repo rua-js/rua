@@ -5,10 +5,14 @@ import {
   core,
 } from './Constant'
 
-export default {
+import * as reducers from './DvaReducers'
+
+export  {
   // Constants
   emptyArray,
   emptyObject,
   noop,
   core,
+  // Dva Reducers
+  reducers,
 }

@@ -5,24 +5,22 @@ describe('API Tests', () =>
 {
   test('usage', async () =>
   {
-    // prep: load API
+    // Regular Case
     API.load({
       test: {
         go: {
           url: 'https://reqres.in/API/users',
           method: 'GET',
         },
-      }
+        str: 'https://reqres.in/API/users',
+      },
     })
 
-    // case: success
-    await expect(
-      API('test.go')
-    ).resolves.toBeInstanceOf(Object)
+    await expect(API('test.go')).resolves.toBeInstanceOf(Object)
+    await expect(API('test.go')).resolves.toHaveProperty('page')
 
-    // case: correct data
-    await expect(
-      API('test.go')
-    ).resolves.toHaveProperty('page')
+    // String Case
+    await expect(API('test.str')).resolves.toBeInstanceOf(Object)
+    await expect(API('test.str')).resolves.toHaveProperty('page')
   })
 })
