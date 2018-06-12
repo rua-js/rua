@@ -5,6 +5,7 @@ import Instance from './Instance'
 const Decorator = {
   Listen,
   Connect,
+  Instance,
 }
 
 export {
