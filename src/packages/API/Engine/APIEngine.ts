@@ -5,16 +5,17 @@ import * as _ from 'lodash'
 import { util } from '../../Utility'
 import { request } from '../../Request'
 import { APIConfiguration } from '../Type'
+import APIEntity from './APIEntity'
 
 class APIEngine implements CanConfig
 {
+
   /**
    * Store user defined API
    *
    * @type {{}}
    */
   protected store: any = {}
-
   /**
    * Fetch instance
    * @type {Function}
@@ -25,7 +26,7 @@ class APIEngine implements CanConfig
    * @constructor
    * @param {AnyObject} config
    */
-  constructor(config?: AnyObject)
+  public constructor(config?: AnyObject)
   {
     // config
     this.config(config)
@@ -49,7 +50,6 @@ class APIEngine implements CanConfig
 
     this.load(data)
   }
-
   /**
    * Loads multiple API
    *
@@ -65,7 +65,6 @@ class APIEngine implements CanConfig
 
     this.store = api
   }
-
   /**
    * Gets all API
    *
@@ -75,7 +74,6 @@ class APIEngine implements CanConfig
   {
     return this.store
   }
-
   /**
    * Calls an API
    *
@@ -89,16 +87,17 @@ class APIEngine implements CanConfig
     // make sure has the API
     util.invariant(
       config,
-      '[Rua][API]The API that you are trying to access is NOT exists'
+      '[Rua][API]The API that you are trying to access is NOT exists',
     )
 
     const {
       url,
-      ...restConfig
-    } = config
+      ...restConfig,
+    } = new APIEntity(config).toObject()
 
-    return this.request(url, {...restConfig, body: data})
+    return this.request(url, { ...restConfig, body: data })
   }
+
 }
 
 export default APIEngine
