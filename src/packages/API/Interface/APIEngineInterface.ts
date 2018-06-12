@@ -1,6 +1,6 @@
 import AnyObject from 'rua-core/lib/Types/AnyObject'
 
-interface APIInterface {
+interface APIEngineInterface {
   /**
    * Loads multiple API
    *
@@ -24,4 +24,4 @@ interface APIInterface {
   dispatch(name: string): any
 }
 
-export default APIInterface
+export default APIEngineInterface
