@@ -6,6 +6,7 @@ import { util } from '../../Utility'
 import { request } from '../../Request'
 import { APIConfiguration } from '../Type'
 import APIEntity from './APIEntity'
+import APIEntityObjectCollection from '../Type/APIEntityObjectCollection'
 
 class APIEngine implements CanConfig
 {
@@ -56,7 +57,7 @@ class APIEngine implements CanConfig
    * @param {AnyObject} api
    * @returns {boolean}
    */
-  public load = (api: AnyObject): void =>
+  public load = (api?: APIEntityObjectCollection): void =>
   {
     if (!api)
     {
