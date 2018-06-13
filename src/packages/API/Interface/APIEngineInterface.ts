@@ -7,7 +7,7 @@ interface APIEngineInterface {
    * @param {AnyObject} api
    * @returns {boolean}
    */
-  load(api: AnyObject): boolean
+  load(api: AnyObject): void
 
   /**
    * Gets all API
@@ -22,6 +22,13 @@ interface APIEngineInterface {
    * @returns {any}
    */
   dispatch(name: string): any
+
+  /**
+   * Merge multiple api into store
+   *
+   * @param {AnyObject} name
+   */
+  merge(api: AnyObject): void
 }
 
 export default APIEngineInterface

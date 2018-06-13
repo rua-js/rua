@@ -7,31 +7,10 @@ import { request } from '../../Request'
 import { APIConfiguration } from '../Type'
 import APIEntity from './APIEntity'
 import APIEntityObjectCollection from '../Type/APIEntityObjectCollection'
+import APIEngineInterface from '../Interface/APIEngineInterface'
 
-class APIEngine implements CanConfig
+class APIEngine implements APIEngineInterface, CanConfig
 {
-
-  /**
-   * Store user defined API
-   *
-   * @type {{}}
-   */
-  protected store: any = {}
-  /**
-   * Fetch instance
-   * @type {Function}
-   */
-  protected request = request
-
-  /**
-   * @constructor
-   * @param {AnyObject} config
-   */
-  public constructor(config?: AnyObject)
-  {
-    // config
-    this.config(config)
-  }
 
   /**
    * Configures
@@ -66,6 +45,17 @@ class APIEngine implements CanConfig
 
     this.store = api
   }
+
+  public merge = (api?: APIEntityObjectCollection): void =>
+  {
+    if (!api)
+    {
+      return
+    }
+
+    this.store = { ...this.store, ...api }
+  }
+
   /**
    * Gets all API
    *
@@ -97,6 +87,27 @@ class APIEngine implements CanConfig
     } = new APIEntity(config).toObject()
 
     return this.request(url, { ...restConfig, body: data })
+  }
+  /**
+   * Store user defined API
+   *
+   * @type {{}}
+   */
+  protected store: any = {}
+  /**
+   * Fetch instance
+   * @type {Function}
+   */
+  protected request = request
+
+  /**
+   * @constructor
+   * @param {AnyObject} config
+   */
+  public constructor(config?: AnyObject)
+  {
+    // config
+    this.config(config)
   }
 
 }
