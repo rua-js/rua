@@ -5,7 +5,7 @@ import { API as APIEngine } from '../API'
 const API: any = () => (target: any): APIEntityObject =>
 {
   const entityObject = {
-    [target.name]: new target(),
+    [target.name.toLowerCase()]: new target(),
   }
 
   APIEngine.merge(entityObject)
