@@ -28,16 +28,16 @@ class RuleValidationEngine implements RuleValidatorEngineInterface
   public getUnregisteredValidatorName(rules: Rules): string[]
   {
     return rules.all().reduce(
-      (result: string[], rule) =>
+      (carry: string[], rule) =>
       {
         const validatorName = rule.name
 
         if (!this.validators[validatorName])
         {
-          result.push(validatorName)
+          carry.push(validatorName)
         }
 
-        return result
+        return carry
       },
       [],
     )
@@ -46,11 +46,11 @@ class RuleValidationEngine implements RuleValidatorEngineInterface
   public validate(data: AnyData, rules: Rules): boolean
   {
     return rules.all().reduce(
-      (result, rule) =>
+      (carry: boolean, rule) =>
       {
         const validatorName = rule.name
 
-        return result && this.validators[validatorName].call(this, data, ...rule.args)
+        return this.validators[validatorName].call(this, carry, data, ...rule.args)
       },
       true,
     )

@@ -1,13 +1,14 @@
 import { ValidatorEngine } from '../Engine'
 import { StringRules } from '../Type'
 import { AnyObject } from '../../Type/Data'
+import { string, required } from '../Rule'
 
 describe('ValidatorEngine', () =>
 {
 
   const validators = {
-    string: (data: any) => typeof data === 'string',
-    required: (data: any) => !!data,
+    string,
+    required,
   }
 
   test('.fails, .passes', () =>

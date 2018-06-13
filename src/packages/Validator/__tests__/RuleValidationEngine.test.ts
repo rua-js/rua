@@ -1,12 +1,13 @@
 import RuleValidationEngine from '../Engine/RuleValidationEngine'
 import Rules from '../Engine/Rules'
+import { string } from '../Rule'
 
 describe('RuleValidationEngine', () =>
 {
   const rve = new RuleValidationEngine()
   rve.setValidators({
-    string: str => typeof str === 'string',
-    required: (data, forceTrue) => forceTrue || !!data,
+    string,
+    required: (carry, data, forceTrue) => forceTrue || !!data && carry,
   })
 
   test('.setValidators, .hasValidator', () =>
