@@ -34,7 +34,14 @@ const dvaReducerGenerator = (defaultState: AnyObject) =>
 
   const deepMergeState = function (state: AnyObject, action?: any): AnyObject
   {
-    return { ..._.merge(state, action.payload) }
+    const outState = { ..._.merge(state, action.payload) }
+
+    for (const key in action.payload)
+    {
+      outState[key] = {...outState[key]}
+    }
+
+    return outState
   }
 
   const clearState = function (state: AnyObject, action?: any): AnyObject
