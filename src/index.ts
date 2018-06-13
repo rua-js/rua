@@ -15,7 +15,7 @@ import { __, locale, translate } from './packages/Localization'
 import { Decorator, Decorator as D } from './packages/Decorator'
 import { core, emptyArray, emptyObject, noop, dvaReducerGenerator } from './packages/Shared'
 // Non-essential library
-import { actions, dvaLite } from 'rua-dva'
+import { actions, dvaLite } from './packages/Dva'
 import { DataMigration } from './packages/DataMigration'
 // Third-party library
 import { _, connect } from './packages/ThirdParty'
