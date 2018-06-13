@@ -4,6 +4,7 @@ import * as _ from 'lodash'
 import { Storage, StorageEngine } from '../../Storage'
 import { CacheEngineConfiguration } from '../Type'
 import { CacheEngineInterface } from '../Interface/index'
+import { Decorator as D } from '../../Decorator'
 
 class CacheEngine implements CacheEngineInterface
 {
@@ -62,16 +63,15 @@ class CacheEngine implements CacheEngineInterface
    *
    * @param {object} configs
    */
-  constructor(configs: CacheEngineConfiguration = {})
+  public constructor(configs: CacheEngineConfiguration = {})
   {
     const {
-      storeName = 'cache-'
+      storeName = 'cache-',
     } = configs
 
     this.storeName = storeName
     this.configs = configs
   }
-
 
   /**
    * Use a different storage which will be create if NOT exists
@@ -101,6 +101,7 @@ class CacheEngine implements CacheEngineInterface
     {
       return defaultValue
     }
+
     // retrieve data from cache with deserialization
     return this.store[storageKeyName]
   }
@@ -173,6 +174,7 @@ class CacheEngine implements CacheEngineInterface
     {
       output[name.replace(this.storeName, '')] = this.store[name]
     }
+
     return output
   }
 

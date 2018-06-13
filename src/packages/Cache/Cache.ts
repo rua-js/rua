@@ -1,5 +1,6 @@
 import CacheEngine from './Engine/CacheEngine'
+import { CacheEngineInterface } from './Interface'
 
-const Cache: CacheEngine = new CacheEngine()
+const Cache: CacheEngineInterface = new CacheEngine()
 
 export default Cache
