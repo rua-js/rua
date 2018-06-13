@@ -95,6 +95,7 @@ class RuaDva extends AbstractRuaPackage implements HasStore
     this.interceptUnmodel()
     this.interceptStart()
     this.booted = true
+
     return this.store
   }
 
@@ -120,8 +121,10 @@ class RuaDva extends AbstractRuaPackage implements HasStore
   protected registerExistingModels(): void
   {
     const models = this.store._models
-    for (const model in models) {
-      if (Object.prototype.hasOwnProperty.call(models, model)) {
+    for (const model in models)
+    {
+      if (Object.prototype.hasOwnProperty.call(models, model))
+      {
         this.registerModel(models[model])
       }
     }
@@ -151,13 +154,24 @@ class RuaDva extends AbstractRuaPackage implements HasStore
   protected registerActions(namespace: string, reducers: any): object
   {
     const actions: Actions = {}
-    for (const reducer in reducers) {
-      if (Object.prototype.hasOwnProperty.call(reducers, reducer)) {
-        actions[reducer] = (payload: object, extra: object): any => {
+    for (const reducer in reducers)
+    {
+      if (Object.prototype.hasOwnProperty.call(reducers, reducer))
+      {
+        actions[reducer] = (payload: object, extra: object): any =>
+        {
+          if (!extra)
+          {
+            return this.dispatch({
+              payload,
+              type: `${namespace}/${reducer}`,
+            })
+          }
+
           return this.dispatch({
             payload,
+            extra,
             type: `${namespace}/${reducer}`,
-            ...extra,
           })
         }
       }
@@ -186,7 +200,8 @@ class RuaDva extends AbstractRuaPackage implements HasStore
     // new location for original model method
     this.store[this.oldModelPath] = this.store.model
     // new model method for dva
-    this.store.model = (model: any) => {
+    this.store.model = (model: any) =>
+    {
       this.registerModel(model)
       return this.store[this.oldModelPath](model)
     }
@@ -200,7 +215,8 @@ class RuaDva extends AbstractRuaPackage implements HasStore
     // new location for original unmodel method
     this.store[this.oldUnmodelPath] = this.store.unmodel
     // new unmodel method for dva
-    this.store.unmodel = (model: any) => {
+    this.store.unmodel = (model: any) =>
+    {
       const originalOutput = this.store.__rua_unmodel(model)
       // remove action
       this.unregisterActions(model)
@@ -217,7 +233,8 @@ class RuaDva extends AbstractRuaPackage implements HasStore
     // new location for original start method
     this.store[this.oldStartPath] = this.store.start
     // new start method for dva
-    this.store.start = (...params: any[]) => {
+    this.store.start = (...params: any[]) =>
+    {
       const originalOutput = this.store[this.oldStartPath](...params)
       // save dispatch function
       this.saveDispatch(this.store._store.dispatch)
