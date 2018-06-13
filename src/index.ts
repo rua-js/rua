@@ -13,18 +13,12 @@ import { Cache } from './packages/Cache'
 import { API } from './packages/API'
 import { __, locale, translate } from './packages/Localization'
 import { Decorator, Decorator as D } from './packages/Decorator'
-import {// Constants
-  emptyArray,
-  emptyObject,
-  noop,
-  core,
-  // Dva Reducers
-  reducers,
-} from './packages/Shared'
+import { core, emptyArray, emptyObject, noop, dvaReducerGenerator } from './packages/Shared'
 // Non-essential library
 import { actions, dvaLite } from 'rua-dva'
+import { DataMigration } from './packages/DataMigration'
 // Third-party library
-import { connect, _ } from './packages/ThirdParty'
+import { _, connect } from './packages/ThirdParty'
 
 // Deep-integrated library
 
@@ -68,5 +62,7 @@ export {
   noop,
   core,
   // Dva Reducers
-  reducers,
+  dvaReducerGenerator,
+  // DataMigration
+  DataMigration,
 }
