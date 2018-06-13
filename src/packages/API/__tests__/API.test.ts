@@ -12,6 +12,12 @@ describe('API Tests', () =>
           url: 'https://reqres.in/API/users',
           method: 'GET',
         },
+      },
+
+    })
+
+    API.merge({
+      test2: {
         str: 'https://reqres.in/API/users',
       },
     })
@@ -20,7 +26,7 @@ describe('API Tests', () =>
     await expect(API('test.go')).resolves.toHaveProperty('page')
 
     // String Case
-    await expect(API('test.str')).resolves.toBeInstanceOf(Object)
-    await expect(API('test.str')).resolves.toHaveProperty('page')
+    await expect(API('test2.str')).resolves.toBeInstanceOf(Object)
+    await expect(API('test2.str')).resolves.toHaveProperty('page')
   })
 })
