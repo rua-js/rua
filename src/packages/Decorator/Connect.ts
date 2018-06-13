@@ -38,7 +38,7 @@ const Connect = (connectFunction: string[] | Function) =>
       exportData[exportName] = _.get(store, path)
     }
 
-    return
+    return exportData
   })
 }
 
