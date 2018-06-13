@@ -1,9 +1,14 @@
 import * as APIProperties from './API/index'
-import { APIEntityObjectCollection } from '../API/Type/index'
+import { APIEntityObject } from '../API/Type/index'
+import { API as APIEngine } from '../API'
 
-const API: any = (target: any): APIEntityObjectCollection =>
+const API: any = (namespace: string) => (target: any): APIEntityObject =>
 {
-  return new target()
+  APIEngine.merge({
+    [namespace]: new target(),
+  })
+
+  return target
 }
 
 Object.assign(API, APIProperties)
