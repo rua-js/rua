@@ -29,12 +29,12 @@ const dvaReducerGenerator = (defaultState: AnyObject) =>
   const mergeState = function (state: AnyObject, action?: any): AnyObject
   {
     /** _.merge will cost more resource */
-    return Object.assign(state, action.payload)
+    return { ...state, ...action.payload }
   }
 
   const deepMergeState = function (state: AnyObject, action?: any): AnyObject
   {
-    return _.merge(state, action.payload)
+    return { ..._.merge(state, action.payload) }
   }
 
   const clearState = function (state: AnyObject, action?: any): AnyObject
