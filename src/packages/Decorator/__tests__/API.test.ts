@@ -1,4 +1,5 @@
 import API from '../API'
+import { API as APIEngine } from '../../API'
 
 const {
   Method,
@@ -8,13 +9,19 @@ const {
 
 describe('Decorator API', () =>
 {
-  test('API', () =>
+  test('API', async () =>
   {
+    // Regular Case
     class T
     {
+      public go: string = 'https://reqres.in/API/users'
     }
 
-    expect(API(T)).toBeInstanceOf(T)
+    expect(API('test')(T)).toBeTruthy()
+
+    // Real Case
+    await expect(APIEngine('test.go')).resolves.toBeInstanceOf(Object)
+    await expect(APIEngine('test.go')).resolves.toHaveProperty('page')
   })
 
   test('Method', () =>
