@@ -38,7 +38,7 @@ const dvaReducerGenerator = (defaultState: AnyObject) =>
 
     for (const key in action.payload)
     {
-      outState[key] = {...outState[key]}
+      outState[key] = { ...outState[key] }
     }
 
     return outState
