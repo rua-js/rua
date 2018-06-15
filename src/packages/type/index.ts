@@ -20,11 +20,11 @@ import {
   NilableObject,
   NilableBoolean,
   NilableArray,
-} from './Data'
+} from './data'
 
 import {
   CanConfig,
-} from './Contract'
+} from './contract'
 
 export {
   // Primitives
@@ -49,6 +49,6 @@ export {
   NilableBoolean,
   NilableArray,
 
-  // Contract
+  // contract
   CanConfig,
 }

@@ -1,4 +1,4 @@
-import { AnyObject } from '../Data'
+import { AnyObject } from '../data'
 
 interface CanConfig
 {
