@@ -1,4 +1,4 @@
-import { AnyData } from '../../Type/Data'
+import { AnyData } from '../../type/data'
 import * as _ from 'lodash'
 
 const string = (carry: boolean, data: AnyData) =>

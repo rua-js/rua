@@ -1,6 +1,6 @@
 import { Rules } from '../Engine'
 import { ValidationFunctionContainer } from '../Type'
-import { AnyData } from '../../Type/Data'
+import { AnyData } from '../../type/data'
 
 interface RuleValidatorEngineInterface
 {

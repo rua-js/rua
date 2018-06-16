@@ -1,6 +1,6 @@
 import { ValidatorEngine } from '../Engine'
 import { StringRules } from '../Type'
-import { AnyObject } from '../../Type/Data'
+import { AnyObject } from '../../type/data'
 import { string, required } from '../Rule'
 
 describe('ValidatorEngine', () =>
@@ -61,7 +61,7 @@ describe('ValidatorEngine', () =>
     expect(ve4.passes()).toBeTruthy()
     expect(ve4.hasUnregisteredRule).toBeTruthy()
 
-    // With Not Defined Data Property Case
+    // With Not Defined data Property Case
     const t5: AnyObject = { t1: 111 }
     const rule5: StringRules = { t2: 'required' }
     const ve5 = new ValidatorEngine({

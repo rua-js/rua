@@ -3,8 +3,8 @@ import DataConvertorEngine from './DataConvertorEngine'
 import RuleValidationEngine from './RuleValidationEngine'
 import { StringRules, ValidatorConfiguration } from '../Type'
 import { ValidatorEngineInterface } from '../Interface'
-import { AnyObject } from '../../Type/Data'
-import { CanConfig } from '../../Type/Contract'
+import { AnyObject } from '../../type/data'
+import { CanConfig } from '../../type/contract'
 
 class ValidatorEngine implements ValidatorEngineInterface, CanConfig
 {
