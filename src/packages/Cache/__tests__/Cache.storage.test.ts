@@ -1,6 +1,6 @@
 import { Storage } from '../../Storage'
 import { Cache } from '../index'
-import { util } from '../../Utility'
+import { util } from '../../utility'
 
 describe('CacheEngine Tests(Storage part)', () => {
   test('.set, .get', async () => {

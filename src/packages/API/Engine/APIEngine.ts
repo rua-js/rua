@@ -2,7 +2,7 @@ import AnyObject from 'rua-core/lib/Types/AnyObject'
 import CanConfig from 'rua-core/lib/Contracts/CanConfig'
 import * as _ from 'lodash'
 
-import { util } from '../../Utility'
+import { util } from '../../utility'
 import { request } from '../../request'
 import { APIConfiguration } from '../Type'
 import APIEntity from './APIEntity'
