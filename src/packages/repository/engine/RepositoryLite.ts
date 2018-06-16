@@ -1,7 +1,7 @@
 import { AnyObject, AnyData } from '../../type/data'
-import { RepositoryInterface } from '../interface'
+import { RepositoryLiteInterface } from '../interface'
 
-class RepositoryLite implements RepositoryInterface
+class RepositoryLite implements RepositoryLiteInterface
 {
   protected memory: AnyObject = {}
 
