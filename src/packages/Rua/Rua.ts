@@ -2,20 +2,19 @@
 // Bridged dependency
 import { RuaDva } from './Bridge'
 // RuaCore dependency
-import { CanConfig } from 'rua-core/lib/Contracts'
 import { AnyObject } from 'rua-core/lib/Types'
-import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 // Self dependency
-import { request } from '../Request'
+import { request } from '../request'
 import { API } from '../API'
 import { RuaConfiguration } from './Type'
+import * as _ from 'lodash'
 
 /**
  * Rua Class manages/configs all packages
  *
  * @class Rua.js
  */
-class Rua extends AbstractRuaPackage implements CanConfig
+class Rua
 {
 
   /**
@@ -32,19 +31,12 @@ class Rua extends AbstractRuaPackage implements CanConfig
    */
   public configurableModules: AnyObject = {
     api: API,
-    request,
-    dva: RuaDva
+    dva: RuaDva,
   }
 
   public app: any
 
   constructor(configuration?: RuaConfiguration)
-  {
-    super()
-    this.config(configuration)
-  }
-
-  public config(configuration?: RuaConfiguration): any
   {
     // merge configuration
     const configs: AnyObject = { ...this.defaultConfiguration, ...configuration }
@@ -70,9 +62,6 @@ class Rua extends AbstractRuaPackage implements CanConfig
         this.app = result
       }
     }
-
-    // return app
-    return this.app
   }
 }
 

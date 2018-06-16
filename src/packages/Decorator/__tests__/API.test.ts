@@ -12,12 +12,12 @@ describe('Decorator API', () =>
   test('API', async () =>
   {
     // Regular Case
-    class T
+    class test
     {
       public go: string = 'https://reqres.in/API/users'
     }
 
-    expect(API('test')(T)).toBeTruthy()
+    expect(API()(test)).toBeTruthy()
 
     // Real Case
     await expect(APIEngine('test.go')).resolves.toBeInstanceOf(Object)

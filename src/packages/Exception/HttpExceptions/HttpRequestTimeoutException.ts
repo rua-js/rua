@@ -7,7 +7,7 @@ import { HttpException } from '../Exceptions'
  */
 class HttpRequestTimeoutException extends HttpException {
   constructor() {
-    super(408, 'Request Timeout')
+    super(408, 'request Timeout')
   }
 }
 

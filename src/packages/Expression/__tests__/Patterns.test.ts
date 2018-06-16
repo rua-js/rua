@@ -2,7 +2,7 @@ import * as Patterns from '../index'
 
 describe('Is Tests (Patterns)', () => {
   test('Email', () => {
-    // Test Data
+    // Test data
     const emails = [
       '1231231@qq.com', 'wolegeri@gmail.com', 'woqu@ngacn.cc', 'risadas@163.com',
     ]
@@ -29,7 +29,7 @@ describe('Is Tests (Patterns)', () => {
   })
 
   test('QQ Email', () => {
-    // Test Data
+    // Test data
     const qqEmails = [
       '12312@qq.com', '43242424@qq.com'
     ]

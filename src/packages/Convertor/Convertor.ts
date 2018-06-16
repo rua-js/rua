@@ -2,7 +2,7 @@ import { AnyObject } from 'rua-core/lib/Types'
 
 class Convertor
 {
-  public static Json2FormData(json: AnyObject)
+  public static JSON2FormData(json: AnyObject)
   {
     const form = new FormData()
 

@@ -7,7 +7,7 @@ import { HttpException } from '../Exceptions'
  */
 class HttpUnsupportedMediaTypeException extends HttpException {
   constructor() {
-    super(415, 'Unsupported Media Type')
+    super(415, 'Unsupported Media type')
   }
 }
 

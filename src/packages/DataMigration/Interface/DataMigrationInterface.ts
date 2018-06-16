@@ -1,4 +1,4 @@
-import AnyObject from '../../Type/Data/AnyObject'
+import AnyObject from '../../type/data/AnyObject'
 
 interface DataMigrationInterface
 {

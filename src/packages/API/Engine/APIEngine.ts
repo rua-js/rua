@@ -3,7 +3,7 @@ import CanConfig from 'rua-core/lib/Contracts/CanConfig'
 import * as _ from 'lodash'
 
 import { util } from '../../Utility'
-import { request } from '../../Request'
+import { request } from '../../request'
 import { APIConfiguration } from '../Type'
 import APIEntity from './APIEntity'
 import APIEntityObjectCollection from '../Type/APIEntityObjectCollection'

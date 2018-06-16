@@ -1,4 +1,4 @@
-import { AnyArray, AnyData, AnyObject } from '../../Type/Data'
+import { AnyArray, AnyData, AnyObject } from '../../type/data'
 
 interface MemoryEngineInterface
 {

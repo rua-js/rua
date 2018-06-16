@@ -7,7 +7,7 @@ import { HttpException } from '../Exceptions'
  */
 class HttpRequestHeaderFieldsTooLargeException extends HttpException {
   constructor() {
-    super(431, 'Request Header Fields Too Large')
+    super(431, 'request Header Fields Too Large')
   }
 }
 

@@ -1,6 +1,6 @@
 import { DataMigrationInterface } from './Interface'
 import { DataStructure } from './Type'
-import { AnyObject } from '../Type/Data'
+import { AnyObject } from '../type/data'
 import * as _ from 'lodash'
 
 class DataMigration implements DataMigrationInterface
