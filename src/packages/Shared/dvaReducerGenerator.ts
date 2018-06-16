@@ -1,6 +1,6 @@
 import { AnyObject } from '../type'
 import * as _ from 'lodash'
-import { Memory } from '../Memory'
+import { memory } from '../memory'
 
 const dvaReducerGenerator = (defaultState: AnyObject) =>
 {
@@ -53,7 +53,7 @@ const dvaReducerGenerator = (defaultState: AnyObject) =>
   {
     const namespace = action.type.split('/')[0]
 
-    Memory.set(`${prefix}${namespace}`, state)
+    memory.set(`${prefix}${namespace}`, state)
 
     return state
   }
@@ -62,14 +62,14 @@ const dvaReducerGenerator = (defaultState: AnyObject) =>
   {
     const namespace = action.type.split('/')[0]
 
-    return <AnyObject>Memory.get(`${prefix}${namespace}`)
+    return <AnyObject>memory.get(`${prefix}${namespace}`)
   }
 
   const deepBackupState = function (state: AnyObject, action?: any): AnyObject
   {
     const namespace = action.type.split('/')[0]
 
-    Memory.set(`${prefix}${namespace}`, _.clone(state))
+    memory.set(`${prefix}${namespace}`, _.clone(state))
 
     return state
   }
@@ -78,9 +78,9 @@ const dvaReducerGenerator = (defaultState: AnyObject) =>
   {
     const namespace = action.type.split('/')[0]
 
-    Memory.get(`${prefix}${namespace}`)
+    memory.get(`${prefix}${namespace}`)
 
-    return <AnyObject>Memory.get(`${prefix}${namespace}`)
+    return <AnyObject>memory.get(`${prefix}${namespace}`)
   }
 
   return {
