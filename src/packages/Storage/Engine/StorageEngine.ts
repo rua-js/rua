@@ -58,10 +58,12 @@ class StorageEngine implements StorageEngineInterface
       {
         output[keys[index]] = await localForage.getItem(keys[index])
       }
+
       return output
     }
     // @ts-ignore
     const value = await localForage.getItem(key)
+
     // @ts-ignore
     return value || defaultValue
   }
@@ -81,6 +83,7 @@ class StorageEngine implements StorageEngineInterface
       {
         await localForage.removeItem(keys[index])
       }
+
       return
     }
 
@@ -125,13 +128,14 @@ class StorageEngine implements StorageEngineInterface
    */
   public async all(): Promise<AnyObject>
   {
-    let data = {}
+    const data = {}
     const keys = await this.keys()
     for (const key of keys)
     {
       // @ts-ignore: index on object
       data[key] = await this.get(key)
     }
+
     return data
   }
 }
