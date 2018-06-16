@@ -24,11 +24,16 @@ class Repository implements RepositoryInterface
   protected hooks: RepositoryHooks
 
   /**
+   * WARNING: accessing boolean property from a class cost THREE times MORE
+   * SO, we use config instead
+   *
    * Indicates should use the reference of data or copy of it
    *
    * @type {boolean}
    */
-  protected shouldDeepClone: boolean
+    // protected shouldDeepClone: boolean
+
+  protected config: any
 
   /**
    * Config the instance
@@ -39,12 +44,13 @@ class Repository implements RepositoryInterface
   constructor(config: RepositoryConfiguration = {})
   {
     const {
-      shouldDeepClone = false,  // remember deep clone need lots of time
       hooks = {},
+      shouldDeepClone,
     } = config
 
     this.hooks = hooks
-    this.shouldDeepClone = shouldDeepClone
+    // this.shouldDeepClone = shouldDeepClone
+    this.config = config
   }
 
   /**
@@ -78,7 +84,7 @@ class Repository implements RepositoryInterface
     }
 
     // deep clone data
-    if (true === this.shouldDeepClone)
+    if (this.config.shouldDeepClone)
     {
       /* tslint:disable */
       data = _.clone(data)
@@ -123,11 +129,11 @@ class Repository implements RepositoryInterface
     }
 
     let returnData: AnyData = interpolator
-        ? interpolator(this.data[key] || defaultValue)
-        : this.data[key] || defaultValue
+      ? interpolator(this.data[key] || defaultValue)
+      : this.data[key] || defaultValue
 
     // deep clone data
-    if (true === this.shouldDeepClone)
+    if (this.config.shouldDeepClone)
     {
       returnData = _.clone(returnData)
     }
@@ -137,7 +143,7 @@ class Repository implements RepositoryInterface
 
     if (afterHook)
     {
-      afterHook(this, key, defaultValue,interpolator, returnData)
+      afterHook(this, key, defaultValue, interpolator, returnData)
     }
 
     return returnData
@@ -166,7 +172,7 @@ class Repository implements RepositoryInterface
     delete this.data[key]
 
     // deep clone data
-    if (true === this.shouldDeepClone)
+    if (this.config.shouldDeepClone)
     {
       returnData = _.clone(returnData)
     }
@@ -196,7 +202,7 @@ class Repository implements RepositoryInterface
     this.data = {}
 
     // deep clone data
-    if (true === this.shouldDeepClone)
+    if (this.config.shouldDeepClone)
     {
       returnData = _.clone(returnData)
     }
@@ -276,7 +282,7 @@ class Repository implements RepositoryInterface
     let returnData: AnyObject = this.data
 
     // deep clone data
-    if (true === this.shouldDeepClone)
+    if (this.config.shouldDeepClone)
     {
       returnData = _.clone(returnData)
     }

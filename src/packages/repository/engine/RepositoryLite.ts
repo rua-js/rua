@@ -1,5 +1,6 @@
 import { AnyObject, AnyData } from '../../type/data'
 import { RepositoryLiteInterface } from '../interface'
+import * as _ from 'lodash'
 
 class RepositoryLite implements RepositoryLiteInterface
 {
