@@ -1,8 +1,8 @@
 import { Repository } from '../engine'
 
-describe('repository Repository tests', () =>
+describe('repository Repository .set tests', () =>
 {
-  test('.set return value', () =>
+  test('return value', () =>
   {
     // Return Data Case
     const repo: Repository = new Repository()
@@ -11,7 +11,7 @@ describe('repository Repository tests', () =>
     expect(repo.set('test', t1)).toBe(e1)
   })
 
-  test('.set deep clone', () =>
+  test('deep clone', () =>
   {
     const repo: Repository = new Repository({
       shouldDeepClone: true,
@@ -23,7 +23,7 @@ describe('repository Repository tests', () =>
     expect(repo.set('test', t1)).toEqual(e1)
   })
 
-  test('.set before hook', () =>
+  test('before hook', () =>
   {
     const fakeBeforeHook = jest.fn()
     const repo: Repository = new Repository({
@@ -41,7 +41,7 @@ describe('repository Repository tests', () =>
     expect(fakeBeforeHook.mock.calls.length).toBe(2)
   })
 
-  test('.set after hook', () =>
+  test('after hook', () =>
   {
     const fakeBeforeHook = jest.fn()
     const repo: Repository = new Repository({
@@ -59,7 +59,7 @@ describe('repository Repository tests', () =>
     expect(fakeBeforeHook.mock.calls.length).toBe(2)
   })
 
-  test('.set multiple', () =>
+  test('multiple', () =>
   {
     const repo: Repository = new Repository()
     const t1: string[] = ['test1', 'test2']
@@ -68,7 +68,7 @@ describe('repository Repository tests', () =>
     expect(repo.set(t1, e1)).toBe(e1)
   })
 
-  test('.set full', () =>
+  test('full', () =>
   {
     const fakeBeforeHook = jest.fn()
     const repo: Repository = new Repository({
