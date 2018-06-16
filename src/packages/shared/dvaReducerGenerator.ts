@@ -1,4 +1,4 @@
-import { AnyObject } from '../type'
+import { AnyObject } from '../type/data'
 import * as _ from 'lodash'
 import { memory } from '../memory'
 
