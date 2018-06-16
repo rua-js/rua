@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/rua-js/rua#readme",
   "dependencies": {
+    "@babel/core": "^7.0.0-beta.51",
     "autobind-decorator": "^2.1.0",
     "bluebird": "^3.5.1",
     "global": "^4.3.2",
@@ -34,10 +35,11 @@
     "lodash": "^4.17.10",
     "react-native-i18n": "^2.0.12",
     "rua-core": "^0.2.4",
-    "tslint-config-airbnb": "^5.9.2",
     "wolfy87-eventemitter": "^5.2.4"
   },
   "devDependencies": {
+    "@babel/parser": "^7.0.0-beta.51",
+    "@babel/traverse": "^7.0.0-beta.51",
     "@types/bluebird": "^3.5.20",
     "@types/fs-extra": "^5.0.1",
     "@types/i18n-js": "^3.0.0",
@@ -48,6 +50,9 @@
     "@types/node": "^9.4.6",
     "@types/react-native": "^0.55.12",
     "@types/react-native-i18n": "^2.0.0",
+    "tslint-config-airbnb": "^5.9.2",
+    "babel-core": "^6.26.3",
+    "babel-types": "^6.26.0",
     "fs-extra": "^5.0.0",
     "jest": "^22.1.4",
     "ts-jest": "^22.0.3",
