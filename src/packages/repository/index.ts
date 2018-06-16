@@ -1,5 +1,6 @@
-import { Repository } from './engine'
+import { Repository, RepositoryLite } from './engine'
 
 export {
   Repository,
+  RepositoryLite,
 }
