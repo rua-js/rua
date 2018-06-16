@@ -23,18 +23,6 @@ describe('memory', () =>
     const e3: string = 'default'
     memory.set('t3', t3)
     expect(memory.get('t3', e3)).toBe(e3)
-
-    // Multi Return Value Case
-    const t4: number = 444
-    const t5: number = 555
-    const e45: number[] = [t4, t5]
-    expect(memory.set(['t4', 't5'], [t4, t5])).toEqual(e45)
-
-    // Multi Regular Case
-    const e5: number = t5
-    const e6: number[] = [t4, t5]
-    expect(memory.get('t5')).toBe(e5)
-    expect(memory.get(['t4', 't5'])).toEqual(e6)
   })
 
   test('.remove', () =>
@@ -56,17 +44,6 @@ describe('memory', () =>
     const e3: Date = t3
     memory.set('t3', t3)
     expect(memory.remove('t3')).toBe(e3)
-
-    // Multi Return Value Case
-    const t4: number = 444
-    const t5: number = 555
-    const e45: number[] = [t4, t5]
-    memory.set(['t4', 't5'], [t4, t5])
-    expect(memory.remove(['t4', 't5'])).toEqual(e45)
-
-    // Multi Regular Case
-    const e6: undefined[] = [undefined, undefined]
-    expect(memory.get(['t4', 't5'])).toEqual(e6)
   })
 
   test('.all', () =>
