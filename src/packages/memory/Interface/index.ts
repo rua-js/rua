@@ -1,5 +1,5 @@
-import MemoryEngineInterface from './MemoryEngineInterface'
+import MemoryInterface from './MemoryInterface'
 
 export {
-  MemoryEngineInterface,
+  MemoryInterface,
 }

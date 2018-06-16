@@ -1,6 +1,6 @@
 import { AnyArray, AnyData, AnyObject } from '../../type/data'
 
-interface MemoryEngineInterface
+interface MemoryInterface
 {
   readonly length: number
 
@@ -17,7 +17,6 @@ interface MemoryEngineInterface
   keys(): string[]
 
   values(): AnyArray
-
 }
 
-export default MemoryEngineInterface
+export default MemoryInterface
