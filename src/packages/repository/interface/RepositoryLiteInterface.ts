@@ -4,11 +4,11 @@ interface RepositoryLiteInterface
 {
   readonly length: number
 
-  set(key: string | string[], data: AnyData | AnyData[]): AnyData | AnyData[]
+  set(key: string, data: AnyData): AnyData
 
-  get(key: string | string[], defaultValue?: AnyData | AnyData[]): AnyData | AnyData[]
+  get(key: string, defaultValue?: AnyData): AnyData
 
-  remove(key: string | string[]): AnyData | AnyData[]
+  remove(key: string): AnyData
 
   all(): AnyObject
 
