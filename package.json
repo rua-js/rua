@@ -50,13 +50,14 @@
     "@types/node": "^9.4.6",
     "@types/react-native": "^0.55.12",
     "@types/react-native-i18n": "^2.0.0",
-    "tslint-config-airbnb": "^5.9.2",
     "babel-core": "^6.26.3",
     "babel-types": "^6.26.0",
+    "benchmark": "^2.1.4",
     "fs-extra": "^5.0.0",
     "jest": "^22.1.4",
     "ts-jest": "^22.0.3",
     "tslint": "^5.10.0",
+    "tslint-config-airbnb": "^5.9.2",
     "typescript": "^2.7.1"
   },
   "peerDependencies": {
