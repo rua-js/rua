@@ -59,8 +59,13 @@ describe('repository Repository tests', () =>
     expect(fakeBeforeHook.mock.calls.length).toBe(2)
   })
 
-  test('.set multiple',() => {
+  test('.set multiple', () =>
+  {
+    const repo: Repository = new Repository()
+    const t1: string[] = ['test1', 'test2']
+    const e1: string[] = ['1', '2']
 
+    expect(repo.set(t1, e1)).toBe(e1)
   })
 
   test('.set full', () =>
