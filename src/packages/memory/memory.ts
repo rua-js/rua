@@ -1,6 +1,6 @@
-import { Repository } from '../repository'
+import { RepositoryLite } from '../repository'
 import { MemoryInterface } from './interface'
 
-const memory: MemoryInterface = new Repository()
+const memory: MemoryInterface = new RepositoryLite()
 
 export default memory
