@@ -65,7 +65,7 @@ describe('repository Repository .set tests', () =>
     const t1: string[] = ['test1', 'test2']
     const e1: string[] = ['1', '2']
 
-    expect(repo.set(t1, e1)).toBe(e1)
+    expect(repo.set(t1, e1)).toEqual(e1)
   })
 
   test('full', () =>
