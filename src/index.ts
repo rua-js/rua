@@ -4,10 +4,10 @@ import { Rua } from './packages/Rua'
 import { Storage } from './packages/Storage'
 import { Event } from './packages/Event'
 import { Exception } from './packages/Exception'
-import { request } from './packages/Request'
+import { request } from './packages/request'
 import { convertor } from './packages/Convertor'
 import { util } from './packages/Utility'
-import { Memory } from './packages/Memory'
+import { memory } from './packages/memory'
 // Essential library
 import { Cache } from './packages/Cache'
 import { API } from './packages/API'
@@ -30,7 +30,7 @@ export {
   // primitive
   util,
   convertor,
-  Memory,
+  memory,
   // rua-dva
   dvaLite,
   actions,
