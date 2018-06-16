@@ -2,7 +2,7 @@ import RepositoryHooks from './RepositoryHooks'
 
 interface RepositoryConfiguration
 {
-  deepClone?: boolean
+  shouldDeepClone?: boolean
   hooks?: RepositoryHooks
 }
 

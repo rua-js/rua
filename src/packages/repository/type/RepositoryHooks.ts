@@ -1,26 +1,138 @@
-import { AnyData } from '../../Type/Data'
+import { AnyObject, AnyData } from '../../type/data'
 import { Repository } from '../engine'
+import { Interpolator } from '../../type/function'
 
 interface RepositoryHooks
 {
-  beforeSet(key: string, data: AnyData, instance: Repository): boolean
+  beforeSet?(
+    instance: Repository,
+    key: string,
+    data: AnyData,
+    interpolator?: Interpolator,
+  ): void
 
-  afterSet(key: string, data: AnyData): boolean
+  afterSet?(
+    instance: Repository,
+    key: string,
+    data: AnyData,
+    interpolator?: Interpolator,
+    returnData?: AnyData,
+  ): void
 
-  beforeGet(key: string, defaultValue: AnyData, instance: Repository): boolean
+  beforeMultiSet?(
+    instance: Repository,
+    key: string[],
+    data: AnyData[],
+    interpolator?: Interpolator,
+  ): void
 
-  afterGet(key: string, defaultValue: AnyData, instance: Repository): boolean
+  afterMultiSet?(
+    instance: Repository,
+    key: string[],
+    data: AnyData[],
+    interpolator?: Interpolator,
+    returnData?: AnyData,
+  ): void
 
-  beforeRemove(key: string, instance: Repository): boolean
+  beforeGet?(
+    instance: Repository,
+    key: string | undefined,
+    defaultValue: AnyData,
+    interpolator?: Interpolator,
+  ): void
 
-  afterRemove(key: string, instance: Repository): boolean
+  afterGet?(
+    instance: Repository,
+    key: string,
+    defaultValue: AnyData,
+    interpolator?: Interpolator,
+    returnData?: AnyData,
+  ): void
 
-  beforeClear(instance: Repository): boolean
-  afterClear(instance: Repository): boolean
+  beforeMultiGet?(
+    instance: Repository,
+    key: string[],
+    defaultValue: AnyData[],
+    interpolator?: Interpolator,
+  ): void
 
-  beforeKeys(instance: Repository): boolean
+  afterMultiGet?(
+    instance: Repository,
+    key: string[],
+    defaultValue: AnyData[],
+    interpolator?: Interpolator,
+    returnData?: AnyData,
+  ): void
 
-  beforeValues(instance: Repository): boolean
+  beforeRemove?(
+    instance: Repository,
+    key: string,
+    interpolator?: Interpolator,
+  ): void
+
+  afterRemove?(
+    instance: Repository,
+    key: string,
+    interpolator?: Interpolator,
+    returnData?: AnyData,
+  ): void
+
+  beforeMultiRemove?(
+    instance: Repository,
+    key: string[],
+    interpolator?: Interpolator,
+  ): void
+
+  afterMultiRemove?(
+    instance: Repository,
+    key: string[],
+    interpolator?: Interpolator,
+    returnData?: AnyData,
+  ): void
+
+  beforeClear?(
+    instance: Repository,
+    interpolator?: Interpolator,
+  ): void
+
+  afterClear?(
+    instance: Repository,
+    interpolator?: Interpolator,
+    returnData?: AnyObject,
+  ): void
+
+  beforeKeys?(
+    instance: Repository,
+    interpolator?: Interpolator,
+  ): void
+
+  afterKeys?(
+    instance: Repository,
+    interpolator?: Interpolator,
+    returnData?: string[],
+  ): void
+
+  beforeValues?(
+    instance: Repository,
+    interpolator?: Interpolator,
+  ): void
+
+  afterValues?(
+    instance: Repository,
+    interpolator?: Interpolator,
+    returnData?: AnyData[],
+  ): void
+
+  beforeAll?(
+    instance: Repository,
+    interpolator?: Interpolator,
+  ): AnyObject
+
+  afterAll?(
+    instance: Repository,
+    interpolator?: Interpolator,
+    returnData?: AnyData,
+  ): AnyData
 }
 
 export default RepositoryHooks
