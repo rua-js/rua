@@ -103,7 +103,7 @@ class Repository implements RepositoryInterface
   }
 
   public get(
-    key: string | string[] | undefined,
+    key: string | string[],
     defaultValue?: AnyData,
     interpolator?: Interpolator,
   ): AnyData
@@ -122,9 +122,7 @@ class Repository implements RepositoryInterface
       beforeHook(this, key, interpolator)
     }
 
-    let returnData: AnyData = undefined === key
-      ? this.data
-      : interpolator
+    let returnData: AnyData = interpolator
         ? interpolator(this.data[key] || defaultValue)
         : this.data[key] || defaultValue
 
@@ -135,11 +133,11 @@ class Repository implements RepositoryInterface
     }
 
     // apply after hook
-    const afterHook = this.hooks.beforeGet
+    const afterHook = this.hooks.afterGet
 
     if (afterHook)
     {
-      afterHook(this, key, interpolator, returnData)
+      afterHook(this, key, defaultValue,interpolator, returnData)
     }
 
     return returnData
