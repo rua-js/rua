@@ -1,10 +1,10 @@
 {
   "name": "rua",
-  "version": "0.9.3",
+  "version": "0.10.0-alpha.1",
   "description": "Elegant front-end applications delivered at warp speed.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest test.ts",
+    "test": "jest Repository.*.test.ts",
     "build": "tsc"
   },
   "repository": {
