@@ -1,5 +1,5 @@
 import { memory } from '../index'
-import AnyObject from '../../type/data/AnyObject'
+import { AnyObject } from '../../type/data'
 
 describe('memory', () =>
 {
