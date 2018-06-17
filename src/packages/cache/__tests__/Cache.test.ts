@@ -2,7 +2,7 @@ import {
   Cache,
 } from '../index'
 
-describe('CacheEngine Tests(cache part)', () => {
+describe('Cache Tests(cache part)', () => {
   test('.set, .get', () => {
     // prep: .set
     Cache.set('test1', 'test-here1')

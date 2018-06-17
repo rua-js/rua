@@ -2,13 +2,13 @@ import {
   Cache,
 } from '../index'
 
-import CacheEngine from '../engine/CacheEngine'
+import Cache from '../engine/Cache'
 
-describe('CacheEngine Index Tests', () => {
+describe('Cache Index Tests', () => {
   test('export correctly', () => {
     // case: cache
     expect(
       Cache
-    ).toBeInstanceOf(CacheEngine)
+    ).toBeInstanceOf(Cache)
   })
 })

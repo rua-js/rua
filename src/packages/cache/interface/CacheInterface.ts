@@ -1,8 +1,8 @@
-import CacheEngine from '../engine/CacheEngine'
+import Cache from '../engine/Cache'
 import { AnyData, AnyObject } from 'rua-core/lib/Types'
 
-interface CacheEngineInterface {
-  useStore(storeName: string): CacheEngineInterface
+interface CacheInterface {
+  useStore(storeName: string): CacheInterface
   get(key: string, defaultValue?: any): AnyData
   set(key: string, value: string, time?: number): AnyData
   remove(key: string): AnyData
@@ -13,4 +13,4 @@ interface CacheEngineInterface {
   restore(): Promise<void>
 }
 
-export default CacheEngineInterface
+export default CacheInterface

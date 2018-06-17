@@ -2,7 +2,7 @@ import { Storage } from '../../storage'
 import { Cache } from '../index'
 import { util } from '../../utility'
 
-describe('CacheEngine Tests(storage part)', () => {
+describe('Cache Tests(storage part)', () => {
   test('.set, .get', async () => {
     // prep: .set
     await Cache.set('test1', 'test-here1')

@@ -2,11 +2,10 @@ import { AnyData, AnyObject } from 'rua-core/lib/Types'
 import * as _ from 'lodash'
 
 import { Storage, StorageEngine } from '../../storage'
-import { CacheEngineConfiguration } from '../type'
-import { CacheEngineInterface } from '../interface/index'
-import { Decorator as D } from '../../decorator'
+import { CacheConfiguration } from '../type'
+import { CacheInterface } from '../interface/index'
 
-class CacheEngine implements CacheEngineInterface
+class Cache implements CacheInterface
 {
 
   /**
@@ -19,9 +18,9 @@ class CacheEngine implements CacheEngineInterface
   /**
    * Saved configuration
    *
-   * @type {CacheEngineConfiguration}
+   * @type {CacheConfiguration}
    */
-  protected configs: CacheEngineConfiguration
+  protected configs: CacheConfiguration
 
   /**
    * storage instance
@@ -31,7 +30,7 @@ class CacheEngine implements CacheEngineInterface
   protected storage: StorageEngine = Storage
 
   /**
-   * Store that saves all other CacheEngine instances
+   * Store that saves all other Cache instances
    *
    * @type {{}}
    */
@@ -63,7 +62,7 @@ class CacheEngine implements CacheEngineInterface
    *
    * @param {object} configs
    */
-  public constructor(configs: CacheEngineConfiguration = {})
+  public constructor(configs: CacheConfiguration = {})
   {
     const {
       storeName = 'cache-',
@@ -77,9 +76,9 @@ class CacheEngine implements CacheEngineInterface
    * Use a different storage which will be create if NOT exists
    *
    * @param {string} storeName
-   * @returns {CacheEngine}
+   * @returns {Cache}
    */
-  public useStore(storeName: string): CacheEngine
+  public useStore(storeName: string): Cache
   {
     const store = this.stores[storeName]
 
@@ -88,7 +87,7 @@ class CacheEngine implements CacheEngineInterface
       return store
     }
 
-    this.stores[storeName] = new CacheEngine({ ...this.configs, storeName })
+    this.stores[storeName] = new Cache({ ...this.configs, storeName })
 
     return this.stores[storeName]
   }
@@ -127,7 +126,7 @@ class CacheEngine implements CacheEngineInterface
   {
     const storageKeyName = this.getItemKeyName(key)
     const removedData = this.store[storageKeyName]
-    // CacheEngine removal
+    // Cache removal
     _.unset(this.store, storageKeyName)
     _.pull(this.list, storageKeyName)
 
@@ -208,4 +207,4 @@ class CacheEngine implements CacheEngineInterface
 
 }
 
-export default CacheEngine
+export default Cache

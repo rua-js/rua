@@ -1,5 +1,5 @@
-import CacheEngineConfiguration from './CacheEngineConfiguration'
+import CacheConfiguration from './CacheConfiguration'
 
 export {
-  CacheEngineConfiguration,
+  CacheConfiguration,
 }
