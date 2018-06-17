@@ -1,4 +1,4 @@
-import { EventEngine } from './Engine'
+import { EventEngine } from './engine'
 
 const Event: EventEngine = new EventEngine()
 

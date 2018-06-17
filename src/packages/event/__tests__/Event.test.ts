@@ -4,7 +4,7 @@ import { Event } from '../index'
 import * as EventEmitter from 'wolfy87-eventemitter'
 // import jest from 'jest'
 
-describe('Event Tests', () =>
+describe('event Tests', () =>
 {
   test('initialize correctly', () =>
   {

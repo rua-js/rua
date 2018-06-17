@@ -1,14 +1,14 @@
 // @ts-ignore: import problem
 import * as EventEmitter from 'wolfy87-eventemitter'
-import { MultiEvents } from '../Type'
+import { MultiEvents } from '../type'
 import { AnyObject } from 'rua-core/lib/Types'
-import { EventInterface } from '../Interface'
+import { EventInterface } from '../interface'
 
 class EventEngine implements EventInterface
 {
 
   /**
-   * Event instance
+   * event instance
    *
    * @type {EventEmitter}
    */

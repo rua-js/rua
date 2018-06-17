@@ -1,5 +1,5 @@
 import { AnyObject } from 'rua-core/lib/Types'
-import { MultiEvents } from '../Type'
+import { MultiEvents } from '../type'
 
 interface EventInterface {
   on(event: string | RegExp, callback: Function): EventInterface
