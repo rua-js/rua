@@ -1,44 +1,59 @@
-//browserMocks.js
-const localStorageMock = (function () {
-  let store: any = {};
+// browserMocks.js
+const localStorageMock = (function ()
+{
+  let store: any = {}
 
   return {
-    getItem: function (key: string) {
-      return store[key] || null;
+    getItem(key: string)
+    {
+      return store[key] || null
     },
-    setItem: function (key: string, value: any) {
-      store[key] = value.toString();
+    setItem(key: string, value: any)
+    {
+      store[key] = value.toString()
     },
-    removeItem: function (key: string) {
+    removeItem(key: string)
+    {
       delete store[key]
     },
-    clear: function () {
-      store = {};
+    clear()
+    {
+      store = {}
     },
-    get length() {
+    get length()
+    {
       let i = 0
-      for (const item in store) {
-        if (Object.prototype.hasOwnProperty.call(store, item)) {
-          i+=1
+      for (const item in store)
+      {
+        if (Object.prototype.hasOwnProperty.call(store, item))
+        {
+          i += 1
         }
       }
+
       return i
     },
-    key: function (index: number) {
+    key(index: number)
+    {
       let i = 0
-      for (const item in store) {
-        if (Object.prototype.hasOwnProperty.call(store, item)) {
-          if (index === i) {
+      for (const item in store)
+      {
+        if (Object.prototype.hasOwnProperty.call(store, item))
+        {
+          if (index === i)
+          {
             return item
           }
-          i++
+          i += 1
         }
       }
-      return i
-    }
-  };
-})();
 
+      return i
+    },
+  }
+})()
+
+// @ts-ignore
 Object.defineProperty(window, 'localStorage', {
-  value: localStorageMock
-});
+  value: localStorageMock,
+})
