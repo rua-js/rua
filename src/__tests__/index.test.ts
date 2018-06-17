@@ -3,7 +3,7 @@ import {
 } from '../index'
 
 
-describe('Rua Index Test', () => {
+describe('rua Index Test', () => {
   test('play', () => {
   })
 })
