@@ -1,19 +1,19 @@
 // Master
 import { Rua } from './packages/Rua'
 // Primitive library
-import { Storage } from './packages/Storage'
+import { Storage } from './packages/storage'
 import { Event } from './packages/Event'
 import { Exception } from './packages/Exception'
 import { request } from './packages/request'
 import { convertor } from './packages/Convertor'
-import { util } from './packages/Utility'
+import { util } from './packages/utility'
 import { memory } from './packages/memory'
 // Essential library
 import { Cache } from './packages/Cache'
 import { API } from './packages/API'
 import { __, locale, translate } from './packages/Localization'
 import { Decorator, Decorator as D } from './packages/Decorator'
-import { core, emptyArray, emptyObject, noop, dvaReducerGenerator } from './packages/Shared'
+import { core, emptyArray, emptyObject, noop, dvaReducerGenerator } from './packages/shared'
 // Non-essential library
 import { actions, dvaLite } from './packages/Dva'
 import { DataMigration } from './packages/DataMigration'
