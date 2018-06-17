@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "jest Repository.*.test.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -22,9 +23,11 @@
   "bugs": {
     "url": "https://github.com/rua-js/rua/issues"
   },
+  "gitHooks": {
+    "commit-msg": "node scripts/git/verify-commit-message.js"
+  },
   "homepage": "https://github.com/rua-js/rua#readme",
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.51",
     "autobind-decorator": "^2.1.0",
     "bluebird": "^3.5.1",
     "global": "^4.3.2",
@@ -38,6 +41,7 @@
     "wolfy87-eventemitter": "^5.2.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.51",
     "@babel/parser": "^7.0.0-beta.51",
     "@babel/traverse": "^7.0.0-beta.51",
     "@types/bluebird": "^3.5.20",
@@ -53,6 +57,9 @@
     "babel-core": "^6.26.3",
     "babel-types": "^6.26.0",
     "benchmark": "^2.1.4",
+    "chalk": "^2.4.1",
+    "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0",
     "fs-extra": "^5.0.0",
     "jest": "^22.1.4",
     "ts-jest": "^22.0.3",
@@ -62,6 +69,11 @@
   },
   "peerDependencies": {
     "react-redux": "*"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "jest": {
     "setupFiles": [
