@@ -1,6 +1,6 @@
-import Patterns from './Patterns'
+import patterns from './patterns'
 
-/** Patterns */
+/** patterns */
 const {
   Email,
   QQEmail,
@@ -19,8 +19,7 @@ const {
   SSN,
   IPv4,
   IPv6Pattern,
-} = Patterns
-
+} = patterns
 
 export {
   Email,
