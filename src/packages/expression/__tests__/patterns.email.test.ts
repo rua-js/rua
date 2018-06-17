@@ -1,7 +1,6 @@
 import * as Patterns from '../index'
 
-describe('Is Tests (patterns)', () =>
-{
+describe('expression ', () => {
   test('Email', () =>
   {
     // Test data
