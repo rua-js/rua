@@ -171,7 +171,10 @@ class Cache implements CacheInterface
     const output: any = {}
     for (const name in this.store)
     {
-      output[name.replace(this.storeName, '')] = this.store[name]
+      if (Object.prototype.hasOwnProperty.call(this.store, name))
+      {
+        output[name.replace(this.storeName, '')] = this.store[name]
+      }
     }
 
     return output
