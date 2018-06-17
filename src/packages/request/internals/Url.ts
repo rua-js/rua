@@ -1,5 +1,4 @@
-import UrlString from '../type/UrlString'
-import UrlSchema from '../type/UrlSchema'
+import { UrlString, UrlSchema } from '../type'
 
 class Url
 {
@@ -10,9 +9,9 @@ class Url
     if (typeof url === 'string')
     {
       this.url = url
+    } else {
+      this.url = Url.parseUrlStringFromUrlSchema(url as UrlSchema)
     }
-
-    this.url = Url.parseUrlStringFromUrlSchema(url as UrlSchema)
   }
 
   public static parseUrlStringFromUrlSchema(urlSchema: UrlSchema): string

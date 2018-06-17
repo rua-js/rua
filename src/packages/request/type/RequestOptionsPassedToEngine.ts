@@ -12,6 +12,8 @@ interface RequestOptionsPassedToEngine extends RequestOptions
   timeout: number
 
   retry: number
+
+  before?: Function
 }
 
 export default RequestOptionsPassedToEngine

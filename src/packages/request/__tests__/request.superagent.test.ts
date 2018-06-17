@@ -1,5 +1,5 @@
 import {
-  request,
+  Request,
 } from '../index'
 
 import {
@@ -8,54 +8,48 @@ import {
   HttpNotFoundException,
 } from '../../exception'
 
-describe('request tests', () =>
+describe('Request tests', () =>
 {
   test('request', async () =>
   {
     // case: success
     await expect(
-      request('https://reqres.in/api/users'),
+      new Request('https://reqres.in/api/users'),
     ).resolves.toBeInstanceOf(Object)
     // case: correct data
     await expect(
-      request('https://reqres.in/api/users'),
+      new Request('https://reqres.in/api/users'),
     ).resolves.toHaveProperty('page')
   })
 
-  test('.abort', async () =>
+  test('.abort', () =>
   {
+    let instance: any
     // case: abort
-    await expect(
-      (() =>
+    const req = new Request('https://reqres.in/api/users', {
+      before(req: any)
       {
-        let abortFn: any
-        const req = request('https://reqres.in/api/users', {
-          before(req: any)
-          {
-            abortFn = req
-          },
-        })
-        abortFn.abort()
-
-        return req
-      })(),
-    ).rejects.toBeInstanceOf(HttpAbortException)
+        instance = req
+      },
+    })
+    instance.abort()
+    expect(instance._aborted).toBeTruthy()
   })
 
   test('timeout', async () =>
   {
     // case: timeout
     await expect(
-      request('https://reqres.in/api/users', {
+      new Request('https://reqres.in/api/users', {
         timeout: 10,
-      })
+      }),
     ).rejects.toBeInstanceOf(HttpRequestTimeoutException)
   })
 
   test('404', async () =>
   {
     await expect(
-      request('https://reqres.in/404'),
+      new Request('https://reqres.in/404'),
     ).rejects.toBeInstanceOf(HttpNotFoundException)
   })
 
@@ -69,16 +63,16 @@ describe('request tests', () =>
       },
     }
 
-    request.config({
+    Request.config({
       requestInterceptors,
     })
 
     await expect(
-      request('https://www.qq.com'),
+      new Request('https://www.qq.com'),
     ).resolves.toBeInstanceOf(Object)
     // case: correct data
     await expect(
-      request('https://www.qq.com'),
+      new Request('https://www.qq.com'),
     ).resolves.toHaveProperty('page')
   })
 
@@ -91,11 +85,11 @@ describe('request tests', () =>
     }
 
     await expect(
-      request('https://www.qq.com', { before })
+      new Request('https://www.qq.com', { before })
     ).resolves.toBeInstanceOf(Object)
     // case: correct data
     await expect(
-      request('https://www.qq.com', { before })
+      new Request('https://www.qq.com', { before })
     ).resolves.toHaveProperty('page')
   })
 })

@@ -1,12 +1,12 @@
 import {
-  request,
+  Request,
 } from '../index'
 
-describe('request Index Tests', () => {
+describe('Request Index Tests', () => {
   test('export correctly', () => {
-    // case: request
+    // case: Request
     expect(
-      request instanceof Function
+      Request instanceof Function
     ).toBeTruthy()
   })
 })
