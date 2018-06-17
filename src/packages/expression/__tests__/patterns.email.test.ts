@@ -9,7 +9,7 @@ describe('expression ', () => {
     ]
 
     const wrongEmail = [
-      'asda asd@qq.com', '_@qq,com', '_@qq.com'
+      'asda asd@qq.com', '_@qq,com', '_@qq.com',
     ]
 
     // Correct Case
