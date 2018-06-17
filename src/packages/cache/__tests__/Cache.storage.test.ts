@@ -2,46 +2,50 @@ import { Storage } from '../../storage'
 import { Cache } from '../index'
 import { util } from '../../utility'
 
-describe('Cache Tests(storage part)', () => {
-  test('.set, .get', async () => {
+describe('Cache Tests(storage part)', () =>
+{
+  test('.set, .get', async () =>
+  {
     // prep: .set
     await Cache.set('test1', 'test-here1')
     await util.delay(500)
     // case: get
     await expect(
       // @ts-ignore: protected
-      Storage.get(Cache.getItemKeyName('test1'))
+      Storage.get(Cache.getItemKeyName('test1')),
     ).resolves.toBe('test-here1')
   })
-  test('.remove', async () => {
+  test('.remove', async () =>
+  {
     // prep: set data
     await Cache.set('test1', 'test-here1')
     await Cache.set('test2', 'test-here2')
     await util.delay(500)
     // case: remove
     expect(
-      Cache.remove('test1')
+      Cache.remove('test1'),
     ).toBe('test-here1')
     await util.delay(500)
     // case: check storage removal
     await expect(
       // @ts-ignore: protected
-      Storage.get(Cache.getItemKeyName('test1'))
+      Storage.get(Cache.getItemKeyName('test1')),
     ).resolves.toBe(undefined)
     await expect(
       // @ts-ignore: protected
-      Storage.get(Cache.getItemKeyName('test2'))
+      Storage.get(Cache.getItemKeyName('test2')),
     ).resolves.toBe('test-here2')
   })
 
-  test('.all', async () => {
+  test('.all', async () =>
+  {
     // prep: set data
     Cache.set('test1', 'test-here1')
     Cache.set('test2', 'test-here2')
     await util.delay(500)
     // case: .all
     await expect(
-      Storage.all()
+      Storage.all(),
     ).resolves.toEqual({
       // @ts-ignore: protected
       [Cache.getListKeyName()]: [
@@ -57,14 +61,15 @@ describe('Cache Tests(storage part)', () => {
     })
   })
 
-  test('.clear', async () => {
+  test('.clear', async () =>
+  {
     // prep: set data
     Cache.set('test1', 'test-here1')
     Cache.set('test2', 'test-here2')
     await util.delay(500)
     // case: .clear
     expect(
-      Cache.clear()
+      Cache.clear(),
     ).toEqual({
       test1: 'test-here1',
       test2: 'test-here2',
@@ -72,11 +77,12 @@ describe('Cache Tests(storage part)', () => {
     await util.delay(500)
     // case: check removal
     await expect(
-      Storage.all()
+      Storage.all(),
     ).resolves.toEqual({})
   })
 
-  test('.length', async () => {
+  test('.length', async () =>
+  {
     // prep: set data
     Cache.set('test1', 'test-here1')
     Cache.set('test2', 'test-here2')
@@ -86,18 +92,19 @@ describe('Cache Tests(storage part)', () => {
     await util.delay(500)
     // case: .length
     await expect(
-      Storage.length()
-    ).resolves.toBe(1+1)
+      Storage.length(),
+    ).resolves.toBe(1 + 1)
   })
 
-  test('.keys', async () => {
+  test('.keys', async () =>
+  {
     // prep: set data
     Cache.set('test1', 'test-here1')
     Cache.set('test2', 'test-here2')
     await util.delay(500)
     // case: .keys
     await expect(
-      Storage.keys()
+      Storage.keys(),
     ).resolves.toEqual([
       // @ts-ignore: protected
       Cache.getListKeyName(),
