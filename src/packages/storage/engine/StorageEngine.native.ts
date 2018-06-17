@@ -3,7 +3,7 @@ import { AsyncStorage } from 'react-native'
 import * as _ from 'lodash'
 
 // Self Dependency
-import { StorageEngineInterface } from '../Interface'
+import { StorageEngineInterface } from '../interface'
 
 // Rua Core Dependency
 import { AnyData, AnyObject } from 'rua-core/lib/Types'

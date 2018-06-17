@@ -1,5 +1,5 @@
 import { Storage } from '../index'
-import StorageEngine from '../Engine/StorageEngine'
+import StorageEngine from '../engine/StorageEngine'
 
 describe('Index', () => {
   test('export correctly', () => {

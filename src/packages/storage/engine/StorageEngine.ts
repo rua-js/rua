@@ -2,7 +2,7 @@
 import * as localForage from 'localforage'
 import * as _ from 'lodash'
 // Self Dependency
-import { StorageEngineInterface } from '../Interface'
+import { StorageEngineInterface } from '../interface'
 // Rua Core Dependency
 import { AnyData, AnyObject } from 'rua-core/lib/Types'
 
@@ -24,7 +24,7 @@ class StorageEngine implements StorageEngineInterface
    */
   public async set<T>(key: string | string[], value: AnyData | AnyData[]): Promise<void>
   {
-    if (_.isArray(key))
+    if (Array.isArray(key))
     {
       const keys: string[] = key
       for (const index in keys)
@@ -50,7 +50,7 @@ class StorageEngine implements StorageEngineInterface
    */
   public async get<T>(key: string | string[], defaultValue?: any): Promise<AnyData>
   {
-    if (_.isArray(key))
+    if (Array.isArray(key))
     {
       const keys: string[] = <string[]>key
       const output: any = {}
@@ -76,7 +76,7 @@ class StorageEngine implements StorageEngineInterface
    */
   public async remove(key: string | string[]): Promise<void>
   {
-    if (_.isArray(key))
+    if (Array.isArray(key))
     {
       const keys: string[] = <string[]>key
       for (const index in keys)
