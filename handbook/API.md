@@ -13,21 +13,21 @@ import './user.js'  // import, that's all
 ```javascript
 // file: user.js
 
-// Define API collection
+api
 @API()
 class User
 {
     create = 'https://www.qq.com/user'
 }
 
-// Call API (lower case `user` used here)
+api
 API('user.create', { name: 'copydog' }) // 'GET' method will be used
 
 ```
 
 #### Restful Example With Other Decorators
 ```javascript
-// Define API collection
+api
 @API({
     defaultDomain: 'https://www.qq.com',
     defaultMethod: 'GET',
@@ -50,7 +50,7 @@ class User
     delete = '/user/:id';
 }
 
-// Call API (lower case `user` used here)
+api
 API('user.create', { name: 'copydog' });
 API('user.delete', { id: 11 });
 ```

@@ -20,7 +20,7 @@
   * [缓存: Cache](/zh-cn/dataMigration.md)
   * [验证: Validator](/zh-cn/validator.md)
   * [转接: DataAdaptor](/zh-cn/dataAdaptor.md)
-  * [迁移: DataMigration](/zh-cn/dataMigration.md)
+  * [迁移: DataAdaptor](/zh-cn/dataMigration.md)
   * [多语言: Localization](/zh-cn/dev.md)
   
 * 运行环境
@@ -34,3 +34,4 @@
 * 内在工具
 
   * [仓库: Repository](/zh-cn/dev.md)
+  * [仓库(轻量版): RepositoryLite](/zh-cn/dev.md)

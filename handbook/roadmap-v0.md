@@ -16,7 +16,7 @@
 
 ### 0.9.x
 - [x] API Decorator
-- [x] DataMigration
+- [x] DataAdaptor
 - [x] Validator
 
 ### 0.8.x
