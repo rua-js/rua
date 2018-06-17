@@ -1,9 +1,9 @@
-import { DataMigrationInterface } from './Interface'
-import { DataStructure } from './Type'
+import { DataAdaptorInterface } from './interface'
+import { DataStructure } from './type'
 import { AnyObject } from '../type/data'
 import * as _ from 'lodash'
 
-class DataMigration implements DataMigrationInterface
+class DataAdaptor implements DataAdaptorInterface
 {
   protected structure: DataStructure
 
@@ -33,4 +33,4 @@ class DataMigration implements DataMigrationInterface
   }
 }
 
-export default DataMigration
+export default DataAdaptor

@@ -1,5 +1,5 @@
-import DataMigration from './DataMigration'
+import DataAdaptor from './DataAdaptor'
 
 export {
-  DataMigration,
+  DataAdaptor,
 }
