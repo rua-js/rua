@@ -5,6 +5,7 @@ import UrlSchema from './UrlSchema'
 import UrlString from './UrlString'
 import RequestOptions from './RequestOptions'
 import Query from './Query'
+import RequestOptionsPassedToEngine from './RequestOptionsPassedToEngine'
 
 export {
   RequestConfiguration,
@@ -14,4 +15,5 @@ export {
   UrlSchema,
   RequestOptions,
   Query,
+  RequestOptionsPassedToEngine,
 }

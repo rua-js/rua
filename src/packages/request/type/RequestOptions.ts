@@ -1,14 +1,13 @@
-import Headers from './Headers'
+import Query from './Query'
+import { Header } from '../internals'
 
 interface RequestOptions
 {
-  headers?: Headers
+  headers?: Header
 
   method?: string
 
-  query?: {
-    [key: string]: string | number,
-  }
+  query?: Query
 
   type?: string
 
