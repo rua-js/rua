@@ -1,11 +1,11 @@
 import RequestStatic from './RequestStatic'
 import InterceptorInterface from './InterceptorInterface'
 import RequestInterface from './RequestInterface'
-import HeadersInterface from './HeadersInterface'
+import HeaderInterface from './HeaderInterface'
 
 export {
   RequestStatic,
   InterceptorInterface,
   RequestInterface,
-  HeadersInterface,
+  HeaderInterface,
 }
