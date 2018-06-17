@@ -3,6 +3,8 @@ import RequestResult from './RequestResult'
 import RequestConfiguration from './RequestConfiguration'
 import RequestConfig from './RequestConfig'
 import Headers from './Headers'
+import UrlSchema from './UrlSchema'
+import UrlString from './UrlString'
 
 export {
   CatchedRequestResult,
@@ -10,4 +12,6 @@ export {
   RequestConfiguration,
   RequestConfig,
   Headers,
+  UrlString,
+  UrlSchema,
 }

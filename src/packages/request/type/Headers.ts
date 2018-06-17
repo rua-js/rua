@@ -1,5 +1,4 @@
-interface Head
-ers
+interface Headers
 {
   ['Content-Type']?: string
   ['Authorization']?: string

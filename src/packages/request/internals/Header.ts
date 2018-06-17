@@ -1,24 +1,24 @@
 /**
  * HTTP Headers.
  */
-import { HeaderInterface } from '../interface'
+import { HeaderInterface } from '../interfaces'
 import { Headers } from '../type'
 
 class Header implements HeaderInterface
 {
-  protected headers: any
+  protected headers: Headers
 
   public constructor(headers?: Headers)
   {
     this.headers = headers ? { ...headers } : {}
   }
 
-  public set(key: string, value: any)
+  public set(key: string, value: any): void
   {
     this.headers[key] = value
   }
 
-  public get(key: string)
+  public get(key: string): any
   {
     return this.headers[key]
   }
@@ -28,7 +28,7 @@ class Header implements HeaderInterface
     return !!this.headers[key]
   }
 
-  public all(): any
+  public getHeaders(): Headers
   {
     return this.headers
   }

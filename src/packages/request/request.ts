@@ -4,7 +4,7 @@ import * as _ from 'lodash'
 
 import fetch from './third-party/fetch'
 import Interceptor from './Interceptor'
-import { RequestInterface } from './interface'
+import { RequestInterface } from './interfaces'
 import { CodedHttpExceptions, HttpAbortException, HttpException, HttpRequestTimeoutException } from '../exception'
 import { convertor } from '../convertor'
 import RequestConfiguration from './type/RequestConfiguration'
