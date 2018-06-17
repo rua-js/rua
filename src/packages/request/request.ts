@@ -7,7 +7,7 @@ import Interceptor from './Interceptor'
 import { RequestInterface } from './interface'
 import { CodedHttpExceptions, HttpAbortException, HttpException, HttpRequestTimeoutException } from '../exception'
 import { convertor } from '../convertor'
-import RequestConfiguration from './Type/RequestConfiguration'
+import RequestConfiguration from './type/RequestConfiguration'
 
 function checkStatus(response: Response): Response
 {

@@ -1,4 +1,4 @@
-import { RequestConfig } from '../Type'
+import { RequestConfig } from '../type'
 
 export default function (config: RequestConfig)
 {

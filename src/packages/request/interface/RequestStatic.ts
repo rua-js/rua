@@ -1,5 +1,5 @@
 import { AnyObject } from 'rua-core/lib/Types'
-import { CatchedRequestResult, RequestResult } from '../Type'
+import { CatchedRequestResult, RequestResult } from '../type'
 
 interface RequestStatic {
   request(url: string, options: AnyObject): Promise<RequestResult>
