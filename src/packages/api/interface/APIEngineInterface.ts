@@ -1,4 +1,4 @@
-import AnyObject from 'rua-core/lib/Types/AnyObject'
+import { AnyObject } from '../../type/data'
 
 interface APIEngineInterface {
   /**
@@ -21,7 +21,7 @@ interface APIEngineInterface {
    *
    * @returns {any}
    */
-  dispatch(name: string): any
+  call(name: string): any
 
   /**
    * Merge multiple api into store

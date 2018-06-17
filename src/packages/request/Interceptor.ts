@@ -1,6 +1,6 @@
 import { InterceptorInterface } from './interface'
-import AnyObject from 'rua-core/lib/Types/AnyObject'
 import * as _ from 'lodash'
+import { AnyObject } from '../type/data'
 
 class Interceptor implements InterceptorInterface {
 

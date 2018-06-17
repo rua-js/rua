@@ -1,4 +1,4 @@
-import AnyObject from 'rua-core/lib/Types/AnyObject'
+import { AnyObject } from '../../type/data'
 
 interface RequestInterface {
 

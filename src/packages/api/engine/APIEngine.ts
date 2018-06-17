@@ -1,4 +1,3 @@
-import AnyObject from 'rua-core/lib/Types/AnyObject'
 import CanConfig from 'rua-core/lib/Contracts/CanConfig'
 import * as _ from 'lodash'
 
@@ -8,6 +7,7 @@ import { APIConfiguration } from '../type'
 import APIEntity from './APIEntity'
 import APIEntityObjectCollection from '../type/APIEntityObjectCollection'
 import APIEngineInterface from '../interface/APIEngineInterface'
+import { AnyObject } from '../../type/data'
 
 class APIEngine implements APIEngineInterface, CanConfig
 {
@@ -83,7 +83,7 @@ class APIEngine implements APIEngineInterface, CanConfig
 
     const {
       url,
-      ...restConfig,
+      ...restConfig
     } = new APIEntity(config).toObject()
 
     return this.request(url, { ...restConfig, body: data })
