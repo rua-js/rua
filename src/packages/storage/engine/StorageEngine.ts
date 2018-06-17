@@ -3,7 +3,7 @@ import * as localForage from 'localforage'
 import * as _ from 'lodash'
 // Self Dependency
 import { StorageEngineInterface } from '../interface'
-// Rua Core Dependency
+// rua Core Dependency
 import { AnyData, AnyObject } from 'rua-core/lib/Types'
 
 class StorageEngine implements StorageEngineInterface

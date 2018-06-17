@@ -6,7 +6,7 @@ import {
   HttpAbortException,
   HttpRequestTimeoutException,
   HttpNotFoundException,
-} from '../../Exception'
+} from '../../exception'
 
 describe('request tests', () =>
 {
@@ -14,11 +14,11 @@ describe('request tests', () =>
   {
     // case: success
     await expect(
-      request('https://reqres.in/API/users'),
+      request('https://reqres.in/api/users'),
     ).resolves.toBeInstanceOf(Object)
     // case: correct data
     await expect(
-      request('https://reqres.in/API/users'),
+      request('https://reqres.in/api/users'),
     ).resolves.toHaveProperty('page')
   })
 
@@ -29,7 +29,7 @@ describe('request tests', () =>
       (() =>
       {
         let abortFn: any
-        const req = request('https://reqres.in/API/users', {
+        const req = request('https://reqres.in/api/users', {
           before(req: any)
           {
             abortFn = req
@@ -46,7 +46,7 @@ describe('request tests', () =>
   {
     // case: timeout
     await expect(
-      request('https://reqres.in/API/users', {
+      request('https://reqres.in/api/users', {
         timeout: 10,
       })
     ).rejects.toBeInstanceOf(HttpRequestTimeoutException)
@@ -61,7 +61,7 @@ describe('request tests', () =>
 
   test('interceptors', async () =>
   {
-    const url = 'https://reqres.in/API/users'
+    const url = 'https://reqres.in/api/users'
     const requestInterceptors = {
       wtf: (req: any) =>
       {
@@ -84,7 +84,7 @@ describe('request tests', () =>
 
   test('before', async () =>
   {
-    const url = 'https://reqres.in/API/users'
+    const url = 'https://reqres.in/api/users'
     const before = (req: any) =>
     {
       req.url = url

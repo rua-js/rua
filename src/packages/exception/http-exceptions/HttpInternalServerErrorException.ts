@@ -7,7 +7,7 @@ import { HttpException } from '../exceptions'
  */
 class HttpInternalServerErrorException extends HttpException {
   constructor() {
-    super(500, 'Internal Server Error')
+    super(500, 'internal Server Error')
   }
 }
 

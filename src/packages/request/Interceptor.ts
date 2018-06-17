@@ -1,4 +1,4 @@
-import { InterceptorInterface } from './Interface'
+import { InterceptorInterface } from './interface'
 import AnyObject from 'rua-core/lib/Types/AnyObject'
 import * as _ from 'lodash'
 

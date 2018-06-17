@@ -1,5 +1,6 @@
 import { Repository } from '../engine'
 import Mock = jest.Mock
+import * as faker from 'faker'
 
 describe('repository Repository .get tests', () =>
 {
@@ -8,9 +9,10 @@ describe('repository Repository .get tests', () =>
     const repo: Repository = new Repository()
     const t1: Date = new Date()
     const e1: Date = t1
-    repo.set('test', t1)
+    const key: string = faker.address.city()
+    repo.set(key, t1)
 
-    expect(repo.get('test')).toBe(e1)
+    expect(repo.get(key)).toBe(e1)
   })
 
   test('deep clone', () =>
@@ -20,28 +22,35 @@ describe('repository Repository .get tests', () =>
     })
     const t1: Date = new Date()
     const e1: Date = new Date(t1)
-    repo.set('test', t1)
+    const key: string = faker.address.city()
+    repo.set(key, t1)
 
-    expect(repo.get('test')).not.toBe(t1)
-    expect(repo.get('test')).toEqual(e1)
+    expect(repo.get(key)).not.toBe(t1)
+    expect(repo.get(key)).toEqual(e1)
   })
 
   test('multiple', () =>
   {
     const repo: Repository = new Repository()
-    repo.set('test1', 1)
-    repo.set('test2', 2)
-    repo.set('test3', 3)
-    const e1 = [1, 2]
+    const key1: string = faker.address.city()
+    const key2: string = faker.address.streetAddress()
+    const key3: string = faker.address.country()
+    const val1: string = faker.address.city()
+    const val2: string = faker.address.streetAddress()
+    const val3: string = faker.address.country()
+    repo.set(key1, val1)
+    repo.set(key2, val2)
+    repo.set(key3, val3)
+    const e1: string[] = [val1, val2]
 
-    expect(repo.get(['test1', 'test2'])).toEqual(e1)
+    expect(repo.get([key1, key2])).toEqual(e1)
   })
 
   test('default value', () =>
   {
     const repo: Repository = new Repository()
-    repo.set('test', undefined)
-    const _default = 'deft?'
+    repo.set(faker.address.city(), undefined)
+    const _default = faker.address.city()
 
     expect(repo.get('test', _default)).toBe(_default)
   })
@@ -50,9 +59,9 @@ describe('repository Repository .get tests', () =>
   {
     const fakeInterpolator = jest.fn()
     const repo: Repository = new Repository()
-    const key = 'test'
-    const value = 'someVal'
-    const interpolatedValue = 'interpolatedValue'
+    const key = faker.address.city()
+    const value = faker.address.city()
+    const interpolatedValue = faker.address.city()
     const interpolator = (someVal: string) => interpolatedValue + someVal
     repo.set(key, value)
     repo.get(key, undefined, fakeInterpolator)
@@ -95,13 +104,13 @@ describe('repository Repository .get tests', () =>
         afterGet: fakeHook,
       },
     })
-    const key = 'test'
-    const _default = 'deft'
+    const key = faker.address.city()
+    const _default = faker.address.city()
 
     repo.get(key, _default, fakeInterpolator)
     expect(fakeHook.mock.calls.length).toBe(1)
     expect(fakeInterpolator.mock.calls.length).toBe(1)
-    expect(fakeInterpolator.mock.calls[0]).toBe(1)
+    expect(fakeInterpolator.mock.calls[0]).toEqual([_default])
     expect(fakeHook.mock.calls[0][0]).toBe(repo)
     expect(fakeHook.mock.calls[0][1]).toBe(key)
     expect(fakeHook.mock.calls[0][2]).toBe(_default)
@@ -109,7 +118,7 @@ describe('repository Repository .get tests', () =>
 
     repo.get(key, _default, fakeInterpolator)
     expect(fakeInterpolator.mock.calls.length).toBe(2)
-    expect(fakeInterpolator.mock.calls[0]).toBe(1)
+    expect(fakeInterpolator.mock.calls[0]).toEqual([_default])
     expect(fakeHook.mock.calls.length).toBe(2)
     expect(fakeHook.mock.calls[1][0]).toBe(repo)
     expect(fakeHook.mock.calls[1][1]).toBe(key)

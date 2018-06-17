@@ -1,4 +1,4 @@
-// Rua Core Dependency
+// rua Core Dependency
 import { AnyObject, AnyData } from 'rua-core/lib/Types'
 
 interface StorageEngineInterface {

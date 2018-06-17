@@ -2,11 +2,11 @@ import { AnyObject } from 'rua-core/lib/Types'
 import *  as Promise from 'bluebird'
 import * as _ from 'lodash'
 
-import fetch from './ThirdParty/fetch'
+import fetch from './third-party/fetch'
 import Interceptor from './Interceptor'
-import { RequestInterface } from './Interface'
-import { CodedHttpExceptions, HttpAbortException, HttpException, HttpRequestTimeoutException } from '../Exception'
-import { convertor } from '../Convertor'
+import { RequestInterface } from './interface'
+import { CodedHttpExceptions, HttpAbortException, HttpException, HttpRequestTimeoutException } from '../exception'
+import { convertor } from '../convertor'
 import RequestConfiguration from './Type/RequestConfiguration'
 
 function checkStatus(response: Response): Response

@@ -8,6 +8,6 @@ export {
   emptyObject,
   noop,
   core,
-  // Dva Reducers
+  // dva Reducers
   dvaReducerGenerator,
 }
