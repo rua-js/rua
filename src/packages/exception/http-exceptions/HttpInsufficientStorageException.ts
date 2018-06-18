@@ -7,7 +7,7 @@ import { HttpException } from '../exceptions'
  */
 class HttpInsufficientStorageException extends HttpException {
   constructor() {
-    super(507, 'Insufficient storage')
+    super(507, 'Insufficient Storage')
   }
 }
 
