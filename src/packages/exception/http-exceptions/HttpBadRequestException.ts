@@ -7,7 +7,7 @@ import { HttpException } from '../exceptions'
  */
 class HttpBadRequestException extends HttpException {
   constructor() {
-    super(400, 'Bad request')
+    super(400, 'Bad Request')
   }
 }
 

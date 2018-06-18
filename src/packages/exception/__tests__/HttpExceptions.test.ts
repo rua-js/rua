@@ -12,7 +12,7 @@ describe('http-exceptions Tests', () => {
       const e: HttpException = new CodeHttpException()
       // case: equal code
       expect(
-        e.statusCode
+        e.code
       ).toBe(parseInt(code, 10))
     }
   })
@@ -56,7 +56,7 @@ describe('http-exceptions Tests', () => {
       ).toBe('InheritException')
       // case: code
       expect(
-        e.statusCode
+        e.code
       ).toBe(parseInt(code, 10))
       // case: stack
       expect(

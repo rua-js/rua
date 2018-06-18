@@ -2,7 +2,7 @@ import ExceptionInterface from './ExceptionInterface'
 
 interface HttpExceptionInterface extends ExceptionInterface
 {
-  statusCode: number
+  code: number
 }
 
 export default HttpExceptionInterface
