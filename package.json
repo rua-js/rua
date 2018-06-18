@@ -4,7 +4,7 @@
   "description": "Elegant front-end applications delivered at warp speed.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest Repository.*.test.ts",
+    "test": "jest test.ts",
     "build": "tsc",
     "commit": "git-cz"
   },
@@ -39,6 +39,7 @@
     "lodash": "^4.17.10",
     "react-native-i18n": "^2.0.12",
     "rua-core": "^0.2.4",
+    "superagent": "^3.8.3",
     "wolfy87-eventemitter": "^5.2.4"
   },
   "devDependencies": {
@@ -56,6 +57,7 @@
     "@types/node": "^9.4.6",
     "@types/react-native": "^0.55.12",
     "@types/react-native-i18n": "^2.0.0",
+    "@types/superagent": "^3.8.0",
     "babel-core": "^6.26.3",
     "babel-types": "^6.26.0",
     "benchmark": "^2.1.4",
