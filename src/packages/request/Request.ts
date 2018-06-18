@@ -1,14 +1,27 @@
-import { UrlSchema, UrlString } from './type'
+import { emptyObject } from '../shared'
+import { superAgentEngine, fetchEngine } from './engines'
 import { Header, Url } from './internals'
-import { superAgentEngine } from './engines'
+import { RequestConfiguration, UrlSchema, UrlString, ResponseData } from './type'
 
 class Request
 {
-  public static interceptors = []
-  public static interceptor = {}
+  public static interceptors = {
+    request: [],
+    response: [],
+  }
+  public static engine: Function = superAgentEngine
+  public static readonly engines = {
+    superAgent: superAgentEngine,
+    fetch: fetchEngine,
+  }
+  public static interceptor = {
+    some()
+    {
+    },
+  }
   protected url: Url
   protected headers: Header
-  protected config: any
+  protected configuration: any
 
   public constructor(url: UrlSchema | UrlString, options: any = {})
   {
@@ -18,20 +31,51 @@ class Request
 
     this.headers = new Header(headers)
     this.url = new Url(url)
-    this.config = options ? { ...options } : {}
-    delete this.config.headers
+    this.configuration = { ...options }
+    delete this.configuration.headers
 
     // @ts-ignore: we know this is crazy but we need it
     return this.start()
   }
 
-  public start (): Promise<any>
+  public static config(requestConfig: RequestConfiguration): void
   {
-    return superAgentEngine({
+    const {
+      requestInterceptors = emptyObject,
+      responseInterceptors = emptyObject,
+    } = requestConfig
+
+    for (const key in requestInterceptors)
+    {
+      Request.interceptors.request.push(requestInterceptors[key])
+    }
+
+    for (const key in responseInterceptors)
+    {
+      Request.interceptors.response.push(requestInterceptors[key])
+    }
+  }
+
+  public start(): Promise<ResponseData>
+  {
+    const requestInterceptors = Request.interceptors.request
+    const requestInterceptor = Request.interceptor
+
+    requestInterceptors.forEach((interceptor) =>
+    {
+      if (typeof interceptor === 'string')
+      {
+        requestInterceptor[interceptor](this)
+      }
+
+      interceptor(this)
+    })
+
+    return Request.engine({
       url: this.url.getUrl(),
       headers: this.headers.getHeaders(),
-      ...this.config,
-    }).then(a => a.body)
+      ...this.configuration,
+    })
   }
 }
 

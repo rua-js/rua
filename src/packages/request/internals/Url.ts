@@ -9,7 +9,8 @@ class Url
     if (typeof url === 'string')
     {
       this.url = url
-    } else {
+    } else
+    {
       this.url = Url.parseUrlStringFromUrlSchema(url as UrlSchema)
     }
   }
@@ -24,6 +25,11 @@ class Url
     } = urlSchema
 
     return `${domain}${prefix}${url}${suffix}`
+  }
+
+  public setUrl(url: string): void
+  {
+    this.url = url
   }
 
   public getUrl(): string

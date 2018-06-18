@@ -1,12 +1,14 @@
 import * as request from 'superagent'
-import { RequestOptionsPassedToEngine } from '../type'
+import { RequestOptionsPassedToEngine, ResponseData } from '../type'
 import {
-  HttpAbortException,
   HttpRequestTimeoutException,
   HttpNotFoundException,
+  HttpException,
 } from '../../exception'
 
-export default function superAgentEngine(options: RequestOptionsPassedToEngine): Promise<any>
+export default function superAgentEngine(
+  options: RequestOptionsPassedToEngine,
+): Promise<ResponseData>
 {
   const {
     url,
@@ -34,14 +36,34 @@ export default function superAgentEngine(options: RequestOptionsPassedToEngine):
 
   before && before(req)
 
-  return req.catch((err: Error) => {
-    if (err.message.includes('Timeout')) {
-      throw new HttpRequestTimeoutException()
-    }
+  return req
+    .then((response) => // check status
+    {
+      if (response.status >= 200 && response.status < 300)
+      {
+        return response
+      }
 
-    if (err.message = 'Not Found') {
-      throw new HttpNotFoundException()
-    }
-    throw err
-  })
+      const err: any = new HttpException(response.status, response.type)
+
+      err.response = response
+
+      throw err
+      // return res
+    })
+    .then(response => response.body) // keep body
+    .catch((err: Error) =>
+    {
+      if (err.message.includes('Timeout'))
+      {
+        throw new HttpRequestTimeoutException()
+      }
+
+      if (err.message = 'Not Found')
+      {
+        throw new HttpNotFoundException()
+      }
+
+      throw err
+    })
 }

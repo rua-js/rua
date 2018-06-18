@@ -8,6 +8,8 @@ import {
   HttpNotFoundException,
 } from '../../exception'
 
+jest.setTimeout(10000)
+
 describe('Request tests', () =>
 {
   test('request', async () =>
@@ -53,13 +55,13 @@ describe('Request tests', () =>
     ).rejects.toBeInstanceOf(HttpNotFoundException)
   })
 
-  test('interceptors', async () =>
+  test('request interceptors', async () =>
   {
     const url = 'https://reqres.in/api/users'
     const requestInterceptors = {
       wtf: (req: any) =>
       {
-        req.url = url
+        req.url.setUrl(url)
       },
     }
 
@@ -85,11 +87,11 @@ describe('Request tests', () =>
     }
 
     await expect(
-      new Request('https://www.qq.com', { before })
+      new Request('https://www.qq.com', { before }),
     ).resolves.toBeInstanceOf(Object)
     // case: correct data
     await expect(
-      new Request('https://www.qq.com', { before })
+      new Request('https://www.qq.com', { before }),
     ).resolves.toHaveProperty('page')
   })
 })
