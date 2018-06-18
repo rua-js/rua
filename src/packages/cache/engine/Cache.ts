@@ -183,7 +183,7 @@ class Cache implements CacheInterface
   public async restore(): Promise<void>
   {
     // Get list key
-    const listKey: string = <string>this.getListKeyName()
+    const listKey: string = this.getListKeyName()
     // Get list data
     const list: string = <string>await this.storage.get(listKey, [])
     // Parse list data
