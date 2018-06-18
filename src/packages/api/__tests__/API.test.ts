@@ -1,5 +1,6 @@
 import { API } from '../index'
 // import { fetch } from '../../Fetch'
+jest.setTimeout(10000)
 
 describe('api Tests', () =>
 {

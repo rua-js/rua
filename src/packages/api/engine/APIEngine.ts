@@ -1,13 +1,12 @@
-import CanConfig from 'rua-core/lib/Contracts/CanConfig'
 import * as _ from 'lodash'
-
-import { util } from '../../utility'
 import { Request } from '../../request'
-import { APIConfiguration } from '../type'
-import APIEntity from './APIEntity'
-import APIEntityObjectCollection from '../type/APIEntityObjectCollection'
-import APIEngineInterface from '../interface/APIEngineInterface'
+import { ResponseData } from '../../request/type'
+import { CanConfig } from '../../type'
 import { AnyObject } from '../../type/data'
+import { util } from '../../utility'
+import { APIEngineInterface } from '../interface'
+import { APIConfiguration, APIEntityObjectCollection } from '../type'
+import APIEntity from './APIEntity'
 
 class APIEngine implements APIEngineInterface, CanConfig
 {
@@ -70,7 +69,7 @@ class APIEngine implements APIEngineInterface, CanConfig
    *
    * @returns {any}
    */
-  public call = (name: string, data?: AnyObject): Promise<Response> =>
+  public call = (name: string, data?: AnyObject): Promise<ResponseData> =>
   {
     // get configuration of one api (setting)
     const config = _.get(this.store, name)
@@ -81,12 +80,9 @@ class APIEngine implements APIEngineInterface, CanConfig
       '[rua][api]The api that you are trying to access is NOT exists',
     )
 
-    const {
-      url,
-      ...restConfig
-    } = new APIEntity(config).toObject()
+    const { url, ...restConfig } = new APIEntity(config).toObject()
 
-    return this.request(url, { ...restConfig, body: data })
+    return new Request(url, data, { ...restConfig })
   }
   /**
    * Store user defined api
@@ -98,7 +94,8 @@ class APIEngine implements APIEngineInterface, CanConfig
    * Fetch instance
    * @type {Function}
    */
-  protected request = Request
+
+  // protected request = Request
 
   /**
    * @constructor
