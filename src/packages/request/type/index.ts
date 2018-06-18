@@ -1,11 +1,12 @@
-import RequestConfiguration from './RequestConfiguration'
-import RequestConfig from './RequestConfig'
 import Headers from './Headers'
+import Query from './Query'
+import RequestConfig from './RequestConfig'
+import RequestConfiguration from './RequestConfiguration'
+import RequestEngine from './RequestEngine'
+import RequestOptions from './RequestOptions'
+import RequestOptionsPassedToEngine from './RequestOptionsPassedToEngine'
 import UrlSchema from './UrlSchema'
 import UrlString from './UrlString'
-import RequestOptions from './RequestOptions'
-import Query from './Query'
-import RequestOptionsPassedToEngine from './RequestOptionsPassedToEngine'
 
 export {
   RequestConfiguration,
@@ -16,4 +17,5 @@ export {
   RequestOptions,
   Query,
   RequestOptionsPassedToEngine,
+  RequestEngine,
 }

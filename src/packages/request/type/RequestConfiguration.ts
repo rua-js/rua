@@ -1,11 +1,11 @@
 interface RequestConfiguration
 {
   requestInterceptors?: {
-    [name: string]: Function
+    [name: string]: Function,
   }
 
   responseInterceptors?: {
-    [name: string]: Function
+    [name: string]: Function,
   }
 }
 
