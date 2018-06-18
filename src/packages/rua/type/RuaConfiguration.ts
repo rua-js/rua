@@ -1,5 +1,5 @@
 import { APIConfiguration } from '../../api/type'
-import { RequestConfiguration } from '../../request/Type'
+import { RequestConfiguration } from '../../request/type'
 
 interface RuaConfiguration
 {

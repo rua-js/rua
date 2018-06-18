@@ -4,7 +4,7 @@ import { RuaDva } from './bridge'
 // RuaCore dependency
 import { AnyObject } from 'rua-core/lib/Types'
 // Self dependency
-import { request } from '../request'
+import { Request } from '../request'
 import { API } from '../api'
 import { RuaConfiguration } from './type'
 import * as _ from 'lodash'
