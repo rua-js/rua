@@ -1,26 +1,26 @@
-# Model
+# 单项数据流 Model
 Dva.js彻底解决了过多的reducers, effects, 和actions文件的问题.
 
 但是我们希望能找到一个更方便的使用, 避免重复代码, 能同时支持Vuex和Dva.js的Model的解决方案.
 
-## Two Concepts
+## 两大概念
 
 #### Actions
 ```javascript
-// 曾经的曾经
+// 曾经的曾经 (react.js)
 this.dispatch({
   type: 'user/saveName',
   payload: 'spiderMan'
 })
 
-// 或者
+// 曾经 (react.js)
 this.dispatch(createAction('user/saveName')('spiderMan'))
 
 // 而现在 
 actions.user.saveName('spiderMan')
 ```
 
-#### Decorated Model
+#### 模型装饰器
 ```javascript
 @Model()
 class User
