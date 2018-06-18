@@ -2,7 +2,7 @@ import CanConfig from 'rua-core/lib/Contracts/CanConfig'
 import * as _ from 'lodash'
 
 import { util } from '../../utility'
-import { request } from '../../request'
+import { Request } from '../../request'
 import { APIConfiguration } from '../type'
 import APIEntity from './APIEntity'
 import APIEntityObjectCollection from '../type/APIEntityObjectCollection'
@@ -98,7 +98,7 @@ class APIEngine implements APIEngineInterface, CanConfig
    * Fetch instance
    * @type {Function}
    */
-  protected request = request
+  protected request = Request
 
   /**
    * @constructor
