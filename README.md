@@ -1,4 +1,4 @@
-# Rua.js (Breaking Change Is Coming)
+# Rua.js
 
 [![npm version](https://badge.fury.io/js/rua.svg)](https://badge.fury.io/js/rua)
 ![production ready](https://img.shields.io/badge/production--ready-YES-brightgreen.svg)
