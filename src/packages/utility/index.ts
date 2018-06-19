@@ -4,4 +4,10 @@ export {
   ensureObject,
   ensureBoolean,
   ensureSymbol,
+  ensureArray,
+  ensureArrayLike,
+  ensureInteger,
+  ensureNumber,
+  ensureObjectLike,
+  ensurePlainObject,
 } from './ensure'
