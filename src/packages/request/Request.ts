@@ -47,9 +47,9 @@ class Request
 
     if (
       method
-      && method === 'POST'
-      && method === 'PUT'
-      && method === 'PATCH'
+      && (method === 'POST'
+      || method === 'PUT'
+      || method === 'PATCH')
     )
     {
       this.body = new Body(bodyOrQuery)
