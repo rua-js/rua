@@ -90,7 +90,7 @@ class Cache implements CacheInterface
     return this.stores[storeName]
   }
 
-  public get(key: string, defaultValue?: any): AnyData
+  public get(key: string, defaultValue?: AnyData): AnyData
   {
     const storageKeyName = this.getItemKeyName(key)
     // defaultValue will be returned if no data with the specific key
@@ -103,7 +103,7 @@ class Cache implements CacheInterface
     return this.store[storageKeyName]
   }
 
-  public set(key: string, value: string, time?: number): AnyData
+  public set(key: string, value: AnyData, time?: number): AnyData
   {
     const storageKeyName: string = this.getItemKeyName(key)
     // add to list if it is NOT in the list
