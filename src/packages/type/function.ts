@@ -1,3 +1,3 @@
-import AnyData from './data/AnyData'
+import { AnyData } from './data'
 
 export type Interpolator = (oldValue: AnyData) => AnyData
