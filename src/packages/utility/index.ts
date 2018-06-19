@@ -1,5 +1,7 @@
-import util from './Util'
-
+export { default as util } from './Util'
 export {
-  util,
-}
+  ensure,
+  ensureObject,
+  ensureBoolean,
+  ensureSymbol,
+} from './ensure'

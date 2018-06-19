@@ -1,7 +1,8 @@
 import { AnyData, AnyObject } from '../type/data'
 import * as _ from 'lodash'
 
-export default function ensure(value: AnyData, fixValue: AnyData)
+export
+function ensure(value: AnyData, fixValue: AnyData)
 {
   return value ? value : fixValue
 }
