@@ -1,18 +1,13 @@
 import { AnyObject } from '../type/data'
 
-class Convertor
+export function JSON2FormData(json: AnyObject)
 {
-  public static JSON2FormData(json: AnyObject)
+  const form = new FormData()
+
+  for (const key in json)
   {
-    const form = new FormData()
-
-    for (const key in json)
-    {
-      form.append(key, json[key])
-    }
-
-    return form
+    form.append(key, json[key])
   }
-}
 
-export default Convertor
+  return form
+}
