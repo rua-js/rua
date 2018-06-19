@@ -28,7 +28,7 @@ describe('Request tests', () =>
   {
     let instance: any
     // case: abort
-    const req = new Request('https://reqres.in/api/users', {
+    const req = new Request('https://reqres.in/api/users', {}, {
       before(req: any)
       {
         instance = req
@@ -42,7 +42,7 @@ describe('Request tests', () =>
   {
     // case: timeout
     await expect(
-      new Request('https://reqres.in/api/users', {
+      new Request('https://reqres.in/api/users', undefined, {
         timeout: 10,
       }),
     ).rejects.toBeInstanceOf(HttpRequestTimeoutException)
@@ -87,11 +87,11 @@ describe('Request tests', () =>
     }
 
     await expect(
-      new Request('https://www.qq.com', { before }),
+      new Request('https://www.qq.com', {}, { before }),
     ).resolves.toBeInstanceOf(Object)
     // case: correct data
     await expect(
-      new Request('https://www.qq.com', { before }),
+      new Request('https://www.qq.com', {}, { before }),
     ).resolves.toHaveProperty('page')
   })
 })

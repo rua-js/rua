@@ -27,15 +27,15 @@ export default function superAgentEngine(
     body,
   } = options
 
-  let req = request(method, url)
+  let req = request(method, url.getUrl())
     .set(headers)
 
   if (form)
   {
-    req = req.send(JSON2FormData(body!))
+    req = req.send(body.toFormData())
   } else
   {
-    req = req.send(body)
+    req = req.send(body.getBody())
   }
 
   type && (req = req.type(type))

@@ -1,11 +1,13 @@
 import RequestOptions from './RequestOptions'
-import { Header } from '../internals'
+import { Header, Body, Url } from '../internals'
 
 interface RequestOptionsPassedToEngine extends RequestOptions
 {
-  url: string
+  url: Url
 
   headers: Header
+
+  body: Body
 
   method: string
 

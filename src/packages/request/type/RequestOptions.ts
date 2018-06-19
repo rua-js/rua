@@ -1,3 +1,4 @@
+import { AnyObject } from '../../type/data'
 import Query from './Query'
 import { Header } from '../internals'
 
@@ -20,6 +21,10 @@ interface RequestOptions
   retry?: number
 
   retryCallback?: Function
+
+  form?: boolean
+
+  body?: AnyObject
 }
 
 export default RequestOptions

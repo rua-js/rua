@@ -1,6 +1,7 @@
 import { emptyObject } from '../shared'
+import { AnyObject, FunctionObject } from '../type/data'
 import { superAgentEngine, fetchEngine } from './engines'
-import { Header, Url } from './internals'
+import { Header, Url, Body } from './internals'
 import { RequestConfiguration, UrlSchema, UrlString, ResponseData } from './type'
 
 class Request
@@ -9,21 +10,29 @@ class Request
     request: [],
     response: [],
   }
+
   public static engine: Function = superAgentEngine
+
   public static readonly engines = {
     superAgent: superAgentEngine,
     fetch: fetchEngine,
   }
-  public static interceptor = {
-    some()
-    {
-    },
-  }
+
+  public static interceptor: FunctionObject = {}
+
   protected url: Url
+
   protected headers: Header
+
+  protected body: Body
+
   protected configuration: any
 
-  public constructor(url: UrlSchema | UrlString, options: any = {})
+  public constructor(
+    url: UrlSchema | UrlString,
+    bodyOrQuery: AnyObject,
+    options: any = {},
+  )
   {
     const {
       headers,
@@ -32,7 +41,23 @@ class Request
     this.headers = new Header(headers)
     this.url = new Url(url)
     this.configuration = { ...options }
-    delete this.configuration.headers
+
+    const method = (options.method || 'GET').toUpperCase()
+    this.configuration.method = method
+
+    if (
+      method
+      && method === 'POST'
+      && method === 'PUT'
+      && method === 'PATCH'
+    )
+    {
+      this.body = new Body(bodyOrQuery)
+    } else
+    {
+      this.body = new Body()
+      this.configuration.query = { ...this.configuration.query, ...bodyOrQuery }
+    }
 
     // @ts-ignore: we know this is crazy but we need it
     return this.start()
@@ -72,11 +97,12 @@ class Request
     })
 
     return Request.engine({
-      url: this.url.getUrl(),
-      headers: this.headers.getHeaders(),
       ...this.configuration,
+      url: this.url,
+      headers: this.headers,
+      body: this.body,
     })
   }
 }
 
-export default Request
+export default Request as any
