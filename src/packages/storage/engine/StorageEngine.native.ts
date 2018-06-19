@@ -6,14 +6,14 @@ import * as _ from 'lodash'
 import { StorageEngineInterface } from '../interface'
 
 // rua Core Dependency
-import { AnyData, AnyObject } from 'rua-core/lib/Types'
+import { AnyData, AnyObject } from '../../type/data'
 
 class StorageEngine implements StorageEngineInterface
 {
 
   public async set(key: string | string[], value: AnyData | AnyData[]): Promise<void>
   {
-    if (_.isArray(key))
+    if (Array.isArray(key))
     {
       const values: string[] = <string[]>(<AnyObject[]>value)
         .map((item: AnyData) => JSON.stringify(item))
@@ -34,7 +34,7 @@ class StorageEngine implements StorageEngineInterface
 
   public async get(key: string | string[], defaultValue?: any): Promise<AnyData>
   {
-    if (_.isArray(key))
+    if (Array.isArray(key))
     {
       const data: string[][] = await AsyncStorage.multiGet(<string[]>key)
       data.map((item: string[]) =>
@@ -53,7 +53,7 @@ class StorageEngine implements StorageEngineInterface
 
   public async remove(key: string | string[]): Promise<void>
   {
-    if (_.isArray(key))
+    if (Array.isArray(key))
     {
       return await AsyncStorage.multiRemove(<string[]>key)
     }
@@ -76,6 +76,13 @@ class StorageEngine implements StorageEngineInterface
   public async keys(): Promise<string[]>
   {
     return await AsyncStorage.getAllKeys()
+  }
+
+  public async values(): Promise<AnyData[]>
+  {
+    const keys = await this.keys()
+
+    return this.get(keys)
   }
 
   public async all(): Promise<AnyObject>
