@@ -4,7 +4,7 @@ import * as _ from 'lodash'
 // Self Dependency
 import { StorageEngineInterface } from '../interface'
 // rua Core Dependency
-import { AnyData, AnyObject } from 'rua-core/lib/Types'
+import { AnyData, AnyObject } from '../../type/data'
 
 class StorageEngine implements StorageEngineInterface
 {
@@ -119,6 +119,18 @@ class StorageEngine implements StorageEngineInterface
   public async keys(): Promise<string[]>
   {
     return localForage.keys()
+  }
+
+  /**
+   * Gets keys of all items as Array.
+   *
+   * @returns {Promise<string[]>}
+   */
+  public async values(): Promise<AnyData[]>
+  {
+    const keys = await this.keys()
+
+    return this.get(keys)
   }
 
   /**
