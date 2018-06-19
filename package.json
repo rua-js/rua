@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest test.ts",
     "build": "tsc",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "move-dts": "node ./scripts/release/move-dts.js"
   },
   "repository": {
     "type": "git",
