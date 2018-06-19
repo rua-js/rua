@@ -1,4 +1,5 @@
 import * as request from 'superagent'
+import { JSON2FormData } from '../../utility/convertor'
 import { RequestOptionsPassedToEngine, ResponseData } from '../type'
 import {
   HttpRequestTimeoutException,
@@ -22,10 +23,20 @@ export default function superAgentEngine(
     retry,
     retryCallback,
     before,
+    form,
+    body,
   } = options
 
   let req = request(method, url)
     .set(headers)
+
+  if (form)
+  {
+    req = req.send(JSON2FormData(body!))
+  } else
+  {
+    req = req.send(body)
+  }
 
   type && (req = req.type(type))
   query && (req = req.query(query))
