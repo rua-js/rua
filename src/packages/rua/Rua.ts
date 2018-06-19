@@ -31,6 +31,7 @@ class Rua
    */
   public configurableModules: AnyObject = {
     api: API,
+    request: Request,
     dva: RuaDva,
   }
 
