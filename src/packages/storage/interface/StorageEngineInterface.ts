@@ -1,7 +1,8 @@
 // rua Core Dependency
-import { AnyObject, AnyData } from 'rua-core/lib/Types'
+import { AnyObject, AnyData } from '../../type/data'
 
-interface StorageEngineInterface {
+interface StorageEngineInterface
+{
 
   /**
    * Set or Replace a item with new data.
@@ -49,6 +50,13 @@ interface StorageEngineInterface {
    * @returns {Promise<string[]>}
    */
   keys(): Promise<string[]>
+
+  /**
+   * Gets values of all items as Array.
+   *
+   * @returns {Promise<string[]>}
+   */
+  values(): Promise<AnyData[]>
 
   /**
    * Gets all items as Object.
