@@ -1,4 +1,4 @@
-const State = resetValue => (target: any, propertyKey) =>
+const State = () => (target: any, propertyKey: string) =>
 {
   if (!target.__state_)
   {
