@@ -44,13 +44,6 @@ class Cache implements CacheInterface
   protected stores: any = {}
 
   /**
-   * Cached data count
-   *
-   * @type {number}
-   */
-  protected count: number = -1
-
-  /**
    * Cached data keys
    *
    * @type {string[]}
@@ -70,6 +63,11 @@ class Cache implements CacheInterface
 
     this.storeName = storeName
     this.configs = configs
+  }
+
+  public get length(): number
+  {
+    return this.list.length
   }
 
   /**
@@ -149,16 +147,10 @@ class Cache implements CacheInterface
     // remove list from storage
     this.storage.remove(this.getListKeyName())
     // reset data in memory
-    this.count = 0
     this.list = []
     this.store = {}
 
     return removedData
-  }
-
-  public length(): number
-  {
-    return this.list.length
   }
 
   public keys(): string[]
@@ -190,8 +182,6 @@ class Cache implements CacheInterface
     this.list = <string[]>JSON.parse(list)
     // Load all saved cache data to store
     this.store = <AnyObject>await this.storage.get(this.list)
-    // Calculate count
-    this.count = this.list.length
   }
 
   /**
