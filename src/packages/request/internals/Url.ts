@@ -32,7 +32,7 @@ class Url
     this.url = url
   }
 
-  public getUrl(): string
+  public toString(): string
   {
     return this.url
   }

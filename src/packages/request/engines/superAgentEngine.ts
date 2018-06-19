@@ -27,7 +27,7 @@ export default function superAgentEngine(
     body,
   } = options
 
-  let req = request(method, url.getUrl())
+  let req = request(method, url.toString())
     .set(headers.getHeaders())
 
   if (form)
