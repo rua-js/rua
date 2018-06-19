@@ -1,4 +1,4 @@
-import Convertor from '../Convertor'
+import { JSON2FormData } from '../Convertor'
 
 describe('convertor Tests', () =>
 {
@@ -6,7 +6,7 @@ describe('convertor Tests', () =>
   {
     // prep
     const json = { a: 1, b: 2 }
-    const form = Convertor.JSON2FormData(json)
+    const form = JSON2FormData(json)
     // has 'a'
     expect(form.get('a')).toBe('1')
 
