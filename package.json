@@ -1,6 +1,6 @@
 {
   "name": "rua",
-  "version": "0.10.0-alpha.1",
+  "version": "0.10.0-alpha.2",
   "description": "Elegant front-end applications delivered at warp speed.",
   "main": "lib/index.js",
   "scripts": {
@@ -41,7 +41,9 @@
     "react-native-i18n": "^2.0.12",
     "rua-core": "^0.2.4",
     "superagent": "^3.8.3",
-    "wolfy87-eventemitter": "^5.2.4"
+    "wolfy87-eventemitter": "^5.2.4",
+    "dva": "^2.1.0",
+    "dva-core": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.51",
