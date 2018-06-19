@@ -1,4 +1,4 @@
-import AnyData from '../../type/data/AnyData'
+import { AnyData } from '../../type/data'
 
 const required = (carry: boolean, data: AnyData) =>
 {
