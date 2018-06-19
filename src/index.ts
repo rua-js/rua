@@ -6,7 +6,7 @@ export { Event } from './packages/event'
 export { Exception } from './packages/exception'
 export { Request } from './packages/request'
 export { convertor } from './packages/convertor'
-export { util } from './packages/utility'
+export { util, ensureSymbol, ensureBoolean, ensureObject, ensure } from './packages/utility'
 export { memory } from './packages/memory'
 // Essential library
 export { Cache } from './packages/cache'
