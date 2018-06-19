@@ -9,7 +9,7 @@ interface CacheInterface
 
   get(key: string, defaultValue?: any): AnyData
 
-  set(key: string, value: string, time?: number): AnyData
+  set(key: string, value: AnyData, time?: number): AnyData
 
   remove(key: string): AnyData
 
