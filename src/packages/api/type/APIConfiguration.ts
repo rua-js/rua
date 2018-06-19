@@ -1,7 +1,9 @@
 import APIEntityObjectCollection from './APIEntityObjectCollection'
 
 interface APIConfiguration {
-  data?: APIEntityObjectCollection
+  data?: {
+    [namespace: string]: APIEntityObjectCollection,
+  },
 }
 
 export default APIConfiguration
