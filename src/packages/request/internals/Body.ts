@@ -31,7 +31,7 @@ class Body implements BodyInterface
     return !!this.body[key]
   }
 
-  public getBody(): AnyObject
+  public toObject(): AnyObject
   {
     return this.body
   }
