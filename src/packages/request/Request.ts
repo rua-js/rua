@@ -11,7 +11,10 @@ class Request
     response: [],
   }
 
-  public static engine: Function = superAgentEngine
+  public static defaults = {
+    engine: superAgentEngine,
+    method: 'GET',
+  }
 
   public static readonly engines = {
     superAgent: superAgentEngine,
@@ -42,7 +45,7 @@ class Request
     this.url = new Url(url)
     this.configuration = { ...options }
 
-    const method = (options.method || 'GET').toUpperCase()
+    const method = (options.method || Request.defaults.method).toUpperCase()
     this.configuration.method = method
 
     if (
@@ -66,9 +69,15 @@ class Request
   public static config(requestConfig: RequestConfiguration): void
   {
     const {
+      defaultMethod,
       requestInterceptors = emptyObject,
       responseInterceptors = emptyObject,
     } = requestConfig
+
+    if (defaultMethod)
+    {
+      Request.defaults.method = defaultMethod
+    }
 
     for (const key in requestInterceptors)
     {
@@ -96,7 +105,7 @@ class Request
       interceptor(this)
     })
 
-    return Request.engine({
+    return Request.defaults.engine({
       ...this.configuration,
       url: this.url,
       headers: this.headers,
