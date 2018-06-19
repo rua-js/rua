@@ -1,11 +1,11 @@
 {
   "name": "rua",
-  "version": "0.10.0-alpha.4",
+  "version": "0.10.0-beta.2",
   "description": "Elegant front-end applications delivered at warp speed.",
   "main": "lib/index.js",
   "scripts": {
     "test": "jest test.ts",
-    "build": "tsc",
+    "build": "rm -rf ./lib && tsc",
     "commit": "git-cz",
     "move-dts": "node ./scripts/release/move-dts.js"
   },
