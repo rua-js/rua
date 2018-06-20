@@ -11,6 +11,11 @@ import { AnyData, AnyObject } from '../../type/data'
 class StorageEngine implements StorageEngineInterface
 {
 
+  public get length(): Promise<number>
+  {
+    return this.keys().then(keys => keys.length)
+  }
+
   public async set(key: string | string[], value: AnyData | AnyData[]): Promise<void>
   {
     if (Array.isArray(key))
@@ -64,13 +69,6 @@ class StorageEngine implements StorageEngineInterface
   public async clear(): Promise<void>
   {
     return await AsyncStorage.clear()
-  }
-
-  public async length(): Promise<number>
-  {
-    const keys = await this.keys()
-
-    return keys.length
   }
 
   public async keys(): Promise<string[]>

@@ -15,6 +15,16 @@ class StorageEngine implements StorageEngineInterface
   }
 
   /**
+   * Gets the count of all items.
+   *
+   * @returns {Promise<number>}
+   */
+  public get length(): Promise<number>
+  {
+    return localForage.length()
+  }
+
+  /**
    * Set or Replace a item with new data.
    *
    * @param {string | string[]} key
@@ -99,16 +109,6 @@ class StorageEngine implements StorageEngineInterface
   public async clear(): Promise<void>
   {
     return localForage.clear()
-  }
-
-  /**
-   * Gets the count of all items.
-   *
-   * @returns {Promise<number>}
-   */
-  public async length(): Promise<number>
-  {
-    return localForage.length()
   }
 
   /**
