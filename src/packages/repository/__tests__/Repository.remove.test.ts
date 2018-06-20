@@ -2,7 +2,7 @@ import { Repository } from '../engine'
 import * as faker from 'faker'
 
 // todo: interpolator
-describe('repository Repository .set tests', () =>
+describe('repository Repository .remove tests', () =>
 {
   test('return value', () =>
   {
@@ -74,8 +74,8 @@ describe('repository Repository .set tests', () =>
     const e1: string[] = ['1', '2']
     repo.set(t1, e1)
 
-    expect(repo.remove(t1)).toBe(e1)
-    expect(repo.get(t1)).toEqual([])
+    expect(repo.remove(t1)).toEqual(e1)
+    expect(repo.get(t1)).toEqual([undefined, undefined])
   })
 
   test('full', () =>
