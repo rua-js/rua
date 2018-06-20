@@ -48,7 +48,7 @@ const localStorageMock = (function ()
         }
       }
 
-      return i
+      return null
     },
   }
 })()
