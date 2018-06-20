@@ -1,5 +1,2 @@
-import { FileLinker } from './file-linker'
-
-export {
-  FileLinker,
-}
+export { FileLinker } from './file-linker'
+export { factory } from './factory'
