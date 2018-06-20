@@ -1,6 +1,7 @@
 import { API } from '../index'
 // import { fetch } from '../../Fetch'
 jest.setTimeout(10000)
+import { factory } from '../../../dev'
 
 describe('api Tests', () =>
 {
@@ -29,5 +30,21 @@ describe('api Tests', () =>
     // String Case
     await expect(API('test2.str')).resolves.toBeInstanceOf(Object)
     await expect(API('test2.str')).resolves.toHaveProperty('page')
+  })
+
+  test('factory', async () =>
+  {
+    const fake = {
+      wo: 'de',
+      ge: 'a',
+    }
+
+    factory.define(
+      'wode.ge',
+      () => fake,
+      1,
+    )
+
+    await expect(API('wode.ge')).resolves.toEqual([fake])
   })
 })

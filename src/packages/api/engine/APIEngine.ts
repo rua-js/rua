@@ -1,4 +1,6 @@
+import * as Promise from 'bluebird'
 import * as _ from 'lodash'
+import { factory } from '../../../dev'
 import { Request } from '../../request'
 import { ResponseData } from '../../request/type'
 import { CanConfig } from '../../type'
@@ -10,6 +12,10 @@ import APIEntity from './APIEntity'
 
 class APIEngine implements APIEngineInterface, CanConfig
 {
+  public static defaults = {
+    factory,
+    useFactoryOnProduction: false,
+  }
 
   /**
    * Configures
@@ -25,10 +31,23 @@ class APIEngine implements APIEngineInterface, CanConfig
 
     const {
       data,
+      useFactoryOnProduction = false,
+      factory,
     } = config
 
-    this.load(data)
+    this.load(data as any)
+
+    if (undefined !== useFactoryOnProduction)
+    {
+      APIEngine.defaults.useFactoryOnProduction = useFactoryOnProduction
+    }
+
+    if (factory)
+    {
+      APIEngine.defaults.factory = factory
+    }
   }
+
   /**
    * Loads multiple api
    *
@@ -64,6 +83,7 @@ class APIEngine implements APIEngineInterface, CanConfig
   {
     return this.store
   }
+
   /**
    * Calls an api
    *
@@ -71,6 +91,17 @@ class APIEngine implements APIEngineInterface, CanConfig
    */
   public call = (name: string, data?: AnyObject): Promise<ResponseData> =>
   {
+    // enable factory in API
+    const defaults = APIEngine.defaults
+
+    if (
+      defaults.useFactoryOnProduction || process.env.NODE_ENV !== 'production'
+      && factory.has(name)
+    )
+    {
+      return new Promise<any>((resolve => resolve(factory.make(name))))
+    }
+
     // get configuration of one api (setting)
     const config = _.get(this.store, name)
 
@@ -84,12 +115,14 @@ class APIEngine implements APIEngineInterface, CanConfig
 
     return new Request(url, data, { ...restConfig })
   }
+
   /**
    * Store user defined api
    *
    * @type {{}}
    */
   protected store: any = {}
+
   /**
    * Fetch instance
    * @type {Function}
