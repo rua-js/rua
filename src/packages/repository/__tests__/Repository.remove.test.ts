@@ -1,6 +1,7 @@
 import { Repository } from '../engine'
 import * as faker from 'faker'
 
+// todo: interpolator
 describe('repository Repository .set tests', () =>
 {
   test('return value', () =>
@@ -15,18 +16,17 @@ describe('repository Repository .set tests', () =>
     expect(repo.remove(key)).toBe(e1)
   })
 
-  test('deep clone', () =>
+  test('removed', () =>
   {
-    const repo: Repository = new Repository({
-      shouldDeepClone: true,
-    })
+    // Return Data Case
+    const repo: Repository = new Repository()
     const t1: Date = new Date()
-    const e1: Date = new Date(t1)
+    const e1: Date = t1
     const key: string = faker.address.city()
 
-    expect(repo.set(key, t1)).not.toBe(t1)
-
-    expect(repo.set(key, t1)).toEqual(e1)
+    repo.set(key, t1)
+    repo.remove(key)
+    expect(repo.get(key)).toBe(undefined)
   })
 
   test('before hook', () =>
@@ -34,17 +34,17 @@ describe('repository Repository .set tests', () =>
     const fakeBeforeHook = jest.fn()
     const repo: Repository = new Repository({
       hooks: {
-        beforeSet: fakeBeforeHook,
+        beforeRemove: fakeBeforeHook,
       },
     })
     const key: string = faker.address.city()
 
     // First Call
-    repo.set(key, key)
+    repo.remove(key)
     expect(fakeBeforeHook.mock.calls.length).toBe(1)
 
     // Second Call
-    repo.set(key, key)
+    repo.remove(key)
     expect(fakeBeforeHook.mock.calls.length).toBe(2)
   })
 
@@ -53,17 +53,17 @@ describe('repository Repository .set tests', () =>
     const fakeBeforeHook = jest.fn()
     const repo: Repository = new Repository({
       hooks: {
-        afterSet: fakeBeforeHook,
+        afterRemove: fakeBeforeHook,
       },
     })
     const key: string = faker.address.city()
 
     // First Call
-    repo.set(key, key)
+    repo.remove(key)
     expect(fakeBeforeHook.mock.calls.length).toBe(1)
 
     // Second Call
-    repo.set(key, key)
+    repo.remove(key)
     expect(fakeBeforeHook.mock.calls.length).toBe(2)
   })
 
@@ -72,8 +72,10 @@ describe('repository Repository .set tests', () =>
     const repo: Repository = new Repository()
     const t1: string[] = ['test1', 'test2']
     const e1: string[] = ['1', '2']
+    repo.set(t1, e1)
 
-    expect(repo.set(t1, e1)).toEqual(e1)
+    expect(repo.remove(t1)).toBe(e1)
+    expect(repo.get(t1)).toEqual([])
   })
 
   test('full', () =>
@@ -82,7 +84,7 @@ describe('repository Repository .set tests', () =>
     const repo: Repository = new Repository({
       shouldDeepClone: true,
       hooks: {
-        beforeSet: fakeBeforeHook,
+        beforeRemove: fakeBeforeHook,
       },
     })
     const t1: Date = new Date()
@@ -90,15 +92,15 @@ describe('repository Repository .set tests', () =>
     const key: string = faker.address.city()
 
     // Not Reference
-    expect(repo.set(key, t1)).not.toBe(e1)
+    expect(repo.remove(key)).not.toBe(e1)
     expect(fakeBeforeHook.mock.calls.length).toBe(1)
 
     // First Call
-    repo.set(key, key)
+    repo.remove(key)
     expect(fakeBeforeHook.mock.calls.length).toBe(2)
 
     // Second Call
-    repo.set(key, key)
+    repo.remove(key)
     expect(fakeBeforeHook.mock.calls.length).toBe(3)
   })
 })
