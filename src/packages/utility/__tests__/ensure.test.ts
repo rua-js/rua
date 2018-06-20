@@ -7,6 +7,9 @@ import {
   ensureObject,
   ensureObjectLike,
   ensurePlainObject,
+  ensureSymbol,
+  ensureInteger,
+  ensureNumber,
 } from '../ensure'
 
 describe('utility ensure tests', () =>
@@ -71,6 +74,12 @@ describe('utility ensure tests', () =>
 
     // Fulfill
     expect(ensureObjectLike(obj)).toBe(obj)
+
+    // Fix with default value
+    expect(ensureObjectLike({})).toEqual({})
+
+    // Fix with given value
+    expect(ensureObjectLike(1, obj)).toBe(obj)
   })
 
   test('ensurePlainObject', () =>
@@ -80,10 +89,10 @@ describe('utility ensure tests', () =>
     // Fulfill
     expect(ensurePlainObject(obj)).toBe(obj)
 
-    // Fix with default array
+    // Fix with default value
     expect(ensurePlainObject({})).toEqual({})
 
-    // Fix with given array
+    // Fix with given value
     expect(ensurePlainObject(1, obj)).toBe(obj)
   })
 
@@ -94,8 +103,49 @@ describe('utility ensure tests', () =>
     // Fulfill
     expect(ensureBoolean(bool)).toBe(bool)
 
+    // Fix with transfer value to boolean
     expect(ensureBoolean(1)).toBe(true)
 
+    // Fix with given value
     expect(ensureBoolean(1, false)).toBe(false)
+  })
+
+  test('ensureSymbol', () => {
+    const symbol: Symbol = Symbol()
+
+    // Fulfill
+    expect(ensureSymbol(symbol)).toBe(symbol)
+
+    // Fix with default value
+    expect(typeof ensureSymbol(2)).toBe('symbol')
+
+    // Fix with given value
+    expect(ensureSymbol(1, symbol)).toBe(symbol)
+  })
+
+  test('ensureInteger', () => {
+    const int: number = 1352
+
+    // Fulfill
+    expect(ensureInteger(int, 0)).toBe(int)
+
+    // Fix with default value
+    expect(ensureInteger(Number.MIN_VALUE, int)).toEqual(int)
+
+    // Fix with given value
+    expect(ensureInteger(1.1, int)).toBe(int)
+  })
+
+  test('ensureNumber', () => {
+    const int: number = 1352.1
+
+    // Fulfill
+    expect(ensureNumber(int, 0)).toBe(int)
+
+    // Fix with default value
+    expect(ensureNumber('123', int)).toEqual(int)
+
+    // Fix with given value
+    expect(ensureNumber('ds', int)).toBe(int)
   })
 })
