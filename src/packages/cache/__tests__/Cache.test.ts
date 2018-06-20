@@ -48,11 +48,11 @@ describe('Cache Tests(cache part)', () => {
     Cache.set('test1', 'test-here1')
     Cache.set('test2', 'test-here2')
     // case: .length
-    expect(Cache.length()).toBe(2)
+    expect(Cache.length).toBe(2)
     // prep: removal
     Cache.remove('test2')
     // case: .length
-    expect(Cache.length()).toBe(1)
+    expect(Cache.length).toBe(1)
   })
 
   test('.keys', () => {
