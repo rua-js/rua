@@ -7,10 +7,13 @@ class Factory
 
   protected counts: AnyObject = {}
 
-  public define(identifier: string, callback: Function, count: number)
+  protected wrappers: AnyObject = {}
+
+  public define(identifier: string, callback: Function, count: number, wrapper?: Function)
   {
     this.callback[identifier] = callback
     this.counts[identifier] = count
+    this.wrappers[identifier] = wrapper
   }
 
   public has(identifier: string)
@@ -26,6 +29,13 @@ class Factory
     {
       returnValue.push(this.callback[identifier](faker))
       i += 1
+    }
+
+    const wrapper = this.wrappers[identifier]
+
+    if (wrapper)
+    {
+      return wrapper(returnValue)
     }
 
     return returnValue

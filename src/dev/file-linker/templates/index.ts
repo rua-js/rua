@@ -4,7 +4,7 @@ import * as path from 'path'
 const getTemplate = (templatesName: string): string => {
   return path.resolve(
     require.resolve('rua'),
-    `../../src/dev/FileLinker/Templates/${templatesName}`,
+    `../../src/dev/file-linker/Templates/${templatesName}`,
   )
 }
 

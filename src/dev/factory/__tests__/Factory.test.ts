@@ -32,4 +32,35 @@ describe('Factory tests', () =>
       },
     ])
   })
+
+  test('wrapper', () =>
+  {
+    factory.define(
+      'hehe',
+      () =>
+      {
+        return {
+          wo: 'de',
+          le: 'qu',
+        }
+      },
+      1,
+      (data: any) =>
+      {
+        return {
+          data,
+        }
+      },
+    )
+
+    expect(factory.has('hehe')).toBe(true)
+    expect(factory.make('hehe')).toEqual({
+      data: [
+        {
+          wo: 'de',
+          le: 'qu',
+        },
+      ],
+    })
+  })
 })
