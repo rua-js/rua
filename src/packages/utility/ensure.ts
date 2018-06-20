@@ -44,7 +44,7 @@ export function ensureBoolean(value: AnyData, fixValue?: AnyData)
     return value
   }
 
-  return fixValue
+  return fixValue !== undefined
     ? fixValue
     : !!value
 }
