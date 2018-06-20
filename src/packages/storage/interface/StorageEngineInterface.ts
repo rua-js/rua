@@ -5,6 +5,13 @@ interface StorageEngineInterface
 {
 
   /**
+   * Gets the count of all items.
+   *
+   * @returns {Promise<number>}
+   */
+  length: Promise<number>
+
+  /**
    * Set or Replace a item with new data.
    *
    * @param {string | string[]} key
@@ -36,13 +43,6 @@ interface StorageEngineInterface
    * @returns {Promise<void>}
    */
   clear(): Promise<void>
-
-  /**
-   * Gets the count of all items.
-   *
-   * @returns {Promise<number>}
-   */
-  length(): Promise<number>
 
   /**
    * Gets keys of all items as Array.
