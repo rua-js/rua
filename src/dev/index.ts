@@ -1,4 +1,4 @@
-import { FileLinker } from './FileLinker'
+import { FileLinker } from './file-linker'
 
 export {
   FileLinker,
