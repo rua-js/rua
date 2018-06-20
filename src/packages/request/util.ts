@@ -1,6 +1,7 @@
 import { AnyObject } from '../type/data'
 
 const dev = process.env.NODE_ENV !== 'production'
+
 const { hasOwnProperty } = {}
 const { slice } = []
 
