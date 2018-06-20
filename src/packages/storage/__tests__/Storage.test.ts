@@ -6,7 +6,7 @@ describe('Storage', () => {
     await Storage.set('test1', 'test-here')
     // .get
     await expect(
-      Storage.get('test1')
+      Storage.get('test1'),
     ).resolves.toBe('test-here')
   })
   test('.remove', async () => {
@@ -16,7 +16,7 @@ describe('Storage', () => {
     await Storage.remove('test1')
     // .get
     await expect(
-      Storage.get('test1')
+      Storage.get('test1'),
     ).resolves.toBe(undefined)
   })
   test('.length', async () => {
@@ -26,7 +26,7 @@ describe('Storage', () => {
     await Storage.set('test3', 'test-here')
     // .length
     await expect(
-      Storage.length()
+      Storage.length,
     ).resolves.toBe(3)
   })
   test('.clear', async () => {
@@ -38,7 +38,7 @@ describe('Storage', () => {
     await Storage.clear()
     // result
     await expect(
-      Storage.get('test1')
+      Storage.get('test1'),
     ).resolves.toBe(undefined)
   })
   test('.keys', async () => {
@@ -48,7 +48,7 @@ describe('Storage', () => {
     await Storage.set('test3', 'test-here')
     // .keys
     await expect(
-      Storage.keys()
+      Storage.keys(),
     ).resolves.toEqual(['test1', 'test2', 'test3'])
   })
   test('.all', async () => {
@@ -58,7 +58,7 @@ describe('Storage', () => {
     await Storage.set('test3', 'test-here')
     // .all
     await expect(
-      Storage.all()
+      Storage.all(),
     ).resolves.toEqual({
       test1: 'test-here',
       test2: 'test-here',
@@ -70,7 +70,7 @@ describe('Storage', () => {
     await Storage.set(['test1', 'test2', 'test3'], ['test-here1', 'test-here2', 'test-here3'])
     // check
     await expect(
-      Storage.all()
+      Storage.all(),
     ).resolves.toEqual({
       test1: 'test-here1',
       test2: 'test-here2',
@@ -84,7 +84,7 @@ describe('Storage', () => {
     await Storage.set('test3', 'test-here3')
     // multi .get
     await expect(
-      Storage.get(['test1', 'test2', 'test3'])
+      Storage.get(['test1', 'test2', 'test3']),
     ).resolves.toEqual({
       test1: 'test-here1',
       test2: 'test-here2',
@@ -99,7 +99,7 @@ describe('Storage', () => {
     await Storage.remove(['test1', 'test3'])
     // check
     await expect(
-      Storage.all()
+      Storage.all(),
     ).resolves.toEqual({
       test2: 'test-here2',
     })
