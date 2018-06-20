@@ -92,7 +92,7 @@ describe('Cache Tests(storage part)', () =>
     await util.delay(500)
     // case: .length
     await expect(
-      Storage.length(),
+      Storage.length,
     ).resolves.toBe(1 + 1)
   })
 
