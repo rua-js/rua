@@ -3,9 +3,9 @@ import * as _ from 'lodash'
 import * as fs from 'fs'
 import * as path from 'path'
 import * as fse from 'fs-extra'
-import { FileLinkerConfiguration } from './Type'
-import { FileLinkerInterface } from './Interface'
-import Templates from './Templates'
+import { FileLinkerConfiguration } from './type'
+import { FileLinkerInterface } from './interface'
+import Templates from './templates'
 
 class FileLinker implements FileLinkerInterface
 {
