@@ -4,7 +4,7 @@ export { Event } from './lib/packages/event';
 export { Exception } from './lib/packages/exception';
 export { Request } from './lib/packages/request';
 export { convertor } from './lib/packages/convertor';
-export { util } from './lib/packages/utility';
+export { util, ensureSymbol, ensureBoolean, ensureObject, ensure } from './lib/packages/utility';
 export { memory } from './lib/packages/memory';
 export { Cache } from './lib/packages/cache';
 export { API } from './lib/packages/api';

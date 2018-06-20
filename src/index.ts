@@ -5,7 +5,6 @@ export { Storage } from './packages/storage'
 export { Event } from './packages/event'
 export { Exception } from './packages/exception'
 export { Request } from './packages/request'
-export { convertor } from './packages/convertor'
 export {
   util,
   ensureSymbol,
