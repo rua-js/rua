@@ -1,7 +1,7 @@
 import { API } from '../index'
 // import { fetch } from '../../Fetch'
 jest.setTimeout(10000)
-import { factory } from '../../../dev'
+import { factory } from '../../factory'
 
 describe('api Tests', () =>
 {
