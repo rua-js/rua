@@ -1,6 +1,6 @@
 import * as Promise from 'bluebird'
 import * as _ from 'lodash'
-import { factory } from '../../../dev'
+import { factory } from '../../factory'
 import { Request } from '../../request'
 import { ResponseData } from '../../request/type'
 import { CanConfig } from '../../type'
