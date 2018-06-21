@@ -3,6 +3,7 @@ import { AnyObject, FunctionObject } from '../type/data'
 import { superAgentEngine, fetchEngine } from './engines'
 import { Header, Url, Body } from './internals'
 import { RequestConfiguration, UrlSchema, UrlString, ResponseData } from './type'
+import * as _ from 'lodash'
 
 class Request
 {
@@ -41,13 +42,16 @@ class Request
       headers,
     } = options
 
+    // config
     this.headers = new Header(headers)
     this.url = new Url(url)
     this.configuration = { ...options }
 
+    // decide method
     const method = (options.method || Request.defaults.method).toUpperCase()
     this.configuration.method = method
 
+    // decide body and query
     if (
       method
       && (method === 'POST'
@@ -55,7 +59,7 @@ class Request
       || method === 'PATCH')
     )
     {
-      this.body = new Body(bodyOrQuery)
+      this.body = new Body({ ...this.configuration.body, ...bodyOrQuery })
     } else
     {
       this.body = new Body()
