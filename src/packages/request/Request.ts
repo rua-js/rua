@@ -45,20 +45,6 @@ class Request
     this.url = new Url(url)
     this.configuration = { ...options }
 
-    // interceptors
-    const requestInterceptors = Request.interceptors.request
-    const requestInterceptor = Request.interceptor
-
-    requestInterceptors.forEach((interceptor) =>
-    {
-      if (typeof interceptor === 'string')
-      {
-        requestInterceptor[interceptor](this)
-      }
-
-      interceptor(this)
-    })
-
     const method = (options.method || Request.defaults.method).toUpperCase()
     this.configuration.method = method
 
@@ -106,6 +92,20 @@ class Request
 
   public start(): Promise<ResponseData>
   {
+    // interceptors
+    const requestInterceptors = Request.interceptors.request
+    const requestInterceptor = Request.interceptor
+
+    requestInterceptors.forEach((interceptor) =>
+    {
+      if (typeof interceptor === 'string')
+      {
+        requestInterceptor[interceptor](this)
+      }
+
+      interceptor(this)
+    })
+
     return Request.defaults.engine({
       ...this.configuration,
       url: this.url,
