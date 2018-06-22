@@ -16,3 +16,8 @@ export type UndefinableBoolean = boolean | Undefinable
 export type UndefinableObject = AnyObject | Undefinable
 
 export type FunctionObject = { [key: string]: Function }
+
+export interface ObjectOf<T>
+{
+  [key: string]: T
+}
