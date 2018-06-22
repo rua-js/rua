@@ -17,6 +17,8 @@ export type UndefinableObject = AnyObject | Undefinable
 
 export type FunctionObject = { [key: string]: Function }
 
+export type FunctionArray = Function[]
+
 export interface ObjectOf<T>
 {
   [key: string]: T
