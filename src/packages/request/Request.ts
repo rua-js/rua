@@ -105,10 +105,10 @@ class Request
     {
       if (typeof interceptor === 'string')
       {
-        providedInterceptor[interceptor](this)
+        return providedInterceptor[interceptor](this)
       }
 
-      interceptor(this)
+      return interceptor(this)
     })
 
     return Request.defaults.engine({
@@ -122,10 +122,10 @@ class Request
         {
           if (typeof interceptor === 'string')
           {
-            providedInterceptor[interceptor](response)
+            return providedInterceptor[interceptor](response)
           }
 
-          interceptor(response)
+          return interceptor(response)
         })
 
         const after = this.configuration.after
