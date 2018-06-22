@@ -1,11 +1,11 @@
-import { AnyData, AnyObject } from 'rua-core/lib/Types'
 import * as _ from 'lodash'
 
 import { Storage, StorageEngine } from '../../storage'
+import { ObjectOf, AnyData, AnyObject } from '../../type/data'
 import { CacheConfiguration } from '../type'
 import { CacheInterface } from '../interface/index'
 
-class Cache implements CacheInterface
+class Cache implements CacheInterface<Cache>
 {
 
   /**
@@ -34,14 +34,14 @@ class Cache implements CacheInterface
    *
    * @type {{}}
    */
-  protected store: any = {}
+  protected store: AnyObject = {}
 
   /**
    * Other storage instance
    *
    * @type {object}
    */
-  protected stores: any = {}
+  protected stores: ObjectOf<Cache> = {}
 
   /**
    * Cached data keys
@@ -158,9 +158,10 @@ class Cache implements CacheInterface
     return this.list.map(key => key.replace(this.storeName, ''))
   }
 
-  public all(): any
+  public all(): AnyObject
   {
-    const output: any = {}
+    const output: AnyObject = {}
+
     for (const name in this.store)
     {
       if (Object.prototype.hasOwnProperty.call(this.store, name))
@@ -170,6 +171,11 @@ class Cache implements CacheInterface
     }
 
     return output
+  }
+
+  public merge(object: AnyObject): AnyObject
+  {
+    return Object.assign(this.store, object)
   }
 
   public async restore(): Promise<void>
