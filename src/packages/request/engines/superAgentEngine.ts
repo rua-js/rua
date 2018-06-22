@@ -23,6 +23,7 @@ export default function superAgentEngine(
     retry,
     retryCallback,
     before,
+    after,
     form,
     body,
   } = options
@@ -48,6 +49,7 @@ export default function superAgentEngine(
   before && before(req)
 
   return req
+    .then(response => after(response))
     .then((response) => // check status
     {
       if (response.status >= 200 && response.status < 300)

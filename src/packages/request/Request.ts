@@ -7,7 +7,7 @@ import * as _ from 'lodash'
 
 class Request
 {
-  public static interceptors = {
+  public static interceptors: any = {
     request: [],
     response: [],
   }
@@ -98,13 +98,14 @@ class Request
   {
     // interceptors
     const requestInterceptors = Request.interceptors.request
-    const requestInterceptor = Request.interceptor
+    const responseInterceptors = Request.interceptors.response
+    const providedInterceptor = Request.interceptor
 
-    requestInterceptors.forEach((interceptor) =>
+    requestInterceptors.forEach((interceptor: any) =>
     {
       if (typeof interceptor === 'string')
       {
-        requestInterceptor[interceptor](this)
+        providedInterceptor[interceptor](this)
       }
 
       interceptor(this)
@@ -115,6 +116,27 @@ class Request
       url: this.url,
       headers: this.headers,
       body: this.body,
+      after: (response: any) =>
+      {
+        responseInterceptors.forEach((interceptor: any) =>
+        {
+          if (typeof interceptor === 'string')
+          {
+            providedInterceptor[interceptor](response)
+          }
+
+          interceptor(response)
+        })
+
+        const after = this.configuration.after
+
+        if (after && 'function' === typeof after)
+        {
+          after(response)
+        }
+
+        return response
+      },
     })
   }
 }

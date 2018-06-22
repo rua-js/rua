@@ -78,6 +78,22 @@ describe('Request tests', () =>
     ).resolves.toHaveProperty('page')
   })
 
+  test('response interceptors', async () =>
+  {
+    Request.config({
+      requestInterceptors: {
+        after(res: any)
+        {
+          return res.body.haha = 'str'
+        },
+      },
+    })
+
+    await expect(
+      new Request('https://reqres.in/api/users', {}),
+    ).resolves.toHaveProperty('haha')
+  })
+
   test('before', async () =>
   {
     const url = 'https://reqres.in/api/users'
@@ -93,5 +109,17 @@ describe('Request tests', () =>
     await expect(
       new Request('https://www.qq.com', {}, { before }),
     ).resolves.toHaveProperty('page')
+  })
+
+  test('after', async () =>
+  {
+    const after = (res: any) =>
+    {
+      return res.body.hehe = 'str'
+    }
+
+    await expect(
+      new Request('https://reqres.in/api/users', {}, { after }),
+    ).resolves.toHaveProperty('hehe')
   })
 })

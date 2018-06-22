@@ -16,6 +16,8 @@ interface RequestOptionsPassedToEngine extends RequestOptions
   retry: number
 
   before?: Function
+
+  after: Function
 }
 
 export default RequestOptionsPassedToEngine
