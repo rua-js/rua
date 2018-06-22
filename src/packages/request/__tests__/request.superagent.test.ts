@@ -81,7 +81,7 @@ describe('Request tests', () =>
   test('response interceptors', async () =>
   {
     Request.config({
-      requestInterceptors: {
+      responseInterceptors: {
         after(res: any)
         {
           return res.body.haha = 'str'
