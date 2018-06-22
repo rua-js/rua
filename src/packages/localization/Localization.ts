@@ -1,6 +1,6 @@
 import { LocalizationInterface } from './interface'
 import { AnyObject } from 'rua-core/lib/Types'
-import I18n from './third-party/i18n'
+import { default as I18n } from './third-party/i18n'
 
 class Localization implements LocalizationInterface
 {
