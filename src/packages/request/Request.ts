@@ -1,5 +1,5 @@
 import { emptyObject } from '../shared'
-import { AnyObject, FunctionObject } from '../type/data'
+import { AnyObject, FunctionArray, FunctionObject, ObjectOf } from '../type/data'
 import { superAgentEngine, fetchEngine } from './engines'
 import { Header, Url, Body } from './internals'
 import { RequestConfiguration, UrlSchema, UrlString, ResponseData } from './type'
@@ -7,17 +7,17 @@ import * as _ from 'lodash'
 
 class Request
 {
-  public static interceptors: any = {
+  public static interceptors: ObjectOf<FunctionArray> = {
     request: [],
     response: [],
   }
 
-  public static defaults = {
+  public static defaults: AnyObject = {
     engine: superAgentEngine,
     method: 'GET',
   }
 
-  public static readonly engines = {
+  public static readonly engines: FunctionObject = {
     superAgent: superAgentEngine,
     fetch: fetchEngine,
   }
@@ -90,7 +90,7 @@ class Request
 
     for (const key in responseInterceptors)
     {
-      Request.interceptors.response.push(requestInterceptors[key])
+      Request.interceptors.response.push(responseInterceptors[key])
     }
   }
 
