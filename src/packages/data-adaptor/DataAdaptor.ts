@@ -1,7 +1,7 @@
+import * as _ from 'lodash'
+import { AnyObject } from '../type/data'
 import { DataAdaptorInterface } from './interfaces'
 import { DataStructure } from './types'
-import { AnyObject } from '../type/data'
-import * as _ from 'lodash'
 
 class DataAdaptor implements DataAdaptorInterface
 {
@@ -26,7 +26,12 @@ class DataAdaptor implements DataAdaptorInterface
         continue
       }
 
-      result[key] = _.get(origin, value as string)
+      if (!(value as string).includes('['))
+      {
+        result[key] = _.get(origin, value as string)
+      }
+
+      result[key] = origin[key]
     }
 
     return result
