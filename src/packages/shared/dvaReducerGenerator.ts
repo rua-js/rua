@@ -1,5 +1,6 @@
 import * as _ from 'lodash'
 import { memory } from '../memory'
+import { isPlainObject } from '../request/util'
 import { AnyObject } from '../type/data'
 
 const dvaReducerGenerator = (defaultState: Function) =>
@@ -50,7 +51,14 @@ const dvaReducerGenerator = (defaultState: Function) =>
 
     for (const key in action.payload)
     {
-      outState[key] = { ...outState[key] }
+      const outValue = outState[key]
+      if (Array.isArray(outValue))
+      {
+        outState[key] = [...outValue]
+      } else if (isPlainObject(outValue))
+      {
+        outState[key] = { ...outValue }
+      }
     }
 
     return outState
