@@ -1,8 +1,8 @@
-import { AnyObject } from '../type/data'
 import * as _ from 'lodash'
 import { memory } from '../memory'
+import { AnyObject } from '../type/data'
 
-const dvaReducerGenerator = (defaultState: AnyObject) =>
+const dvaReducerGenerator = (defaultState: Function) =>
 {
   const _defaultState = defaultState
   const prefix = 'dva-model-backup-'
@@ -18,11 +18,23 @@ const dvaReducerGenerator = (defaultState: AnyObject) =>
 
     if (!key)
     {
-      return _.clone(state)
+      return { ...state, ..._defaultState() }
+    }
+
+    if (Array.isArray(key))
+    {
+      const otherState: AnyObject = {}
+      const defaultState = _defaultState()
+      key.forEach((k) =>
+      {
+        otherState[k] = defaultState[k]
+      })
+
+      return Object.assign(state, otherState)
     }
 
     return Object.assign(state, {
-      [key]: _defaultState[key],
+      [key]: _defaultState()[key],
     })
   }
 
