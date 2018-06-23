@@ -1,5 +1,5 @@
-import { DataAdaptorInterface } from './interface'
-import { DataStructure } from './type'
+import { DataAdaptorInterface } from './interfaces'
+import { DataStructure } from './types'
 import { AnyObject } from '../type/data'
 import * as _ from 'lodash'
 
@@ -9,7 +9,7 @@ class DataAdaptor implements DataAdaptorInterface
 
   constructor(structure: DataStructure)
   {
-    this.structure = { ...structure }
+    this.structure = structure
   }
 
   public parse(origin: AnyObject, structure: DataStructure = this.structure): AnyObject
