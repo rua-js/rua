@@ -11,10 +11,10 @@ describe('DvaReducers', () =>
         mei: 'hehe',
       },
       reducers: {
-        ...dvaReducerGenerator({
+        ...dvaReducerGenerator(() => ({
           shuai: 'ku',
           mei: 'hehe2',
-        }),
+        })),
       },
     }
   }
@@ -34,7 +34,7 @@ describe('DvaReducers', () =>
 
     // Reset All State
     const t2 = model1.reducers.resetState(model1.state, {})
-    const e2 = { shuai: 'ku', mei: 'hehe' }
+    const e2 = { shuai: 'ku', mei: 'hehe2' }
     expect(t2).toEqual(e2)
 
     // Reset One State
