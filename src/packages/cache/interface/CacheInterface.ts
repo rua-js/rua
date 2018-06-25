@@ -1,11 +1,11 @@
 import Cache from '../engine/Cache'
 import { AnyData, AnyObject } from 'rua-core/lib/Types'
 
-interface CacheInterface
+interface CacheInterface<T>
 {
   length: number
 
-  useStore(storeName: string): CacheInterface
+  useStore(storeName: string): T
 
   get(key: string, defaultValue?: any): AnyData
 
@@ -18,6 +18,8 @@ interface CacheInterface
   keys(): string[]
 
   all(): AnyData
+
+  merge(object: AnyObject): AnyObject
 
   restore(): Promise<void>
 }
