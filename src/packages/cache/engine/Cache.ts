@@ -1,9 +1,9 @@
 import * as _ from 'lodash'
 
 import { Storage, StorageEngine } from '../../storage'
-import { ObjectOf, AnyData, AnyObject } from '../../type/data'
-import { CacheConfiguration } from '../type'
+import { AnyData, AnyObject, ObjectOf } from '../../type/data'
 import { CacheInterface } from '../interface/index'
+import { CacheConfiguration } from '../type'
 
 class Cache implements CacheInterface<Cache>
 {
@@ -103,7 +103,7 @@ class Cache implements CacheInterface<Cache>
     return this.store[storageKeyName]
   }
 
-  public set(key: string, value: AnyData, time?: number): AnyData
+  public set(key: string, value: AnyData, time?: number): Promise<AnyData>
   {
     const storageKeyName: string = this.getItemKeyName(key)
     // add to list if it is NOT in the list
@@ -114,13 +114,14 @@ class Cache implements CacheInterface<Cache>
     // save to cache
     this.store[storageKeyName] = value
     // save to storage
-    this.storage.set(this.getListKeyName(), this.list)
-    this.storage.set(storageKeyName, value)
 
-    return value
+    return Promise.all([
+      this.storage.set(this.getListKeyName(), this.list),
+      this.storage.set(storageKeyName, value),
+    ]).then(() => value)
   }
 
-  public remove(key: string): AnyData
+  public remove(key: string): Promise<AnyData>
   {
     const storageKeyName = this.getItemKeyName(key)
     const removedData = this.store[storageKeyName]
@@ -128,29 +129,30 @@ class Cache implements CacheInterface<Cache>
     _.unset(this.store, storageKeyName)
     _.pull(this.list, storageKeyName)
 
-    // Sync list
-    this.storage.set(
-      this.getListKeyName(),
-      this.list,
-    )
-    // Sync item
-    this.storage.remove(storageKeyName)
-
-    return removedData
+    return Promise.all([
+      this.storage.set(
+        this.getListKeyName(),
+        this.list,
+      ),
+      this.storage.remove(storageKeyName),
+    ]).then(() => removedData)
   }
 
-  public clear(): AnyObject
+  public clear(): Promise<AnyObject>
   {
     const removedData = this.all()
-    // remove all data from storage
-    this.storage.remove(this.list)
-    // remove list from storage
-    this.storage.remove(this.getListKeyName())
+    const list = this.list
     // reset data in memory
     this.list = []
     this.store = {}
 
-    return removedData
+    // return removedData
+    return Promise.all(
+      [
+        this.storage.remove(list),
+        this.storage.remove(this.getListKeyName()),
+      ],
+    ).then(() => removedData)
   }
 
   public keys(): string[]
