@@ -22,8 +22,8 @@ describe('Cache Tests(storage part)', () =>
     await Cache.set('test2', 'test-here2')
     await util.delay(500)
     // case: remove
-    expect(
-      Cache.remove('test1'),
+    await expect(
+      await Cache.remove('test1'),
     ).toBe('test-here1')
     await util.delay(500)
     // case: check storage removal
@@ -68,8 +68,8 @@ describe('Cache Tests(storage part)', () =>
     Cache.set('test2', 'test-here2')
     await util.delay(500)
     // case: .clear
-    expect(
-      Cache.clear(),
+    await expect(
+      await Cache.clear(),
     ).toEqual({
       test1: 'test-here1',
       test2: 'test-here2',
