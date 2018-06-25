@@ -175,18 +175,20 @@ class Cache implements CacheInterface<Cache>
 
   public merge(object: AnyObject): AnyObject
   {
-    return Object.assign(this.store, object)
+    const returnValue = Object.assign(this.store, object)
+
+    // todo:
+
+    return returnValue
   }
 
   public async restore(): Promise<void>
   {
-    // Get list key
+    // restore list key
     const listKey: string = this.getListKeyName()
-    // Get list data
-    const list: string = <string>await this.storage.get(listKey, [])
-    // Parse list data
-    this.list = <string[]>JSON.parse(list)
-    // Load all saved cache data to store
+    // restore list data
+    this.list = await this.storage.get(listKey, [])
+    // restore all saved cache data to store
     this.store = <AnyObject>await this.storage.get(this.list)
   }
 
