@@ -1,8 +1,6 @@
-import {
-  CanConfig,
-} from './contract'
-
 export {
-  // contract
   CanConfig,
-}
+  Arrayable,
+  Objectable,
+  Jsonable,
+} from './contract'
