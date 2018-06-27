@@ -3,13 +3,13 @@
 [![npm version](https://badge.fury.io/js/rua.svg)](https://badge.fury.io/js/rua)
 ![production ready](https://img.shields.io/badge/production--ready-YES-brightgreen.svg)
 
-Elegant front-end applications delivered at warp speed.
+Powerful Cross-Platform Data Library
 
 ## Special Thanks To
 Npm Package Name Donator: [Vilic (Gihub)](https://github.com/vilic)
 
 ## Release Explanation
-`Edition Version` changes when having urgent bug-fix or code optimization
+`Edition Version` changes when having urgent bug-fix or code refactor
 
 `Minor Version` changes when having partial breaking change or new feature(s)
 
@@ -28,30 +28,34 @@ Minor release **may** have breaking change
 `-release` or `no suffix`: stable version
 
 
-## RoadMap
-[v0 Roadmap](./roadmap/v0.md)
-
 ## Package Check List
-- [x] Dva
-- [x] Event 
-- [x] Exception
-- [x] Storage
-- [x] Fetch
+- [x] APIRequest
 - [x] Cache
-- [x] API
-- [x] Localization
-- [ ] Collection
 - [ ] Clock
+- [ ] Collection
+- [ ] Configuration
+- [x] Dva
+- [x] DataAdaptor
+- [x] Event 
+- [x] Expression
+- [x] Exception
+- [x] Factory
+- [x] Localization
+- [x] Memory
+- [x] Repository
+- [x] Request
+- [x] Storage
+- [x] Validator
+- [ ] Rua
+- [ ] Decorator
+- [ ] HeartBeat
 - [ ] Payment
 - [ ] Share
 - [ ] Converter
-- [ ] Transformer
-- [ ] Schema
-- [ ] Socket
 - [ ] Is
 - [ ] Str
 - [ ] File
 - [ ] Image
 
 ## Dev Package Check List
-- [ ] FileLinker
+- [x] FileLinker
