@@ -1,6 +1,6 @@
-import { API } from '../index'
+import { APIRequest } from '../index'
 // import { fetch } from '../../Fetch'
-jest.setTimeout(10000)
+jest.setTimeout(20 * 1000)
 import { factory } from '../../factory'
 
 describe('api Tests', () =>
@@ -8,7 +8,7 @@ describe('api Tests', () =>
   test('usage', async () =>
   {
     // Regular Case
-    API.load({
+    APIRequest.api.load({
       test: {
         go: {
           url: 'https://reqres.in/api/users',
@@ -18,18 +18,18 @@ describe('api Tests', () =>
 
     })
 
-    API.merge({
+    APIRequest.api.merge({
       test2: {
         str: 'https://reqres.in/api/users',
       },
     })
 
-    await expect(API('test.go')).resolves.toBeInstanceOf(Object)
-    await expect(API('test.go')).resolves.toHaveProperty('page')
+    await expect(new APIRequest('test.go')).resolves.toBeInstanceOf(Object)
+    await expect(new APIRequest('test.go')).resolves.toHaveProperty('page')
 
     // String Case
-    await expect(API('test2.str')).resolves.toBeInstanceOf(Object)
-    await expect(API('test2.str')).resolves.toHaveProperty('page')
+    await expect(new APIRequest('test2.str')).resolves.toBeInstanceOf(Object)
+    await expect(new APIRequest('test2.str')).resolves.toHaveProperty('page')
   })
 
   test('factory', async () =>
@@ -45,6 +45,6 @@ describe('api Tests', () =>
       1,
     )
 
-    await expect(API('wode.ge')).resolves.toEqual([fake])
+    await expect(new APIRequest('wode.ge')).resolves.toEqual([fake])
   })
 })

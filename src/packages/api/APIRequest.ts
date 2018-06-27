@@ -10,6 +10,11 @@ import { APIEngineInterface } from './interfaces'
 import { APIConfiguration } from './type'
 import { invariant } from './util'
 
+/**
+ *
+ *
+ * @class APIRequest
+ */
 class APIRequest implements APIEngineInterface
 {
   /**
@@ -23,13 +28,16 @@ class APIRequest implements APIEngineInterface
   }
 
   /**
-   * Store user defined api
+   * User defined api
    *
    * @type {{}}
    */
-  public static api: any = new RepositoryLite()
+  public static api: RepositoryLite = new RepositoryLite()
 
   /**
+   * Create an api request
+   * NOTE: Promise is returned instead of instance of APIRequest
+   *
    * @constructor
    * @param name
    * @param data
@@ -40,24 +48,26 @@ class APIRequest implements APIEngineInterface
   }
 
   /**
-   * Configures
+   * Configure APIRequest
    *
    * @param {AnyObject} config
    */
   public static config(config?: APIConfiguration): void
   {
+    // terminate when no config is given
     if (!config)
     {
       return
     }
 
+    // destruct variables
     const {
       data,
       useFactoryOnProduction,
       factory,
     } = config
 
-    // load api if it is given
+    // load api if it's given
     if (data)
     {
       APIRequest.api.load(data as any)
@@ -66,11 +76,13 @@ class APIRequest implements APIEngineInterface
     // defaults reference
     const defaults = APIRequest.defaults
 
+    // save factory config
     if (useFactoryOnProduction)
     {
       defaults.useFactoryOnProduction = true
     }
 
+    // save factory if it's given
     if (factory)
     {
       defaults.factory = factory
@@ -96,7 +108,7 @@ class APIRequest implements APIEngineInterface
     }
 
     // get configuration of one api (setting)
-    const config = _.get(APIRequest.api.data, name)
+    const config = _.get(APIRequest.api.all(), name)
 
     // make sure has the api
     invariant(config, 'The api that you are trying to access is NOT exists')

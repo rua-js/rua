@@ -1,5 +1,5 @@
 import { APIEntityObject } from '../type'
-import { APIEntityInterface } from '../interface'
+import { APIEntityInterface } from '../interfaces'
 
 class APIEntity implements APIEntityInterface
 {
