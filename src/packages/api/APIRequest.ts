@@ -53,7 +53,7 @@ class APIRequest implements APIEngineInterface
 
     const {
       data,
-      useFactoryOnProduction = false,
+      useFactoryOnProduction,
       factory,
     } = config
 
@@ -68,7 +68,7 @@ class APIRequest implements APIEngineInterface
 
     if (useFactoryOnProduction)
     {
-      defaults.useFactoryOnProduction = useFactoryOnProduction
+      defaults.useFactoryOnProduction = true
     }
 
     if (factory)
