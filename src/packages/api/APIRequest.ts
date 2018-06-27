@@ -6,7 +6,6 @@ import { Request } from '../request'
 import { ResponseData } from '../request/type'
 import { AnyObject } from '../type/data'
 import { APIEntity } from './engine'
-import { APIEngineInterface } from './interfaces'
 import { APIConfiguration } from './type'
 import { invariant } from './util'
 
@@ -15,7 +14,7 @@ import { invariant } from './util'
  *
  * @class APIRequest
  */
-class APIRequest implements APIEngineInterface
+class APIRequest
 {
   /**
    * Global defaults, use new Rua() to set up is recommended
