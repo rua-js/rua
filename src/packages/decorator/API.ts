@@ -1,6 +1,6 @@
 import * as APIProperties from './api/index'
 import { APIEntityObject } from '../api/type/index'
-import { API as APIEngine } from '../api'
+import { APIRequest } from '../api'
 
 const API: any = () => (target: any): APIEntityObject =>
 {
@@ -8,7 +8,7 @@ const API: any = () => (target: any): APIEntityObject =>
     [target.name.toLowerCase()]: new target(),
   }
 
-  APIEngine.merge(entityObject)
+  APIRequest.api.merge(entityObject)
 
   return <APIEntityObject>entityObject
 }
