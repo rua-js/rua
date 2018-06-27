@@ -21,7 +21,7 @@ export {
 export { memory } from './packages/memory'
 // Essential library
 export { Cache } from './packages/cache'
-export { API } from './packages/api'
+export { APIRequest } from './packages/api'
 export { __, locale, translate } from './packages/localization'
 export { Decorator, Decorator as D } from './packages/decorator'
 export { core, emptyArray, emptyObject, noop, dvaReducerGenerator } from './packages/shared'
