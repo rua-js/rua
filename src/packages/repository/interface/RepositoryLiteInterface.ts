@@ -1,12 +1,18 @@
-import { AnyData, AnyObject, AnyArray }from '../../type/data'
+import { AnyArray, AnyData, AnyObject } from '../../type/data'
 
 interface RepositoryLiteInterface
 {
   readonly length: number
 
+  load(data: AnyObject): AnyObject
+
+  merge(data: AnyObject): AnyObject
+
   set(key: string, data: AnyData): AnyData
 
   get(key: string, defaultValue?: AnyData): AnyData
+
+  has(key: string): boolean
 
   remove(key: string): AnyData
 
