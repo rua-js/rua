@@ -7,7 +7,7 @@ class APIEntity implements APIEntityInterface
 
   constructor(entity: APIEntityObject | string)
   {
-    if (typeof entity === 'string')
+    if ('string' === typeof entity)
     {
       this.entity = {
         url: entity,
