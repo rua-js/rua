@@ -49,7 +49,7 @@ describe('event Tests', () =>
       test2: fakeFn3,
       test3: fakeFn4,
     })
-    // case: .get(string) with one callback
+    // case: .get(string) with one callbacks
     expect(
       // @ts-ignore
       Event.get('test2').length

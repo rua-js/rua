@@ -117,14 +117,14 @@ interface CollectionInterface<T> {
   dump(): void
 
   /**
-   * Iterates over the items in the collection and passes each item to a callback
+   * Iterates over the items in the collection and passes each item to a callbacks
    *
    * @param {Function} callback
    */
   each(callback: Function): void
 
   /**
-   * Iterates over the collection's items, passing each nested item value into the given callback
+   * Iterates over the collection's items, passing each nested item value into the given callbacks
    *
    * @param {Function} callback
    */
@@ -147,7 +147,7 @@ interface CollectionInterface<T> {
   except(callback: Function): T
 
   /**
-   * Filters the collection using the given callback, keeping only those items that pass a given truth test
+   * Filters the collection using the given callbacks, keeping only those items that pass a given truth test
    *
    * @param {Function} callback
    * @returns {T}
@@ -155,7 +155,7 @@ interface CollectionInterface<T> {
   filter(callback: Function): T
 
   /**
-   * Filters the collection using the given callback, keeping only those items that pass a given truth test
+   * Filters the collection using the given callbacks, keeping only those items that pass a given truth test
    *
    * @param {Function} callback
    * @returns {AnyData}
@@ -173,7 +173,7 @@ interface CollectionInterface<T> {
   firstWhere(key: string, valueOrOperator: AnyData, value?: AnyData): AnyData
 
   /**
-   * Iterates through the collection and passes each value to the given callback. The callback is free to modify the item and return it, thus forming a new collection of modified items. Then, the array is flattened by a level
+   * Iterates through the collection and passes each value to the given callbacks. The callbacks is free to modify the item and return it, thus forming a new collection of modified items. Then, the array is flattened by a level
    *
    * @param {Function} callback
    * @returns {T}

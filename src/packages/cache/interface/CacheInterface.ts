@@ -9,11 +9,11 @@ interface CacheInterface<T>
 
   get(key: string, defaultValue?: any): AnyData
 
-  set(key: string, value: AnyData, time?: number): AnyData
+  set(key: string, value: AnyData, time?: number): Promise<AnyData>
 
-  remove(key: string): AnyData
+  remove(key: string): Promise<AnyData>
 
-  clear(): AnyObject
+  clear(): Promise<AnyObject>
 
   keys(): string[]
 

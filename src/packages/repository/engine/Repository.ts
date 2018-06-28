@@ -149,7 +149,8 @@ class Repository implements RepositoryInterface
     return returnData
   }
 
-  public remove(
+  public
+  remove(
     key: string | string[],
     interpolator?: Interpolator,
   ): AnyData

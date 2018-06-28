@@ -5,7 +5,7 @@ import { RuaDva } from './bridge'
 import { AnyObject } from 'rua-core/lib/Types'
 // Self dependency
 import { Request } from '../request'
-import { API } from '../api'
+import { APIRequest } from '../api'
 import { RuaConfiguration } from './type'
 import * as _ from 'lodash'
 
@@ -30,7 +30,7 @@ class Rua
    * @type {string[]}
    */
   public configurableModules: AnyObject = {
-    api: API,
+    api: APIRequest,
     request: Request,
     dva: RuaDva,
   }

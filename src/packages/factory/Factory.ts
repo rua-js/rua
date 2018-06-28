@@ -1,24 +1,24 @@
-import { AnyObject } from '../../packages/type/data'
 import * as faker from 'faker'
+import { ObjectOf } from '../../packages/type/data'
 
 class Factory
 {
-  protected callback: AnyObject = {}
+  protected callbacks: ObjectOf<Function> = {}
 
-  protected counts: AnyObject = {}
+  protected counts: ObjectOf<number> = {}
 
-  protected wrappers: AnyObject = {}
+  protected wrappers: ObjectOf<Function | undefined> = {}
 
   public define(identifier: string, callback: Function, count: number, wrapper?: Function)
   {
-    this.callback[identifier] = callback
+    this.callbacks[identifier] = callback
     this.counts[identifier] = count
     this.wrappers[identifier] = wrapper
   }
 
   public has(identifier: string)
   {
-    return !!this.callback[identifier]
+    return !!this.callbacks[identifier]
   }
 
   public make(identifier: string)
@@ -27,7 +27,7 @@ class Factory
     const returnValue = []
     while (i <= this.counts[identifier])
     {
-      returnValue.push(this.callback[identifier](faker))
+      returnValue.push(this.callbacks[identifier](faker))
       i += 1
     }
 
@@ -41,7 +41,5 @@ class Factory
     return returnValue
   }
 }
-
-// factory.define('user.readAll', () => {}, 1)
 
 export default Factory
