@@ -1,7 +1,9 @@
+import { factory } from '../../factory'
+import Factory from '../../factory/Factory'
+import { RepositoryLite } from '../../repository'
 import { APIRequest } from '../index'
 // import { fetch } from '../../Fetch'
 jest.setTimeout(20 * 1000)
-import { factory } from '../../factory'
 
 describe('api Tests', () =>
 {
@@ -29,6 +31,41 @@ describe('api Tests', () =>
     // String Case
     await expect(new APIRequest('test2.str')).resolves.toBeInstanceOf(Object)
     await expect(new APIRequest('test2.str')).resolves.toHaveProperty('page')
+  })
+
+  test('.config', () =>
+  {
+    APIRequest.config()
+    APIRequest.api.clear()
+
+    // Default API
+    expect(APIRequest.api).toBeInstanceOf(RepositoryLite)
+    expect(APIRequest.api.all()).toEqual({})
+
+    // Default useFactoryOnProduction
+    expect(APIRequest.defaults.useFactoryOnProduction).toBe(false)
+
+    // Default Factory
+    expect(APIRequest.defaults.factory).toBeInstanceOf(Factory)
+
+    // Load Config
+    const api = {
+      namespace: {
+        url: '123',
+      },
+    }
+
+    const fakeFactory = {}
+
+    APIRequest.config({
+      data: api,
+      useFactoryOnProduction: true,
+      factory: fakeFactory,
+    })
+
+    expect(api).toBe(api)
+    expect(APIRequest.defaults.factory).toBe(fakeFactory)
+    expect(APIRequest.defaults.useFactoryOnProduction).toBe(true)
   })
 
   test('factory', async () =>
