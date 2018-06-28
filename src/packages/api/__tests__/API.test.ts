@@ -7,7 +7,7 @@ jest.setTimeout(20 * 1000)
 
 describe('api Tests', () =>
 {
-  test('usage', async () =>
+  test('load object api', async () =>
   {
     // Regular Case
     APIRequest.api.load({
@@ -19,21 +19,24 @@ describe('api Tests', () =>
       },
     })
 
+    await expect(new APIRequest('test.go')).resolves.toBeInstanceOf(Object)
+    await expect(new APIRequest('test.go')).resolves.toHaveProperty('page')
+  })
+
+  test('merge string api', async () =>
+  {
+
     APIRequest.api.merge({
       test2: {
         str: 'https://reqres.in/api/users',
       },
     })
 
-    await expect(new APIRequest('test.go')).resolves.toBeInstanceOf(Object)
-    await expect(new APIRequest('test.go')).resolves.toHaveProperty('page')
-
-    // String Case
     await expect(new APIRequest('test2.str')).resolves.toBeInstanceOf(Object)
     await expect(new APIRequest('test2.str')).resolves.toHaveProperty('page')
   })
 
-  test('.config', () =>
+  test('empty config', () =>
   {
     APIRequest.config()
     APIRequest.api.clear()
@@ -48,6 +51,10 @@ describe('api Tests', () =>
     // Default Factory
     expect(APIRequest.defaults.factory).toBeInstanceOf(Factory)
 
+  })
+
+  test('full config', () =>
+  {
     // Load Config
     const api = {
       namespace: {
