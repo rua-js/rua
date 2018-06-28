@@ -36,8 +36,7 @@ describe('api Tests', () =>
     await expect(new APIRequest('test2.str')).resolves.toHaveProperty('page')
   })
 
-  test('empty config', () =>
-  {
+  test('no config', () => {
     APIRequest.config()
     APIRequest.api.clear()
 
@@ -50,7 +49,22 @@ describe('api Tests', () =>
 
     // Default Factory
     expect(APIRequest.defaults.factory).toBeInstanceOf(Factory)
+  })
 
+  test('empty config', () =>
+  {
+    APIRequest.config({})
+    APIRequest.api.clear()
+
+    // Default API
+    expect(APIRequest.api).toBeInstanceOf(RepositoryLite)
+    expect(APIRequest.api.all()).toEqual({})
+
+    // Default useFactoryOnProduction
+    expect(APIRequest.defaults.useFactoryOnProduction).toBe(false)
+
+    // Default Factory
+    expect(APIRequest.defaults.factory).toBeInstanceOf(Factory)
   })
 
   test('full config', () =>
