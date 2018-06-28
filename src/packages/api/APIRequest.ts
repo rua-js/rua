@@ -29,7 +29,7 @@ class APIRequest
   /**
    * User defined api
    *
-   * @type {{}}
+   * @type {RepositoryLite}
    */
   public static api: RepositoryLite = new RepositoryLite()
 
