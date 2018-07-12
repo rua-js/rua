@@ -6,7 +6,7 @@ export { Request } from './lib/packages/request';
 export { util, ensureSymbol, ensureBoolean, ensureObject, ensure, ensureObjectLike, ensurePlainObject, ensureNumber, ensureInteger, ensureArrayLike, ensureArray, } from './lib/packages/utility';
 export { memory } from './lib/packages/memory';
 export { Cache } from './lib/packages/cache';
-export { API } from './lib/packages/api';
+export { APIRequest } from './lib/packages/api';
 export { __, locale, translate } from './lib/packages/localization';
 export { Decorator, Decorator as D } from './lib/packages/decorator';
 export { core, emptyArray, emptyObject, noop, dvaReducerGenerator } from './lib/packages/shared';
