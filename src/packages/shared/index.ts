@@ -1,13 +1,3 @@
-import { core, emptyArray, emptyObject, noop } from './constant'
+export { core, emptyArray, emptyObject, noop, fnEmptyArray, fnEmptyObject } from './constant'
 
-import dvaReducerGenerator from './dvaReducerGenerator'
-
-export {
-  // Constants
-  emptyArray,
-  emptyObject,
-  noop,
-  core,
-  // dva Reducers
-  dvaReducerGenerator,
-}
+export { default as dvaReducerGenerator } from './dvaReducerGenerator'

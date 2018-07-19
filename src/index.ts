@@ -24,7 +24,15 @@ export { Cache } from './packages/cache'
 export { APIRequest } from './packages/api'
 export { __, locale, translate } from './packages/localization'
 export { Decorator, Decorator as D } from './packages/decorator'
-export { core, emptyArray, emptyObject, noop, dvaReducerGenerator } from './packages/shared'
+export {
+  core,
+  emptyArray,
+  emptyObject,
+  noop,
+  dvaReducerGenerator,
+  fnEmptyObject,
+  fnEmptyArray,
+} from './packages/shared'
 // Non-essential library
 export { actions, dvaLite } from './packages/dva'
 export { DataAdaptor } from './packages/data-adaptor'

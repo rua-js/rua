@@ -1,16 +1,21 @@
 import { AnyObject } from '../type/data'
 
-const emptyArray = Object.freeze([])
+export const emptyArray = Object.freeze([])
 
-const emptyObject: AnyObject = Object.freeze({})
+export const emptyObject: AnyObject = Object.freeze({})
 
-const noop = () => {}
-
-const core = 'hsy'
-
-export {
-  emptyArray,
-  emptyObject,
-  noop,
-  core,
+export function fnEmptyArray()
+{
+  return emptyArray
 }
+
+export function fnEmptyObject()
+{
+  return emptyObject
+}
+
+export const noop = () =>
+{
+}
+
+export const core = 'hsy'
