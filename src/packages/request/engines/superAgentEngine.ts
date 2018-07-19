@@ -72,7 +72,7 @@ export default function superAgentEngine(
         throw new HttpRequestTimeoutException()
       }
 
-      if (err.message = 'Not Found')
+      if ('Not Found' === err.message)
       {
         throw new HttpNotFoundException()
       }
