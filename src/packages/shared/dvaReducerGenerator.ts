@@ -3,17 +3,20 @@ import { Memory } from '../memory'
 import { isPlainObject } from '../request/util'
 import { AnyObject } from '../type/data'
 
-function setState(state: AnyObject, action?: any): AnyObject
+//- start
+const prefix = 'dva-model-backup-'
+
+function assignState(state: AnyObject, action?: any): AnyObject
 {
   return action.payload
 }
 
-function mergeState(state: AnyObject, action?: any): AnyObject
+function setState(state: AnyObject, action?: any): AnyObject
 {
   return { ...state, ...action.payload }
 }
 
-function deepMergeState(state: AnyObject, action?: any): AnyObject
+function mergeState(state: AnyObject, action?: any): AnyObject
 {
   const outState = { ..._.merge(state, action.payload) }
 
@@ -37,12 +40,45 @@ function clearState(state: AnyObject, action?: any): AnyObject
   return {}
 }
 
+function backupState(state: AnyObject, action?: any): AnyObject
+{
+  const namespace = action.type.split('/')[0]
+
+  Memory.set(`${prefix}${namespace}`, state)
+
+  return state
+}
+
+function rollbackState(state: AnyObject, action?: any): AnyObject
+{
+  const namespace = action.type.split('/')[0]
+
+  return <AnyObject>Memory.get(`${prefix}${namespace}`)
+}
+
+function deepBackupState(state: AnyObject, action?: any): AnyObject
+{
+  const namespace = action.type.split('/')[0]
+
+  Memory.set(`${prefix}${namespace}`, _.clone(state))
+
+  return state
+}
+
+function deepRollbackState(state: AnyObject, action?: any): AnyObject
+{
+  const namespace = action.type.split('/')[0]
+
+  Memory.get(`${prefix}${namespace}`)
+
+  return <AnyObject>Memory.get(`${prefix}${namespace}`)
+}
+
 export default function dvaReducerGenerator(defaultState: Function)
 {
   const _defaultState = defaultState
-  const prefix = 'dva-model-backup-'
 
-  const resetState = function (state: AnyObject, actions?: any): AnyObject
+  function resetState(state: AnyObject, actions?: any): AnyObject
   {
     const { payload: key } = actions
 
@@ -68,46 +104,11 @@ export default function dvaReducerGenerator(defaultState: Function)
     })
   }
 
-
-  const backupState = function (state: AnyObject, action?: any): AnyObject
-  {
-    const namespace = action.type.split('/')[0]
-
-    Memory.set(`${prefix}${namespace}`, state)
-
-    return state
-  }
-
-  const rollbackState = function (state: AnyObject, action?: any): AnyObject
-  {
-    const namespace = action.type.split('/')[0]
-
-    return <AnyObject>Memory.get(`${prefix}${namespace}`)
-  }
-
-  const deepBackupState = function (state: AnyObject, action?: any): AnyObject
-  {
-    const namespace = action.type.split('/')[0]
-
-    Memory.set(`${prefix}${namespace}`, _.clone(state))
-
-    return state
-  }
-
-  const deepRollbackState = function (state: AnyObject, action?: any): AnyObject
-  {
-    const namespace = action.type.split('/')[0]
-
-    Memory.get(`${prefix}${namespace}`)
-
-    return <AnyObject>Memory.get(`${prefix}${namespace}`)
-  }
-
   return {
     setState,
     resetState,
     mergeState,
-    deepMergeState,
+    assignState,
     clearState,
     backupState,
     rollbackState,
