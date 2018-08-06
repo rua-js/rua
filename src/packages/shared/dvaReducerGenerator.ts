@@ -1,17 +1,46 @@
 import * as _ from 'lodash'
-import { memory } from '../memory'
+import { Memory } from '../memory'
 import { isPlainObject } from '../request/util'
 import { AnyObject } from '../type/data'
 
-const dvaReducerGenerator = (defaultState: Function) =>
+function setState(state: AnyObject, action?: any): AnyObject
+{
+  return action.payload
+}
+
+function mergeState(state: AnyObject, action?: any): AnyObject
+{
+  return { ...state, ...action.payload }
+}
+
+function deepMergeState(state: AnyObject, action?: any): AnyObject
+{
+  const outState = { ..._.merge(state, action.payload) }
+
+  for (const key in action.payload)
+  {
+    const outValue = outState[key]
+    if (Array.isArray(outValue))
+    {
+      outState[key] = [...outValue]
+    } else if (isPlainObject(outValue))
+    {
+      outState[key] = { ...outValue }
+    }
+  }
+
+  return outState
+}
+
+function clearState(state: AnyObject, action?: any): AnyObject
+{
+  return {}
+}
+
+export default function dvaReducerGenerator(defaultState: Function)
 {
   const _defaultState = defaultState
   const prefix = 'dva-model-backup-'
-
-  const setState = function (state: AnyObject, action?: any): AnyObject
-  {
-    return action.payload
-  }
 
   const resetState = function (state: AnyObject, actions?: any): AnyObject
   {
@@ -39,41 +68,12 @@ const dvaReducerGenerator = (defaultState: Function) =>
     })
   }
 
-  const mergeState = function (state: AnyObject, action?: any): AnyObject
-  {
-    /** _.merge will cost more resource */
-    return { ...state, ...action.payload }
-  }
-
-  const deepMergeState = function (state: AnyObject, action?: any): AnyObject
-  {
-    const outState = { ..._.merge(state, action.payload) }
-
-    for (const key in action.payload)
-    {
-      const outValue = outState[key]
-      if (Array.isArray(outValue))
-      {
-        outState[key] = [...outValue]
-      } else if (isPlainObject(outValue))
-      {
-        outState[key] = { ...outValue }
-      }
-    }
-
-    return outState
-  }
-
-  const clearState = function (state: AnyObject, action?: any): AnyObject
-  {
-    return {}
-  }
 
   const backupState = function (state: AnyObject, action?: any): AnyObject
   {
     const namespace = action.type.split('/')[0]
 
-    memory.set(`${prefix}${namespace}`, state)
+    Memory.set(`${prefix}${namespace}`, state)
 
     return state
   }
@@ -82,14 +82,14 @@ const dvaReducerGenerator = (defaultState: Function) =>
   {
     const namespace = action.type.split('/')[0]
 
-    return <AnyObject>memory.get(`${prefix}${namespace}`)
+    return <AnyObject>Memory.get(`${prefix}${namespace}`)
   }
 
   const deepBackupState = function (state: AnyObject, action?: any): AnyObject
   {
     const namespace = action.type.split('/')[0]
 
-    memory.set(`${prefix}${namespace}`, _.clone(state))
+    Memory.set(`${prefix}${namespace}`, _.clone(state))
 
     return state
   }
@@ -98,9 +98,9 @@ const dvaReducerGenerator = (defaultState: Function) =>
   {
     const namespace = action.type.split('/')[0]
 
-    memory.get(`${prefix}${namespace}`)
+    Memory.get(`${prefix}${namespace}`)
 
-    return <AnyObject>memory.get(`${prefix}${namespace}`)
+    return <AnyObject>Memory.get(`${prefix}${namespace}`)
   }
 
   return {
@@ -115,5 +115,3 @@ const dvaReducerGenerator = (defaultState: Function) =>
     deepRollbackState,
   }
 }
-
-export default dvaReducerGenerator
