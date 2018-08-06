@@ -1,5 +1,4 @@
-import memory from './memory'
+import { RepositoryLite } from '../repository'
+import { MemoryInterface } from './interface'
 
-export {
-  memory,
-}
+export const Memory: MemoryInterface = new RepositoryLite()

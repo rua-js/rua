@@ -18,7 +18,7 @@ export {
   ensureArrayLike,
   ensureArray,
 } from './packages/utility'
-export { memory } from './packages/memory'
+export { Memory } from './packages/memory'
 // Essential library
 export { Cache } from './packages/cache'
 export { APIRequest } from './packages/api'
