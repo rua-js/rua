@@ -1,3 +1,6 @@
+// Back-compatible: remove in next major version
+export * from './compatible'
+
 // Master
 export { Rua } from './packages/rua'
 // Primitive library
@@ -26,12 +29,12 @@ export { __, locale, translate } from './packages/localization'
 export { Decorator, Decorator as D } from './packages/decorator'
 export {
   core,
-  emptyArray,
-  emptyObject,
+  EMPTY_OBJECT,
+  EMPTY_ARRAY,
   noop,
   dvaReducerGenerator,
-  fnEmptyObject,
-  fnEmptyArray,
+  emptyArrayFn,
+  emptyObjectFn,
 } from './packages/shared'
 // Non-essential library
 export { actions, dvaLite } from './packages/dva'

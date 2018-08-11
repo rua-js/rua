@@ -1,20 +1,20 @@
-import { AnyObject } from '../type/data'
+import { AnyObject, AnyArray } from '../type/data'
 
-export const emptyArray = Object.freeze([])
+export const EMPTY_ARRAY = Object.freeze([])
 
-export const emptyObject: AnyObject = Object.freeze({})
+export const EMPTY_OBJECT: AnyObject = Object.freeze({})
 
-export function fnEmptyArray()
+export function emptyArrayFn()
 {
-  return emptyArray
+  return EMPTY_ARRAY
 }
 
-export function fnEmptyObject()
+export function emptyObjectFn()
 {
-  return emptyObject
+  return EMPTY_OBJECT
 }
 
-export const noop = () =>
+export function noop()
 {
 }
 
