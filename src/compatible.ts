@@ -4,3 +4,5 @@ export {
   emptyObjectFn as fnEmptyObject,
   emptyArrayFn as fnEmptyArray,
 } from './packages/shared'
+
+export { _ } from './packages/third-party'
