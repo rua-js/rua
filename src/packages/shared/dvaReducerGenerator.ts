@@ -1,7 +1,7 @@
 import * as _ from 'lodash'
 import { Memory } from '../memory'
 import { isPlainObject } from '../request/util'
-import { AnyObject } from '../type/data'
+import { AnyObject } from '../core/type/data'
 
 //- start
 const prefix = 'dva-model-backup-'

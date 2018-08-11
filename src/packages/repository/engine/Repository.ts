@@ -1,11 +1,11 @@
-import { AnyData, AnyObject } from '../../type/data'
+import { AnyData, AnyObject } from '../../core/type/data'
 import { RepositoryInterface } from '../Interface'
 import {
   RepositoryConfiguration,
   RepositoryHooks,
 } from '../type'
 import * as _ from 'lodash'
-import { Interpolator } from '../../type/function'
+import { Interpolator } from '../../core/type/function'
 
 class Repository implements RepositoryInterface
 {

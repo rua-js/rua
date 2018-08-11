@@ -1,7 +1,7 @@
 import * as _ from 'lodash'
 
 import { Storage, StorageEngine } from '../../storage'
-import { AnyData, AnyObject, ObjectOf } from '../../type/data'
+import { AnyData, AnyObject, ObjectOf } from '../../core/type/data'
 import { CacheInterface } from '../interface/index'
 import { CacheConfiguration } from '../type'
 

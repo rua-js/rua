@@ -1,5 +1,5 @@
 import { emptyObject } from '../shared'
-import { AnyObject, FunctionArray, FunctionObject, ObjectOf } from '../type/data'
+import { AnyObject, FunctionArray, FunctionObject, ObjectOf } from '../core/type/data'
 import { superAgentEngine, fetchEngine } from './engines'
 import { Header, Url, Body } from './internals'
 import { RequestConfiguration, UrlSchema, UrlString, ResponseData } from './type'

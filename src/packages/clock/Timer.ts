@@ -1,4 +1,4 @@
-import { FunctionObject } from '../type/data'
+import { FunctionObject } from '../core/type/data'
 
 class Timer
 {

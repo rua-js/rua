@@ -1,4 +1,4 @@
-import { AnyObject, AnyArray } from '../type/data'
+import { AnyObject, AnyArray } from '../core/type/data'
 
 export const EMPTY_ARRAY = Object.freeze([])
 

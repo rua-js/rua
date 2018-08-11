@@ -1,5 +1,5 @@
 import * as _ from 'lodash'
-import { AnyObject } from '../type/data'
+import { AnyObject } from '../core/type/data'
 import { DataAdaptorInterface } from './interfaces'
 import { DataStructure } from './types'
 

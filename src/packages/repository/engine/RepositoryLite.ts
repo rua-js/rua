@@ -1,4 +1,4 @@
-import { AnyData, AnyObject } from '../../type/data'
+import { AnyData, AnyObject } from '../../core/type/data'
 import { RepositoryLiteInterface } from '../interface'
 
 class RepositoryLite implements RepositoryLiteInterface

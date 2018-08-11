@@ -6,7 +6,7 @@ import * as _ from 'lodash'
 import { StorageEngineInterface } from '../interface'
 
 // rua Core Dependency
-import { AnyData, AnyObject } from '../../type/data'
+import { AnyData, AnyObject } from '../../core/type/data'
 
 class StorageEngine implements StorageEngineInterface
 {

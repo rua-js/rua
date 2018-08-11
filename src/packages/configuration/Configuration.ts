@@ -1,6 +1,6 @@
 import Cache from '../cache/engine/Cache'
 import { emptyObject } from '../shared'
-import { AnyObject } from '../type/data'
+import { AnyObject } from '../core/type/data'
 import { ConfigurationInterface } from './interfaces'
 
 class Configuration implements ConfigurationInterface

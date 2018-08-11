@@ -1,5 +1,5 @@
 import StringRules from './StringRules'
-import { AnyObject } from '../../type/data'
+import { AnyObject } from '../../core/type/data'
 import ValidationFunctionContainer from './ValidationFunctionContainer'
 
 interface ValidatorConfiguration

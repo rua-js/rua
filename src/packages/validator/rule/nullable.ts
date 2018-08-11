@@ -1,4 +1,4 @@
-import { AnyData } from '../../type/data'
+import { AnyData } from '../../core/type/data'
 import * as _ from 'lodash'
 
 const nullable = (carry: boolean, data: AnyData) =>

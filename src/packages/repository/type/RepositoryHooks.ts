@@ -1,6 +1,6 @@
-import { AnyObject, AnyData } from '../../type/data'
+import { AnyObject, AnyData } from '../../core/type/data'
 import { Repository } from '../engine'
-import { Interpolator } from '../../type/function'
+import { Interpolator } from '../../core/type/function'
 
 interface RepositoryHooks
 {

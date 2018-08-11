@@ -1,5 +1,5 @@
-import { AnyArray, AnyData, NilableObject } from '../../type/data'
-import { Interpolator } from '../../type/function'
+import { AnyArray, AnyData, NilableObject } from '../../core/type/data'
+import { Interpolator } from '../../core/type/function'
 
 interface RepositoryInterface
 {

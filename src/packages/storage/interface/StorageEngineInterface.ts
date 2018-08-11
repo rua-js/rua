@@ -1,5 +1,5 @@
 // rua Core Dependency
-import { AnyObject, AnyData } from '../../type/data'
+import { AnyObject, AnyData } from '../../core/type/data'
 
 interface StorageEngineInterface
 {

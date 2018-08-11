@@ -1,4 +1,4 @@
-import { AnyObject } from '../type/data'
+import { AnyObject } from '../core/type/data'
 
 const dev = process.env.NODE_ENV !== 'production'
 

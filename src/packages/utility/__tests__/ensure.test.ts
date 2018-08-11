@@ -1,4 +1,4 @@
-import { AnyObject } from '../../type/data'
+import { AnyObject } from '../../core/type/data'
 import {
   ensure,
   ensureArray,

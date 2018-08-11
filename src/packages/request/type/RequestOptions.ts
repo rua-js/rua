@@ -1,4 +1,4 @@
-import { AnyObject } from '../../type/data'
+import { AnyObject } from '../../core/type/data'
 import Query from './Query'
 import { Header } from '../internals'
 

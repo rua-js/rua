@@ -1,6 +1,6 @@
 import { ValidatorEngine } from '../engine'
 import { StringRules } from '../type'
-import { AnyObject } from '../../type/data'
+import { AnyObject } from '../../core/type/data'
 import { string, required } from '../rule'
 
 describe('ValidatorEngine', () =>

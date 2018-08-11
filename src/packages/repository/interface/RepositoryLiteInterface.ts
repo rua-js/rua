@@ -1,4 +1,4 @@
-import { AnyArray, AnyData, AnyObject } from '../../type/data'
+import { AnyArray, AnyData, AnyObject } from '../../core/type/data'
 
 interface RepositoryLiteInterface
 {

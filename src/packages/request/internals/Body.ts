@@ -1,4 +1,4 @@
-import { AnyObject } from '../../type/data'
+import { AnyObject } from '../../core/type/data'
 import { JSON2FormData } from '../../utility/convertor'
 import { BodyInterface } from '../interfaces'
 

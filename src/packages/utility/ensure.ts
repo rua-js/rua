@@ -1,4 +1,4 @@
-import { AnyData, AnyObject } from '../type/data'
+import { AnyData, AnyObject } from '../core/type/data'
 import * as _ from 'lodash'
 
 const _toString = Object.prototype.toString

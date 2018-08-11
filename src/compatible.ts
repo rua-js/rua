@@ -5,4 +5,4 @@ export {
   emptyArrayFn as fnEmptyArray,
 } from './packages/shared'
 
-export { _ } from './packages/rua/third-party'
+export { _ } from './packages/core/third-party'

@@ -3,4 +3,4 @@ export {
   Arrayable,
   Objectable,
   Jsonable,
-} from './contract'
+} from './contract/index'
