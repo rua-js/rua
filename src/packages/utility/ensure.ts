@@ -12,7 +12,7 @@ export function ensureObject(value: AnyData, fixValue: AnyObject = {})
 {
   const type = typeof value
 
-  return value !== null && (type === 'object' || type === 'function')
+  return null !== value && ('object' === type || 'function' === type)
     ? value
     : fixValue
 }
@@ -24,7 +24,7 @@ export function ensureObjectLike(value: AnyData, fixValue: AnyData = {})
 
 export function ensurePlainObject(value: AnyData, fixValue: AnyData = {})
 {
-  return _toString.call(value) === '[object Object]' ? value : fixValue
+  return '[object Object]' === _toString.call(value) ? value : fixValue
 }
 
 export function ensureArray(value: AnyData, fixValue: AnyData = [])
@@ -65,11 +65,12 @@ export function ensureInteger(value: AnyData, fixValue: AnyData)
 
 export function ensureNumber(value: AnyData, fixValue: AnyData)
 {
-  return typeof value === 'number' || _toString.call(value) === '[object Object]'
+  return 'number' === typeof value || '[object Object]' === _toString.call(value)
     ? value
     : fixValue
 }
 
-// export function ensureDate(value: AnyData) {
-//
+// export function ensureDate(value: AnyData, fixValue: Date = new Date)
+// {
+//   return typeof value === 'Date'
 // }
