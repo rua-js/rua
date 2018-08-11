@@ -1,5 +1,10 @@
 export type AnyData = any
-export interface AnyObject { [key: string]: any }
+
+export interface AnyObject
+{
+  [key: string]: any
+}
+
 export type AnyBoolean = boolean
 export type AnyArray = any[]
 
@@ -23,3 +28,5 @@ export interface ObjectOf<T>
 {
   [key: string]: T
 }
+
+export type NilableObjectOf<T> = ObjectOf<T> | undefined | null
