@@ -28,7 +28,7 @@ describe('DvaReducers', () =>
   {
     // Regular Case
     const model1 = genFakeModel()
-    const t1 = model1.reducers.setState(model1.state, { payload: { wori: 'nimei' } })
+    const t1 = model1.reducers.setState({}, { payload: { wori: 'nimei' } })
     const e1 = { wori: 'nimei' }
     expect(t1).toEqual(e1) // .setState
 
@@ -43,6 +43,18 @@ describe('DvaReducers', () =>
     expect(t3).toEqual(e3)
   })
 
+  test('.setState', () =>
+  {
+    // Regular Case
+    const model = genFakeModel()
+    const innerObj = { i: 1 }
+    const outerObj = { o: innerObj }
+    const t1 = model.reducers.setState({}, genPayload(outerObj)).o
+    const e1 = { i: 1 }
+    expect(t1).toEqual(e1)
+    expect(t1).toBe(innerObj)
+  })
+
   test('.mergeState', () =>
   {
     // Regular Case
@@ -50,18 +62,6 @@ describe('DvaReducers', () =>
     const innerObj = { i: 1 }
     const outerObj = { o: innerObj }
     const t1 = model.reducers.mergeState({}, genPayload(outerObj)).o
-    const e1 = { i: 1 }
-    expect(t1).toEqual(e1)
-    expect(t1).toBe(innerObj)
-  })
-
-  test('.deepMergeState', () =>
-  {
-    // Regular Case
-    const model = genFakeModel()
-    const innerObj = { i: 1 }
-    const outerObj = { o: innerObj }
-    const t1 = model.reducers.deepMergeState({}, genPayload(outerObj)).o
     const e1 = { i: 1 }
     expect(t1).toEqual(e1)
     expect(t1).not.toBe(innerObj)
