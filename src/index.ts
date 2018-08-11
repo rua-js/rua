@@ -41,7 +41,7 @@ export { actions, dvaLite } from './packages/dva'
 export { DataAdaptor } from './packages/data-adaptor'
 export { factory } from './packages/factory'
 // Third-party library
-export { connect } from './packages/third-party'
+export { connect } from './packages/rua/third-party'
 
 // Deep-integrated library
 
