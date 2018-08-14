@@ -27,11 +27,15 @@ Minor release **may** have breaking change
 
 `-release` or `no suffix`: stable version
 
+## Todo List
+- [ ] add seamless-immutable support for dvaReducerGenerator
+- [ ] rework StorageEngine to static class
+- [ ] rework ruaDva to separate integrated dva
 
 ## Package Check List
 - [x] APIRequest
 - [x] Cache
-- [ ] Clock
+- [x] Clock
 - [ ] Collection
 - [ ] Configuration
 - [x] Dva
@@ -47,12 +51,8 @@ Minor release **may** have breaking change
 - [x] Storage
 - [x] Validator
 - [ ] Rua
-- [ ] Decorator
 - [ ] HeartBeat
-- [ ] Payment
-- [ ] Share
 - [ ] Converter
-- [ ] Is
 - [ ] Str
 - [ ] File
 - [ ] Image
