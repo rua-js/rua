@@ -30,11 +30,15 @@ export { Decorator, Decorator as D } from './packages/decorator'
 export {
   core,
   EMPTY_OBJECT,
+  EMPTY_IMMUTABLE_OBJECT,
   EMPTY_ARRAY,
+  EMPTY_IMMUTABLE_ARRAY,
   noop,
   dvaReducerGenerator,
   emptyArrayFn,
+  emptyImmutableArrayFn,
   emptyObjectFn,
+  emptyImmutableObjectFn,
 } from './packages/shared'
 // Non-essential library
 export { actions, dvaLite } from './packages/dva'
