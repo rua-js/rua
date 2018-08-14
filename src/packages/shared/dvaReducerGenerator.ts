@@ -82,7 +82,7 @@ function backupState(state: AnyObject, action?: any): AnyObject
   // seamless-immutable support
   if (Immutable.isImmutable(state))
   {
-    // no need to deep lone state when it's immutable
+    // no need to deep clone state when it's immutable
     Memory.set(`${prefix}${namespace}`, state)
   }
   else
