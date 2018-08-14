@@ -109,9 +109,9 @@ function rollbackState(state: AnyObject, action?: any): AnyObject
   )
 }
 
-export default function dvaReducerGenerator(defaultState: Function)
+export default function dvaReducerGenerator(defaultState?: Function)
 {
-  const _defaultState = defaultState
+  const _defaultState = defaultState!
 
   function resetState(state: AnyObject, actions?: any): AnyObject
   {
