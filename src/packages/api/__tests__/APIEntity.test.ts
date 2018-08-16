@@ -1,5 +1,5 @@
 import * as faker from 'faker'
-import { APIEntity } from '../engine'
+import { APIEntity } from '../engines'
 
 describe('APIEntity tests', () =>
 {
