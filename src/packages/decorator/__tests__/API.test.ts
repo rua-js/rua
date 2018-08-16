@@ -1,5 +1,5 @@
 import API from '../API'
-import { APIRequest } from '../../api'
+import { ApiRequest } from '../../api'
 
 const {
   Method,
@@ -20,8 +20,8 @@ describe('decorator api', () =>
     expect(API()(test)).toBeTruthy()
 
     // Real Case
-    await expect(new APIRequest('test.go')).resolves.toBeInstanceOf(Object)
-    await expect(new APIRequest('test.go')).resolves.toHaveProperty('page')
+    await expect(new ApiRequest('test.go')).resolves.toBeInstanceOf(Object)
+    await expect(new ApiRequest('test.go')).resolves.toHaveProperty('page')
   })
 
   test('Method', () =>
