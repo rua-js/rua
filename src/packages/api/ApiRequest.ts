@@ -5,57 +5,36 @@ import { RepositoryLite } from '../repository'
 import { Request } from '../request'
 import { ResponseData } from '../request/type'
 import { AnyObject, NilableObjectOf } from '../core/type/data'
-import { APIEntity } from './engine'
+import { APIEntity } from './engines'
 import { APIConfiguration } from './type'
 import { invariant } from './util'
 
 /**
- * APIRequest is designed to solve bad shitty server-side api design
+ * ApiRequest is designed to solve bad shitty server-side api design
  *
  * NOTE: sometime, backend developers provide shit-like api to front-end developers, they fucked up
  * our code because the fucking api is really hard to understand, maintenance will be nightmare for
  * us, we need to abstract/wrap their anti-human api to human-friendly api
  *
  * NOTE: also, let developer who is new to the front-end development to do the request job
- * is devastating, we have to pack all hard part into one (like APIRequest did),
+ * is devastating, we have to pack all hard part into one (like ApiRequest did),
  * let them easier to use, let us easier to manage project and control the code quality
  *
- * @class APIRequest
+ * @class ApiRequest
  */
-class APIRequest
+class ApiRequest implements PromiseLike<ResponseData>
 {
   /**
    * Stores user request instance
    *
-   * NOTE: request is undefined until user called .then() of .catch()
+   * NOTE: request is called right after you call 'new ApiRequest'
    */
-  protected request: Promise<ResponseData> | undefined = undefined
-
-  /**
-   * Stores user request namespace
-   *
-   * NOTE: namespace is the alias of one user-defined request information
-   * NOTE: Because APIRequest only start a request after user called .then(),
-   * so, we store data here to use it in future
-   *
-   * @type {string}
-   */
-  protected namespace: string
-
-  /**
-   * Stores user request data
-   *
-   * NOTE: Because APIRequest only start a request after user called .then(),
-   * so, we store data here to use it in future
-   *
-   * @type {NilableObjectOf<any>}
-   */
-  protected data: NilableObjectOf<any>
+  protected request: Promise<ResponseData>
 
   /**
    * Global defaults, use new Rua() to set up is recommended
    *
-   * NOTE: please remember static default settings is share with all APIRequest,
+   * NOTE: please remember static default settings is share with all ApiRequest,
    *
    * @type {any}
    */
@@ -74,7 +53,7 @@ class APIRequest
   public static api: RepositoryLite = new RepositoryLite()
 
   /**
-   * Create an APIRequest instance and save nesassary data for Request
+   * Create an ApiRequest instance and save necessary data for Request
    *
    * @constructor
    * @param namespace
@@ -82,12 +61,11 @@ class APIRequest
    */
   public constructor(namespace: string, data?: NilableObjectOf<any>)
   {
-    this.namespace = namespace
-    this.data = data
+    this.request = ApiRequest.start(namespace, data)
   }
 
   /**
-   * Configure APIRequest
+   * Configure ApiRequest
    *
    * @param {AnyObject} config
    */
@@ -109,11 +87,11 @@ class APIRequest
     // load api if it's given
     if (data)
     {
-      APIRequest.api.load(data as any)
+      ApiRequest.api.load(data as any)
     }
 
     // defaults reference
-    const defaults = APIRequest.defaults
+    const defaults = ApiRequest.defaults
 
     // save factory config
     if (useFactoryOnProduction)
@@ -129,20 +107,16 @@ class APIRequest
   }
 
   /**
-   * Start a Request from current APIRequest
+   * Start a Request from current ApiRequest
    *
    * NOTE: we only call this method in .then() and .catch()
    *
    * @returns {any}
    */
-  protected start(): Promise<ResponseData>
+  protected static start(namespace: string, data: NilableObjectOf<any> = {}): Promise<ResponseData>
   {
-    // take out required Request data
-    const namespace = this.namespace
-    const data = this.data
-
-    // enable factory in APIRequest
-    const { defaults } = APIRequest
+    // enable factory in ApiRequest
+    const { defaults } = ApiRequest
 
     if (
       (defaults.useFactoryOnProduction || process.env.NODE_ENV !== 'production')
@@ -153,7 +127,7 @@ class APIRequest
     }
 
     // get configuration of one api (setting)
-    const config = _.get(APIRequest.api.all(), namespace)
+    const config = _.get(ApiRequest.api.all(), namespace)
 
     // make sure has the api
     invariant(config, 'The api that you are trying to access is NOT exists')
@@ -170,14 +144,8 @@ class APIRequest
    * @param params
    * @returns {Bluebird<any>}
    */
-  public then(...params: any[]): Promise<any>
+  public then(...params: any[]): Promise<ResponseData>
   {
-    // start a request if NOT started
-    if (!this.request)
-    {
-      this.request = this.start()
-    }
-
     // pass parameters down to Request promise
     return this.request.then(...params)
   }
@@ -192,16 +160,10 @@ class APIRequest
    */
   public catch(...params: any[]): Promise<any>
   {
-    // start a request if NOT started
-    if (!this.request)
-    {
-      this.request = this.start()
-    }
-
     // pass parameters down to Request promise
     // @ts-ignore: what i can do about this, parameter count problem
     return this.request.catch(...params)
   }
 }
 
-export default APIRequest
+export default ApiRequest

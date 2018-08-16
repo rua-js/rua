@@ -24,7 +24,7 @@ export {
 export { Memory } from './packages/memory'
 // Essential library
 export { Cache } from './packages/cache'
-export { APIRequest } from './packages/api'
+export { ApiRequest } from './packages/api'
 export { __, locale, translate } from './packages/localization'
 export { Decorator, Decorator as D } from './packages/decorator'
 export {

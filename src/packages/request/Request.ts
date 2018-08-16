@@ -4,7 +4,7 @@ import { superAgentEngine, fetchEngine } from './engines'
 import { Header, Url, Body } from './internals'
 import { RequestConfiguration, UrlSchema, UrlString, ResponseData } from './type'
 
-class Request
+class Request implements PromiseLike<ResponseData>
 {
   public static interceptors: ObjectOf<FunctionArray> = {
     request: [],
@@ -30,6 +30,8 @@ class Request
   protected body: Body
 
   protected configuration: any
+
+  protected request: Promise<ResponseData>
 
   public constructor(
     url: UrlSchema | UrlString,
@@ -65,8 +67,7 @@ class Request
       this.configuration.query = { ...this.configuration.query, ...bodyOrQuery }
     }
 
-    // @ts-ignore: we know this is crazy but we need it
-    return this.start()
+    this.request = this.start()
   }
 
   public static config(requestConfig: RequestConfiguration): void
@@ -137,6 +138,16 @@ class Request
         return response
       },
     })
+  }
+
+  public then(...params: any[]): Promise<any>
+  {
+    return this.request.then(...params)
+  }
+
+  public catch(...params: any[]): Promise<any>
+  {
+    return this.request.catch(...params)
   }
 }
 
