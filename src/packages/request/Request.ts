@@ -1,9 +1,8 @@
-import { emptyObject } from '../shared'
+import { EMPTY_OBJECT } from '../shared'
 import { AnyObject, FunctionArray, FunctionObject, ObjectOf } from '../core/type/data'
 import { superAgentEngine, fetchEngine } from './engines'
 import { Header, Url, Body } from './internals'
 import { RequestConfiguration, UrlSchema, UrlString, ResponseData } from './type'
-import * as _ from 'lodash'
 
 class Request
 {
@@ -74,8 +73,8 @@ class Request
   {
     const {
       defaultMethod,
-      requestInterceptors = emptyObject,
-      responseInterceptors = emptyObject,
+      requestInterceptors = EMPTY_OBJECT,
+      responseInterceptors = EMPTY_OBJECT,
     } = requestConfig
 
     if (defaultMethod)
