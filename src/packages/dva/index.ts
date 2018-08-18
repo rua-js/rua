@@ -2,7 +2,7 @@
 // Third-party Dependency
 // Self Dependency
 import RuaDva from './RuaDva'
-import { Actions } from './type'
+import { Actions } from './types'
 import {
   dvaLite as getDvaLite,
   dva as getDva,
