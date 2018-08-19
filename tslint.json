@@ -8,7 +8,8 @@
         "newline-before-return": true,
         "brace-style": ["error", "allman"],
         "member-access": true,
-        "variable-name": false
+        "variable-name": false,
+        "function-name": false
     },
     "rulesDirectory": []
 }

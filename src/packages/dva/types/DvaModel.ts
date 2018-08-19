@@ -2,11 +2,11 @@ import { ObjectOf } from '../../core/type/data'
 
 export default interface DvaModel
 {
-  state: ObjectOf<any>
+  state?: ObjectOf<any>
 
-  reducers: ObjectOf<Function>
+  reducers?: ObjectOf<Function>
 
-  effects: ObjectOf<Function>
+  effects?: ObjectOf<Function>
 
-  subscriptions: ObjectOf<Function>
+  subscriptions?: ObjectOf<Function>
 }
