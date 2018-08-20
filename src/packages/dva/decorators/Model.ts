@@ -1,8 +1,26 @@
 import * as _ from 'lodash'
+// import {  } from '../../'
 
 export default function Model(classOrConfig: any): any
 {
-  const instance = new classOrConfig()
+  if ('function' === typeof classOrConfig)
+  {
+    return ModelWithoutConfig(classOrConfig)
+  }
+
+  const {
+    reducerEnhance = true,
+  } = classOrConfig
+
+  if (reducerEnhance)
+  {
+
+  }
+}
+
+function ModelWithoutConfig(_class: any): any
+{
+  const instance = new _class()
 
   const {
     $$state,
@@ -12,9 +30,9 @@ export default function Model(classOrConfig: any): any
     $$dynamic_effect_names,
     $$subscriptions,
     $$dynamic_subscription_names,
-  } = classOrConfig.prototype
+  } = _class.prototype
 
-  const namespace = _.lowerFirst(classOrConfig.name)
+  const namespace = _.lowerFirst(_class.name)
 
   // load state
   const state = instance[$$state]
