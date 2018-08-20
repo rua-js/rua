@@ -1,4 +1,5 @@
 // import { decorator as D } from '../index'
+import * as Immutable from 'seamless-immutable'
 
 describe('decorator Test', () =>
 {
@@ -29,5 +30,14 @@ describe('decorator Test', () =>
     //   }
     // }
     // expect(t2).toBe(574110)
+  })
+
+  test('SeamlessImmutable', () =>
+  {
+    class A
+    {
+
+      b = 2
+    }
   })
 })
