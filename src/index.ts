@@ -46,6 +46,7 @@ export { DataAdaptor } from './packages/data-adaptor'
 export { factory } from './packages/factory'
 // Third-party library
 export { connect } from './packages/core/third-party'
+export { Timer } from './packages/clock'
 
 // Deep-integrated library
 
