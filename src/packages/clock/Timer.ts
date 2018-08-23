@@ -1,8 +1,7 @@
-import { ObjectOf } from '../core/type/data'
 import { TimerInterface } from './interfaces'
 import { EMPTY_OBJECT } from '../shared'
 
-class Timer implements TimerInterface
+class Timer implements TimerInterface<Timer>
 {
   /**
    * start time of this timer
@@ -63,7 +62,7 @@ class Timer implements TimerInterface
     this.accurate = accurate
   }
 
-  public start()
+  public start(): Timer
   {
     // record start time
     this.startTime = new Date()
@@ -80,14 +79,14 @@ class Timer implements TimerInterface
     return this
   }
 
-  public stop()
+  public stop(): Timer
   {
     const stopTime = new Date()
     const startTime = this.startTime
 
     if (!startTime)
     {
-      return
+      return this
     }
 
     this.accumulatedTime += +stopTime - +startTime
@@ -98,7 +97,7 @@ class Timer implements TimerInterface
     return this
   }
 
-  public pause()
+  public pause(): Timer
   {
     // get pause time
     const pauseTime = new Date()
@@ -107,7 +106,7 @@ class Timer implements TimerInterface
 
     if (!startTime)
     {
-      return
+      return this
     }
 
     this.accumulatedTime += +pauseTime - +startTime
@@ -119,11 +118,11 @@ class Timer implements TimerInterface
     return this
   }
 
-  public resume()
+  public resume(): Timer
   {
     if (!this.accumulatedTime || this.startTime)
     {
-      return
+      return this
     }
 
     this.startTime = new Date()
@@ -131,7 +130,7 @@ class Timer implements TimerInterface
     return this
   }
 
-  public reset()
+  public reset(): Timer
   {
     const tickClock = this.tickClock
 
@@ -146,14 +145,14 @@ class Timer implements TimerInterface
     return this
   }
 
-  public onTick(callback: Function)
+  public onTick(callback: Function): Timer
   {
     this.handleTick = callback
 
     return this
   }
 
-  public getTime()
+  public getTime(): number
   {
     if (!this.startTime)
     {
@@ -163,6 +162,26 @@ class Timer implements TimerInterface
     const now = new Date()
 
     return +now - +this.startTime + this.accumulatedTime
+  }
+
+  public getHour(): number
+  {
+    return Math.floor(this.getTime() / 360000) % 24
+  }
+
+  public getMinute(): number
+  {
+    return Math.floor(this.getTime() / 60000) % 60
+  }
+
+  public getSecond(): number
+  {
+    return Math.floor(this.getTime() / 1000) % 60
+  }
+
+  public getMillisecond(): number
+  {
+    return this.getTime() % 1000
   }
 }
 
