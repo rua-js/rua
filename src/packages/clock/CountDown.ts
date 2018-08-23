@@ -49,6 +49,12 @@ export default class CountDown implements CountDownInterface<CountDown>
     this.endTimer = setTimeout(
       () =>
       {
+        if (this.tickClock)
+        {
+          clearInterval(this.tickClock)
+          this.tickClock = undefined
+        }
+
         return this.handleFinish && this.handleFinish(this)
       },
       this.time,
@@ -117,13 +123,17 @@ export default class CountDown implements CountDownInterface<CountDown>
     // paused or stopped
     if (!this.startTime)
     {
-      return this.time - this.elapseTime
+      const time = this.time - this.elapseTime
+
+      return time > 0 ? time : 0
     }
 
     const now = +new Date()
     const currentElapse = now - this.startTime
 
-    return this.time - this.elapseTime - currentElapse
+    const time = this.time - this.elapseTime - currentElapse
+
+    return time > 0 ? time : 0
   }
 
   public getHour(): number
