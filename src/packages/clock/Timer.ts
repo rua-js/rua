@@ -1,7 +1,7 @@
 import { TimerInterface } from './interfaces'
 import { EMPTY_OBJECT } from '../shared'
 
-class Timer implements TimerInterface<Timer>
+export default class Timer implements TimerInterface<Timer>
 {
   /**
    * start time of this timer
@@ -53,7 +53,7 @@ class Timer implements TimerInterface<Timer>
   public constructor(config: any = EMPTY_OBJECT)
   {
     const {
-      tickInterval = 100,
+      tickInterval = 1000,
       accurate = 100,
     } = config
 
@@ -184,5 +184,3 @@ class Timer implements TimerInterface<Timer>
     return this.getTime() % 1000
   }
 }
-
-export default Timer

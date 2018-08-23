@@ -1,4 +1,4 @@
-export default interface TimerInterface<T>
+export default interface CountDownInterface<T>
 {
   start(): T
 
@@ -8,11 +8,11 @@ export default interface TimerInterface<T>
 
   resume(): T
 
-  reset(): T
-
   restart(): T
 
   onTick(callback: Function): T
+
+  onFinish(callback: Function): T
 
   getTime(): number
 
