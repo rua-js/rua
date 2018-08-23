@@ -64,6 +64,9 @@ export default class Timer implements TimerInterface<Timer>
 
   public start(): Timer
   {
+    // reset
+    this.accumulatedTime = 0
+
     // record start time
     this.startTime = new Date()
 
@@ -92,9 +95,18 @@ export default class Timer implements TimerInterface<Timer>
     this.accumulatedTime += +stopTime - +startTime
     this.startTime = undefined
 
-    clearInterval(this.tickClock!)
+    if (this.tickClock)
+    {
+      clearInterval(this.tickClock!)
+      this.tickClock = undefined
+    }
 
     return this
+  }
+
+  public restart(): Timer
+  {
+    return this.stop().start()
   }
 
   public pause(): Timer
@@ -126,21 +138,6 @@ export default class Timer implements TimerInterface<Timer>
     }
 
     this.startTime = new Date()
-
-    return this
-  }
-
-  public reset(): Timer
-  {
-    const tickClock = this.tickClock
-
-    if (tickClock)
-    {
-      clearInterval(tickClock)
-    }
-
-    this.startTime = undefined
-    this.accumulatedTime = 0
 
     return this
   }

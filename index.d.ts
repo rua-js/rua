@@ -15,4 +15,4 @@ export { actions, dvaLite } from './lib/packages/dva';
 export { DataAdaptor } from './lib/packages/data-adaptor';
 export { factory } from './lib/packages/factory';
 export { connect } from './lib/packages/core/third-party';
-export { Timer } from './lib/packages/clock';
+export { Timer, CountDown } from './lib/packages/clock';

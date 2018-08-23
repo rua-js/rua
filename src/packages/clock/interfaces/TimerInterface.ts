@@ -8,8 +8,6 @@ export default interface TimerInterface<T>
 
   resume(): T
 
-  reset(): T
-
   restart(): T
 
   onTick(callback: Function): T

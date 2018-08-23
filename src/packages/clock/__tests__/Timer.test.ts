@@ -16,18 +16,19 @@ describe('Timer Tests', () =>
   test('.pause, .resume', () =>
   {
     const timer = new Timer()
-
   })
 
   test('.onTick', async () =>
   {
-    const timer = new Timer()
+    const timer = new Timer({
+      tickInterval: 100,
+    })
     const callbackMock = jest.fn()
 
     timer.onTick(callbackMock).start()
     await new Promise(resolve => setTimeout(resolve, 2000))
     timer.stop()
-    expect(callbackMock.mock.calls.length >= 19).toBe(true)
+    expect(callbackMock.mock.calls.length).toBe(19)
   })
 
   test('.getTime', async () =>
