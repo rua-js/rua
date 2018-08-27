@@ -44,6 +44,8 @@ export default class Timer implements TimerInterface<Timer>
 
   protected handleTick: Function | undefined
 
+  protected tickImmediatelyOnStart: boolean
+
   /**
    * configure and set
    *
@@ -55,11 +57,13 @@ export default class Timer implements TimerInterface<Timer>
     const {
       tickInterval = 1000,
       accurate = 100,
+      tickImmediatelyOnStart = true,
     } = config
 
     this.accumulatedTime = 0
     this.tickInterval = tickInterval
     this.accurate = accurate
+    this.tickImmediatelyOnStart = tickImmediatelyOnStart
   }
 
   public start(): Timer
@@ -69,6 +73,12 @@ export default class Timer implements TimerInterface<Timer>
 
     // record start time
     this.startTime = new Date()
+
+    // instant tick
+    if (this.tickImmediatelyOnStart)
+    {
+      this.handleTick && this.handleTick(this)
+    }
 
     // start ticking
     this.tickClock = setInterval(

@@ -18,16 +18,20 @@ export default class CountDown implements CountDownInterface<CountDown>
 
   protected handleFinish: Function | undefined
 
+  protected tickImmediatelyOnStart: boolean
+
   public constructor(config: any)
   {
     const {
       time,
       tickInterval = 1000,
+      tickImmediatelyOnStart = true,
     } = config
 
     this.time = +time
     this.tickInterval = tickInterval
     this.elapseTime = 0
+    this.tickImmediatelyOnStart = tickImmediatelyOnStart
   }
 
   public start(): CountDown
@@ -35,6 +39,12 @@ export default class CountDown implements CountDownInterface<CountDown>
     // record start time
     this.startTime = +new Date()
     this.elapseTime = 0
+
+    // instant tick
+    if (this.tickImmediatelyOnStart)
+    {
+      this.handleTick && this.handleTick(this)
+    }
 
     // start ticking
     this.tickClock = setInterval(
