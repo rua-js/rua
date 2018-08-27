@@ -1,4 +1,6 @@
-export default interface TimerInterface<T>
+import Timable from './Timable'
+
+export default interface TimerInterface<T> extends Timable
 {
   start(): T
 
@@ -11,14 +13,4 @@ export default interface TimerInterface<T>
   restart(): T
 
   onTick(callback: Function): T
-
-  getTime(): number
-
-  getHour(): number
-
-  getMinute(): number
-
-  getSecond(): number
-
-  getMillisecond(): number
 }

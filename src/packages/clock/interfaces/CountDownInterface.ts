@@ -1,4 +1,6 @@
-export default interface CountDownInterface<T>
+import Timable from './Timable'
+
+export default interface CountDownInterface<T> extends Timable
 {
   start(): T
 
@@ -13,14 +15,4 @@ export default interface CountDownInterface<T>
   onTick(callback: Function): T
 
   onFinish(callback: Function): T
-
-  getTime(): number
-
-  getHour(): number
-
-  getMinute(): number
-
-  getSecond(): number
-
-  getMillisecond(): number
 }

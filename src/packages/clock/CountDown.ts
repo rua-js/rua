@@ -155,4 +155,24 @@ export default class CountDown implements CountDownInterface<CountDown>
   {
     return this.getTime() % 1000
   }
+
+  public toHours(): number
+  {
+    return Math.floor(this.getTime() / 360000)
+  }
+
+  public toMinutes(): number
+  {
+    return Math.floor(this.getTime() / 60000)
+  }
+
+  public toSeconds(): number
+  {
+    return Math.floor(this.getTime() / 1000)
+  }
+
+  public toMilliseconds(): number
+  {
+    return this.getTime()
+  }
 }
