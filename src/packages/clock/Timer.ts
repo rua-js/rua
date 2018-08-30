@@ -74,12 +74,6 @@ export default class Timer implements TimerInterface<Timer>
     // record start time
     this.startTime = new Date()
 
-    // instant tick
-    if (this.tickImmediatelyOnStart)
-    {
-      this.handleTick && this.handleTick(this)
-    }
-
     // start ticking
     this.tickClock = setInterval(
       () =>
@@ -88,6 +82,12 @@ export default class Timer implements TimerInterface<Timer>
       },
       this.tickInterval,
     )
+
+    // instant tick
+    if (this.tickImmediatelyOnStart)
+    {
+      this.handleTick && this.handleTick(this)
+    }
 
     return this
   }

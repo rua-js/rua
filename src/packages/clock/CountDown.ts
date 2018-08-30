@@ -40,12 +40,6 @@ export default class CountDown implements CountDownInterface<CountDown>
     this.startTime = +new Date()
     this.elapseTime = 0
 
-    // instant tick
-    if (this.tickImmediatelyOnStart)
-    {
-      this.handleTick && this.handleTick(this)
-    }
-
     // start ticking
     this.tickClock = setInterval(
       () =>
@@ -69,6 +63,12 @@ export default class CountDown implements CountDownInterface<CountDown>
       },
       this.time,
     )
+
+    // instant tick
+    if (this.tickImmediatelyOnStart)
+    {
+      this.handleTick && this.handleTick(this)
+    }
 
     return this
   }
