@@ -10,8 +10,6 @@ export default class Timer implements TimerInterface<Timer>
    */
   protected startTime: Date | undefined
 
-  protected accurate: number
-
   /**
    * accumulatedTime
    *
@@ -56,13 +54,11 @@ export default class Timer implements TimerInterface<Timer>
   {
     const {
       tickInterval = 1000,
-      accurate = 100,
       tickImmediatelyOnStart = true,
     } = config
 
     this.accumulatedTime = 0
     this.tickInterval = tickInterval
-    this.accurate = accurate
     this.tickImmediatelyOnStart = tickImmediatelyOnStart
   }
 
