@@ -28,7 +28,7 @@ Minor release **may** have breaking change
 `-release` or `no suffix`: stable version
 
 ## Todo List
-- [ ] add seamless-immutable support for dvaReducerGenerator
+- [x] add seamless-immutable support for dvaReducerGenerator
 - [ ] rework StorageEngine to static class
 - [ ] rework ruaDva to separate integrated dva
 
@@ -36,7 +36,6 @@ Minor release **may** have breaking change
 - [x] APIRequest
 - [x] Cache
 - [x] Clock
-- [ ] Collection
 - [ ] Configuration
 - [x] Dva
 - [x] DataAdaptor
@@ -53,9 +52,6 @@ Minor release **may** have breaking change
 - [ ] Rua
 - [ ] HeartBeat
 - [ ] Converter
-- [ ] Str
-- [ ] File
-- [ ] Image
 
 ## Dev Package Check List
 - [x] FileLinker
