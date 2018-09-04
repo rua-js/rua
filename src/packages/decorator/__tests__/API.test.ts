@@ -1,11 +1,11 @@
-import API from '../API'
+import Api from '../Api'
 import { ApiRequest } from '../../api'
 
 const {
   Method,
   Form,
   URL,
-} = API
+} = Api
 
 describe('decorator api', () =>
 {
@@ -17,7 +17,7 @@ describe('decorator api', () =>
       public go: string = 'https://reqres.in/api/users'
     }
 
-    expect(API()(test)).toBeTruthy()
+    expect(Api()(test)).toBeTruthy()
 
     // Real Case
     await expect(new ApiRequest('test.go')).resolves.toBeInstanceOf(Object)

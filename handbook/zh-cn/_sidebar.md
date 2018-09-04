@@ -8,7 +8,7 @@
 * 请求
   
   * [请求: Request](/zh-cn/Request.md)
-  * [接口: API](/zh-cn/API.md)
+  * [接口: Api](/zh-cn/API.md)
   * [资源: Resource](/zh-cn/resource.md)
   
 

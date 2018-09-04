@@ -15,13 +15,13 @@
 - [ ] HeartBeat
 
 ### 0.9.x
-- [x] API Decorator
+- [x] Api Decorator
 - [x] DataAdaptor
 - [x] Validator
 
 ### 0.8.x
 - [x] Memory
-- [x] One API can be defined as a string
+- [x] One Api can be defined as a string
 
 ### 0.7.x
 - [x] Is
@@ -32,7 +32,7 @@
 - [x] Request interceptors now applies at beginning
 - [x] Rua.ts rework
 - [x] Storage rework
-- [x] API rework
+- [x] Api rework
 - [x] Decorator
 - [x] Convertor
 
@@ -61,7 +61,7 @@
 - [x] Fetch now throws correct Exception
 
 ### 0.2.x
-- [x] Add API
+- [x] Add Api
 - [x] Add Cache
 
 ### 0.1.x

@@ -2,7 +2,7 @@ import * as APIProperties from './api/index'
 import { APIEntityObject } from '../api/type/index'
 import { ApiRequest } from '../api'
 
-const API: any = () => (target: any): APIEntityObject =>
+const Api: any = () => (target: any): APIEntityObject =>
 {
   const entityObject = {
     [target.name.toLowerCase()]: new target(),
@@ -13,6 +13,6 @@ const API: any = () => (target: any): APIEntityObject =>
   return <APIEntityObject>entityObject
 }
 
-Object.assign(API, APIProperties)
+Object.assign(Api, APIProperties)
 
-export default API
+export default Api

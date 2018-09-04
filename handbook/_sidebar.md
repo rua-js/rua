@@ -7,7 +7,7 @@
 
 * Request
   
-  * [API](/API.md)
+  * [Api](/API.md)
   
 * Redux
   

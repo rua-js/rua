@@ -1,14 +1,14 @@
 import Listen from './Listen'
 import Connect from './Connect'
 import Instance from './Instance'
-import API from './API'
+import Api from './Api'
 import AutoBind from './AutoBind'
 
 const Decorator = {
   Listen,
   Connect,
   Instance,
-  API,
+  API: Api,
   AutoBind,
 }
 
@@ -17,6 +17,6 @@ export {
   Listen,
   Connect,
   Instance,
-  API,
+  Api,
   AutoBind,
 }

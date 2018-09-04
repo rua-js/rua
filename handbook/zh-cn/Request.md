@@ -6,9 +6,9 @@
 作为底层实现, 默认和推荐使用
 [superagent](https://github.com/visionmedia/superagent),
 
-`Request`是`API`和`Resource`库的依赖
+`Request`是`Api`和`Resource`库的依赖
 
-**推荐使用**`API`, 因为`Request`不符合工程化的前端应用
+**推荐使用**`Api`, 因为`Request`不符合工程化的前端应用
 
 #### 导入
 ```javascript
