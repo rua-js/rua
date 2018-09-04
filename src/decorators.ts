@@ -1,5 +1,6 @@
 import * as Dva from './packages/dva/decorators'
-import { Connect, AutoBind, Api } from './packages/decorator'
+import { Connect, AutoBind } from './packages/decorator'
+import Api from './packages/api/decorators'
 
 export {
   Dva,

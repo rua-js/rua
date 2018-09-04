@@ -28,7 +28,7 @@ describe('Timer Tests', () =>
     timer.onTick(callbackMock).start()
     await new Promise(resolve => setTimeout(resolve, 2000))
     timer.stop()
-    expect(callbackMock.mock.calls.length).toBe(19)
+    expect(callbackMock.mock.calls.length).toBe(20)
   })
 
   test('.getTime', async () =>

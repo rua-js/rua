@@ -1,6 +1,6 @@
 {
   "name": "rua",
-  "version": "0.14.8",
+  "version": "0.14.9",
   "description": "Elegant data utilities for front-end applications",
   "main": "lib/index.js",
   "scripts": {

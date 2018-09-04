@@ -130,7 +130,7 @@ class ApiRequest implements PromiseLike<ResponseData>
     const config = _.get(ApiRequest.api.all(), namespace)
 
     // make sure has the api
-    invariant(config, 'The api that you are trying to access is NOT exists')
+    invariant(config, `The api that you are trying to access is NOT exists: ${namespace}`)
 
     const { url, ...restConfig } = new APIEntity(config).toObject()
 
