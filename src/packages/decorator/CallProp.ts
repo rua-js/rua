@@ -7,11 +7,17 @@ export default function CallProp(propKey: string)
       console.warn('[Decorator]CallProp will override original function')
     }
 
-    target[key] = function (...props: any[])
-    {
-      const fn = this.props[propKey]
+    Object.defineProperty(target, key, {
+      get()
+      {
+        return function (...props: any[])
+        {
+          // @ts-ignore
+          const fn = this.props[propKey]
 
-      return fn && fn(...props)
-    }
+          return fn && fn(...props)
+        }.bind(this)
+      },
+    })
   }
 }
