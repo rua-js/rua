@@ -15,10 +15,12 @@ export default function SetState(stateKey: string | ObjectOf<any> | string[], st
         return function (...args: any[])
         {
           // key-value mode
-          if (stateValue)
+          if (undefined === stateValue)
           {
             // @ts-ignore
-            return this.setState(stateKey, stateValue)
+            return this.setState({
+              [(stateKey as string)]: stateValue,
+            })
           }
 
           // projection mode
@@ -38,7 +40,7 @@ export default function SetState(stateKey: string | ObjectOf<any> | string[], st
           // object mode
           // @ts-ignore
           return this.setState(stateKey)
-        }
+        }.bind(this)
       },
     })
   }

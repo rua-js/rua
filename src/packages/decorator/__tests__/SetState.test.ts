@@ -18,8 +18,9 @@ describe('Decorator CallProp Tests', () =>
     a.B()
 
     expect(setStateFn.mock.calls.length).toBe(1)
-    expect(setStateFn.mock.calls[0][0]).toBe('hehe')
-    expect(setStateFn.mock.calls[0][1]).toBe('haha')
+    expect(setStateFn.mock.calls[0][0]).toEqual({
+      hehe: 'haha',
+    })
   })
 
   test('2 parameters', () =>
