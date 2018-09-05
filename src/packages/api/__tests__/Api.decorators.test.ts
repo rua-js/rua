@@ -86,6 +86,7 @@ describe('Api Decorators Tests', () =>
   test('Jwt', () =>
   {
     const randomStr = 'rua fasuudru23rjlasdnfoq32ifnqlfafqieflsj;'
+
     @Api
     class MyApi
     {
@@ -96,6 +97,26 @@ describe('Api Decorators Tests', () =>
     expect(ApiRequest.api.all()).toEqual({
       myapi: {
         test: { headers: { authorization: randomStr }, url: 'www.qq.com' },
+      },
+    })
+  })
+
+  test('All-in-one', () =>
+  {
+    const randomStr = 'rua fasuudru23rjlasdnfoq32ifnqlfafqieflsj;'
+
+    @Api
+    class MyApi
+    {
+      @Api.Jwt(randomStr)
+      @Api.POST
+      @Api.Body({ wode: 1 })
+      public test: any = 'www.qq.com'
+    }
+
+    expect(ApiRequest.api.all()).toEqual({
+      myapi: {
+        test: { headers: { authorization: randomStr }, url: 'www.qq.com', body: { wode: 1 }, method: 'POST' },
       },
     })
   })

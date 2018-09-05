@@ -19,6 +19,10 @@ export default function Method(method: string)
         {
           target.__apiList[key].url = url
         },
+        get()
+        {
+          return true
+        },
       })
     }
 

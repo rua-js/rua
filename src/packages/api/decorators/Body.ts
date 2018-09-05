@@ -21,6 +21,10 @@ export default function Body(body: ObjectOf<any>)
         {
           target.__apiList[key].url = url
         },
+        get()
+        {
+          return true
+        },
       })
     }
 

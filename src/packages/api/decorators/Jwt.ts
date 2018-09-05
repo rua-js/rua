@@ -21,6 +21,10 @@ export default function Body(jwt: string | Function)
         {
           target.__apiList[key].url = url
         },
+        get()
+        {
+          return true
+        },
       })
     }
 
