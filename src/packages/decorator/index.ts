@@ -1,3 +1,4 @@
+import Freeze from './Freeze'
 import Listen from './Listen'
 import Connect from './Connect'
 import Instance from './Instance'
@@ -16,6 +17,7 @@ const Decorator = {
 
 export {
   Decorator,
+  Freeze,
   Listen,
   Connect,
   Instance,
