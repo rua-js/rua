@@ -3,6 +3,8 @@ import Connect from './Connect'
 import Instance from './Instance'
 import Api from './Api'
 import AutoBind from './AutoBind'
+import CallProp from './CallProp'
+import CallPropHOF from './CallPropHOF'
 
 const Decorator = {
   Listen,
@@ -17,6 +19,7 @@ export {
   Listen,
   Connect,
   Instance,
-  Api,
   AutoBind,
+  CallProp,
+  CallPropHOF,
 }
