@@ -1,5 +1,14 @@
 import * as Dva from './packages/dva/decorators'
-import { Connect, AutoBind, CallProp, CallPropHOF, Freeze, SetState } from './packages/decorator'
+import {
+  Connect,
+  AutoBind,
+  CallProp,
+  CallPropHOF,
+  Freeze,
+  SetState,
+  Actions,
+  Action,
+} from './packages/decorator'
 import { default as Api } from './packages/api/decorators'
 
 export {
@@ -11,4 +20,6 @@ export {
   CallPropHOF,
   Freeze,
   SetState,
+  Actions,
+  Action,
 }

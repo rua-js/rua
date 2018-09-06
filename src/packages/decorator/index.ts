@@ -7,6 +7,8 @@ import AutoBind from './AutoBind'
 import CallProp from './CallProp'
 import CallPropHOF from './CallPropHOF'
 import SetState from './SetState'
+import Action from './Action'
+import Actions from './Actions'
 
 const Decorator = {
   Listen,
@@ -26,4 +28,6 @@ export {
   CallProp,
   CallPropHOF,
   SetState,
+  Action,
+  Actions,
 }
