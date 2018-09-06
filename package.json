@@ -1,6 +1,6 @@
 {
   "name": "rua",
-  "version": "0.14.21",
+  "version": "0.15.0-preview",
   "description": "Elegant data utilities for front-end applications",
   "main": "lib/index.js",
   "scripts": {
@@ -15,9 +15,7 @@
   },
   "keywords": [
     "rua",
-    "rua.js",
-    "elegant",
-    "rapid"
+    "rua.js"
   ],
   "author": "copydog",
   "license": "MIT",

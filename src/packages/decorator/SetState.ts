@@ -15,7 +15,7 @@ export default function SetState(stateKey: string | ObjectOf<any> | string[], st
         return function (...args: any[])
         {
           // key-value mode
-          if (undefined === stateValue)
+          if (undefined !== stateValue)
           {
             // @ts-ignore
             return this.setState({
