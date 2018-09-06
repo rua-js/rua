@@ -1,6 +1,6 @@
 import Action from '../Action'
 
-describe('Decorator Action Test', () =>
+describe('Decorator Action Tests', () =>
 {
   test('Basic', () =>
   {
