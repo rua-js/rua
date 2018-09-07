@@ -1,25 +1,29 @@
 import { APIEntityObject } from '../type/index'
 import { ApiRequest } from '../'
+import { EMPTY_OBJECT } from '../../shared'
 
-export default function Api(...args: any[])
+export default function Api(classOrName: any)
 {
-  if (args.length === 1)
+  if ('string' === typeof classOrName)
   {
-    return doApiRegistration(args[0])
+    return doApiRegistration(classOrName)
   }
 
-  return doApiRegistration
+  return doApiRegistration(classOrName.name.toLowerCase())(classOrName)
 }
 
-function doApiRegistration(target: any): APIEntityObject
+function doApiRegistration(name: string)
 {
-  new target()
+  return function (target: any): APIEntityObject
+  {
+    new target()
 
-  const entityObject = {
-    [target.name.toLowerCase()]: target.prototype.__apiList,
+    const apiObject = {
+      [name]: target.prototype.__apiList || EMPTY_OBJECT,
+    }
+
+    ApiRequest.api.merge(apiObject)
+
+    return <APIEntityObject>apiObject
   }
-
-  ApiRequest.api.merge(entityObject)
-
-  return <APIEntityObject>entityObject
 }

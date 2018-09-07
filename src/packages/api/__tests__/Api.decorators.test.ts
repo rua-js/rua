@@ -8,6 +8,24 @@ describe('Api Decorators Tests', () =>
     ApiRequest.api.clear()
   })
 
+  test('api', () =>
+  {
+    // no given name
+    @Api
+    class ClassName
+    {
+    }
+
+    @Api('className2')
+    class ccName
+    {
+
+    }
+
+    expect(ClassName).toEqual({ classname: {} })
+    expect(ccName).toEqual({ className2: {} })
+  })
+
   test('export correctly', () =>
   {
     expect(Api).toBeTruthy()
