@@ -3,7 +3,7 @@ import { DvaModel } from '../types'
 
 describe('Dva Decorators Tests', () =>
 {
-  @Model
+  @Model('fakeModel2')
   class FakeModel
   {
     @State
@@ -48,7 +48,7 @@ describe('Dva Decorators Tests', () =>
 
   test('generates correct structure', () =>
   {
-    expect(FakeModel).toHaveProperty('namespace', 'fakeModel')
+    expect(FakeModel).toHaveProperty('namespace', 'fakeModel2')
     expect(FakeModel).toHaveProperty('state')
     expect(FakeModel).toHaveProperty('reducers')
     expect(FakeModel).toHaveProperty('effects')

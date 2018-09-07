@@ -1,23 +1,6 @@
-import * as _ from 'lodash'
 import { dvaReducerGenerator } from '../utils'
 
-export default function Model(classOrConfig: any): any
-{
-  if ('function' === typeof classOrConfig)
-  {
-    return registerModel()(classOrConfig)
-  }
-
-  // const {
-  //   reducerEnhance = true,
-  // } = classOrConfig
-
-  // if (reducerEnhance)
-  // {
-  // }
-}
-
-function registerModel()
+export default function Model(name: string): any
 {
   return function (_class: any): any
   {
@@ -33,7 +16,7 @@ function registerModel()
       $$dynamic_subscription_names,
     } = _class.prototype
 
-    const namespace = _.lowerFirst(_class.name)
+    const namespace = name
 
     // load state
     const state = instance[$$state]
@@ -62,4 +45,9 @@ function registerModel()
       subscriptions: $$subscriptions,
     }
   }
+}
+
+function registerModel()
+{
+
 }

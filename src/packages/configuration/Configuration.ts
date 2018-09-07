@@ -1,11 +1,11 @@
 import Cache from '../cache/engine/Cache'
-import { emptyObject } from '../shared'
+import { EMPTY_OBJECT } from '../shared'
 import { AnyObject } from '../core/type/data'
 import { ConfigurationInterface } from './interfaces'
 
 class Configuration implements ConfigurationInterface
 {
-  protected config: AnyObject = emptyObject
+  protected config: AnyObject = EMPTY_OBJECT
 
   protected cache: Cache = new Cache({ storeName: 'config-' })
 
