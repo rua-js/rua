@@ -1,4 +1,6 @@
-export default function Action(action: string)
+import { ObjectOf } from '../core/type/data'
+
+export default function Action(action: string, payload?: any, extras?: any)
 {
   return function (target: any, key: string)
   {
@@ -12,9 +14,19 @@ export default function Action(action: string)
         return console.error('[Decorator]Action required global.reduxStore')
       }
 
-      store.dispatch({
-        type: action,
-      })
+      const createdAction: ObjectOf<any> = { type: action }
+
+      if (payload)
+      {
+        createdAction.payload = payload
+      }
+
+      if (extras)
+      {
+        createdAction.extras = extras
+      }
+
+      store.dispatch(createdAction)
     }
   }
 }
