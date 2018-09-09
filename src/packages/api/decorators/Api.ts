@@ -2,14 +2,29 @@ import { APIEntityObject } from '../type/index'
 import { ApiRequest } from '../'
 import { EMPTY_OBJECT } from '../../shared'
 
-export default function Api(classOrName: any)
+export default function Api(_class: any)
 {
-  if ('string' === typeof classOrName)
+  // if ('string' === typeof _class)
+  // {
+  //   return doApiRegistration(_class)
+  // }
+
+  let namespace
+
+  if (!_class.getName)
   {
-    return doApiRegistration(classOrName)
+    namespace = _class.name.toLowerCase()
+  }
+  else if ('string' === typeof _class.getName)
+  {
+    namespace = _class.getName
+  }
+  else if ('function' === typeof _class.getName)
+  {
+    namespace = _class.getName()
   }
 
-  return doApiRegistration(classOrName.name.toLowerCase())(classOrName)
+  return doApiRegistration(namespace)(_class)
 }
 
 function doApiRegistration(name: string)

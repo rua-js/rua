@@ -16,14 +16,24 @@ describe('Api Decorators Tests', () =>
     {
     }
 
-    @Api('className2')
-    class ccName
+    @Api
+    class ccName2
     {
+      public static getName()
+      {
+        return 'className2'
+      }
+    }
 
+    @Api
+    class ccName3
+    {
+      public static getName = 'className3'
     }
 
     expect(ClassName).toEqual({ classname: {} })
-    expect(ccName).toEqual({ className2: {} })
+    expect(ccName2).toEqual({ className2: {} })
+    expect(ccName3).toEqual({ className3: {} })
   })
 
   test('export correctly', () =>
