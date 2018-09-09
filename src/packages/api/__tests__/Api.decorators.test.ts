@@ -19,21 +19,21 @@ describe('Api Decorators Tests', () =>
     @Api
     class ccName2
     {
-      public static getName()
+      public static className()
       {
-        return 'className2'
+        return 'ClassName2'
       }
     }
 
     @Api
     class ccName3
     {
-      public static getName = 'className3'
+      public static className = 'ClassName3'
     }
 
-    expect(ClassName).toEqual({ classname: {} })
-    expect(ccName2).toEqual({ className2: {} })
-    expect(ccName3).toEqual({ className3: {} })
+    expect(ClassName).toEqual({ ClassName: {} })
+    expect(ccName2).toEqual({ ClassName2: {} })
+    expect(ccName3).toEqual({ ClassName3: {} })
   })
 
   test('export correctly', () =>
@@ -58,7 +58,7 @@ describe('Api Decorators Tests', () =>
       public test: any = 'www.qq.com'
     }
 
-    expect(ApiRequest.api.all()).toEqual({ myapi: { test: { method: 'POST', url: 'www.qq.com' } } })
+    expect(ApiRequest.api.all()).toEqual({ MyApi: { test: { method: 'POST', url: 'www.qq.com' } } })
   })
 
   test('Methods', () =>
@@ -67,28 +67,28 @@ describe('Api Decorators Tests', () =>
     class MyApi
     {
       @Api.GET
-      public testGet: any = 'get.qq.com'
+      public TestGet: any = 'get.qq.com'
 
       @Api.POST
-      public testPost: any = 'post.qq.com'
+      public TestPost: any = 'post.qq.com'
 
       @Api.PUT
-      public testPut: any = 'put.qq.com'
+      public TestPut: any = 'put.qq.com'
 
       @Api.PATCH
-      public testPatch: any = 'patch.qq.com'
+      public TestPatch: any = 'patch.qq.com'
 
       @Api.DELETE
-      public testDelete: any = 'delete.qq.com'
+      public TestDelete: any = 'delete.qq.com'
     }
 
     expect(ApiRequest.api.all()).toEqual({
-      myapi: {
-        testPost: { method: 'POST', url: 'post.qq.com' },
-        testGet: { method: 'GET', url: 'get.qq.com' },
-        testPut: { method: 'PUT', url: 'put.qq.com' },
-        testPatch: { method: 'PATCH', url: 'patch.qq.com' },
-        testDelete: { method: 'DELETE', url: 'delete.qq.com' },
+      MyApi: {
+        TestPost: { method: 'POST', url: 'post.qq.com' },
+        TestGet: { method: 'GET', url: 'get.qq.com' },
+        TestPut: { method: 'PUT', url: 'put.qq.com' },
+        TestPatch: { method: 'PATCH', url: 'patch.qq.com' },
+        TestDelete: { method: 'DELETE', url: 'delete.qq.com' },
       },
     })
   })
@@ -105,7 +105,7 @@ describe('Api Decorators Tests', () =>
     }
 
     expect(ApiRequest.api.all()).toEqual({
-      myapi: {
+      MyApi: {
         test: { body: { myBody: 133 }, url: 'www.qq.com' },
       },
     })
@@ -123,7 +123,7 @@ describe('Api Decorators Tests', () =>
     }
 
     expect(ApiRequest.api.all()).toEqual({
-      myapi: {
+      MyApi: {
         test: { headers: { authorization: randomStr }, url: 'www.qq.com' },
       },
     })
@@ -143,7 +143,7 @@ describe('Api Decorators Tests', () =>
     }
 
     expect(ApiRequest.api.all()).toEqual({
-      myapi: {
+      MyApi: {
         test: { headers: { authorization: randomStr }, url: 'www.qq.com', body: { wode: 1 }, method: 'POST' },
       },
     })

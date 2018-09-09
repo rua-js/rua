@@ -9,22 +9,22 @@ export default function Api(_class: any)
   //   return doApiRegistration(_class)
   // }
 
-  let namespace
+  let className
 
-  if (!_class.getName)
+  if (!_class.className)
   {
-    namespace = _class.name.toLowerCase()
+    className = _class.name
   }
-  else if ('string' === typeof _class.getName)
+  else if ('string' === typeof _class.className)
   {
-    namespace = _class.getName
+    className = _class.className
   }
-  else if ('function' === typeof _class.getName)
+  else if ('function' === typeof _class.className)
   {
-    namespace = _class.getName()
+    className = _class.className()
   }
 
-  return doApiRegistration(namespace)(_class)
+  return doApiRegistration(className)(_class)
 }
 
 function doApiRegistration(name: string)
