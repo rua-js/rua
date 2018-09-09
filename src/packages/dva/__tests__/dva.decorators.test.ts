@@ -3,9 +3,14 @@ import { DvaModel } from '../types'
 
 describe('Dva Decorators Tests', () =>
 {
-  @Model('fakeModel2')
+  @Model
   class FakeModel
   {
+    public static getName()
+    {
+      return 'fakeModel2'
+    }
+
     @State
     public state = {
       a: 1,

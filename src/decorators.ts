@@ -8,6 +8,7 @@ import {
   SetState,
   Actions,
   Action,
+  Value,
 } from './packages/decorator'
 import { default as Api } from './packages/api/decorators'
 
@@ -22,4 +23,5 @@ export {
   SetState,
   Actions,
   Action,
+  Value,
 }

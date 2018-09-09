@@ -9,6 +9,7 @@ import CallPropHOF from './CallPropHOF'
 import SetState from './SetState'
 import Action from './Action'
 import Actions from './Actions'
+import Value from './Value'
 
 const Decorator = {
   Listen,
@@ -30,4 +31,5 @@ export {
   SetState,
   Action,
   Actions,
+  Value,
 }
