@@ -14,7 +14,20 @@ export default function Model(_class: any): any
     $$dynamic_subscription_names,
   } = _class.prototype
 
-  const namespace = _class.getName ? _class.getName() : _class.name.toLowerCase()
+  let namespace
+
+  if (!_class.getName)
+  {
+    namespace = _class.name.toLowerCase()
+  }
+  else if ('string' === typeof _class.getName)
+  {
+    namespace = _class.getName
+  }
+  else if ('function' === typeof _class.getName)
+  {
+    namespace = _class.getName()
+  }
 
   // load state
   const state = instance[$$state]
