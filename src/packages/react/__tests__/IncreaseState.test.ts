@@ -1,6 +1,6 @@
 import IncreaseState from '../decorators/IncreaseState'
 
-describe('React Decorator ToggleState', () =>
+describe('React Decorator IncreaseState', () =>
 {
   test('string parameter', () =>
   {
