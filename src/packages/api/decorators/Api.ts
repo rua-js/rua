@@ -2,7 +2,7 @@ import { APIEntityObject } from '../type/index'
 import { ApiRequest } from '../'
 import { EMPTY_OBJECT } from '../../shared'
 
-export default function Api(_class: any)
+export default function Api(_class: any): any
 {
   // if ('string' === typeof _class)
   // {

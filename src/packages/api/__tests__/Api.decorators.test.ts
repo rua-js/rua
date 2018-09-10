@@ -1,4 +1,4 @@
-import { default as Api } from '../decorators'
+import { Api, Method, POST, PUT, PATCH, GET, DELETE, Body, Jwt, Url } from '../decorators'
 import { ApiRequest } from '../'
 
 describe('Api Decorators Tests', () =>
@@ -41,12 +41,25 @@ describe('Api Decorators Tests', () =>
     expect(Api).toBeTruthy()
 
     // methods
-    expect(Api.Method).toBeTruthy()
-    expect(Api.GET).toBeTruthy()
-    expect(Api.POST).toBeTruthy()
-    expect(Api.PATCH).toBeTruthy()
-    expect(Api.PUT).toBeTruthy()
-    expect(Api.DELETE).toBeTruthy()
+    expect(Method).toBeTruthy()
+    expect(GET).toBeTruthy()
+    expect(POST).toBeTruthy()
+    expect(PATCH).toBeTruthy()
+    expect(PUT).toBeTruthy()
+    expect(DELETE).toBeTruthy()
+  })
+
+  test('Url', () =>
+  {
+    @Api
+    class MyApi
+    {
+      @Method('POST')
+      @Url('www.qq.com')
+      public test: any
+    }
+
+    expect(ApiRequest.api.all()).toEqual({ MyApi: { test: { method: 'POST', url: 'www.qq.com' } } })
   })
 
   test('Method', () =>
@@ -54,7 +67,7 @@ describe('Api Decorators Tests', () =>
     @Api
     class MyApi
     {
-      @Api.Method('POST')
+      @Method('POST')
       public test: any = 'www.qq.com'
     }
 
@@ -66,19 +79,19 @@ describe('Api Decorators Tests', () =>
     @Api
     class MyApi
     {
-      @Api.GET
+      @GET
       public TestGet: any = 'get.qq.com'
 
-      @Api.POST
+      @POST
       public TestPost: any = 'post.qq.com'
 
-      @Api.PUT
+      @PUT
       public TestPut: any = 'put.qq.com'
 
-      @Api.PATCH
+      @PATCH
       public TestPatch: any = 'patch.qq.com'
 
-      @Api.DELETE
+      @DELETE
       public TestDelete: any = 'delete.qq.com'
     }
 
@@ -98,7 +111,7 @@ describe('Api Decorators Tests', () =>
     @Api
     class MyApi
     {
-      @Api.Body({
+      @Body({
         myBody: 133,
       })
       public test: any = 'www.qq.com'
@@ -118,7 +131,7 @@ describe('Api Decorators Tests', () =>
     @Api
     class MyApi
     {
-      @Api.Jwt(randomStr)
+      @Jwt(randomStr)
       public test: any = 'www.qq.com'
     }
 
@@ -136,9 +149,9 @@ describe('Api Decorators Tests', () =>
     @Api
     class MyApi
     {
-      @Api.Jwt(randomStr)
-      @Api.POST
-      @Api.Body({ wode: 1 })
+      @Jwt(randomStr)
+      @POST
+      @Body({ wode: 1 })
       public test: any = 'www.qq.com'
     }
 
