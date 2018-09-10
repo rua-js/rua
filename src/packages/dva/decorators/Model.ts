@@ -16,17 +16,17 @@ export default function Model(_class: any): any
 
   let namespace
 
-  if (!_class.getName)
+  if (!_class.className)
   {
     namespace = _class.name.toLowerCase()
   }
-  else if ('string' === typeof _class.getName)
+  else if ('string' === typeof _class.className)
   {
-    namespace = _class.getName
+    namespace = _class.className
   }
-  else if ('function' === typeof _class.getName)
+  else if ('function' === typeof _class.className)
   {
-    namespace = _class.getName()
+    namespace = _class.className()
   }
 
   // load state

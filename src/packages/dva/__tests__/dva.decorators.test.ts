@@ -6,7 +6,7 @@ describe('Dva Decorators Tests', () =>
   @Model
   class FakeModel
   {
-    public static getName()
+    public static className()
     {
       return 'fakeModel2'
     }
