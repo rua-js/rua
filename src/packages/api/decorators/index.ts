@@ -4,7 +4,7 @@ import Body from './Body'
 import Jwt from './Jwt'
 import { POST, DELETE, GET, PATCH, PUT } from './Methods'
 
-Object.assign(Api, {
+export {
   GET,
   POST,
   DELETE,
@@ -13,6 +13,4 @@ Object.assign(Api, {
   Method,
   Body,
   Jwt,
-})
-
-export default Api as any
+}

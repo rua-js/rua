@@ -10,7 +10,7 @@ import {
   Action,
   Value,
 } from './packages/decorator'
-import { default as Api } from './packages/api/decorators'
+import * as Api from './packages/api/decorators'
 
 export {
   Dva,
