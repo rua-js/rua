@@ -1,4 +1,5 @@
 export { default as util } from './Util'
+export { default as FunctionCollectionUtil } from './FunctionCollectionUtil'
 export {
   ensure,
   ensureObject,
