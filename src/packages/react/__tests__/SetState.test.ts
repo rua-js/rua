@@ -1,4 +1,4 @@
-import SetState from '../SetState'
+import SetState from '../decorators/SetState'
 
 describe('React Decorator CallProp', () =>
 {

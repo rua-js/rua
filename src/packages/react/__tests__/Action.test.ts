@@ -1,4 +1,4 @@
-import Action from '../Action'
+import Action from '../decorators/Action'
 
 describe('Decorator Action Tests', () =>
 {
