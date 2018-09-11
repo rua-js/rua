@@ -9,7 +9,8 @@
         "brace-style": ["error", "allman"],
         "member-access": true,
         "variable-name": false,
-        "function-name": false
+        "function-name": false,
+        "ter-prefer-arrow-callback": false
     },
     "rulesDirectory": []
 }

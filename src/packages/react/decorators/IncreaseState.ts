@@ -1,5 +1,6 @@
 import { IncreaseStateConfigParameter } from '../types'
 import { ObjectOf } from '../../core/type/data'
+import FunctionCollectionDescriptorBuildUtil from '../../utility/FunctionCollectionDescriptorBuildUtil'
 
 export default function IncreaseState(stateKeyOrConfig: string | IncreaseStateConfigParameter): any
 {
@@ -10,53 +11,48 @@ export default function IncreaseState(stateKeyOrConfig: string | IncreaseStateCo
       return console.error('[Decorator]IncreaseState will override original function')
     }
 
-    Object.defineProperty(target, key, {
-      get()
+    return FunctionCollectionDescriptorBuildUtil.create(target, key, function ()
+    {
+      if ('string' === typeof stateKeyOrConfig)
       {
-        return function ()
+        // @ts-ignore
+        return (this.setState as Function)((state: ObjectOf<any>) =>
         {
-          if ('string' === typeof stateKeyOrConfig)
-          {
-            // @ts-ignore
-            return (this.setState as Function)((state: ObjectOf<any>) =>
-            {
-              return {
-                [stateKeyOrConfig]: state[stateKeyOrConfig] + 1,
-              }
-            })
+          return {
+            [stateKeyOrConfig]: state[stateKeyOrConfig] + 1,
           }
+        })
+      }
 
-          const {
-            key,
-            step = 1,
-            max,
-          } = stateKeyOrConfig
+      const {
+        key,
+        step = 1,
+        max,
+      } = stateKeyOrConfig
 
-          // @ts-ignore
-          return (this.setState as Function)((state: any) =>
-          {
-            const currentValue = state[key]
+      // @ts-ignore
+      return (this.setState as Function)((state: any) =>
+      {
+        const currentValue = state[key]
 
-            if (undefined !== max && currentValue > max)
-            {
-              return {
-                [key]: max,
-              }
-            }
+        if (undefined !== max && currentValue > max)
+        {
+          return {
+            [key]: max,
+          }
+        }
 
-            let newValue = state[key] + step
+        let newValue = state[key] + step
 
-            if (undefined !== max && newValue > max)
-            {
-              newValue = max
-            }
+        if (undefined !== max && newValue > max)
+        {
+          newValue = max
+        }
 
-            return {
-              [key]: newValue,
-            }
-          })
-        }.bind(this)
-      },
+        return {
+          [key]: newValue,
+        }
+      })
     })
   }
 }

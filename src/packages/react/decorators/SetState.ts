@@ -1,4 +1,5 @@
 import { ObjectOf } from '../../core/type/data'
+import FunctionCollectionDescriptorBuildUtil from '../../utility/FunctionCollectionDescriptorBuildUtil'
 
 export default function SetState(stateKey: string | ObjectOf<any> | string[], stateValue?: any)
 {
@@ -9,39 +10,41 @@ export default function SetState(stateKey: string | ObjectOf<any> | string[], st
       return console.error('[Decorator]SetState will override original function')
     }
 
-    Object.defineProperty(target, key, {
-      get()
+    return FunctionCollectionDescriptorBuildUtil.create(target, key, function (...args: any[])
+    {
+      // key-value mode
+      if (undefined !== stateValue)
       {
-        return function (...args: any[])
+        // @ts-ignore
+        return this.setState({
+          [(stateKey as string)]: stateValue,
+        })
+      }
+
+      // projection mode
+      if (Array.isArray(stateKey))
+      {
+        const stateObject: ObjectOf<any> = {}
+
+        stateKey.forEach((key: string, index: number) =>
         {
-          // key-value mode
-          if (undefined !== stateValue)
-          {
-            // @ts-ignore
-            return this.setState({
-              [(stateKey as string)]: stateValue,
-            })
-          }
+          stateObject[key] = args[index]
+        })
 
-          // projection mode
-          if (Array.isArray(stateKey))
-          {
-            const stateObject: ObjectOf<any> = {}
+        // @ts-ignore
+        return this.setState(stateObject)
+      }
 
-            stateKey.forEach((key: string, index: number) =>
-            {
-              stateObject[key] = args[index]
-            })
-
-            // @ts-ignore
-            return this.setState(stateObject)
-          }
-
-          // object mode
-          // @ts-ignore
-          return this.setState(stateKey)
-        }.bind(this)
-      },
+      // object mode
+      // @ts-ignore
+      return this.setState(stateKey)
     })
+
+    // Object.defineProperty(target, key, {
+    //   get()
+    //   {
+    //     return .bind(this)
+    //   },
+    // })
   }
 }

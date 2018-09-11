@@ -1,5 +1,6 @@
 import { DecreaseStateConfigParameter } from '../types'
 import { ObjectOf } from '../../core/type/data'
+import FunctionCollectionDescriptorBuildUtil from '../../utility/FunctionCollectionDescriptorBuildUtil'
 
 export default function DecreaseState(stateKeyOrConfig: string | DecreaseStateConfigParameter): any
 {
@@ -10,53 +11,48 @@ export default function DecreaseState(stateKeyOrConfig: string | DecreaseStateCo
       return console.error('[Decorator]DecreaseState will override original function')
     }
 
-    Object.defineProperty(target, key, {
-      get()
+    return FunctionCollectionDescriptorBuildUtil.create(target, key, function ()
+    {
+      if ('string' === typeof stateKeyOrConfig)
       {
-        return function ()
+        // @ts-ignore
+        return (this.setState as Function)((state: ObjectOf<any>) =>
         {
-          if ('string' === typeof stateKeyOrConfig)
-          {
-            // @ts-ignore
-            return (this.setState as Function)((state: ObjectOf<any>) =>
-            {
-              return {
-                [stateKeyOrConfig]: state[stateKeyOrConfig] - 1,
-              }
-            })
+          return {
+            [stateKeyOrConfig]: state[stateKeyOrConfig] - 1,
           }
+        })
+      }
 
-          const {
-            key,
-            step = 1,
-            min,
-          } = stateKeyOrConfig
+      const {
+        key,
+        step = 1,
+        min,
+      } = stateKeyOrConfig
 
-          // @ts-ignore
-          return (this.setState as Function)((state: any) =>
-          {
-            const currentValue = state[key]
+      // @ts-ignore
+      return (this.setState as Function)((state: any) =>
+      {
+        const currentValue = state[key]
 
-            if (undefined !== min && currentValue < min)
-            {
-              return {
-                [key]: min,
-              }
-            }
+        if (undefined !== min && currentValue < min)
+        {
+          return {
+            [key]: min,
+          }
+        }
 
-            let newValue = state[key] - step
+        let newValue = state[key] - step
 
-            if (undefined !== min && newValue < min)
-            {
-              newValue = min
-            }
+        if (undefined !== min && newValue < min)
+        {
+          newValue = min
+        }
 
-            return {
-              [key]: newValue,
-            }
-          })
-        }.bind(this)
-      },
+        return {
+          [key]: newValue,
+        }
+      })
     })
   }
 }

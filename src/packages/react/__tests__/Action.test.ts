@@ -2,7 +2,7 @@ import Action from '../decorators/Action'
 
 describe('Decorator Action Tests', () =>
 {
-  test('Basic', () =>
+  test('basic case', () =>
   {
     const dispatchFn = jest.fn()
 

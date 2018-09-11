@@ -1,4 +1,5 @@
 import { ObjectOf } from '../../core/type/data'
+import FunctionCollectionDescriptorBuildUtil from '../../utility/FunctionCollectionDescriptorBuildUtil'
 
 export default function DecreaseState(stateKey: string): any
 {
@@ -9,20 +10,15 @@ export default function DecreaseState(stateKey: string): any
       return console.error('[Decorator]SetState will override original function')
     }
 
-    Object.defineProperty(target, key, {
-      get()
+    return FunctionCollectionDescriptorBuildUtil.create(target, key, function ()
+    {
+      // @ts-ignore
+      return (this.setState as Function)((state: any) =>
       {
-        return function ()
-        {
-          // @ts-ignore
-          return (this.setState as Function)((state: any) =>
-          {
-            return {
-              [stateKey]: !state[stateKey],
-            }
-          })
-        }.bind(this)
-      },
+        return {
+          [stateKey]: !state[stateKey],
+        }
+      })
     })
   }
 }

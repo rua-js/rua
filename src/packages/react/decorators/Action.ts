@@ -1,4 +1,5 @@
 import { ObjectOf } from '../../core/type/data'
+import FunctionCollectionDescriptorBuildUtil from '../../utility/FunctionCollectionDescriptorBuildUtil'
 
 export default function Action(action: string, payload?: any, extras?: any): any
 {
@@ -9,28 +10,13 @@ export default function Action(action: string, payload?: any, extras?: any): any
 
     if (store)
     {
-      return {
-        enumerable: true,
-        get()
-        {
-          return function ()
-          {
-            const createdAction: ObjectOf<any> = { type: action }
+      // const
+      return FunctionCollectionDescriptorBuildUtil.create(target, key, () =>
+      {
+        const createdAction: ObjectOf<any> = { payload, extras, type: action }
 
-            if (payload)
-            {
-              createdAction.payload = payload
-            }
-
-            if (extras)
-            {
-              createdAction.extras = extras
-            }
-
-            return store.dispatch(createdAction)
-          }
-        },
-      }
+        return store.dispatch(createdAction)
+      })
     }
 
     console.error('[Rua][Decorator]Action required global.reduxStore')

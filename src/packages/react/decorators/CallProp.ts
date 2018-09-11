@@ -1,4 +1,6 @@
-export default function CallProp(propKey: string)
+import FunctionCollectionDescriptorBuildUtil from '../../utility/FunctionCollectionDescriptorBuildUtil'
+
+export default function CallProp(propKey: string): any
 {
   return (target: any, key: string) =>
   {
@@ -7,17 +9,12 @@ export default function CallProp(propKey: string)
       console.warn('[Decorator]CallProp will override original function')
     }
 
-    Object.defineProperty(target, key, {
-      get()
-      {
-        return function (...props: any[])
-        {
-          // @ts-ignore
-          const fn = this.props[propKey]
+    return FunctionCollectionDescriptorBuildUtil.create(target, key, function (...props: any[])
+    {
+      // @ts-ignore
+      const fn = this.props[propKey]
 
-          return fn && fn(...props)
-        }.bind(this)
-      },
+      return fn && fn(...props)
     })
   }
 }
