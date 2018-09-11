@@ -1,31 +1,31 @@
 import FunctionCollectionUtil from './FunctionCollectionUtil'
 
-const descriptor: PropertyDescriptor = {
+const descriptorTemplate: PropertyDescriptor = {
   enumerable: true,
   configurable: true,
 }
 
 export default class FunctionCollectionDescriptorBuildUtil
 {
-  public static create(target: any, key: string, fn: Function)
+  public static create(target: any, key: string, descriptor: PropertyDescriptor, fn: Function)
   {
     let fnCollection: any
 
+    const oldFn = descriptor && descriptor.get && descriptor.get() || target[key]
+
     // undefined
-    if (target[key])
+    if (oldFn)
     {
       // not fnCollection
-      if (!FunctionCollectionUtil.is(target[key]))
+      if (!FunctionCollectionUtil.is(oldFn))
       {
-        const oldFn = target[key]
-
         fnCollection = FunctionCollectionUtil.create(fn)
 
         fnCollection.append(oldFn)
       }
       else
       {
-        fnCollection = target[key]
+        fnCollection = oldFn
 
         fnCollection.prepend(fn)
       }
@@ -34,12 +34,11 @@ export default class FunctionCollectionDescriptorBuildUtil
       fnCollection = FunctionCollectionUtil.create(fn)
     }
 
-    descriptor.get = function ()
+    descriptorTemplate.get = function ()
     {
-      return fnCollection.bind(this)
+      return fnCollection
     }
-
-    descriptor.set = function (fn)
+    descriptorTemplate.set = function (fn)
     {
       if ('function' !== typeof fn)
       {
@@ -52,6 +51,6 @@ export default class FunctionCollectionDescriptorBuildUtil
       fnCollection.append(fn)
     }
 
-    return descriptor
+    return descriptorTemplate
   }
 }

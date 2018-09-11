@@ -1,50 +1,47 @@
 import { ObjectOf } from '../../core/type/data'
 import FunctionCollectionDescriptorBuildUtil from '../../utility/FunctionCollectionDescriptorBuildUtil'
 
-export default function SetState(stateKey: string | ObjectOf<any> | string[], stateValue?: any)
+export default function SetState(stateKey: string | ObjectOf<any> | string[], stateValue?: any): any
 {
-  return function (target: any, key: string)
+  return function (target: any, key: string, descriptor: PropertyDescriptor)
   {
     if (target[key])
     {
       return console.error('[Decorator]SetState will override original function')
     }
 
-    return FunctionCollectionDescriptorBuildUtil.create(target, key, function (...args: any[])
-    {
-      // key-value mode
-      if (undefined !== stateValue)
+    return FunctionCollectionDescriptorBuildUtil.create(
+      target,
+      key,
+      descriptor,
+      function (...args: any[])
       {
-        // @ts-ignore
-        return this.setState({
-          [(stateKey as string)]: stateValue,
-        })
-      }
-
-      // projection mode
-      if (Array.isArray(stateKey))
-      {
-        const stateObject: ObjectOf<any> = {}
-
-        stateKey.forEach((key: string, index: number) =>
+        // key-value mode
+        if (undefined !== stateValue)
         {
-          stateObject[key] = args[index]
-        })
+          // @ts-ignore
+          return this.setState({
+            [(stateKey as string)]: stateValue,
+          })
+        }
 
+        // projection mode
+        if (Array.isArray(stateKey))
+        {
+          const stateObject: ObjectOf<any> = {}
+
+          stateKey.forEach((key: string, index: number) =>
+          {
+            stateObject[key] = args[index]
+          })
+
+          // @ts-ignore
+          return this.setState(stateObject)
+        }
+
+        // object mode
         // @ts-ignore
-        return this.setState(stateObject)
-      }
-
-      // object mode
-      // @ts-ignore
-      return this.setState(stateKey)
-    })
-
-    // Object.defineProperty(target, key, {
-    //   get()
-    //   {
-    //     return .bind(this)
-    //   },
-    // })
+        return this.setState(stateKey)
+      })
   }
 }

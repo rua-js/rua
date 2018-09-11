@@ -11,7 +11,7 @@ describe('React Decorator ToggleState', () =>
       public setState = setStateFn
 
       @ToggleState('hehe')
-      public B: Function
+      public B: any
     }
 
     new A().B()
@@ -31,7 +31,7 @@ describe('React Decorator ToggleState', () =>
       public setState = setStateFn
 
       @ToggleState('hehe')
-      public B: Function
+      public B: any
     }
 
     new A().B()

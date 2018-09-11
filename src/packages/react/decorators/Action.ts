@@ -3,10 +3,10 @@ import FunctionCollectionDescriptorBuildUtil from '../../utility/FunctionCollect
 
 export default function Action(action: string, payload?: any, extras?: any): any
 {
-  return function (target: any, key: string)
+  return function (target: any, key: string, descriptor: PropertyDescriptor)
   {
     // const
-    return FunctionCollectionDescriptorBuildUtil.create(target, key, () =>
+    return FunctionCollectionDescriptorBuildUtil.create(target, key, descriptor, function ()
     {
       // @ts-ignore
       const store = global.reduxStore

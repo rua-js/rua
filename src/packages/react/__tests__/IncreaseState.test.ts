@@ -11,7 +11,7 @@ describe('React Decorator IncreaseState', () =>
       public setState = setStateFn
 
       @IncreaseState('hehe')
-      public B: Function
+      public B: any
     }
 
     new A().B()
@@ -34,7 +34,7 @@ describe('React Decorator IncreaseState', () =>
       @IncreaseState({
         key: 'hehe',
       })
-      public B: Function
+      public B: any
     }
 
     new A().B()
@@ -58,7 +58,7 @@ describe('React Decorator IncreaseState', () =>
         key: 'hehe',
         step: 2,
       })
-      public B: Function
+      public B: any
     }
 
     new A().B()
@@ -83,7 +83,7 @@ describe('React Decorator IncreaseState', () =>
         step: 2,
         max: 10,
       })
-      public B: Function
+      public B: any
     }
 
     new A().B()
@@ -108,7 +108,7 @@ describe('React Decorator IncreaseState', () =>
         step: 2,
         max: -2,
       })
-      public B: Function
+      public B: any
     }
 
     new A().B()
@@ -133,7 +133,7 @@ describe('React Decorator IncreaseState', () =>
         step: 2,
         max: -5,
       })
-      public B: Function
+      public B: any
     }
 
     new A().B()

@@ -2,14 +2,14 @@ import FunctionCollectionDescriptorBuildUtil from '../../utility/FunctionCollect
 
 export default function CallProp(propKey: string): any
 {
-  return (target: any, key: string) =>
+  return (target: any, key: string, descriptor: PropertyDescriptor) =>
   {
     if (target[key])
     {
       console.warn('[Decorator]CallProp will override original function')
     }
 
-    return FunctionCollectionDescriptorBuildUtil.create(target, key, function (...props: any[])
+    return FunctionCollectionDescriptorBuildUtil.create(target, key, descriptor, function (...props: any[])
     {
       // @ts-ignore
       const fn = this.props[propKey]

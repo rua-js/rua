@@ -1,8 +1,10 @@
+import FunctionCollectionDescriptorBuildUtil from '../../utility/FunctionCollectionDescriptorBuildUtil'
+
 export default function Action(actions: string[])
 {
-  return function (target: any, key: string)
+  return function (target: any, key: string, descriptor: PropertyDescriptor)
   {
-    target[key] = function ()
+    return FunctionCollectionDescriptorBuildUtil.create(target, key, descriptor, function ()
     {
       // @ts-ignore
       const store = global.reduxStore
@@ -15,6 +17,6 @@ export default function Action(actions: string[])
       actions.forEach(action => store.dispatch({
         type: action,
       }))
-    }
+    })
   }
 }
