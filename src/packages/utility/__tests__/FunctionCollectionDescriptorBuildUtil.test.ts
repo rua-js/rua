@@ -13,7 +13,6 @@ describe('FunctionCollectionDecoratorBuildUtil Test', () =>
 
     Object.defineProperty(obj, 'wode', descriptor)
 
-
     obj['wode']()
 
     expect(fn.mock.calls.length).toBe(1)
