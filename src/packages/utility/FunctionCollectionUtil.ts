@@ -36,10 +36,10 @@ export default class FunctionCollectionUtil
       functionCollection.append(initialFn)
     }
 
-    const callableFunction = function functionCollection()
+    const callableFunction = function functionCollection(...args: any[])
     {
       // @ts-ignore
-      functionCollection.fnList.forEach(fn => fn())
+      functionCollection.fnList.forEach(fn => fn.apply(this, args))
     }
 
     return Object.assign(callableFunction, functionCollection)
