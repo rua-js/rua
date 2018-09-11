@@ -1,32 +1,38 @@
-import { ObjectOf } from '../core/type/data'
+import { ObjectOf } from '../../core/type/data'
 
-export default function Action(action: string, payload?: any, extras?: any)
+export default function Action(action: string, payload?: any, extras?: any): any
 {
   return function (target: any, key: string)
   {
-    target[key] = function ()
+    // @ts-ignore
+    const store = global.reduxStore
+
+    if (store)
     {
-      // @ts-ignore
-      const store = global.reduxStore
+      return {
+        enumerable: true,
+        get()
+        {
+          return function ()
+          {
+            const createdAction: ObjectOf<any> = { type: action }
 
-      if (!store)
-      {
-        return console.error('[Decorator]Action required global.reduxStore')
+            if (payload)
+            {
+              createdAction.payload = payload
+            }
+
+            if (extras)
+            {
+              createdAction.extras = extras
+            }
+
+            return store.dispatch(createdAction)
+          }
+        },
       }
-
-      const createdAction: ObjectOf<any> = { type: action }
-
-      if (payload)
-      {
-        createdAction.payload = payload
-      }
-
-      if (extras)
-      {
-        createdAction.extras = extras
-      }
-
-      store.dispatch(createdAction)
     }
+
+    console.error('[Rua][Decorator]Action required global.reduxStore')
   }
 }

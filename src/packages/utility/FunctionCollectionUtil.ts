@@ -9,10 +9,17 @@ export default class FunctionCollectionUtil
   {
     const functionCollection = {
       fnList: [],
-      add(fn: Function)
+      append(fn: Function)
       {
         // @ts-ignore
         functionCollection.fnList.push(fn)
+
+        return this
+      },
+      prepend(fn: Function)
+      {
+        // @ts-ignore
+        functionCollection.fnList.unshift(fn)
 
         return this
       },
@@ -26,7 +33,7 @@ export default class FunctionCollectionUtil
 
     if (initialFn)
     {
-      functionCollection.add(initialFn)
+      functionCollection.append(initialFn)
     }
 
     const callableFunction = function functionCollection()
