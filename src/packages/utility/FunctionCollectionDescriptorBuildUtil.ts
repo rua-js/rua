@@ -36,7 +36,7 @@ export default class FunctionCollectionDescriptorBuildUtil
 
     descriptor.get = function ()
     {
-      return fnCollection
+      return fnCollection.bind(this)
     }
 
     descriptor.set = function (fn)
