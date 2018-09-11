@@ -7,7 +7,7 @@ const descriptorTemplate: PropertyDescriptor = {
 
 export default class FunctionCollectionDescriptorBuildUtil
 {
-  public static create(target: any, key: string, descriptor: PropertyDescriptor, fn: Function)
+  public static create(target: any, key: string, descriptor: PropertyDescriptor | undefined, fn: Function)
   {
     let fnCollection: any
 
@@ -36,7 +36,7 @@ export default class FunctionCollectionDescriptorBuildUtil
 
     descriptorTemplate.get = function ()
     {
-      return fnCollection
+      return fnCollection.bind(this)
     }
     descriptorTemplate.set = function (fn)
     {

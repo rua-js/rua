@@ -1,10 +1,10 @@
 {
   "name": "rua",
-  "version": "0.15.19",
+  "version": "0.15.21",
   "description": "Elegant data utilities for front-end applications",
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest Action.test.ts",
+    "test": "jest test.ts",
     "build": "rm -rf ./lib && tsc",
     "commit": "git-cz",
     "move-dts": "node ./scripts/release/move-dts.js"

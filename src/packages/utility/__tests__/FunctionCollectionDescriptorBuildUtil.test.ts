@@ -9,7 +9,7 @@ describe('FunctionCollectionDecoratorBuildUtil Test', () =>
     const fn: Mock = jest.fn()
     const obj: any = {}
 
-    const descriptor = FunctionCollectionDescriptorBuildUtil.create(obj, 'wode', fn)
+    const descriptor = FunctionCollectionDescriptorBuildUtil.create(obj, 'wode', undefined, fn)
 
     Object.defineProperty(obj, 'wode', descriptor)
 
@@ -28,7 +28,8 @@ describe('FunctionCollectionDecoratorBuildUtil Test', () =>
       },
     }
 
-    const descriptor = FunctionCollectionDescriptorBuildUtil.create(obj, 'wode', () => fn(133))
+    const descriptor =
+      FunctionCollectionDescriptorBuildUtil.create(obj, 'wode', undefined, () => fn(133))
 
     Object.defineProperty(obj, 'wode', descriptor)
 
@@ -46,7 +47,8 @@ describe('FunctionCollectionDecoratorBuildUtil Test', () =>
       wode: FunctionCollectionUtil.create(() => fn(244)),
     }
 
-    const descriptor = FunctionCollectionDescriptorBuildUtil.create(obj, 'wode', () => fn(133))
+    const descriptor =
+      FunctionCollectionDescriptorBuildUtil.create(obj, 'wode', undefined, () => fn(133))
 
     Object.defineProperty(obj, 'wode', descriptor)
 
@@ -64,7 +66,8 @@ describe('FunctionCollectionDecoratorBuildUtil Test', () =>
       wode: undefined,
     }
 
-    const descriptor = FunctionCollectionDescriptorBuildUtil.create(obj, 'wode', () => fn(133))
+    const descriptor =
+      FunctionCollectionDescriptorBuildUtil.create(obj, 'wode', undefined, () => fn(133))
 
     Object.defineProperty(obj, 'wode', descriptor)
 
