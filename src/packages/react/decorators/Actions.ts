@@ -1,6 +1,6 @@
 import FunctionCollectionDescriptorBuildUtil from '../../util/FunctionCollectionDescriptorBuildUtil'
 
-export default function Action(actions: string[])
+export default function Action(actions: string[]): any
 {
   return function (target: any, key: string, descriptor: PropertyDescriptor)
   {
