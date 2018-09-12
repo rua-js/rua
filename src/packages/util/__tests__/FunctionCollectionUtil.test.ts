@@ -70,6 +70,5 @@ describe('Util FunctionCollection Util Test', () =>
     const fnCollection2 = FunctionCollectionUtil.create(() => 0).append(() => 1)
 
     expect(FunctionCollectionUtil.is(fnCollection2)).toBe(true)
-
   })
 })
