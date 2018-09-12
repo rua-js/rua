@@ -6,7 +6,6 @@ import { EventInterface } from '../interface'
 
 export default class EventEngine implements EventInterface
 {
-
   /**
    * event instance
    *
@@ -55,7 +54,7 @@ export default class EventEngine implements EventInterface
   public emit = (event: string | RegExp, ...args: any[]): EventEngine =>
   {
     // @ts-ignore: no error here
-    this.eventEngine.emit(event, args)
+    this.eventEngine.emitEvent(event, args)
 
     return this
   }
