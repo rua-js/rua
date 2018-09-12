@@ -4,7 +4,7 @@ import { MultiEvents } from '../type'
 import { AnyObject } from 'rua-core/lib/Types'
 import { EventInterface } from '../interface'
 
-class EventEngine implements EventInterface
+export default class EventEngine implements EventInterface
 {
 
   /**
@@ -12,7 +12,7 @@ class EventEngine implements EventInterface
    *
    * @type {EventEmitter}
    */
-  store = new EventEmitter()
+  public eventEngine = new EventEmitter()
 
   /**
    * Adds a listener function to the specified event.
@@ -24,7 +24,8 @@ class EventEngine implements EventInterface
   public on = (event: string | RegExp, callback: Function): EventEngine =>
   {
     // @ts-ignore: no error here
-    this.store.on(event, callback)
+    this.eventEngine.on(event, callback)
+
     return this
   }
 
@@ -39,7 +40,8 @@ class EventEngine implements EventInterface
   public once = (event: string | RegExp, callback: Function): EventEngine =>
   {
     // @ts-ignore: no error here
-    this.store.once(event, callback)
+    this.eventEngine.once(event, callback)
+
     return this
   }
 
@@ -53,7 +55,8 @@ class EventEngine implements EventInterface
   public emit = (event: string | RegExp, ...args: any[]): EventEngine =>
   {
     // @ts-ignore: no error here
-    this.store.emit(event, args)
+    this.eventEngine.emit(event, args)
+
     return this
   }
 
@@ -67,7 +70,8 @@ class EventEngine implements EventInterface
   public remove = (event: string | RegExp, callback: Function): EventEngine =>
   {
     // @ts-ignore: no error here
-    this.store.removeListener(event, callback)
+    this.eventEngine.removeListener(event, callback)
+
     return this
   }
 
@@ -78,7 +82,8 @@ class EventEngine implements EventInterface
    */
   public clear = (): EventEngine =>
   {
-    this.store.removeAllListeners()
+    this.eventEngine.removeAllListeners()
+
     return this
   }
 
@@ -92,7 +97,7 @@ class EventEngine implements EventInterface
   public get = (event: string | RegExp): AnyObject | Function[] =>
   {
     // @ts-ignore: no error here
-    return this.store.getListeners(event)
+    return this.eventEngine.getListeners(event)
   }
 
   /**
@@ -113,9 +118,8 @@ class EventEngine implements EventInterface
    */
   public load(events: MultiEvents): EventEngine
   {
-    this.store.addListeners(events)
+    this.eventEngine.addListeners(events)
+
     return this
   }
 }
-
-export default EventEngine
