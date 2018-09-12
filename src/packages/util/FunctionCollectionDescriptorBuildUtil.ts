@@ -1,4 +1,5 @@
 import FunctionCollectionUtil from './FunctionCollectionUtil'
+import { ObjectOf } from '../core/type/data'
 
 const descriptorTemplate: PropertyDescriptor = {
   enumerable: true,
@@ -7,7 +8,12 @@ const descriptorTemplate: PropertyDescriptor = {
 
 export default class FunctionCollectionDescriptorBuildUtil
 {
-  public static create(target: any, key: string, descriptor: PropertyDescriptor | undefined, fn: Function)
+  public static create(
+    target: ObjectOf<any>,
+    key: string,
+    descriptor: PropertyDescriptor | undefined,
+    fn: Function,
+  ): PropertyDescriptor
   {
     let fnCollection: any
 
