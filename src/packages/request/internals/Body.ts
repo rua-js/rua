@@ -1,5 +1,5 @@
 import { AnyObject } from '../../core/type/data'
-import { JSON2FormData } from '../../utility/convertor'
+import { JSON2FormData } from '../../util/convertor'
 import { BodyInterface } from '../interfaces'
 
 class Body implements BodyInterface

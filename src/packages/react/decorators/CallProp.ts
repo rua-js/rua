@@ -1,4 +1,4 @@
-import FunctionCollectionDescriptorBuildUtil from '../../utility/FunctionCollectionDescriptorBuildUtil'
+import FunctionCollectionDescriptorBuildUtil from '../../util/FunctionCollectionDescriptorBuildUtil'
 
 export default function CallProp(propKey: string): any
 {

@@ -1,6 +1,6 @@
 import { DecreaseStateConfigParameter } from '../types'
 import { ObjectOf } from '../../core/type/data'
-import FunctionCollectionDescriptorBuildUtil from '../../utility/FunctionCollectionDescriptorBuildUtil'
+import FunctionCollectionDescriptorBuildUtil from '../../util/FunctionCollectionDescriptorBuildUtil'
 
 export default function DecreaseState(stateKeyOrConfig: string | DecreaseStateConfigParameter): any
 {

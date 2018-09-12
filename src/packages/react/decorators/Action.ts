@@ -1,5 +1,5 @@
 import { ObjectOf } from '../../core/type/data'
-import FunctionCollectionDescriptorBuildUtil from '../../utility/FunctionCollectionDescriptorBuildUtil'
+import FunctionCollectionDescriptorBuildUtil from '../../util/FunctionCollectionDescriptorBuildUtil'
 
 export default function Action(action: string, payload?: any, extras?: any): any
 {

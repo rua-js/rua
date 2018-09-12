@@ -1,4 +1,4 @@
-import { util } from '../utility'
+import { util } from '../util'
 
 export function warn(msg: string) {
   return console.warn(`[Rua][APIRequest]: ${msg}`)

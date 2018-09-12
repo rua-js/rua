@@ -20,7 +20,7 @@ export {
   ensureInteger,
   ensureArrayLike,
   ensureArray,
-} from './packages/utility'
+} from './packages/util'
 export { Memory } from './packages/memory'
 // Essential library
 export { Cache } from './packages/cache'

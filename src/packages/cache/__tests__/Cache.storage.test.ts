@@ -1,6 +1,6 @@
 import { Storage } from '../../storage'
 import { Cache } from '../index'
-import { util } from '../../utility'
+import { util } from '../../util'
 
 describe('Cache Tests(storage part)', () =>
 {
