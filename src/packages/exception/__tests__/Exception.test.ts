@@ -1,11 +1,13 @@
 import Exception from '../Exception'
 
-describe('Exception', () => {
-  test('initialization', () => {
+describe('Exception', () =>
+{
+  test('initialization', () =>
+  {
     const e = new Exception('init')
     // case: exception
     expect(
-      e
+      e,
     ).toBeInstanceOf(Exception)
     // case: Error
     // expect(
@@ -13,36 +15,41 @@ describe('Exception', () => {
     // ).toBeInstanceOf(Error)
   })
 
-  test('property', () => {
+  test('property', () =>
+  {
     const e = new Exception('property')
     // case: name
     expect(
-      e.name
+      e.name,
     ).toBe('Exception')
     // case: message
     expect(
-      e.message
+      e.message,
     ).toBe('property')
     // case: stack
     expect(
-      e.stack
+      e.stack,
     ).toBeTruthy()
   })
 
-  test('inherit', () => {
-    class InheritException extends Exception {}
+  test('inherit', () =>
+  {
+    class InheritException extends Exception
+    {
+    }
+
     const e = new InheritException('property')
     // case: name
     expect(
-      e.name
+      e.name,
     ).toBe('InheritException')
     // case: message
     expect(
-      e.message
+      e.message,
     ).toBe('property')
     // case: stack
     expect(
-      e.stack
+      e.stack,
     ).toBeTruthy()
   })
 })
