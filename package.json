@@ -82,7 +82,7 @@
   },
   "jest": {
     "setupFiles": [
-      "./src/mocks/browserMocks.ts"
+      "./mocks/browserMocks.ts"
     ],
     "transform": {
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"

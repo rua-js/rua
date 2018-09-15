@@ -1,8 +1,0 @@
-import * as ${NAME}Service from '../services/${NAME}'
-
-export default {
-  namespace: '${NAME}',
-  state: {},
-  reducers: {},
-  effects: {},
-}

@@ -43,7 +43,7 @@ export { actions, dvaLite } from './packages/dva'
 export { factory } from './packages/api/factory'
 // Third-party library
 export { connect } from './packages/core/third-party'
-export { Timer, CountDown } from './packages/clock'
+export { Timer, CountDown } from './deprecatedPakcages/clock'
 
 // Deep-integrated library
 
