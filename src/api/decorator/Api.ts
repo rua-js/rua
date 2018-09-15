@@ -1,6 +1,6 @@
-import { ApiEntityObject } from '../type/index'
-import { ApiRequest } from '../index'
-import { EMPTY_OBJECT } from '../../packages/rua/shared/index'
+import { ApiEntityObject } from '../type'
+import { ApiRequest } from '../'
+import { EMPTY_OBJECT } from '../../rua/shared'
 
 export default function Api(_class: any): any
 {

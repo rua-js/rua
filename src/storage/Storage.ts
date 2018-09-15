@@ -23,7 +23,6 @@ export default class Storage
    *
    * @param {string | string[]} key
    * @param {AnyData | AnyData[]} value
-   * @param {number} time
    * @returns {Promise<void>}
    */
   public static async set<T>(key: string | string[], value: AnyData | AnyData[]): Promise<void>

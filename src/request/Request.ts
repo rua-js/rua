@@ -1,12 +1,12 @@
 import { EMPTY_OBJECT } from '../rua/shared'
-import { AnyObject, FunctionArray, FunctionObject, ObjectOf } from '../rua/type/data'
-import { superAgentEngine, fetchEngine } from './engine'
-import { Header, Url, Body } from './internal'
-import { RequestConfiguration, UrlSchema, UrlString, ResponseData } from './type'
+import { AnyObject, ArrayOf, ObjectOf } from '../rua/type/data'
+import { fetchEngine, superAgentEngine } from './engine'
+import { Body, Header, Url } from './internal'
+import { RequestConfiguration, ResponseData, UrlSchema, UrlString } from './type'
 
 class Request implements PromiseLike<ResponseData>
 {
-  public static interceptors: ObjectOf<FunctionArray> = {
+  public static interceptors: ObjectOf<ArrayOf<Function>> = {
     request: [],
     response: [],
   }
@@ -16,12 +16,12 @@ class Request implements PromiseLike<ResponseData>
     method: 'GET',
   }
 
-  public static readonly engines: FunctionObject = {
+  public static readonly engines: ObjectOf<Function> = {
     superAgent: superAgentEngine,
     fetch: fetchEngine,
   }
 
-  public static interceptor: FunctionObject = {}
+  public static interceptor: ObjectOf<Function> = {}
 
   protected url: Url
 

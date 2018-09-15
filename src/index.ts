@@ -2,12 +2,12 @@
 export * from './compatible'
 
 // Master
-export { Rua } from './packages/rua'
+export { Rua } from './rua'
 // Primitive library
-export { Storage } from './packages/storage'
-export { Event } from './packages/event'
-export { Exception } from './packages/exception'
-export { Request } from './packages/request'
+export { Storage } from './storage'
+export { Event } from './event'
+export { Exception } from './exception'
+export { Request } from './request'
 export {
   util,
   ensureSymbol,
@@ -20,11 +20,11 @@ export {
   ensureInteger,
   ensureArrayLike,
   ensureArray,
-} from './packages/rua/util'
+} from './rua/util'
 // Essential library
-export { Cache } from './packages/cache'
-export { ApiRequest } from './packages/api'
-export { __, locale, translate } from './packages/localization'
+export { Cache } from './cache'
+export { ApiRequest } from './api'
+export { __, locale, translate } from './localization'
 export {
   core,
   EMPTY_OBJECT,
@@ -37,12 +37,11 @@ export {
   emptyImmutableArrayFn,
   emptyObjectFn,
   emptyImmutableObjectFn,
-} from './packages/rua/shared'
+} from './rua/shared'
 // Non-essential library
-export { actions, dvaLite } from './packages/dva'
-export { factory } from './packages/api/factory'
+export { actions, dvaLite } from './dva'
+export { factory } from './api/factory'
 // Third-party library
-export { connect } from './packages/core/third-party'
 export { Timer, CountDown } from './deprecatedPakcages/clock'
 
 // Deep-integrated library

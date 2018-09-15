@@ -1,4 +1,4 @@
-import { AnyArray, AnyData, NilableObject } from '../../rua/type/data'
+import { AnyArray, AnyData, Nilable } from '../../rua/type/data'
 import { Interpolator } from '../../rua/type/function'
 
 interface RepositoryInterface
@@ -11,7 +11,7 @@ interface RepositoryInterface
 
   remove(key: string | string[], interpolator?: Interpolator): AnyData
 
-  clear(interpolator: Interpolator): NilableObject
+  clear(interpolator: Interpolator): Nilable<Object>
 
   keys(interpolator: Interpolator): string[]
 

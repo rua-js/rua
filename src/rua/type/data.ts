@@ -8,25 +8,18 @@ export interface AnyObject
 export type AnyBoolean = boolean
 export type AnyArray = any[]
 
-export type Nilable = null | undefined
-export type NilableArray = any[] | undefined | null
-export type NilableBoolean = Nilable | AnyBoolean
-export type NilableObject = Nilable | AnyObject
-export type Nullable = null
-export type NullableArray = any[] | null
-export type NullableBoolean = boolean | Nullable
-export type NullableObject = AnyObject | Nullable
-export type Undefinable = undefined
-export type UndefinableBoolean = boolean | Undefinable
-export type UndefinableObject = AnyObject | Undefinable
+export type Nill = null | undefined
+export type Nilable<T> = null | undefined | T
 
-export type FunctionObject = { [key: string]: Function }
+export type Null = null
+export type Nullable<T> = null | T
 
-export type FunctionArray = Function[]
+export type Undefined = undefined
+export type Undefinable<T> = undefined | T
+
+export type ArrayOf<T> = T[]
 
 export interface ObjectOf<T>
 {
   [key: string]: T
 }
-
-export type NilableObjectOf<T> = ObjectOf<T> | undefined | null

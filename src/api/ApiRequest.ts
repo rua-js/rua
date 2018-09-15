@@ -4,7 +4,7 @@ import { factory } from './factory'
 import { RepositoryLite } from '../repository'
 import { Request } from '../request'
 import { ResponseData } from '../request/type'
-import { AnyObject, NilableObjectOf } from '../rua/type/data'
+import { AnyObject, Nilable, ObjectOf } from '../rua/type/data'
 import { ApiEntity } from './engine'
 import { APIConfiguration } from './type'
 import { invariant } from './util'
@@ -59,7 +59,7 @@ class ApiRequest implements PromiseLike<ResponseData>
    * @param namespace
    * @param data
    */
-  public constructor(namespace: string, data?: NilableObjectOf<any>)
+  public constructor(namespace: string, data?: Nilable<ObjectOf<any>>)
   {
     this.request = ApiRequest.start(namespace, data)
   }
@@ -113,7 +113,7 @@ class ApiRequest implements PromiseLike<ResponseData>
    *
    * @returns {any}
    */
-  protected static start(namespace: string, data: NilableObjectOf<any> = {}): Promise<ResponseData>
+  protected static start(namespace: string, data: Nilable<ObjectOf<any>> = {}): Promise<ResponseData>
   {
     // enable factory in ApiRequest
     const { defaults } = ApiRequest
