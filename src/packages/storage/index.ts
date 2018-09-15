@@ -1,7 +1,1 @@
-// Self Dependency
-import Storage, { StorageEngine } from './Storage'
-
-export {
-  Storage,
-  StorageEngine,
-}
+export { default as Storage } from './Storage'

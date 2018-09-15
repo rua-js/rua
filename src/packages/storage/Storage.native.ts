@@ -1,22 +1,19 @@
 // Third-party Dependency
 import { AsyncStorage } from 'react-native'
 import * as _ from 'lodash'
-
 // Self Dependency
-import { StorageEngineInterface } from '../interface'
-
 // rua Core Dependency
-import { AnyData, AnyObject } from '../../core/type/data'
+import { AnyData, AnyObject } from '../core/type/data'
 
-class StorageEngine implements StorageEngineInterface
+export default class StorageEngine
 {
-
-  public get length(): Promise<number>
+  // @ts-ignore
+  public static get length(): Promise<number>
   {
     return this.keys().then(keys => keys.length)
   }
 
-  public async set(key: string | string[], value: AnyData | AnyData[]): Promise<void>
+  public static async set(key: string | string[], value: AnyData | AnyData[]): Promise<void>
   {
     if (Array.isArray(key))
     {
@@ -37,7 +34,7 @@ class StorageEngine implements StorageEngineInterface
     return
   }
 
-  public async get(key: string | string[], defaultValue?: any): Promise<AnyData>
+  public static async get(key: string | string[], defaultValue?: any): Promise<AnyData>
   {
     if (Array.isArray(key))
     {
@@ -56,7 +53,7 @@ class StorageEngine implements StorageEngineInterface
     return JSON.parse(value) || defaultValue
   }
 
-  public async remove(key: string | string[]): Promise<void>
+  public static async remove(key: string | string[]): Promise<void>
   {
     if (Array.isArray(key))
     {
@@ -66,24 +63,24 @@ class StorageEngine implements StorageEngineInterface
     return await AsyncStorage.removeItem(<string>key)
   }
 
-  public async clear(): Promise<void>
+  public static async clear(): Promise<void>
   {
     return await AsyncStorage.clear()
   }
 
-  public async keys(): Promise<string[]>
+  public static async keys(): Promise<string[]>
   {
     return await AsyncStorage.getAllKeys()
   }
 
-  public async values(): Promise<AnyData[]>
+  public static async values(): Promise<AnyData[]>
   {
     const keys = await this.keys()
 
     return this.get(keys)
   }
 
-  public async all(): Promise<AnyObject>
+  public static async all(): Promise<AnyObject>
   {
     const data = {}
     const keys = await this.keys()
@@ -98,5 +95,3 @@ class StorageEngine implements StorageEngineInterface
     return data
   }
 }
-
-export default StorageEngine
