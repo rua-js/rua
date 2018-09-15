@@ -1,13 +1,16 @@
 import Localization from '../Localization'
 
-describe('localization Tests', () => {
-  test('create instance', () => {
+describe('localization Tests', () =>
+{
+  test('create instance', () =>
+  {
     expect(
-      new Localization() instanceof Localization
+      new Localization() instanceof Localization,
     )
   })
 
-  test('translate', () => {
+  test('translate', () =>
+  {
     // prep
     const locale = new Localization()
     const translations = {
@@ -20,11 +23,12 @@ describe('localization Tests', () => {
     // case: translate
     locale.setLocale('zh-CN')
     expect(
-      locale.translate('hi')
+      locale.translate('hi'),
     ).toBe('test')
   })
 
-  test('default locale', () => {
+  test('default locale', () =>
+  {
     // prep
     const locale = new Localization()
     const translations = {
@@ -37,11 +41,12 @@ describe('localization Tests', () => {
     // case: translate
     locale.setDefaultLocale('zh-CN')
     expect(
-      locale.translate('hi')
+      locale.translate('hi'),
     ).toBe('test')
   })
 
-  test('fallback', () => {
+  test('fallback', () =>
+  {
     // prep
     const locale = new Localization()
     const translations = {
@@ -54,7 +59,7 @@ describe('localization Tests', () => {
     // case: translate
     locale.setLocale('zh-CN')
     expect(
-      locale.translate('hi')
+      locale.translate('hi'),
     ).toBe('test')
   })
 })

@@ -1,4 +1,4 @@
-import DecreaseState from '../decorators/DecreaseState'
+import DecreaseState from '../decorator/DecreaseState'
 
 describe('React Decorator DecreaseState', () =>
 {

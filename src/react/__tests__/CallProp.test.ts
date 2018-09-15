@@ -1,4 +1,4 @@
-import CallProp from '../decorators/CallProp'
+import CallProp from '../decorator/CallProp'
 
 describe('React Decorator CallProp', () =>
 {

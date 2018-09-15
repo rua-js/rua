@@ -1,11 +1,7 @@
 import * as request from 'superagent'
-import { JSON2FormData } from '../../rua/util/convertor'
 import { RequestOptionsPassedToEngine, ResponseData } from '../type'
-import {
-  HttpRequestTimeoutException,
-  HttpNotFoundException,
-  HttpException,
-} from '../../exception'
+import { HttpNotFoundException, HttpRequestTimeoutException } from '../exception'
+import { HttpException } from '../../exception/exceptions'
 
 export default function superAgentEngine(
   options: RequestOptionsPassedToEngine,

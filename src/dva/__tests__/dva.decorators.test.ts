@@ -1,5 +1,5 @@
-import { Model, Effect, Reducer, State, Subscription } from '../decorators'
-import { DvaModel } from '../types'
+import { Model, Effect, Reducer, State, Subscription } from '../decorator'
+import { DvaModel } from '../type'
 
 describe('Dva Decorators Tests', () =>
 {

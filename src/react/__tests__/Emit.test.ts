@@ -1,5 +1,5 @@
 import Event from '../../event/Event'
-import Emit from '../decorators/Emit'
+import Emit from '../decorator/Emit'
 
 describe('Emit Test', () =>
 {

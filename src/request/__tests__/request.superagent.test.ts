@@ -6,7 +6,7 @@ import {
   HttpAbortException,
   HttpRequestTimeoutException,
   HttpNotFoundException,
-} from '../../exception'
+} from '../exception'
 
 jest.setTimeout(10000)
 

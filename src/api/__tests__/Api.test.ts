@@ -1,7 +1,7 @@
-import { factory } from '../factory/index'
+import { factory } from '../factory'
 import Factory from '../factory/Factory'
-import { RepositoryLite } from '../../packages/repository/index'
-import { ApiRequest } from '../index'
+import { RepositoryLite } from '../../repository'
+import { ApiRequest } from '../'
 jest.setTimeout(20 * 1000)
 
 describe('api Tests', () =>

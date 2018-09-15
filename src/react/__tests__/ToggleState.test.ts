@@ -1,4 +1,4 @@
-import ToggleState from '../decorators/ToggleState'
+import ToggleState from '../decorator/ToggleState'
 
 describe('React Decorator ToggleState', () =>
 {

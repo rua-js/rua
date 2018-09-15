@@ -1,4 +1,4 @@
-import Listen from '../decorators/Listen'
+import Listen from '../decorator/Listen'
 import Event from '../../event/Event'
 
 describe('Listen Test', () =>

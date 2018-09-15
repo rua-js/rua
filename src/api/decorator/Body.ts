@@ -1,4 +1,4 @@
-import { ObjectOf } from '../../packages/core/type/data'
+import { ObjectOf } from '../../core/type/data'
 
 export default function Body(body: ObjectOf<any>)
 {

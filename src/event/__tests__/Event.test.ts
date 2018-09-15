@@ -11,7 +11,7 @@ describe('event Tests', () =>
     // case: can initialize
     // case: store is correct
     expect(
-      Event.store
+      Event.eventEngine,
     ).toBeInstanceOf(EventEmitter)
   })
   test('basic usage (.on, .once, .emit)', () =>
@@ -29,11 +29,11 @@ describe('event Tests', () =>
     })
     // case: on
     expect(
-      onCallback.mock.calls.length
+      onCallback.mock.calls.length,
     ).toBe(10)
     // case: once
     expect(
-      onceCallback.mock.calls.length
+      onceCallback.mock.calls.length,
     ).toBe(1)
   })
   test('set and get (.get, .all, .load)', () =>
@@ -52,46 +52,46 @@ describe('event Tests', () =>
     // case: .get(string) with one callbacks
     expect(
       // @ts-ignore
-      Event.get('test2').length
+      Event.get('test2').length,
     ).toBe(1)
     expect(
       // @ts-ignore
-      Event.get('test2')[0].listener
+      Event.get('test2')[0].listener,
     ).toBe(fakeFn3)
     // case: .get(string) with two callbacks
     expect(
       expect(
         // @ts-ignore
-        Event.get('test1').length
-      ).toBe(2)
+        Event.get('test1').length,
+      ).toBe(2),
     )
     expect(
       // @ts-ignore
-      Event.get('test1')[0].listener
+      Event.get('test1')[0].listener,
     ).toBe(fakeFn)
     expect(
       // @ts-ignore
-      Event.get('test1')[1].listener
+      Event.get('test1')[1].listener,
     ).toBe(fakeFn2)
     // case: .get(RegExp)
     expect(
       // @ts-ignore
-      typeof Event.get(/test[12]/)
+      typeof Event.get(/test[12]/),
     ).toBe('object')
     expect(
       // @ts-ignore
-      typeof Event.get(/test[12]/).test1
+      typeof Event.get(/test[12]/).test1,
     ).toBeTruthy()
     expect(
       // @ts-ignore
-      typeof Event.get(/test[12]/).test2
+      typeof Event.get(/test[12]/).test2,
     ).toBeTruthy()
     // case: .all
     expect(
       // @ts-ignore
       Event.all().test1 &&
       Event.all().test2 &&
-      Event.all().test3
+      Event.all().test3,
     ).toBeTruthy()
   })
   test('removal (.remove, .clear)', () =>
@@ -109,20 +109,20 @@ describe('event Tests', () =>
     // case: remove(string)
     Event.remove('test1', fakeFn)
     expect(
-      Event.get('test1')
+      Event.get('test1'),
     ).toEqual([])
     // case: remove(RegExp)
     Event.remove(/.+[23]/, fakeFn)
     expect(
-      Event.get('test2')
+      Event.get('test2'),
     ).toEqual([])
     expect(
-      Event.get('test3')
+      Event.get('test3'),
     ).toEqual([])
     // case: removeAll
     Event.clear()
     expect(
-      Event.all()
+      Event.all(),
     ).toEqual({})
   })
 })

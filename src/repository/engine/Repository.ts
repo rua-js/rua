@@ -1,9 +1,6 @@
 import { AnyData, AnyObject } from '../../rua/type/data'
 import { RepositoryInterface } from '../Interface'
-import {
-  RepositoryConfiguration,
-  RepositoryHooks,
-} from '../type'
+import { RepositoryConfiguration, RepositoryHooks } from '../type'
 import * as _ from 'lodash'
 import { Interpolator } from '../../rua/type/function'
 
@@ -149,8 +146,7 @@ class Repository implements RepositoryInterface
     return returnData
   }
 
-  public
-  remove(
+  public remove(
     key: string | string[],
     interpolator?: Interpolator,
   ): AnyData
