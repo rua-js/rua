@@ -1,7 +1,7 @@
 import * as _ from 'lodash'
-import { Memory } from '../memory'
-import { isPlainObject } from '../request/util'
-import { AnyObject } from '../core/type/data'
+import { Memory } from '../../memory/index'
+import { isPlainObject } from '../../request/util'
+import { AnyObject } from '../../core/type/data'
 import * as Immutable from 'seamless-immutable'
 
 // - start

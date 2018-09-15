@@ -1,7 +1,7 @@
-interface APIEntityObject
+interface ApiEntityObject
 {
   url: string
   method?: string
 }
 
-export default APIEntityObject
+export default ApiEntityObject

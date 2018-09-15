@@ -1,5 +1,5 @@
 import FunctionCollectionUtil from './FunctionCollectionUtil'
-import { ObjectOf } from '../core/type/data'
+import { ObjectOf } from '../../core/type/data'
 
 const descriptorTemplate: PropertyDescriptor = {
   enumerable: true,

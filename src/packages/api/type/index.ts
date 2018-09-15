@@ -1,9 +1,9 @@
 import APIConfiguration from './APIConfiguration'
-import APIEntityObject from './APIEntityObject'
-import APIEntityObjectCollection from './APIEntityObjectCollection'
+import ApiEntityObject from './ApiEntityObject'
+import ApiEntityObjectCollection from './ApiEntityObjectCollection'
 
 export {
   APIConfiguration,
-  APIEntityObject,
-  APIEntityObjectCollection,
+  ApiEntityObject,
+  ApiEntityObjectCollection,
 }

@@ -1,9 +1,9 @@
 import Factory from '../../../dev/factory/Factory'
-import APIEntityObjectCollection from './APIEntityObjectCollection'
+import ApiEntityObjectCollection from './ApiEntityObjectCollection'
 
 interface APIConfiguration {
   data?: {
-    [namespace: string]: APIEntityObjectCollection,
+    [namespace: string]: ApiEntityObjectCollection,
   },
   factory?: Factory
   useFactoryOnProduction?: boolean

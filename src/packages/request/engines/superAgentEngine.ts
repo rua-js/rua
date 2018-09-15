@@ -1,5 +1,5 @@
 import * as request from 'superagent'
-import { JSON2FormData } from '../../util/convertor'
+import { JSON2FormData } from '../../rua/util/convertor'
 import { RequestOptionsPassedToEngine, ResponseData } from '../type'
 import {
   HttpRequestTimeoutException,

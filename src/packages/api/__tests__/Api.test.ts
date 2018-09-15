@@ -1,5 +1,5 @@
-import { factory } from '../../factory'
-import Factory from '../../factory/Factory'
+import { factory } from '../factory'
+import Factory from '../factory/Factory'
 import { RepositoryLite } from '../../repository'
 import { ApiRequest } from '../index'
 // import { fetch } from '../../Fetch'

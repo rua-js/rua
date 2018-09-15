@@ -1,11 +1,11 @@
 import * as Promise from 'bluebird'
 import * as _ from 'lodash'
-import { factory } from '../factory'
+import { factory } from './factory'
 import { RepositoryLite } from '../repository'
 import { Request } from '../request'
 import { ResponseData } from '../request/type'
 import { AnyObject, NilableObjectOf } from '../core/type/data'
-import { APIEntity } from './engines'
+import { ApiEntity } from './engine'
 import { APIConfiguration } from './type'
 import { invariant } from './util'
 
@@ -132,7 +132,7 @@ class ApiRequest implements PromiseLike<ResponseData>
     // make sure has the api
     invariant(config, `The api that you are trying to access is NOT exists: ${namespace}`)
 
-    const { url, ...restConfig } = new APIEntity(config).toObject()
+    const { url, ...restConfig } = new ApiEntity(config).toObject()
 
     return new Request(url, data, { ...restConfig })
   }

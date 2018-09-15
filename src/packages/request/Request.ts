@@ -1,4 +1,4 @@
-import { EMPTY_OBJECT } from '../shared'
+import { EMPTY_OBJECT } from '../rua/shared'
 import { AnyObject, FunctionArray, FunctionObject, ObjectOf } from '../core/type/data'
 import { superAgentEngine, fetchEngine } from './engines'
 import { Header, Url, Body } from './internals'

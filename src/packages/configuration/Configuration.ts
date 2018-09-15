@@ -1,5 +1,5 @@
 import Cache from '../cache/engine/Cache'
-import { EMPTY_OBJECT } from '../shared'
+import { EMPTY_OBJECT } from '../rua/shared'
 import { AnyObject } from '../core/type/data'
 import { ConfigurationInterface } from './interfaces'
 

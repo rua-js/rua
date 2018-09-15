@@ -1,4 +1,4 @@
-import { Api, Method, POST, PUT, PATCH, GET, DELETE, Body, Jwt, Url } from '../decorators'
+import { Api, Method, POST, PUT, PATCH, GET, DELETE, Body, Jwt, Url } from '../decorator'
 import { ApiRequest } from '../'
 
 describe('Api Decorators Tests', () =>

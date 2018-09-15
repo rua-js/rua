@@ -1,8 +1,8 @@
-import APIEntityObject from './APIEntityObject'
+import ApiEntityObject from './ApiEntityObject'
 
-interface APIEntityObjectCollection
+interface ApiEntityObjectCollection
 {
-  [name: string]: APIEntityObject | string
+  [name: string]: ApiEntityObject | string
 }
 
-export default APIEntityObjectCollection
+export default ApiEntityObjectCollection

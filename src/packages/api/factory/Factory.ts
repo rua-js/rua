@@ -1,5 +1,5 @@
 import * as faker from 'faker'
-import { ObjectOf } from '../core/type/data'
+import { ObjectOf } from '../../core/type/data'
 
 class Factory
 {

@@ -1,4 +1,4 @@
-import { JSON2FormData } from '../Convertor'
+import { JSON2FormData } from '../convertor'
 
 describe('convertor Tests', () =>
 {

@@ -1,4 +1,4 @@
-import { AnyObject } from '../core/type/data'
+import { AnyObject } from '../../core/type/data'
 
 export function JSON2FormData(json: AnyObject)
 {

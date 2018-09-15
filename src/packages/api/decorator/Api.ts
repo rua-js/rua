@@ -1,6 +1,6 @@
-import { APIEntityObject } from '../type/index'
+import { ApiEntityObject } from '../type/index'
 import { ApiRequest } from '../'
-import { EMPTY_OBJECT } from '../../shared'
+import { EMPTY_OBJECT } from '../../rua/shared'
 
 export default function Api(_class: any): any
 {
@@ -29,7 +29,7 @@ export default function Api(_class: any): any
 
 function doApiRegistration(name: string)
 {
-  return function (target: any): APIEntityObject
+  return function (target: any): ApiEntityObject
   {
     new target()
 
@@ -39,6 +39,6 @@ function doApiRegistration(name: string)
 
     ApiRequest.api.merge(apiObject)
 
-    return <APIEntityObject>apiObject
+    return <ApiEntityObject>apiObject
   }
 }

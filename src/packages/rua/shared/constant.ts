@@ -1,5 +1,5 @@
 import * as Immutable from 'seamless-immutable'
-import { AnyObject, AnyArray } from '../core/type/data'
+import { AnyObject, AnyArray } from '../../core/type/data'
 
 export const EMPTY_ARRAY = Object.freeze([])
 

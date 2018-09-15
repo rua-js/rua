@@ -7,7 +7,7 @@ import * as Immutable from 'seamless-immutable'
 // - start
 const prefix = 'dva-model-backup-'
 
-function assignState(state: AnyObject, action?: any): AnyObject
+function assignState(state: AnyObject, action: any): AnyObject
 {
   const { payload } = action
 
@@ -21,7 +21,7 @@ function assignState(state: AnyObject, action?: any): AnyObject
   return payload
 }
 
-function setState(state: AnyObject, action?: any): AnyObject
+function setState(state: AnyObject, action: any): AnyObject
 {
   const { payload } = action
 
@@ -34,7 +34,7 @@ function setState(state: AnyObject, action?: any): AnyObject
   return { ...state, ...payload }
 }
 
-function mergeState(state: AnyObject, action?: any): AnyObject
+function mergeState(state: AnyObject, action: any): AnyObject
 {
   const { payload } = action
 
@@ -63,7 +63,7 @@ function mergeState(state: AnyObject, action?: any): AnyObject
   return outState
 }
 
-function clearState(state: AnyObject, action?: any): AnyObject
+function clearState(state: AnyObject, action: any): AnyObject
 {
   // seamless-immutable support
   // force immutable object if origin state is immutable
@@ -75,7 +75,7 @@ function clearState(state: AnyObject, action?: any): AnyObject
   return {}
 }
 
-function backupState(state: AnyObject, action?: any): AnyObject
+function backupState(state: AnyObject, action: any): AnyObject
 {
   const namespace = action.type.split('/')[0]
 
@@ -93,7 +93,7 @@ function backupState(state: AnyObject, action?: any): AnyObject
   return state
 }
 
-function rollbackState(state: AnyObject, action?: any): AnyObject
+function rollbackState(state: AnyObject, action: any): AnyObject
 {
   const namespace = action.type.split('/')[0]
 
@@ -107,6 +107,31 @@ function rollbackState(state: AnyObject, action?: any): AnyObject
   return _.clone(
     Memory.get(`${prefix}${namespace}`),
   )
+}
+
+function setInState(state: AnyObject, { payload, extra }: any)
+{
+  return state.setIn(payload, extra)
+}
+
+function appendArrayInState(state: AnyObject, { payload, extra = [] }: any)
+{
+  const oldArray = [
+    ...state.getIn(payload).asMutable(),
+    ...extra,
+  ]
+
+  return state.setIn(payload, oldArray)
+}
+
+function prependArrayInState(state: AnyObject, { payload, extra = [] }: any)
+{
+  const oldArray = [
+    ...extra,
+    ...state.getIn(payload).asMutable(),
+  ]
+
+  return state.setIn(payload, oldArray)
 }
 
 export default function dvaReducerGenerator(defaultState?: Function)
@@ -147,5 +172,7 @@ export default function dvaReducerGenerator(defaultState?: Function)
     clearState,
     backupState,
     rollbackState,
+    appendArrayInState,
+    prependArrayInState,
   }
 }

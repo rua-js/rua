@@ -1,7 +1,7 @@
 import * as faker from 'faker'
-import { APIEntity } from '../engines'
+import { ApiEntity } from '../engine'
 
-describe('APIEntity tests', () =>
+describe('ApiEntity tests', () =>
 {
   test('parse string', () =>
   {
@@ -11,7 +11,7 @@ describe('APIEntity tests', () =>
     }
 
     // Regular
-    expect(new APIEntity(t1).toObject()).toEqual(e1)
+    expect(new ApiEntity(t1).toObject()).toEqual(e1)
   })
 
   test('parse standard entity', () =>
@@ -22,9 +22,9 @@ describe('APIEntity tests', () =>
     }
 
     // No Reference
-    expect(new APIEntity(t1).toObject()).not.toBe(t1)
+    expect(new ApiEntity(t1).toObject()).not.toBe(t1)
 
     // Regular
-    expect(new APIEntity(t1).toObject()).toEqual(t1)
+    expect(new ApiEntity(t1).toObject()).toEqual(t1)
   })
 })

@@ -1,5 +1,5 @@
 import { TimerInterface } from './interfaces'
-import { EMPTY_OBJECT } from '../shared'
+import { EMPTY_OBJECT } from '../rua/shared'
 
 export default class Timer implements TimerInterface<Timer>
 {
