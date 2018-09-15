@@ -67,8 +67,8 @@ describe('Dva Decorators Tests', () =>
     expect((FakeModel as any).reducers).toHaveProperty('mergeState')
     expect((FakeModel as any).reducers).toHaveProperty('assignState')
     expect((FakeModel as any).reducers).toHaveProperty('clearState')
-    expect((FakeModel as any).reducers).toHaveProperty('backupState')
-    expect((FakeModel as any).reducers).toHaveProperty('rollbackState')
+    // expect((FakeModel as any).reducers).toHaveProperty('backupState')
+    // expect((FakeModel as any).reducers).toHaveProperty('rollbackState')
   })
 
   test('State works correctly', () =>

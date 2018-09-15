@@ -1,7 +1,7 @@
 import { EMPTY_OBJECT } from '../rua/shared'
 import { AnyObject, FunctionArray, FunctionObject, ObjectOf } from '../core/type/data'
-import { superAgentEngine, fetchEngine } from './engines'
-import { Header, Url, Body } from './internals'
+import { superAgentEngine, fetchEngine } from './engine'
+import { Header, Url, Body } from './internal'
 import { RequestConfiguration, UrlSchema, UrlString, ResponseData } from './type'
 
 class Request implements PromiseLike<ResponseData>

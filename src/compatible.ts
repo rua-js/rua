@@ -3,6 +3,6 @@ export {
   EMPTY_OBJECT as emptyObject,
   emptyObjectFn as fnEmptyObject,
   emptyArrayFn as fnEmptyArray,
-} from './packages/shared'
+} from './packages/rua/shared'
 
 export { _ } from './packages/core/third-party'

@@ -1,6 +1,6 @@
 import { AnyObject } from '../../core/type/data'
 import { JSON2FormData } from '../../rua/util/convertor'
-import { BodyInterface } from '../interfaces'
+import { BodyInterface } from '../interface'
 
 class Body implements BodyInterface
 {

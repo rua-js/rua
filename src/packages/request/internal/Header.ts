@@ -1,7 +1,7 @@
 /**
  * HTTP Headers.
  */
-import { HeaderInterface } from '../interfaces'
+import { HeaderInterface } from '../interface'
 import { Headers } from '../type'
 
 class Header implements HeaderInterface

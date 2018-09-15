@@ -20,8 +20,7 @@ export {
   ensureInteger,
   ensureArrayLike,
   ensureArray,
-} from './packages/util'
-export { Memory } from './packages/memory'
+} from './packages/rua/util'
 // Essential library
 export { Cache } from './packages/cache'
 export { ApiRequest } from './packages/api'
@@ -38,10 +37,10 @@ export {
   emptyImmutableArrayFn,
   emptyObjectFn,
   emptyImmutableObjectFn,
-} from './packages/shared'
+} from './packages/rua/shared'
 // Non-essential library
 export { actions, dvaLite } from './packages/dva'
-export { factory } from './packages/factory'
+export { factory } from './packages/api/factory'
 // Third-party library
 export { connect } from './packages/core/third-party'
 export { Timer, CountDown } from './packages/clock'

@@ -1,11 +1,7 @@
 import * as _ from 'lodash'
-import { Memory } from '../../memory/index'
 import { isPlainObject } from '../../request/util'
 import { AnyObject } from '../../core/type/data'
 import * as Immutable from 'seamless-immutable'
-
-// - start
-const prefix = 'dva-model-backup-'
 
 function assignState(state: AnyObject, action?: any): AnyObject
 {
@@ -75,39 +71,39 @@ function clearState(state: AnyObject, action?: any): AnyObject
   return {}
 }
 
-function backupState(state: AnyObject, action?: any): AnyObject
-{
-  const namespace = action.type.split('/')[0]
-
-  // seamless-immutable support
-  if (Immutable.isImmutable(state))
-  {
-    // no need to deep clone state when it's immutable
-    Memory.set(`${prefix}${namespace}`, state)
-  }
-  else
-  {
-    Memory.set(`${prefix}${namespace}`, _.clone(state))
-  }
-
-  return state
-}
-
-function rollbackState(state: AnyObject, action?: any): AnyObject
-{
-  const namespace = action.type.split('/')[0]
-
-  // seamless-immutable support
-  if (Immutable.isImmutable(state))
-  {
-    // no need to deep lone state when it's immutable
-    return Memory.get(`${prefix}${namespace}`)
-  }
-
-  return _.clone(
-    Memory.get(`${prefix}${namespace}`),
-  )
-}
+// function backupState(state: AnyObject, action?: any): AnyObject
+// {
+//   const namespace = action.type.split('/')[0]
+//
+//   // seamless-immutable support
+//   if (Immutable.isImmutable(state))
+//   {
+//     // no need to deep clone state when it's immutable
+//     Memory.set(`${prefix}${namespace}`, state)
+//   }
+//   else
+//   {
+//     Memory.set(`${prefix}${namespace}`, _.clone(state))
+//   }
+//
+//   return state
+// }
+//
+// function rollbackState(state: AnyObject, action?: any): AnyObject
+// {
+//   const namespace = action.type.split('/')[0]
+//
+//   // seamless-immutable support
+//   if (Immutable.isImmutable(state))
+//   {
+//     // no need to deep lone state when it's immutable
+//     return Memory.get(`${prefix}${namespace}`)
+//   }
+//
+//   return _.clone(
+//     Memory.get(`${prefix}${namespace}`),
+//   )
+// }
 
 export default function dvaReducerGenerator(defaultState?: Function)
 {
@@ -145,7 +141,7 @@ export default function dvaReducerGenerator(defaultState?: Function)
     mergeState,
     assignState,
     clearState,
-    backupState,
-    rollbackState,
+    // backupState,
+    // rollbackState,
   }
 }

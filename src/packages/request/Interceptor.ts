@@ -1,4 +1,4 @@
-import { InterceptorInterface } from './interfaces'
+import { InterceptorInterface } from './interface'
 import * as _ from 'lodash'
 import { AnyObject } from '../core/type/data'
 

@@ -1,1 +1,1 @@
-export * from '../packages/api/decorators'
+export * from '../packages/api/decorator'

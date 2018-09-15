@@ -1,4 +1,4 @@
-import FunctionCollectionDescriptorBuildUtil from '../../util/FunctionCollectionDescriptorBuildUtil'
+import FunctionCollectionDescriptorBuildUtil from '../../rua/util/FunctionCollectionDescriptorBuildUtil'
 
 export default function DecreaseState(stateKey: string): any
 {

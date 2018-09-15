@@ -1,6 +1,6 @@
 import { AnyObject } from '../../core/type/data'
 import Query from './Query'
-import { Header } from '../internals'
+import { Header } from '../internal'
 
 interface RequestOptions
 {

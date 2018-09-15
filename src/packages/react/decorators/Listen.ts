@@ -1,4 +1,4 @@
-import FunctionCollectionDescriptorBuildUtil from '../../util/FunctionCollectionDescriptorBuildUtil'
+import FunctionCollectionDescriptorBuildUtil from '../../rua/util/FunctionCollectionDescriptorBuildUtil'
 import Event from '../../event/Event'
 
 const mountingPropertyKey = 'componentDidMount'
