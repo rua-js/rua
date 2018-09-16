@@ -1,6 +1,9 @@
 import { Storage } from '../../storage'
-import { Cache } from '../index'
-import { util } from '../../rua/util'
+import { default as C } from '../Cache'
+
+const Cache = new C
+
+Cache.appendPersistKey('test1', 'test2')
 
 describe('Cache Tests(storage part)', () =>
 {
@@ -8,11 +11,10 @@ describe('Cache Tests(storage part)', () =>
   {
     // prep: .set
     await Cache.set('test1', 'test-here1')
-    await util.delay(500)
     // case: get
     await expect(
       // @ts-ignore: protected
-      Storage.get(Cache.getItemKeyName('test1')),
+      Storage.get('test1'),
     ).resolves.toBe('test-here1')
   })
   test('.remove', async () =>
@@ -20,53 +22,43 @@ describe('Cache Tests(storage part)', () =>
     // prep: set data
     await Cache.set('test1', 'test-here1')
     await Cache.set('test2', 'test-here2')
-    await util.delay(500)
     // case: remove
     await expect(
       await Cache.remove('test1'),
     ).toBe('test-here1')
-    await util.delay(500)
     // case: check storage removal
     await expect(
       // @ts-ignore: protected
-      Storage.get(Cache.getItemKeyName('test1')),
+      Storage.get('test1'),
     ).resolves.toBe(undefined)
     await expect(
       // @ts-ignore: protected
-      Storage.get(Cache.getItemKeyName('test2')),
+      Storage.get('test2'),
     ).resolves.toBe('test-here2')
   })
 
   test('.all', async () =>
   {
     // prep: set data
-    Cache.set('test1', 'test-here1')
-    Cache.set('test2', 'test-here2')
-    await util.delay(500)
+    await Cache.set('test1', 'test-here1')
+    await Cache.set('test2', 'test-here2')
     // case: .all
     await expect(
       Storage.all(),
     ).resolves.toEqual({
       // @ts-ignore: protected
-      [Cache.getListKeyName()]: [
-        // @ts-ignore: protected
-        Cache.getItemKeyName('test2'),
-        // @ts-ignore: protected
-        Cache.getItemKeyName('test1'),
-      ],
       // @ts-ignore: protected
-      [Cache.getItemKeyName('test1')]: 'test-here1',
+      ['test1']: 'test-here1',
       // @ts-ignore: protected
-      [Cache.getItemKeyName('test2')]: 'test-here2',
+      ['test2']: 'test-here2',
     })
   })
 
   test('.clear', async () =>
   {
     // prep: set data
-    Cache.set('test1', 'test-here1')
-    Cache.set('test2', 'test-here2')
-    await util.delay(500)
+    await Cache.set('test1', 'test-here1')
+    await Cache.set('test2', 'test-here2')
     // case: .clear
     await expect(
       await Cache.clear(),
@@ -74,7 +66,6 @@ describe('Cache Tests(storage part)', () =>
       test1: 'test-here1',
       test2: 'test-here2',
     })
-    await util.delay(500)
     // case: check removal
     await expect(
       Storage.all(),
@@ -84,16 +75,14 @@ describe('Cache Tests(storage part)', () =>
   test('.length', async () =>
   {
     // prep: set data
-    Cache.set('test1', 'test-here1')
-    Cache.set('test2', 'test-here2')
-    await util.delay(500)
+    await Cache.set('test1', 'test-here1')
+    await Cache.set('test2', 'test-here2')
     // prep: removal
-    Cache.remove('test2')
-    await util.delay(500)
+    await Cache.remove('test2')
     // case: .length
     await expect(
       Storage.length,
-    ).resolves.toBe(1 + 1)
+    ).resolves.toBe(1)
   })
 
   test('.keys', async () =>
@@ -101,17 +90,14 @@ describe('Cache Tests(storage part)', () =>
     // prep: set data
     Cache.set('test1', 'test-here1')
     Cache.set('test2', 'test-here2')
-    await util.delay(500)
     // case: .keys
     await expect(
       Storage.keys(),
     ).resolves.toEqual([
       // @ts-ignore: protected
-      Cache.getListKeyName(),
+      'test1',
       // @ts-ignore: protected
-      Cache.getItemKeyName('test1'),
-      // @ts-ignore: protected
-      Cache.getItemKeyName('test2'),
+      'test2',
     ])
   })
 })

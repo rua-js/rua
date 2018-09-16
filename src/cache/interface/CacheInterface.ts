@@ -1,27 +1,24 @@
-import Cache from '../engine/Cache'
-import { AnyData, AnyObject } from 'rua-core/lib/Types'
+import { AnyObject, ArrayOf, ObjectOf } from '../../rua/type/data'
 
-interface CacheInterface<T>
+export default interface CacheInterface
 {
   length: number
 
-  useStore(storeName: string): T
+  get(key: string, defaultValue?: any): Promise<any>
 
-  get(key: string, defaultValue?: any): AnyData
+  set(key: string, value: any, time?: number): Promise<any>
 
-  set(key: string, value: AnyData, time?: number): Promise<AnyData>
+  has(key: string): Promise<boolean>
 
-  remove(key: string): Promise<AnyData>
+  remove(key: string): Promise<any>
 
-  clear(): Promise<AnyObject>
+  clear(namespace?: string): Promise<AnyObject>
 
-  keys(): string[]
+  keys(namespace?: string): Promise<ArrayOf<string>>
 
-  all(): AnyData
+  all(namespace?: string): Promise<ObjectOf<any>>
 
-  merge(object: AnyObject): AnyObject
+  merge(object: AnyObject, namespace?: string): Promise<ObjectOf<any>>
 
-  restore(): Promise<void>
+  // restore(): Promise<void>
 }
-
-export default CacheInterface

@@ -1,5 +1,1 @@
-import CacheInterface from './CacheInterface'
-
-export {
-  CacheInterface,
-}
+export { default as CacheInterface } from './CacheInterface'

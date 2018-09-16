@@ -1,49 +1,69 @@
-import {
-  Cache,
-} from '../index'
+import { default as C } from '../Cache'
 
-describe('Cache Tests(cache part)', () => {
-  test('.set, .get', () => {
+const Cache = new C
+
+describe('Cache Tests(cache part)', () =>
+{
+  test('.set, .get', async () =>
+  {
+    const k = 'test1'
+    const v = 'test-here1'
     // prep: .set
-    Cache.set('test1', 'test-here1')
+    await expect(Cache.set(k, v)).resolves.toBe(v)
     // case: get
-    expect(Cache.get('test1')).toBe('test-here1')
+    await expect(Cache.get(k)).resolves.toBe(v)
   })
-  test('.remove', async () => {
+  test('.remove', async () =>
+  {
+    const k1 = 'test1'
+    const v1 = 'test-here1'
+    const k2 = 'test2'
+    const v2 = 'test-here2'
     // prep: set data
-    Cache.set('test1', 'test-here1')
-    Cache.set('test2', 'test-here2')
+    await Cache.set(k1, v1)
+    await Cache.set(k2, v2)
     // case: remove
-    await expect(Cache.remove('test1')).resolves.toBe('test-here1')
+    await expect(Cache.remove(k1)).resolves.toBe(v1)
     // case: check removal
-    expect(Cache.get('test1')).toBe(undefined)
+    await expect(Cache.get('test1')).resolves.toBe(undefined)
   })
 
-  test('.all', () => {
+  test('.all', async () =>
+  {
+    const k1 = 'test1'
+    const v1 = 'test-here1'
+    const k2 = 'test2'
+    const v2 = 'test-here2'
     // prep: set data
-    Cache.set('test1', 'test-here1')
-    Cache.set('test2', 'test-here2')
+    await Cache.set(k1, v1)
+    await Cache.set(k2, v2)
     // case: .all
-    expect(Cache.all()).toEqual({
-      test1: 'test-here1',
-      test2: 'test-here2',
+    await expect(Cache.all()).resolves.toEqual({
+      [k1]: v1,
+      [k2]: v2,
     })
   })
 
-  test('.clear', async () => {
+  test('.clear', async () =>
+  {
+    const k1 = 'test1'
+    const v1 = 'test-here1'
+    const k2 = 'test2'
+    const v2 = 'test-here2'
     // prep: set data
-    Cache.set('test1', 'test-here1')
-    Cache.set('test2', 'test-here2')
+    await Cache.set(k1, v1)
+    await Cache.set(k2, v2)
     // case: .clear
     await expect(Cache.clear()).resolves.toEqual({
-      test1: 'test-here1',
-      test2: 'test-here2',
+      [k1]: v1,
+      [k2]: v2,
     })
     // case: check removal
-    expect(Cache.all()).toEqual({})
+    await expect(Cache.all()).resolves.toEqual({})
   })
 
-  test('.length', () => {
+  test('.length', () =>
+  {
     // prep: set data
     Cache.set('test1', 'test-here1')
     Cache.set('test2', 'test-here2')
@@ -55,11 +75,42 @@ describe('Cache Tests(cache part)', () => {
     expect(Cache.length).toBe(1)
   })
 
-  test('.keys', () => {
+  test('.keys', async () =>
+  {
     // prep: set data
-    Cache.set('test1', 'test-here1')
-    Cache.set('test2', 'test-here2')
+    await Cache.set('test1', 'test-here1')
+    await Cache.set('test2', 'test-here2')
     // case: .keys
-    expect(Cache.keys()).toEqual(['test1', 'test2'])
+    await expect(Cache.keys()).resolves.toEqual(['test1', 'test2'])
+  })
+
+  test('expired', async () =>
+  {
+    const k1 = 'test1'
+    const v1 = 'test-here1'
+    const k2 = 'test2'
+    const v2 = 'test-here2'
+    // prep: set data
+    await Cache.clear()
+    await Cache.set(k1, v1)
+    await Cache.set(k2, v2)
+    // pre-check
+    await expect(Cache.keys()).resolves.toEqual([k1, k2])
+
+    // case: instant expired
+    await Cache.set(k1, v1, 0)
+    await expect(Cache.get(k1)).resolves.toEqual(undefined)
+
+    // case: delayed expired
+    await Cache.clear()
+    await Cache.set(k1, v1, +new Date() + 300)
+    await expect(Cache.get(k1)).resolves.toEqual(v1)
+    await new Promise(resolve => setTimeout(resolve, 300))
+    await expect(Cache.get(k1)).resolves.toEqual(undefined)
+
+    // case: .keys
+    await Cache.clear()
+    await Cache.set(k1, v1, 0)
+    await expect(Cache.keys()).resolves.toEqual([])
   })
 })

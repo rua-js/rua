@@ -1,5 +1,1 @@
-import CacheConfiguration from './CacheConfiguration'
-
-export {
-  CacheConfiguration,
-}
+export { default as StorageLike } from './StorageLike'
