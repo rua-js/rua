@@ -6,11 +6,18 @@
         "eofline": true,
         "semicolon": false,
         "newline-before-return": true,
-        "brace-style": ["error", "allman"],
+        "brace-style": [
+            "error",
+            "allman"
+        ],
         "member-access": true,
         "variable-name": false,
         "function-name": false,
-        "ter-prefer-arrow-callback": false
+        "ter-prefer-arrow-callback": false,
+        "max-line-length": [
+            true,
+            200
+        ]
     },
     "rulesDirectory": []
 }
