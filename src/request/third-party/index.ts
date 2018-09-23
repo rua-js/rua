@@ -1,5 +1,1 @@
-import fetch from './fetch'
-
-export {
-  fetch,
-}
+export { default as fetch } from './fetch'

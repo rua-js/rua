@@ -81,11 +81,13 @@ export function isPlainObject(obj: AnyObject)
 
 export function isBlob(obj: AnyObject)
 {
+  // @ts-ignore
   return typeof Blob !== 'undefined' && obj instanceof Blob
 }
 
 export function isFormData(obj: AnyObject)
 {
+  // @ts-ignore
   return typeof FormData !== 'undefined' && obj instanceof FormData
 }
 
