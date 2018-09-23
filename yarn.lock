@@ -1911,6 +1911,10 @@ inversify@^4.10.0:
   version "4.13.0"
   resolved "https://registry.npmjs.org/inversify/-/inversify-4.13.0.tgz#0ab40570bfa4474b04d5b919bbab3a4f682a72f5"
 
+inversify@^4.13.0:
+  version "4.13.0"
+  resolved "http://registry.npm.taobao.org/inversify/download/inversify-4.13.0.tgz#0ab40570bfa4474b04d5b919bbab3a4f682a72f5"
+
 invert-kv@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/invert-kv/-/invert-kv-1.0.0.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
@@ -3434,7 +3438,7 @@ redux@^3.7.1, redux@^3.7.2:
 
 reflect-metadata@^0.1.12:
   version "0.1.12"
-  resolved "https://registry.npmjs.org/reflect-metadata/-/reflect-metadata-0.1.12.tgz#311bf0c6b63cd782f228a81abe146a2bfa9c56f2"
+  resolved "http://registry.npm.taobao.org/reflect-metadata/download/reflect-metadata-0.1.12.tgz#311bf0c6b63cd782f228a81abe146a2bfa9c56f2"
 
 regenerator-runtime@^0.10.0:
   version "0.10.5"
