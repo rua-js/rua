@@ -1,45 +1,24 @@
-import * as _ from 'lodash'
 // @ts-ignore
 import { connect } from 'react-redux'
 
-const Connect = (connectFunction: string[] | Function) =>
+export default function Connect(connectFunction: Function)
 {
-  if (_.isFunction(connectFunction))
+  if (__DEV__)
   {
-    return connect(connectFunction as Function)
+    forbidDirectStorePassDown(connectFunction)
   }
 
-  return connect((store: any) =>
-  {
-    const exportData: any = {}
-
-    for (const mapping of connectFunction as string[])
-    {
-      const [
-        pathOrName,
-        pathOptional,
-      ] = mapping.split(':')
-
-      // todo: last accessor of path can NOT be array index
-
-      let path: string
-      let exportName: string
-
-      if (pathOptional)
-      {
-        path = pathOptional
-        exportName = pathOrName
-      } else
-      {
-        path = pathOrName
-        exportName = pathOrName.split('.').pop()!
-      }
-
-      exportData[exportName] = _.get(store, path)
-    }
-
-    return exportData
-  })
+  return connect(connectFunction as Function)
 }
 
-export default Connect
+function forbidDirectStorePassDown(connectFunction: Function)
+{
+  const obj = {}
+
+  const result = connectFunction(obj)
+
+  if (result === obj || result.store === obj)
+  {
+    throw new Error('[RuaX]Direct pass store down to component is strictly FORBIDDEN')
+  }
+}
