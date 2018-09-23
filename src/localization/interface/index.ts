@@ -1,5 +1,1 @@
-import LocalizationInterface from './LocalizationInterface'
-
-export {
-  LocalizationInterface,
-}
+export { default as LocalizationInterface } from './LocalizationInterface'
