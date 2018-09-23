@@ -1,7 +1,8 @@
 import { AnyObject } from 'rua-core/lib/Types'
 import { MultiEvents } from '../type'
 
-interface EventInterface {
+interface EventInterface
+{
   on(event: string | RegExp, callback: Function): EventInterface
 
   once(event: string | RegExp, callback: Function): EventInterface
@@ -12,7 +13,7 @@ interface EventInterface {
 
   clear(): EventInterface
 
-  get(event: string | RegExp ): AnyObject | Function[]
+  get(event: string | RegExp): AnyObject | Function[]
 
   all(): AnyObject
 
