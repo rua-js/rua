@@ -1,17 +1,18 @@
 // @ts-ignore
 import { connect } from 'react-redux'
+import { ComponentClass } from 'react'
 
-export default function Connect(connectFunction: Function)
+export default function Connect(connectFunction: Function): ComponentClass
 {
   if (__DEV__)
   {
     forbidDirectStorePassDown(connectFunction)
   }
 
-  return connect(connectFunction as Function)
+  return connect(connectFunction)
 }
 
-function forbidDirectStorePassDown(connectFunction: Function)
+function forbidDirectStorePassDown(connectFunction: Function): void
 {
   const obj = {}
 
@@ -19,6 +20,6 @@ function forbidDirectStorePassDown(connectFunction: Function)
 
   if (result === obj || result.store === obj)
   {
-    throw new Error('[RuaX]Direct pass store down to component is strictly FORBIDDEN')
+    throw new Error('[RuaX][Decorator: Connect]Direct pass store down to component is strictly FORBIDDEN')
   }
 }

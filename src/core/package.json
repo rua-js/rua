@@ -1,9 +1,9 @@
 {
   "name": "@ruax/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "RuaX core package that provides ioc and aop",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest test.ts",
     "build": "rm -rf ./lib && tsc"
@@ -13,10 +13,11 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "@types/jest": "^23.3.2",
-    "inversify": "^4.13.0"
+    "inversify": "^4.13.0",
+    "reflect-metadata": "^0.1.12"
   },
   "devDependencies": {
+    "@types/jest": "^23.3.2",
     "jest": "^23.6.0",
     "ts-jest": "^23.10.1",
     "typescript": "^3.0.3"
