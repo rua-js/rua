@@ -1,7 +1,7 @@
 // rua Core Dependency
 import { AnyObject, AnyData } from '../../rua/type/data'
 
-interface StorageEngineInterface
+interface StorageInterface
 {
 
   /**
@@ -66,4 +66,4 @@ interface StorageEngineInterface
   all(): Promise<AnyObject>
 }
 
-export default StorageEngineInterface
+export default StorageInterface

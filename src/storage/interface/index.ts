@@ -1,5 +1,1 @@
-import StorageEngineInterface from './StorageEngineInterface'
-
-export {
-  StorageEngineInterface,
-}
+export { default as StorageInterface } from './StorageInterface'
