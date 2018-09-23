@@ -1,13 +1,8 @@
 import * as _ from 'lodash'
-// import { Memory } from '../../memory'
-import { isPlainObject } from '../../request/util'
-import { AnyObject } from '../../rua/type/data'
+import { isPlainObject } from '../util/general'
 import * as Immutable from 'seamless-immutable'
 
-// - start
-const prefix = 'dva-model-backup-'
-
-function assignState(state: AnyObject, action: any): AnyObject
+function assignState(state: any, action: any): any
 {
   const { payload } = action
 
@@ -21,7 +16,7 @@ function assignState(state: AnyObject, action: any): AnyObject
   return payload
 }
 
-function setState(state: AnyObject, action: any): AnyObject
+function setState(state: any, action: any): any
 {
   const { payload } = action
 
@@ -34,7 +29,7 @@ function setState(state: AnyObject, action: any): AnyObject
   return { ...state, ...payload }
 }
 
-function mergeState(state: AnyObject, action: any): AnyObject
+function mergeState(state: any, action: any): any
 {
   const { payload } = action
 
@@ -63,7 +58,7 @@ function mergeState(state: AnyObject, action: any): AnyObject
   return outState
 }
 
-function clearState(state: AnyObject, action: any): AnyObject
+function clearState(state: any, action: any): any
 {
   // seamless-immutable support
   // force immutable object if origin state is immutable
@@ -75,7 +70,7 @@ function clearState(state: AnyObject, action: any): AnyObject
   return {}
 }
 
-// function backupState(state: AnyObject, action: any): AnyObject
+// function backupState(state: any, action: any): any
 // {
 //   const namespace = action.type.split('/')[0]
 //
@@ -93,7 +88,7 @@ function clearState(state: AnyObject, action: any): AnyObject
 //   return state
 // }
 //
-// function rollbackState(state: AnyObject, action: any): AnyObject
+// function rollbackState(state: any, action: any): any
 // {
 //   const namespace = action.type.split('/')[0]
 //
@@ -109,12 +104,12 @@ function clearState(state: AnyObject, action: any): AnyObject
 //   )
 // }
 
-function setInState(state: AnyObject, { payload, extra }: any)
+function setInState(state: any, { payload, extra }: any)
 {
   return state.setIn(payload, extra)
 }
 
-function appendArrayInState(state: AnyObject, { payload, extra = [] }: any)
+function appendArrayInState(state: any, { payload, extra = [] }: any)
 {
   const oldArray = [
     ...state.getIn(payload).asMutable(),
@@ -124,7 +119,7 @@ function appendArrayInState(state: AnyObject, { payload, extra = [] }: any)
   return state.setIn(payload, oldArray)
 }
 
-function prependArrayInState(state: AnyObject, { payload, extra = [] }: any)
+function prependArrayInState(state: any, { payload, extra = [] }: any)
 {
   const oldArray = [
     ...extra,
@@ -138,7 +133,7 @@ export default function dvaReducerGenerator(defaultState?: Function)
 {
   const _defaultState = defaultState!
 
-  function resetState(state: AnyObject, actions?: any): AnyObject
+  function resetState(state: any, actions?: any): any
   {
     const { payload: key } = actions
 
@@ -149,7 +144,7 @@ export default function dvaReducerGenerator(defaultState?: Function)
 
     if (Array.isArray(key))
     {
-      const otherState: AnyObject = {}
+      const otherState: any = {}
       const defaultState = _defaultState()
       key.forEach((k) =>
       {

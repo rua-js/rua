@@ -39,7 +39,7 @@ export {
   emptyImmutableObjectFn,
 } from './rua/shared'
 // Non-essential library
-export { actions, dvaLite } from './dva'
+export { actions, dvaLite } from './dva_bk'
 export { factory } from './api/factory'
 // Third-party library
 export { Timer, CountDown } from './deprecatedPakcages/clock'

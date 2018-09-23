@@ -1,5 +1,5 @@
 // Third-party dependency
-import { dva, dvaLite } from '../../dva'
+import { dva, dvaLite } from '../../dva_bk'
 // type
 import { AnyObject } from 'rua-core/lib/Types'
 import { CanConfig } from 'rua-core/lib/Contracts'
