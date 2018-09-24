@@ -1,3 +1,2 @@
-export { ApplicationContext, Component, Service, Autowired }from './ioc/index'
-
-// import { Service } from '@ruax/core/ioc/annotation'
+export { ApplicationContext, Component, Service, Autowired }from './ioc'
+export { Exception, HttpException, RuntimeException, InvalidArgumentException } from './exception'

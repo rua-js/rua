@@ -1,7 +1,7 @@
 {
   "name": "@ruax/core",
-  "version": "0.0.2",
-  "description": "RuaX core package that provides ioc and aop",
+  "version": "0.1.0",
+  "description": "RuaX Core that provides ioc and aop",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {

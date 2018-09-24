@@ -1,4 +1,4 @@
-import { ApplicationContext, Autowired, Component, Service } from '../ioc/index'
+import { ApplicationContext, Autowired, Component, Service } from '../'
 
 describe('Rua IOC Test', () =>
 {

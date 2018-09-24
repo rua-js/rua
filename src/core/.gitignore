@@ -6,3 +6,6 @@ yarn.lock
 
 # npm packages
 /node_modules
+
+# test coverage
+/coverage
