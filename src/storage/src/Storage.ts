@@ -1,9 +1,10 @@
 // Third-party Dependency
 import * as localForage from 'localforage'
 // rua Core Dependency
-import { AnyData, AnyObject } from '../../rua/type/data'
+import { AnyObject } from '../../rua/type/data'
+import { StorageInterface } from './interface'
 
-export default class Storage
+export default class Storage implements StorageInterface
 {
   public constructor()
   {
@@ -24,10 +25,10 @@ export default class Storage
    * Set or Replace a item with new data.
    *
    * @param {string | string[]} key
-   * @param {AnyData | AnyData[]} value
+   * @param {any | any[]} value
    * @returns {Promise<void>}
    */
-  public async set<T>(key: string | string[], value: AnyData | AnyData[]): Promise<void>
+  public async set<T>(key: string | string[], value: any | any[]): Promise<void>
   {
     if (Array.isArray(key))
     {
@@ -50,10 +51,10 @@ export default class Storage
    * Gets the item with the given key.
    *
    * @param {string | string[]} key
-   * @param {AnyData | AnyData[]} defaultValue
+   * @param {any | any[]} defaultValue
    * @returns {Promise<void>}
    */
-  public async get<T>(key: string | string[], defaultValue?: any): Promise<AnyData>
+  public async get<T>(key: string | string[], defaultValue?: any): Promise<any>
   {
     if (Array.isArray(key))
     {
@@ -121,7 +122,7 @@ export default class Storage
    *
    * @returns {Promise<string[]>}
    */
-  public async values(): Promise<AnyData[]>
+  public async values(): Promise<any[]>
   {
     const keys = await this.keys()
 

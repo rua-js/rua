@@ -1,5 +1,5 @@
 // rua Core Dependency
-import { AnyObject, AnyData } from '../../../rua/type/data'
+import { AnyObject } from '../../../rua/type/data'
 
 interface StorageInterface
 {
@@ -15,19 +15,19 @@ interface StorageInterface
    * Set or Replace a item with new data.
    *
    * @param {string | string[]} key
-   * @param {AnyData | AnyData[]} value
+   * @param {any | any[]} value
    * @returns {Promise<void>}
    */
-  set(key: string | string[], value: AnyData | AnyData[]): Promise<void>
+  set(key: string | string[], value: any | any[]): Promise<void>
 
   /**
    * Gets the item with the given key.
    *
    * @param {string | string[]} key
-   * @param {AnyData | AnyData[]} defaultValue
+   * @param {any | any[]} defaultValue
    * @returns {Promise<void>}
    */
-  get(key: string | string[], defaultValue?: AnyData | AnyData[]): Promise<AnyData>
+  get(key: string | string[], defaultValue?: any | any[]): Promise<any>
 
   /**
    * Removes the item with the given key.
@@ -56,7 +56,7 @@ interface StorageInterface
    *
    * @returns {Promise<string[]>}
    */
-  values(): Promise<AnyData[]>
+  values(): Promise<any[]>
 
   /**
    * Gets all items as Object.

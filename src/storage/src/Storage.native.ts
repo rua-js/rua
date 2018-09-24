@@ -3,8 +3,9 @@ import { AsyncStorage } from 'react-native'
 import * as _ from 'lodash'
 // rua Core Dependency
 import { AnyObject } from '../../rua/type/data'
+import { StorageInterface } from './interface'
 
-export default class StorageEngine
+export default class StorageEngine implements StorageInterface
 {
   public get length(): Promise<number>
   {
