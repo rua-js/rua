@@ -1,0 +1,38 @@
+{
+  "name": "@ruax/storage",
+  "version": "0.1.0",
+  "description": "RuaX Storage which is a data persist utility",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest test.ts",
+    "build": "rm -rf ./lib && tsc"
+  },
+  "repository": "git+https://github.com/rua-js/rua.git",
+  "author": "copydog",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.1",
+    "typescript": "^3.0.3"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "globals": {
+      "ts-jest": {
+        "babelConfig": true
+      }
+    }
+  }
+}

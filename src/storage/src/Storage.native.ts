@@ -1,24 +1,22 @@
 // Third-party Dependency
 import { AsyncStorage } from 'react-native'
 import * as _ from 'lodash'
-// Self Dependency
 // rua Core Dependency
-import { AnyData, AnyObject } from '../rua/type/data'
+import { AnyObject } from '../../rua/type/data'
 
 export default class StorageEngine
 {
-  // @ts-ignore
-  public static get length(): Promise<number>
+  public get length(): Promise<number>
   {
     return this.keys().then(keys => keys.length)
   }
 
-  public static async set(key: string | string[], value: AnyData | AnyData[]): Promise<void>
+  public async set(key: string | string[], value: any | any[]): Promise<void>
   {
     if (Array.isArray(key))
     {
       const values: string[] = <string[]>(<AnyObject[]>value)
-        .map((item: AnyData) => JSON.stringify(item))
+        .map((item: any) => JSON.stringify(item))
       // @ts-ignore
       const pair: [string, string][] = _.zip(
         <string[]>key,
@@ -34,7 +32,7 @@ export default class StorageEngine
     return
   }
 
-  public static async get(key: string | string[], defaultValue?: any): Promise<AnyData>
+  public async get(key: string | string[], defaultValue?: any): Promise<any>
   {
     if (Array.isArray(key))
     {
@@ -53,7 +51,7 @@ export default class StorageEngine
     return JSON.parse(value) || defaultValue
   }
 
-  public static async remove(key: string | string[]): Promise<void>
+  public async remove(key: string | string[]): Promise<void>
   {
     if (Array.isArray(key))
     {
@@ -63,24 +61,24 @@ export default class StorageEngine
     return await AsyncStorage.removeItem(<string>key)
   }
 
-  public static async clear(): Promise<void>
+  public async clear(): Promise<void>
   {
     return await AsyncStorage.clear()
   }
 
-  public static async keys(): Promise<string[]>
+  public async keys(): Promise<string[]>
   {
     return await AsyncStorage.getAllKeys()
   }
 
-  public static async values(): Promise<AnyData[]>
+  public async values(): Promise<any[]>
   {
     const keys = await this.keys()
 
     return this.get(keys)
   }
 
-  public static async all(): Promise<AnyObject>
+  public async all(): Promise<AnyObject>
   {
     const data = {}
     const keys = await this.keys()

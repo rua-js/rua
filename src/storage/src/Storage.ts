@@ -1,19 +1,21 @@
 // Third-party Dependency
 import * as localForage from 'localforage'
 // rua Core Dependency
-import { AnyData, AnyObject } from '../rua/type/data'
-
-localForage.config()
+import { AnyData, AnyObject } from '../../rua/type/data'
 
 export default class Storage
 {
+  public constructor()
+  {
+    localForage.config()
+  }
+
   /**
    * Gets the count of all items.
    *
    * @returns {Promise<number>}
    */
-  // @ts-ignore
-  public static get length(): Promise<number>
+  public get length(): Promise<number>
   {
     return localForage.length()
   }
@@ -25,7 +27,7 @@ export default class Storage
    * @param {AnyData | AnyData[]} value
    * @returns {Promise<void>}
    */
-  public static async set<T>(key: string | string[], value: AnyData | AnyData[]): Promise<void>
+  public async set<T>(key: string | string[], value: AnyData | AnyData[]): Promise<void>
   {
     if (Array.isArray(key))
     {
@@ -51,7 +53,7 @@ export default class Storage
    * @param {AnyData | AnyData[]} defaultValue
    * @returns {Promise<void>}
    */
-  public static async get<T>(key: string | string[], defaultValue?: any): Promise<AnyData>
+  public async get<T>(key: string | string[], defaultValue?: any): Promise<AnyData>
   {
     if (Array.isArray(key))
     {
@@ -77,7 +79,7 @@ export default class Storage
    * @param {string | string[]} key
    * @returns {Promise<void>}
    */
-  public static async remove(key: string | string[]): Promise<void>
+  public async remove(key: string | string[]): Promise<void>
   {
     if (Array.isArray(key))
     {
@@ -99,7 +101,7 @@ export default class Storage
    *
    * @returns {Promise<void>}
    */
-  public static async clear(): Promise<void>
+  public async clear(): Promise<void>
   {
     return localForage.clear()
   }
@@ -109,7 +111,7 @@ export default class Storage
    *
    * @returns {Promise<string[]>}
    */
-  public static async keys(): Promise<string[]>
+  public async keys(): Promise<string[]>
   {
     return localForage.keys()
   }
@@ -119,7 +121,7 @@ export default class Storage
    *
    * @returns {Promise<string[]>}
    */
-  public static async values(): Promise<AnyData[]>
+  public async values(): Promise<AnyData[]>
   {
     const keys = await this.keys()
 
@@ -131,7 +133,7 @@ export default class Storage
    *
    * @returns {Promise<AnyObject>}
    */
-  public static async all(): Promise<AnyObject>
+  public async all(): Promise<AnyObject>
   {
     const data = {}
     const keys = await this.keys()
