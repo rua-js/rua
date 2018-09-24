@@ -1,8 +1,8 @@
-// Third-party Dependency
 import * as localForage from 'localforage'
-// rua Core Dependency
+import { Component } from '@ruax/core'
 import { StorageInterface } from './interface'
 
+@Component
 export default class Storage implements StorageInterface
 {
   public constructor()

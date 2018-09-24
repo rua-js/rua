@@ -4,9 +4,11 @@ import { AsyncStorage } from 'react-native'
 import * as fromPairs from 'lodash.frompairs'
 // @ts-ignore
 import * as zip from 'lodash.zip'
+import { Component } from '@ruax/core'
 // rua Core Dependency
 import { StorageInterface } from './interface'
 
+@Component
 export default class StorageEngine implements StorageInterface
 {
   public get length(): Promise<number>

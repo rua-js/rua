@@ -12,14 +12,16 @@
   "author": "copydog",
   "license": "MIT",
   "private": false,
+  "dependencies": {
+    "@ruax/core": "*",
+    "lodash.frompairs": "^4.0.1",
+    "lodash.zip": "^4.2.0"
+  },
   "devDependencies": {
     "@types/jest": "^23.3.2",
     "jest": "^23.6.0",
     "ts-jest": "^23.10.1",
     "typescript": "^3.0.3"
-  },
-  "peerDependencies": {
-    "@ruax/core": "*"
   },
   "jest": {
     "transform": {
@@ -37,9 +39,5 @@
         "babelConfig": true
       }
     }
-  },
-  "dependencies": {
-    "lodash.frompairs": "^4.0.1",
-    "lodash.zip": "^4.2.0"
   }
 }
