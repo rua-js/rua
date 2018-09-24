@@ -1,8 +1,10 @@
 // Third-party Dependency
 import { AsyncStorage } from 'react-native'
-import * as _ from 'lodash'
+// @ts-ignore
+import * as fromPairs from 'lodash.frompairs'
+// @ts-ignore
+import * as zip from 'lodash.zip'
 // rua Core Dependency
-import { AnyObject } from '../../rua/type/data'
 import { StorageInterface } from './interface'
 
 export default class StorageEngine implements StorageInterface
@@ -16,10 +18,10 @@ export default class StorageEngine implements StorageInterface
   {
     if (Array.isArray(key))
     {
-      const values: string[] = <string[]>(<AnyObject[]>value)
+      const values: string[] = <string[]>(<any[]>value)
         .map((item: any) => JSON.stringify(item))
       // @ts-ignore
-      const pair: [string, string][] = _.zip(
+      const pair: [string, string][] = zip(
         <string[]>key,
         <string[]>values,
       )
@@ -43,7 +45,7 @@ export default class StorageEngine implements StorageInterface
         return [item[0], JSON.parse(item[1])]
       })
 
-      return data.length ? _.fromPairs(data) : defaultValue
+      return data.length ? fromPairs(data) : defaultValue
     }
 
     const value = await AsyncStorage.getItem(<string>key)
@@ -79,7 +81,7 @@ export default class StorageEngine implements StorageInterface
     return this.get(keys)
   }
 
-  public async all(): Promise<AnyObject>
+  public async all(): Promise<any>
   {
     const data = {}
     const keys = await this.keys()

@@ -1,7 +1,6 @@
 // Third-party Dependency
 import * as localForage from 'localforage'
 // rua Core Dependency
-import { AnyObject } from '../../rua/type/data'
 import { StorageInterface } from './interface'
 
 export default class Storage implements StorageInterface
@@ -132,9 +131,9 @@ export default class Storage implements StorageInterface
   /**
    * Gets all items as Object.
    *
-   * @returns {Promise<AnyObject>}
+   * @returns {Promise<any>}
    */
-  public async all(): Promise<AnyObject>
+  public async all(): Promise<any>
   {
     const data = {}
     const keys = await this.keys()

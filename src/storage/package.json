@@ -18,6 +18,9 @@
     "ts-jest": "^23.10.1",
     "typescript": "^3.0.3"
   },
+  "peerDependencies": {
+    "@ruax/core": "*"
+  },
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
@@ -34,5 +37,9 @@
         "babelConfig": true
       }
     }
+  },
+  "dependencies": {
+    "lodash.frompairs": "^4.0.1",
+    "lodash.zip": "^4.2.0"
   }
 }
