@@ -1,5 +1,5 @@
 import { AnyObject } from 'rua-core/lib/Types'
-import { MultiEvents } from '../type'
+import { MultiEvents } from '../type/index'
 
 interface EventInterface
 {

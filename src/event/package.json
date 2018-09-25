@@ -1,0 +1,42 @@
+{
+  "name": "@ruax/event",
+  "version": "0.0.2",
+  "description": "RuaX dva package enhances dva.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest test.ts",
+    "build": "rm -rf ./lib && tsc"
+  },
+  "repository": "git+https://github.com/rua-js/rua.git",
+  "author": "copydog",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@ruax/core": "*",
+    "wolfy87-eventemitter": "^5.2.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.1",
+    "typescript": "^3.0.3"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "globals": {
+      "ts-jest": {
+        "babelConfig": true
+      }
+    }
+  }
+}

@@ -2,7 +2,9 @@
 import { Event } from '../index'
 // @ts-ignore: wrong error
 import * as EventEmitter from 'wolfy87-eventemitter'
+import { ApplicationContext } from '@ruax/core'
 // import jest from 'jest'
+const event = ApplicationContext.get(Event)
 
 describe('event Tests', () =>
 {
@@ -11,21 +13,21 @@ describe('event Tests', () =>
     // case: can initialize
     // case: store is correct
     expect(
-      Event.eventEngine,
+      event.eventEngine,
     ).toBeInstanceOf(EventEmitter)
   })
   test('basic usage (.on, .once, .emit)', () =>
   {
-    Event.clear()
+    event.clear()
     // preparation
     const onceCallback = jest.fn()
     const onCallback = jest.fn()
-    Event.on('test-on', onCallback)
-    Event.once('test-once', onceCallback)
+    event.on('test-on', onCallback)
+    event.once('test-once', onceCallback)
     Array(10).fill(1).forEach(() =>
     {
-      Event.emit('test-on')
-      Event.emit('test-once')
+      event.emit('test-on')
+      event.emit('test-once')
     })
     // case: on
     expect(
@@ -38,13 +40,13 @@ describe('event Tests', () =>
   })
   test('set and get (.get, .all, .load)', () =>
   {
-    Event.clear()
+    event.clear()
     // preparation
     const fakeFn = jest.fn()
     const fakeFn2 = jest.fn()
     const fakeFn3 = jest.fn()
     const fakeFn4 = jest.fn()
-    Event.load({
+    event.load({
       test1: [fakeFn2, fakeFn],
       test2: fakeFn3,
       test3: fakeFn4,
@@ -52,54 +54,54 @@ describe('event Tests', () =>
     // case: .get(string) with one callbacks
     expect(
       // @ts-ignore
-      Event.get('test2').length,
+      event.get('test2').length,
     ).toBe(1)
     expect(
       // @ts-ignore
-      Event.get('test2')[0].listener,
+      event.get('test2')[0].listener,
     ).toBe(fakeFn3)
     // case: .get(string) with two callbacks
     expect(
       expect(
         // @ts-ignore
-        Event.get('test1').length,
+        event.get('test1').length,
       ).toBe(2),
     )
     expect(
       // @ts-ignore
-      Event.get('test1')[0].listener,
+      event.get('test1')[0].listener,
     ).toBe(fakeFn)
     expect(
       // @ts-ignore
-      Event.get('test1')[1].listener,
+      event.get('test1')[1].listener,
     ).toBe(fakeFn2)
     // case: .get(RegExp)
     expect(
       // @ts-ignore
-      typeof Event.get(/test[12]/),
+      typeof event.get(/test[12]/),
     ).toBe('object')
     expect(
       // @ts-ignore
-      typeof Event.get(/test[12]/).test1,
+      typeof event.get(/test[12]/).test1,
     ).toBeTruthy()
     expect(
       // @ts-ignore
-      typeof Event.get(/test[12]/).test2,
+      typeof event.get(/test[12]/).test2,
     ).toBeTruthy()
     // case: .all
     expect(
       // @ts-ignore
-      Event.all().test1 &&
-      Event.all().test2 &&
-      Event.all().test3,
+      event.all().test1 &&
+      event.all().test2 &&
+      event.all().test3,
     ).toBeTruthy()
   })
   test('removal (.remove, .clear)', () =>
   {
-    Event.clear()
+    event.clear()
     // preparation
     const fakeFn = jest.fn()
-    Event.load({
+    event.load({
       test1: fakeFn,
       test2: fakeFn,
       test3: fakeFn,
@@ -107,22 +109,22 @@ describe('event Tests', () =>
       test5: fakeFn,
     })
     // case: remove(string)
-    Event.remove('test1', fakeFn)
+    event.remove('test1', fakeFn)
     expect(
-      Event.get('test1'),
+      event.get('test1'),
     ).toEqual([])
     // case: remove(RegExp)
-    Event.remove(/.+[23]/, fakeFn)
+    event.remove(/.+[23]/, fakeFn)
     expect(
-      Event.get('test2'),
+      event.get('test2'),
     ).toEqual([])
     expect(
-      Event.get('test3'),
+      event.get('test3'),
     ).toEqual([])
     // case: removeAll
-    Event.clear()
+    event.clear()
     expect(
-      Event.all(),
+      event.all(),
     ).toEqual({})
   })
 })

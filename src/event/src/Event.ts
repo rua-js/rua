@@ -1,10 +1,12 @@
 // @ts-ignore: import problem
 import * as EventEmitter from 'wolfy87-eventemitter'
-import { MultiEvents } from '../type'
+import { MultiEvents } from './type/index'
 import { AnyObject } from 'rua-core/lib/Types'
-import { EventInterface } from '../interface'
+import { EventInterface } from './interface/index'
+import { Component } from '@ruax/core'
 
-export default class EventEngine implements EventInterface
+@Component
+export default class Event implements EventInterface
 {
   /**
    * event instance
@@ -20,7 +22,7 @@ export default class EventEngine implements EventInterface
    * @param {Function} callback
    * @returns {Event}
    */
-  public on = (event: string | RegExp, callback: Function): EventEngine =>
+  public on(event: string | RegExp, callback: Function): Event
   {
     // @ts-ignore: no error here
     this.eventEngine.on(event, callback)
@@ -36,7 +38,7 @@ export default class EventEngine implements EventInterface
    * @param {Function} callback
    * @returns {Event}
    */
-  public once = (event: string | RegExp, callback: Function): EventEngine =>
+  public once(event: string | RegExp, callback: Function): Event
   {
     // @ts-ignore: no error here
     this.eventEngine.once(event, callback)
@@ -51,7 +53,7 @@ export default class EventEngine implements EventInterface
    * @param args
    * @returns {Event}
    */
-  public emit = (event: string | RegExp, ...args: any[]): EventEngine =>
+  public emit(event: string | RegExp, ...args: any[]): Event
   {
     // @ts-ignore: no error here
     this.eventEngine.emitEvent(event, args)
@@ -66,7 +68,7 @@ export default class EventEngine implements EventInterface
    * @param {Function} callback
    * @returns {Event}
    */
-  public remove = (event: string | RegExp, callback: Function): EventEngine =>
+  public remove(event: string | RegExp, callback: Function): Event
   {
     // @ts-ignore: no error here
     this.eventEngine.removeListener(event, callback)
@@ -79,7 +81,7 @@ export default class EventEngine implements EventInterface
    *
    * @returns {Event}
    */
-  public clear = (): EventEngine =>
+  public clear(): Event
   {
     this.eventEngine.removeAllListeners()
 
@@ -93,7 +95,7 @@ export default class EventEngine implements EventInterface
    * @param {string | RegExp} event
    * @returns {AnyObject | Function[]}
    */
-  public get = (event: string | RegExp): AnyObject | Function[] =>
+  public get(event: string | RegExp): AnyObject | Function[]
   {
     // @ts-ignore: no error here
     return this.eventEngine.getListeners(event)
@@ -104,7 +106,7 @@ export default class EventEngine implements EventInterface
    *
    * @returns {AnyObject}
    */
-  public all = (): AnyObject =>
+  public all(): AnyObject
   {
     return this.get(/./)
   }
@@ -115,7 +117,7 @@ export default class EventEngine implements EventInterface
    * @param {MultipleEvents} events
    * @returns {Event}
    */
-  public load(events: MultiEvents): EventEngine
+  public load(events: MultiEvents): Event
   {
     this.eventEngine.addListeners(events)
 
