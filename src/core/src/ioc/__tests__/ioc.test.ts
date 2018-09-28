@@ -1,4 +1,4 @@
-import { ApplicationContext, Autowired, Component, Service } from '../'
+import { ApplicationContext, Autowired, Component, Service, ViewController, Controller } from '../'
 
 describe('Rua IOC Test', () =>
 {
@@ -21,6 +21,15 @@ describe('Rua IOC Test', () =>
       fakeFn(244)
     }
   }
+
+  test('export correctly', () => {
+    expect(ApplicationContext).toBeTruthy()
+    expect(Autowired).toBeTruthy()
+    expect(Component).toBeTruthy()
+    expect(Service).toBeTruthy()
+    expect(Controller).toBeTruthy()
+    expect(ViewController).toBeTruthy()
+  })
 
   test('Annotation Autowired with Component', () =>
   {
