@@ -26,7 +26,7 @@ export default class DvaManager
   {
     if (this.dvaAction[namespace])
     {
-      throw new Error(`[RuaX][DvaManager]namespace '${namespace}' is already registered`)
+      console.warn(`[RuaX][DvaManager]namespace '${namespace}' is already registered`)
     }
 
     this.dvaAction[namespace] = {}
